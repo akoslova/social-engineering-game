@@ -9,17 +9,8 @@ define m = Character("Me")
 define e = Character("Employee")
 
 label start:
-
-    # Show a background. This uses a placeholder by default, but you can
-    # add a file (named either "bg room.png" or "bg room.jpg") to the
-    # images directory to show it.
-
     scene bg office:
         zoom 2.2
-
-    # This shows a character sprite. A placeholder is used, but you can
-    # replace it by adding a file named "eileen happy.png" to the images
-    # directory.
 
     show boss at left: 
         xzoom 1.6
@@ -27,13 +18,9 @@ label start:
         xalign 0.25
         yalign 1.0
 
-    # These display lines of dialogue.
-
     b "In the bustling metropolis of NeoCity, the Quantum Financial Corporation (QFC) stands as a symbol of modern finances. With its sleek glass façade and cutting-edge technology, QFC is known for being the most innovative and secure bank in the region."
 
     b "For your first assignment, you need to find a way into the building of QFC and insert a USB stick, containing a malware, on one employee computer. Try to not get caught!"
-
-    # This ends the game.
 
     hide boss
 
@@ -79,7 +66,27 @@ label start:
         jump done
 
     label choice_2_2:
+        scene hallway:
+        
+        "You find out, that the door to the IT is protected by a fingerprint sensor, but many employees have access to the room."
+        "You would also decribe the working ambience as quiet, serious and hard working. This gives you an idea."
+
+        menu:
+            "You dress up as an employee with a broken arm and lots of documents in your arms and get all loud and annoyed that your fingerprint doesnt work, hoping that someone will just open the door for you.":
+                jump choice_3_2
+            "You dress up as an employee with a broken arm and lots of documents in your arms and quietly explain to a coworker that your fingerprint doesnt work, and you if they could just quickly open it for you.":
+                jump choice_3_3
+
+        label choice_3_2:
+            "Success"
+            "You get in because the employee simply wants to end the noisy situation as quickly as possible in order to get back to work."
         jump done
+            
+        label choice_3_3:
+            "The employee has no time for you and refers you to IT Service to check your clearances."
+            "Mission failed."
+        jump done
+    jump done
 
     label choice_2_3:
 
