@@ -15,9 +15,9 @@ screen inventory():
     vbox:
         pos 0.1, 0.25
         for item in inventory.data:
-            text "[item.name] - [item.description]\n" style inventory_text
+            text "[item.name] - [item.description]\n" 
 
-    imagebutton auto "gui/return.png":
+    imagebutton idle "gui/return.png":
         focus_mask True
         #hovered SetVariable("screen_tooltip", "Return")
         #unhovered SetVariable("screen_tooltip", "")
