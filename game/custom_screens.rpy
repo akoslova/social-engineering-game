@@ -1,15 +1,15 @@
 screen inv_screen():
     modal False
 
-    imagebutton auto "inventory_button.png":
+    imagebutton idle "gui/inventory_button.png":
         focus_mask True
-        hovered SetVariable("screen_tooltip", "inventory")
-        unhovered SetVariable("screen_tooltip", "")
+        #hovered SetVariable("screen_tooltip", "inventory")
+        #unhovered SetVariable("screen_tooltip", "")
         action Show("inventory"), Hide("inv_screen")
 
 
 screen inventory():
-    add "inventory.png" 
+    add "gui/inventory.png" 
     modal True 
 
     vbox:
@@ -17,8 +17,8 @@ screen inventory():
         for item in inventory.data:
             text "[item.name] - [item.description]\n" style inventory_text
 
-    imagebutton auto "return.png":
+    imagebutton auto "gui/return.png":
         focus_mask True
-        hovered SetVariable("screen_tooltip", "Return")
-        unhovered SetVariable("screen_tooltip", "")
+        #hovered SetVariable("screen_tooltip", "Return")
+        #unhovered SetVariable("screen_tooltip", "")
         action Hide("inventory"), Show("inv_screen")
