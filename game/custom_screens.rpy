@@ -1,7 +1,7 @@
 screen inv_screen():
     modal False
 
-    imagebutton auto "":
+    imagebutton auto "inventory_button.png":
         focus_mask True
         hovered SetVariable("screen_tooltip", "inventory")
         unhovered SetVariable("screen_tooltip", "")
@@ -9,15 +9,15 @@ screen inv_screen():
 
 
 screen inventory():
-    add "" 
+    add "inventory.png" 
     modal True 
 
     vbox:
         pos 0.1, 0.25
-        for item in invetory.data:
+        for item in inventory.data:
             text "[item.name] - [item.description]\n" style inventory_text
 
-    imagebutton auto "inventoryscreen_return.png":
+    imagebutton auto "return.png":
         focus_mask True
         hovered SetVariable("screen_tooltip", "Return")
         unhovered SetVariable("screen_tooltip", "")
