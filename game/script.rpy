@@ -6,7 +6,7 @@ define m = Character("Me")
 
 label  start:
 
-    call inventory
+    #call inventory
 
     #m "Hi"
 
