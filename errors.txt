@@ -2,9 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/custom_screens.rpy", line 4: expected a keyword argument, colon, or end of line.
-    imagebutton "inventory_button.png":
-                ^
+File "game/custom_screens.rpy", line 7: 'displayable' is not a keyword argument or valid child of the imagebutton statement.
+    focus_mask a displayable
+                            ^
 
 Ren'Py Version: Ren'Py 8.1.3.23091805
-Tue Dec 12 18:38:03 2023
+Tue Dec 19 11:14:37 2023
