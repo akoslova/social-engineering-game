@@ -1,10 +1,14 @@
+$ renpy.include("inventory.rpy")
+
 # Declare characters used by this game.
 define r = Character(_("Receptionist"), color="#c8ffc8")
 define t = Character(_("Toni"), color ="#ffffff")
-define m = Character(_("Me"), color="#c8c8ff")
+define p = Character(_("Me"), color="#c8c8ff")
 define c = Character(_("Cathy"), color="#000000")
 
-label start:
+label tutorial:
+
+    call inventory
 
     scene bg entryhall 
 
@@ -25,9 +29,9 @@ label start:
     t "Hey there, welcome to the team!,"
     t "I am Toni. Today, on your first day at work, I'm going to help you get settled into the company and get to grips with everything."
 
-    menu: 
+    #menu: 
 
-        "Thank you. Nice to meet you"
+    "Thank you. Nice to meet you"
 
     t "If you not already aware: Tasty Food Co. is a global leader in agriculture and nutrition. We utilize the power and provisions of nature to create ingredients and solutions that generate safe, healthy, and sustainable nutrition for people around the world."
 
@@ -78,18 +82,18 @@ label start:
 
 label wrong:
 
-        "Wrong Password! I should try an alternative"
+    "Wrong Password! I should try an alternative"
 
-        #Go back to menu?
+    #Go back to menu?
 
 label right:
 
-        "That worked! Ok what is this?"
+    "That worked! Ok what is this?"
 
-        #Show PDF Top Secret Document
+    #Show PDF Top Secret Document
 
     
-    menu 
+    menu:
 
         "Download File and save on a USB drive":
             jump evidence
@@ -157,19 +161,19 @@ label no_evidence:
 
     p "No, really not, I swear on our friendship"
 
-    menu
+    #menu
 
-        c "Can you remember something? What was mentioned or something else?"
+    c "Can you remember something? What was mentioned or something else?"
 
-        "I remember reading about Forest clearance and Farmer strikes":
+    "I remember reading about Forest clearance and Farmer strikes"
         
-        "I think there was the mentioning of avocados":
+    "I think there was the mentioning of avocados"
 
-        "I read the word classified":
+    "I read the word classified"
 
-        "I remember something about having a surprise birthday party for the head of the department"
+    "I remember something about having a surprise birthday party for the head of the department"
 
-        # solution to not use label
+    # solution to not use label
 
     c "Maybe you're on to something big. Can I have a look at your evidence/notes? I might be able to write a story about it. What do you think?"
 
