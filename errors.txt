@@ -2,9 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/script.rpy", line 73: Line is followed by a block, despite not being a menu choice. Did you forget a colon at the end of the line?
-    "You dress up as an employee with a broken arm and lots of documents in your arms and get all loud and annoyed that your fingerprint doesnt work, hoping that someone will just open the door for you."
-                                                                                                                                                                                                           ^
+File "game/custom_screens.rpy", line 4: expected a keyword argument, colon, or end of line.
+    imagebutton "inventory_button.png":
+                ^
 
 Ren'Py Version: Ren'Py 8.1.3.23091805
-Tue Nov 14 11:18:01 2023
+Tue Dec 12 18:38:03 2023

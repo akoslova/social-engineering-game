@@ -8,7 +8,7 @@ define s = Character("Security Guard")
 define m = Character("Me")
 define e = Character("Employee")
 
-label start:
+label prototype:
     scene bg office:
         zoom 2.2
 
