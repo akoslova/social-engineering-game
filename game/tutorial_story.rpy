@@ -31,6 +31,7 @@ label tutorial:
     scene bg office
 
     show Toni
+    show Me 
 
     t "Hey there, welcome to the team!,"
     t "I am Toni. Today, on your first day at work, I'm going to help you get settled into the company and get to grips with everything."
@@ -38,7 +39,8 @@ label tutorial:
     #menu: 
 
     "Thank you. Nice to meet you"
-
+    hide Toni
+    show Toni smile
     t "If you not already aware: Tasty Food Co. is a global leader in agriculture and nutrition. We utilize the power and provisions of nature to create ingredients and solutions that generate safe, healthy, and sustainable nutrition for people around the world."
 
     t "Your new job role is pretty awesome. You're our go-to person for keeping our computer systems super secure. Think of it as being a detective for our computers. You're on the lookout for any weak spots that could be trouble. We're thrilled to have you on board, making sure our company's network is strong and ready for anything. Ready to dive into it? Let's do this!" 
@@ -57,13 +59,13 @@ label tutorial:
 
     scene bg office
     show Toni wave
+    show Me 
 
     t "Here is your work laptop, everything is already set up for you. I now have to leave you for today. I will be in an important conference for the rest of the day. See you tomorrow!"
 
-    scene laptop email
-
     p "All right then I'll get started. See you!"
-
+    
+    scene laptop email
     #Phishing Mail just as text or visuell?
 
     scene laptop top secret
