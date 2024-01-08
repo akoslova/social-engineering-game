@@ -5,15 +5,21 @@ define r = Character(_("Receptionist"), color="#c8ffc8")
 define t = Character(_("Toni"), color ="#ffffff")
 define p = Character(_("Me"), color="#c8c8ff")
 define c = Character(_("Cathy"), color="#000000")
-
+image bg reception="reception.png"
+image Receptionist="receptionist.png"
+image Toni="tony.png"
+image Toni smile="tony_smile.png"
+image Toni wave="tony_wave.png"
+image Me="playermale.png"
 label tutorial:
 
     call inventory
 
-    scene bg entryhall 
+    # scene bg entryhall 
 
-    show Receptionist
-
+    scene bg reception
+    show Receptionist at Position(xpos=0.2, ypos=1.02)
+    show Me at Position(xpos=0.75, ypos=1.3)
     r "Good morning. Are you new here? What’s your name?"
 
     #Name Input
@@ -24,7 +30,7 @@ label tutorial:
 
     scene bg office
 
-    show colleague Toni
+    show Toni at left
 
     t "Hey there, welcome to the team!,"
     t "I am Toni. Today, on your first day at work, I'm going to help you get settled into the company and get to grips with everything."
@@ -50,6 +56,7 @@ label tutorial:
     #Notebook Action 
 
     scene bg office
+    show Toni wave
 
     t "Here is your work laptop, everything is already set up for you. I now have to leave you for today. I will be in an important conference for the rest of the day. See you tomorrow!"
 
