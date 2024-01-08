@@ -12,6 +12,9 @@ image Toni="tony.png"
 image Toni smile="tony_smile.png"
 image Toni wave="tony_wave.png"
 image Me="playermale.png"
+
+image bg laptop="bg laptop.png"
+image bg laptop2="bg laptop2.png"
 label tutorial:
 
     call inventory
@@ -70,9 +73,9 @@ label tutorial:
 
     scene laptop email
     #Phishing Mail just as text or visuell?
-
+    show bg laptop
     scene laptop top secret
-
+    show bg laptop2
     #clicking on screen
 
     "When I remeber correctly then most common used passwords are 123456, password and qwerty. I could just try them out"
