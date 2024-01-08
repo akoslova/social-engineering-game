@@ -173,7 +173,7 @@ style say_dialogue:
     xpos gui.dialogue_xpos
     xsize gui.dialogue_width
     ypos gui.dialogue_ypos
-
+    color "#fff"
     adjust_spacing False
 
 ## Input screen ################################################################

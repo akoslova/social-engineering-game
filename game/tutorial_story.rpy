@@ -6,6 +6,7 @@ define t = Character(_("Toni"), color ="#ffffff")
 define p = Character(_("Me"), color="#c8c8ff")
 define c = Character(_("Cathy"), color="#000000")
 image bg reception="reception.png"
+image bg office="bg office.jpeg"
 image Receptionist="receptionist.png"
 image Toni="tony.png"
 image Toni smile="tony_smile.png"
@@ -33,17 +34,19 @@ label tutorial:
     show Toni
     show Me 
 
-    t "Hey there, welcome to the team!,"
+    t "Hey there, welcome to the team!"
     t "I am Toni. Today, on your first day at work, I'm going to help you get settled into the company and get to grips with everything."
 
     #menu: 
 
-    "Thank you. Nice to meet you"
+    p "Thank you. Nice to meet you!"
     hide Toni
     show Toni smile
     t "If you not already aware: Tasty Food Co. is a global leader in agriculture and nutrition. We utilize the power and provisions of nature to create ingredients and solutions that generate safe, healthy, and sustainable nutrition for people around the world."
 
-    t "Your new job role is pretty awesome. You're our go-to person for keeping our computer systems super secure. Think of it as being a detective for our computers. You're on the lookout for any weak spots that could be trouble. We're thrilled to have you on board, making sure our company's network is strong and ready for anything. Ready to dive into it? Let's do this!" 
+    t "Your new job role is pretty awesome. You're our go-to person for keeping our computer systems super secure. Think of it as being a detective for our computers. You're on the lookout for any weak spots that could be trouble."
+    
+    t "We're thrilled to have you on board, making sure our company's network is strong and ready for anything. Ready to dive into it? Let's do this!" 
 
     t "To help you understand what your job involves, here's a little exercise for you. Write a phishing email to our colleague Frank from the department."
 
@@ -64,7 +67,7 @@ label tutorial:
     t "Here is your work laptop, everything is already set up for you. I now have to leave you for today. I will be in an important conference for the rest of the day. See you tomorrow!"
 
     p "All right then I'll get started. See you!"
-    
+
     scene laptop email
     #Phishing Mail just as text or visuell?
 
