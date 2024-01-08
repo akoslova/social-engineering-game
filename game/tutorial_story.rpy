@@ -30,7 +30,7 @@ label tutorial:
 
     scene bg office
 
-    show Toni at left
+    show Toni
 
     t "Hey there, welcome to the team!,"
     t "I am Toni. Today, on your first day at work, I'm going to help you get settled into the company and get to grips with everything."
