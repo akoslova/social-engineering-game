@@ -18,8 +18,8 @@ label tutorial:
     # scene bg entryhall 
 
     scene bg reception
-    show Receptionist at Position(xpos=0.2, ypos=1.02)
-    show Me at Position(xpos=0.75, ypos=1.3)
+    show Receptionist 
+    show Me 
     r "Good morning. Are you new here? What’s your name?"
 
     #Name Input
