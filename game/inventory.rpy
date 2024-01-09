@@ -41,8 +41,18 @@ label inventory:
     default inventory = Inventory([])
 
     define password = InventoryData("Password", "12345678")
+    define password1 = InventoryData("Passwor", "1234567")
+    define password2 = InventoryData("Password", "12345678")
+    define password3 = InventoryData("Password", "12345678")
+    define password4 = InventoryData("Password", "12345678")
+    define password5 = InventoryData("Password", "12345678")
 
     $ inventory.add_data(password)
+    $ inventory.add_data(password1)
+    $ inventory.add_data(password2)
+    $ inventory.add_data(password3)
+    $ inventory.add_data(password4)
+    $ inventory.add_data(password5)
 
     default todo = ToDo(" ")
 
@@ -50,9 +60,9 @@ label inventory:
 
     default people = People_List([])
 
-    define laura = Person("Laura", "images/employee.png", "Reporter")
+    define tony = Person("Tony", "images/tony.png", "Colleague")
 
-    $ people.add_person(laura)
+    $ people.add_person(tony)
 
     show screen inv_screen
 
