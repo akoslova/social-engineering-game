@@ -13,6 +13,7 @@ image Toni wave="tony_wave.png"
 image Me="playermale.png"
 image cathy="Cathy.png"
 
+image secret doc="secret_doc.jpg"
 image bd phone="bg phone.png"
 image bg reception="reception.png"
 image bg reception2="reception2.png"
@@ -115,8 +116,8 @@ label right:
     "That worked! Ok what is this?"
 
     #Show PDF Top Secret Document
-
-    
+    show secret doc at Position(ypos=0.8) with zoomin
+    pause(2.0)
     menu:
 
         "Download File and save on a USB drive":
