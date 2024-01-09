@@ -4,15 +4,19 @@ $ renpy.include("inventory.rpy")
 define r = Character(_("Receptionist"), color="#c8ffc8")
 define t = Character(_("Toni"), color ="#ffffff")
 define p = Character(_("Me"), color="#c8c8ff")
-define c = Character(_("Cathy"), color="#000000")
-image bg reception="reception.png"
-image bg office="bg office.jpeg"
+define c = Character(_("Cathy"), color="#dde100")
+
 image Receptionist="receptionist.png"
 image Toni="tony.png"
 image Toni smile="tony_smile.png"
 image Toni wave="tony_wave.png"
 image Me="playermale.png"
+image cathy="Cathy.png"
 
+image bd phone="bg phone.png"
+image bg reception="reception.png"
+image bg reception2="reception2.png"
+image bg office="bg office.jpeg"
 image bg laptop="bg laptop.png"
 image bg laptop2="bg laptop2.png"
 image bg coffee = "bg coffee.png"
@@ -23,8 +27,9 @@ label tutorial:
     # scene bg entryhall 
 
     scene bg reception
-    show Receptionist 
-    show Me 
+    show Me with easeinright
+    show Receptionist with easeinleft
+    
     r "Good morning. Are you new here? What’s your name?"
 
     define pov = Character("[povname]")
@@ -41,8 +46,8 @@ label tutorial:
 
     scene bg office
 
-    show Toni
-    show Me 
+    show Toni with easeinleft
+    show Me with easeinright
 
     t "Hey there, welcome to the team!"
     t "I am Toni. Today, on your first day at work, I'm going to help you get settled into the company and get to grips with everything."
@@ -81,7 +86,7 @@ label tutorial:
     t "Here is your work laptop, everything is already set up for you. I now have to leave you for today. I will be in an important conference for the rest of the day. See you tomorrow!"
 
     p "All right then I'll get started. See you!"
-
+    hide Toni wave with easeoutleft
     scene laptop email
     #Phishing Mail just as text or visuell?
     show bg laptop
@@ -130,17 +135,20 @@ label evidence:
 
     #transition Black
     scene black
-
+    scene bg reception2
+    show Me at Position(xpos=0) 
+    
+    
     "5 PM Closing Time… My First Day at Work is finished and I leave the place hasty, to get to the appointment with my friend Cathy in time."
 
     "I'm just glad I'm meeting Cathy tonight and hopefully with her help I can make a plan of what to do. I think I might be in trouble …"
-
+    hide Me with easeoutleft
     scene bg coffee
-
+    show Me with easeinright
     "As I am walking towards the bar/café I can not get this information out of my head, is there something illegal going on at my new working place. I feel really terrible because of (choice1-3). taking a document with me/not securing any evidence"
     # fill in the chosen choice
 
-    show friend Cathy
+    show cathy with easeinleft
 
     c "Hey I hope you had a nice first day at work. You look a bit stressed. Did everything go well?"
 
@@ -161,17 +169,21 @@ label evidence:
 label no_evidence:
 
     #transition Black
+    scene bg reception2
+    show Me at Position(xpos=0.0)
+    
+    
 
     "5 PM Closing Time… My First Day at Work is finished and I leave the place hasty, to get to the appointment with my friend Cathy in time."
 
     "I'm just glad I'm meeting Cathy tonight and hopefully with her help I can make a plan of what to do. I think I might be in trouble …"
-
+    hide Me with easeoutleft
     scene bg coffee
-
+    show Me with easeinright
     "As I am walking towards the bar/café I can not get this information out of my head, is there something illegal going on at my new working place. I feel really terrible because of (choice1-3). taking a document with me/not securing any evidence"
     # fill in the chosen choice
 
-    show friend Cathy
+    show cathy with easeinleft
 
     c "Hey I hope you had a nice first day at work. You look a bit stressed. Did everything go well?"
 
@@ -185,13 +197,13 @@ label no_evidence:
 
     c "Can you remember something? What was mentioned or something else?"
 
-    "I remember reading about Forest clearance and Farmer strikes"
+    p "I remember reading about Forest clearance and Farmer strikes"
         
-    "I think there was the mentioning of avocados"
+    p "I think there was the mentioning of avocados"
 
-    "I read the word classified"
+    p "I read the word classified"
 
-    "I remember something about having a surprise birthday party for the head of the department"
+    p "I remember something about having a surprise birthday party for the head of the department"
 
     # solution to not use label
 
@@ -207,8 +219,8 @@ label no_evidence:
 
 label next_day:
 
-    scene bg phone_message
+    scene bg phone
 
-    "Hey, I found out by using your given information that … company might be involved as well. Do you think you could get information from them? Their Building is in (Address) I marked it on this Map. I wish you luck and keep me updated!"
+    "Cathy: Hey, I found out by using your given information that … company might be involved as well. Do you think you could get information from them? Their Building is in (Address) I marked it on this Map. I wish you luck and keep me updated!"
 
     #Notebook Map is introduced
