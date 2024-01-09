@@ -107,7 +107,7 @@ screen people_inventory():
 
     imagebutton idle "gui/inventory/knowledge_tab.png":
         focus_mask True
-        action Show("knowledge_inventory"), Hide("people_inventory")
+        action Show("knowledge_inventory_page1"), Hide("people_inventory")
 
     imagebutton auto "gui/inventory/back_%s.png":
         focus_mask True

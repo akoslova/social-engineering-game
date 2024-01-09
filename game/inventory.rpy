@@ -60,9 +60,6 @@ label inventory:
 
     default people = People_List([])
 
-    define tony = Person("Tony", "images/tony.png", "Colleague")
-
-    $ people.add_person(tony)
 
     show screen inv_screen
 

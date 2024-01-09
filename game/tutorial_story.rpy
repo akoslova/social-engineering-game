@@ -15,6 +15,7 @@ image Me="playermale.png"
 
 image bg laptop="bg laptop.png"
 image bg laptop2="bg laptop2.png"
+image bg coffee = "bg coffee.png"
 label tutorial:
 
     call inventory
@@ -26,11 +27,17 @@ label tutorial:
     show Me 
     r "Good morning. Are you new here? What’s your name?"
 
-    #Name Input
+    define pov = Character("[povname]")
+
+    python:
+        style.input.color = "#ffffff"
+        povname = renpy.input("Type in your name:", length=32)
+        povname = povname.strip()
+
 
     p "Yes, it’s my first day here."
 
-    r "Nice to meet you ___! I will call Toni to tell you that you are here. He will do the onboarding with you."
+    r "Nice to meet you [povname]! I will call Toni to tell you that you are here. He will do the onboarding with you."
 
     scene bg office
 
@@ -59,9 +66,13 @@ label tutorial:
 
     p "Great Thanks"
 
-    t "Here on the page you will also find your tasks afterwards" #Highlight Notebook Icon
+    t "On the right upper corner, you can find your notebook. When you click it, you will find your goal for the level, the information you will gather throughout your work and the people you will meet along the way. You can try it out!" #Highlight Notebook Icon
 
-    #Notebook Action 
+    define tony = Person("Tony", "images/tony.png", "Colleague")
+
+    $ people.add_person(tony)
+
+    "{i}Toni was added to your notebook.{\i}"
 
     scene bg office
     show Toni wave
@@ -78,28 +89,21 @@ label tutorial:
     show bg laptop2
     #clicking on screen
 
-    "When I remeber correctly then most common used passwords are 123456, password and qwerty. I could just try them out"
+    "If I remember correctly, then most common used passwords are 123456, password, and qwerty. I could just try them out"
 
-    
-    menu:
+    label password:
+        python:
+            style.input.color = "#ffffff"
+            password = renpy.input("Try a password:", length=32)
+            password = password.strip()
 
-        "Lets try 123456":
-
-            jump wrong
-
-        "Maybe password.":
-
-            jump wrong
-
-        "Could be qwerty":
-
+        if password == "qwerty":
             jump right
-
-label wrong:
-
-    "Wrong Password! I should try an alternative"
-
-    #Go back to menu?
+        
+        else:
+            "Wrong Password! I should try an alternative..."
+            jump password
+    
 
 label right:
 
@@ -119,12 +123,13 @@ label right:
         "Close the application and try forgetting about its not your business":
             jump no_evidence
 
-        #Choice has impact later ... remember choice??
+        #Choice has impact later ... remember choice?? --> int 1,2,3
 
 
 label evidence:
 
     #transition Black
+    scene black
 
     "5 PM Closing Time… My First Day at Work is finished and I leave the place hasty, to get to the appointment with my friend Cathy in time."
 

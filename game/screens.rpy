@@ -197,8 +197,12 @@ screen input(prompt):
             xsize gui.dialogue_width
             ypos gui.dialogue_ypos
 
-            text prompt style "input_prompt"
-            input id "input"
+            text prompt: 
+                style "input_prompt"
+                color "#ffffff"
+            input:
+                id "input"
+                color "#ffffff"
 
 style input_prompt is default
 
