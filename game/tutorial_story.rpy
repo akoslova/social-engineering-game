@@ -43,7 +43,7 @@ label tutorial:
 
     p "Yes, it’s my first day here."
 
-    r "Nice to meet you [povname]! I will call Toni to tell you that you are here. He will do the onboarding with you."
+    r "Nice to meet you [povname]! I will call Toni to tell him that you are here. He will do the onboarding process with you."
 
     scene bg office
 
@@ -58,7 +58,7 @@ label tutorial:
     p "Thank you. Nice to meet you!"
     hide Toni
     show Toni smile
-    t "If you not already aware: Tasty Food Co. is a global leader in agriculture and nutrition. We utilize the power and provisions of nature to create ingredients and solutions that generate safe, healthy, and sustainable nutrition for people around the world."
+    t "If you not already aware: Tasty Food Co. is a global leader in agriculture and nutrition. We utilize the power and provisions of nature to generate safe, healthy, and sustainable nutrition for people around the world."
 
     t "Your new job role is pretty awesome. You're our go-to person for keeping our computer systems super secure. Think of it as being a detective for our computers. You're on the lookout for any weak spots that could be trouble."
     
@@ -68,7 +68,7 @@ label tutorial:
 
     p "Sounds good, can you give me more information about Frank?"
 
-    t "Frank is married, has two children and a cat named Lucy. In his free time, he enjoys cycling and hiking. That’s all I personally know."
+    t "Frank is married, has two children and a cat named Lucy. In his free time, he enjoys cycling and hiking. He is also good friends with his colleague Jane Thompson. That’s all I personally know."
 
     p "Great Thanks"
 
@@ -84,7 +84,7 @@ label tutorial:
     show Toni wave
     show Me 
 
-    t "Here is your work laptop, everything is already set up for you. I now have to leave you for today. I will be in an important conference for the rest of the day. See you tomorrow!"
+    t "Here is your work laptop. Everything is already set up for you. I now have to leave you for today. I will be in an important conference for the rest of the day. See you tomorrow!"
 
     p "All right then I'll get started. See you!"
     hide Toni wave with easeoutleft
@@ -95,7 +95,7 @@ label tutorial:
     show bg laptop2
     #clicking on screen
 
-    "If I remember correctly, then most common used passwords are 123456, password, and qwerty. I could just try them out"
+    "If I remember correctly, then the most common passwords are 123456, password, and qwerty. I could just try them out"
 
     label password:
         python:
@@ -140,28 +140,28 @@ label evidence:
     show Me at Position(xpos=0) 
     
     
-    "5 PM Closing Time… My First Day at Work is finished and I leave the place hasty, to get to the appointment with my friend Cathy in time."
+    "5 PM closing time… Your first day at work is finished. You leave the place hasty, to get to the appointment with your friend Cathy in time."
 
     "I'm just glad I'm meeting Cathy tonight and hopefully with her help I can make a plan of what to do. I think I might be in trouble …"
     hide Me with easeoutleft
     scene bg coffee
     show Me with easeinright
-    "As I am walking towards the bar/café I can not get this information out of my head, is there something illegal going on at my new working place. I feel really terrible because of (choice1-3). taking a document with me/not securing any evidence"
-    # fill in the chosen choice
+    "As you are walking towards the bar, you can not get this information out of your head. Is there something illegal going on at your new working place?"
+  
 
     show cathy with easeinleft
 
-    c "Hey I hope you had a nice first day at work. You look a bit stressed. Did everything go well?"
+    c "Hey! I hope you had a nice first day at work. You look a bit stressed. Did everything go well?"
 
-    p "No not at all I mean at first it went well. Toni was showing me around, but then I discovered some alarming information. Some parts were even blacked out. And then I chose to make a copy of it. I mean what should I do?"
+    p "No not at all. I mean at first it went well. Toni was showing me around, but then I discovered some alarming document. Some parts were even blacked out. I chose to make a copy of it. What should I do?"
 
-    c "Ok, slow down I think you did the right thing there"
+    c "Ok, slow down, I think you did the right thing there."
 
-    c "Maybe you're on to something big. Can I have a look at your evidence/notes? I might be able to write a story about it. What do you think?"
+    c "Maybe you're on to something big. Can I have a look at your evidence? I might be able to write a story about it. What do you think?"
 
     p "Surely this will not be easy?"
 
-    c "Hm, I might need more Information. I will contact you on that matter! Do you have my new number already If not maybe you should write it in your Notebook"
+    c "Hmm, I might need more information. I will contact you on that matter! Do you have my new number already? If not maybe you should write it in your notebook"
 
     #Notebook interaction
 
@@ -175,30 +175,29 @@ label no_evidence:
     
     
 
-    "5 PM Closing Time… My First Day at Work is finished and I leave the place hasty, to get to the appointment with my friend Cathy in time."
+    "5 PM closing time… Your first day at work is finished. You leave the place hasty, to get to the appointment with your friend Cathy in time."
 
     "I'm just glad I'm meeting Cathy tonight and hopefully with her help I can make a plan of what to do. I think I might be in trouble …"
     hide Me with easeoutleft
     scene bg coffee
     show Me with easeinright
-    "As I am walking towards the bar/café I can not get this information out of my head, is there something illegal going on at my new working place. I feel really terrible because of (choice1-3). taking a document with me/not securing any evidence"
-    # fill in the chosen choice
+    "As you are walking towards the bar, you can not get this information out of your head. Is there something illegal going on at your new working place?"
 
     show cathy with easeinleft
 
-    c "Hey I hope you had a nice first day at work. You look a bit stressed. Did everything go well?"
+    c "Hey! I hope you had a nice first day at work. You look a bit stressed. Did everything go well?"
 
-    p "No not at all I mean at first it went well. Toni was showing me around, but then I discovered some alarming information. Some parts were even blacked out. And then I tried forgetting about it because i dont want to get in trouble. I mean what should I have done?"
+    p "No not at all I mean at first it went well. Toni was showing me around, but then I discovered some alarming document. Some parts were even blacked out. And then I tried forgetting about it because I don't want to get in trouble. But I can't get it out of my head. What should I do?"
 
-    c " Ok slow down, Without ayn evidence... Wait are you trying to make a fool out of me?"
+    c " Ok slow down, without any evidence... are you trying to make a fool out of me?"
 
     p "No, really not, I swear on our friendship"
 
     #menu
 
-    c "Can you remember something? What was mentioned or something else?"
+    c "Can you remember anything? What was mentioned?"
 
-    p "I remember reading about Forest clearance and Farmer strikes"
+    p "I remember reading about forest clearance and farmer strikes"
         
     p "I think there was the mentioning of avocados"
 
@@ -208,11 +207,15 @@ label no_evidence:
 
     # solution to not use label
 
-    c "Maybe you're on to something big. Can I have a look at your evidence/notes? I might be able to write a story about it. What do you think?"
+    c "Maybe you're on to something big. Can I have a look at your notes? I might be able to write a story about it. What do you think?"
 
     p "Surely this will not be easy?"
 
-    c "Hm, I might need more Information. I will contact you on that matter! Do you have my new number already If not maybe you should write it in your Notebook"
+    c "Hm, I might need more information. I will contact you on that matter! Do you have my new number already? If not maybe you should write it in your notebook"
+
+    p "Thank you, I got it! But now let’s not talk about work anymore."
+
+    c "Yes, you’re right. Let’s have some drinks!"
 
     #Notebook interaction
 
@@ -222,6 +225,6 @@ label next_day:
 
     scene bg phone
 
-    "Cathy: Hey, I found out by using your given information that … company might be involved as well. Do you think you could get information from them? Their Building is in (Address) I marked it on this Map. I wish you luck and keep me updated!"
+    "Cathy: Hey, I found out by using your given information that the company CORE Commercial Construction might be involved as well. Do you think you could get information from them? I marked the buiding on this map. I wish you luck and keep me updated!"
 
     #Notebook Map is introduced
