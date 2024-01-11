@@ -40,23 +40,13 @@ label inventory:
 
     default inventory = Inventory([])
 
-    define password = InventoryData("Password", "12345678")
-    define password1 = InventoryData("Passwor", "1234567")
-    define password2 = InventoryData("Password", "12345678")
-    define password3 = InventoryData("Password", "12345678")
-    define password4 = InventoryData("Password", "12345678")
-    define password5 = InventoryData("Password", "12345678")
+    #define password = InventoryData("Password", "12345678")
 
-    $ inventory.add_data(password)
-    $ inventory.add_data(password1)
-    $ inventory.add_data(password2)
-    $ inventory.add_data(password3)
-    $ inventory.add_data(password4)
-    $ inventory.add_data(password5)
+    #$ inventory.add_data(password)
 
     default todo = ToDo(" ")
 
-    $ todo.update_aim("Open Door")
+    #$ todo.update_aim("Open Door")
 
     default people = People_List([])
 

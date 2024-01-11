@@ -21,6 +21,7 @@ image bg office="bg office.jpeg"
 image bg laptop="bg laptop.png"
 image bg laptop2="bg laptop2.png"
 image bg coffee = "bg coffee.png"
+
 label tutorial:
 
     call inventory
@@ -33,11 +34,11 @@ label tutorial:
     
     r "Good morning. Are you new here? What’s your name?"
 
-    define pov = Character("[povname]")
+    define p = Character("[povname]", color="#c8c8ff")
 
     python:
         style.input.color = "#ffffff"
-        povname = renpy.input("Type in your name:", length=32)
+        povname = renpy.input("Type in your name:", length=15)
         povname = povname.strip()
 
 
@@ -74,11 +75,17 @@ label tutorial:
 
     t "On the right upper corner, you can find your notebook. When you click it, you will find your goal for the level, the information you will gather throughout your work and the people you will meet along the way. You can try it out!" #Highlight Notebook Icon
 
-    define tony = Person("Tony", "images/tony.png", "Colleague")
+    define toni = Person("Toni", "images/tony.png", "Colleague")
 
-    $ people.add_person(tony)
+    $ people.add_person(toni)
 
-    "{i}Toni was added to your notebook.{\i}"
+    define frank_info = InventoryData("Information about Frank", "married, two children, owns a cat named Lucy, enjoys cycling and hiking, good friends with colleague Jane Thompson")
+
+    $ inventory.add_data(frank_info)
+
+    $ todo.update_aim("Write a phishing email")
+
+    "{i}Toni, your new goal, and the information about Frank were added to your notebook.{\i}"
 
     scene bg office
     show Toni wave
@@ -118,6 +125,7 @@ label right:
     #Show PDF Top Secret Document
     show secret doc at Position(ypos=0.8) with zoomin
     pause(2.0)
+
     menu:
 
         "Download File and save on a USB drive":
@@ -163,7 +171,17 @@ label evidence:
 
     c "Hmm, I might need more information. I will contact you on that matter! Do you have my new number already? If not maybe you should write it in your notebook"
 
-    #Notebook interaction
+    define cathy = Person("Cathy", "images/Cathy.png", "Reporter")
+
+    $ people.add_person(cathy)
+
+    define cathy_phone = InventoryData("Cathy's Phone Number", "017612345678")
+
+    $ inventory.add_data(cathy_phone)
+
+    "{i}Cathy and Cathy's phone number were added to your notebook.{\i}"
+
+    jump next_day
 
     #Transition/Finish scene in Coffee shop
 
@@ -217,14 +235,28 @@ label no_evidence:
 
     c "Yes, you’re right. Let’s have some drinks!"
 
-    #Notebook interaction
+    define cathy = Person("Cathy", "images/Cathy.png", "Reporter")
+
+    $ people.add_person(cathy)
+
+    define cathy_phone = InventoryData("Cathy's Phone Number", "017612345678")
+
+    $ inventory.add_data(cathy_phone)
+
+    "{i}Cathy and Cathy's phone number were added to your notebook.{\i}"
 
     #Transition/Finish scene in Coffee shop
+
+    jump next_day
 
 label next_day:
 
     scene bg phone
 
     "Cathy: Hey, I found out by using your given information that the company CORE Commercial Construction might be involved as well. Do you think you could get information from them? I marked the buiding on this map. I wish you luck and keep me updated!"
+
+    $ todo.update_aim("Get information about CORE")
+
+    "{i}Your goal was updated. {\i}"
 
     #Notebook Map is introduced

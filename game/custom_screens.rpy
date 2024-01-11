@@ -20,21 +20,23 @@ screen knowledge_inventory_page1():
     modal True 
 
     default res = False
-    default data = []
+    default data = inventory.data
 
     $ if (len(inventory.data) > 5): res = True
 
-    $ if (len(inventory.data) > 5): data = inventory.data[0:4] 
+    $ if (len(inventory.data) > 5): data = inventory.data[0:4]
    
 
     vbox:
-        pos 0.25, 0.25
+        pos 0.20, 0.15
+        xmaximum 0.3
     
         for item in data:
             text "[item.name] - [item.description]\n" style "inventory_text"
     
     vbox:
-        pos 0.78, 0.25
+        pos 0.75, 0.2
+        xmaximum 0.15
         text "[todo.aim]"
 
     imagebutton auto "gui/inventory/back_%s.png":
