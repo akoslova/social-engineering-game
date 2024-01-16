@@ -13,43 +13,38 @@ init python:
         Represents a label that we can jump to.
         """
 
-        def __init__(self, label, title, unlocked=False):
+        def __init__(self, label, unlocked=False):
             self.label = label
-            self.title = title
+            self.unlocked = unlocked
 
             levels.append(self)
 
+        def set_unlocked(unlocked):
+            self.unlocked = unlocked
 
-    Level("tutorial", _("Tutorial"))
-    Level("level_1", _("Level 1"))
+    Level("tutorial", True)
+    Level("level_1", True)
+    Level("level_2")
+    Level("level_3")
+    Level("level_4")
+    Level("level_5")
 
 
 screen levels(adj):
+    add "gui/levelselection/levelselection_base.png"
 
-    frame:
-        xsize 640
-        xalign .5
-        ysize 485
-        ypos 30
+    for i in levels:
+        if (i.unlocked):
+            imagebutton auto "gui/levelselection/" + i.label + "_unlocked_%s.png":
+                focus_mask True
+                action Jump(i.label)
+                #left_padding 20
+                #xfill True
+        else:
+            imagebutton auto "gui/levelselection/" + i.label + "_locked_%s.png":
+                focus_mask True
 
-        #has side "c r b"
-
-        viewport:
-            yadjustment adj
-            mousewheel True
-            draggable True
-
-            vbox:
-                for i in levels:
-
-                    textbutton i.title:
-                        #action Return(i)
-                        action Jump(i.label)
-                        left_padding 20
-                        xfill True
-
-
-        bar adjustment adj style "vscrollbar"
+    
 
         #textbutton _("That's enough for now."):
             #xfill True
@@ -62,11 +57,12 @@ screen levels(adj):
 default tutorials_adjustment = ui.adjustment()
 
 # True if this is the first time through the tutorials.
-default tutorials_first_time = True
+#default tutorials_first_time = True
 
 
 label  start:
 
+    #call screen levels
     call screen levels(adj=tutorials_adjustment)
 
     #call tutorial
