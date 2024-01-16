@@ -114,3 +114,22 @@ screen people_inventory():
     imagebutton auto "gui/inventory/back_%s.png":
         focus_mask True
         action Hide("people_inventory"), Show("inv_screen")
+
+screen nameInput(prompt):
+    add "images/bg laptop.png"
+
+    vbox:
+        align(0.5,0.358)
+        spacing 30
+
+        text prompt:
+            xalign 0.5
+            size 26
+            color "#ffffff"
+
+        input:
+            id "input"
+            xalign 0.5
+            size 26
+            color "#ffffff"
+

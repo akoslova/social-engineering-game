@@ -95,8 +95,27 @@ label tutorial:
 
     p "All right then I'll get started. See you!"
     hide Toni wave with easeoutleft
-    scene laptop email
-    #Phishing Mail just as text or visuell?
+    #scene laptop email
+    hide screen inv_screen
+    jump phishing
+
+label phishing:
+
+    scene black
+    call screen phishing
+
+screen phishing:
+    imagebutton auto "gui/phishing_mails/mail1_%s.png":
+        focus_mask True
+        action Jump("password_story")
+
+    imagebutton auto "gui/phishing_mails/mail2_%s.png":
+        focus_mask True
+        action Jump("password_story")
+
+label password_story:
+
+    show screen inv_screen
     show bg laptop
     scene laptop top secret
     show bg laptop2
@@ -104,19 +123,25 @@ label tutorial:
 
     "If I remember correctly, then the most common passwords are 123456, password, and qwerty. I could just try them out"
 
+    #show screen passcode
+
     label password:
         python:
             style.input.color = "#ffffff"
-            password = renpy.input("Try a password:", length=32)
+            password = renpy.input("", length=32, screen = "nameInput")
             password = password.strip()
 
-        if password == "qwerty":
-            jump right
+    if password == "qwerty":
+        jump right
         
-        else:
-            "Wrong Password! I should try an alternative..."
-            jump password
+    else:
+        "Wrong Password! I should try an alternative..."
+        jump password
+
     
+        
+
+
 
 label right:
 
