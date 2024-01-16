@@ -21,6 +21,7 @@ image bg office="bg office.jpeg"
 image bg laptop="bg laptop.png"
 image bg laptop2="bg laptop2.png"
 image bg coffee = "bg coffee.png"
+image bg desktop ="bg top_secret_desktop.png"
 
 label tutorial:
 
@@ -71,7 +72,7 @@ label tutorial:
 
     t "Frank is married, has two children and a cat named Lucy. In his free time, he enjoys cycling and hiking. He is also good friends with his colleague Jane Thompson. That’s all I personally know."
 
-    p "Great Thanks"
+    p "Great. Thanks!"
 
     t "On the right upper corner, you can find your notebook. When you click it, you will find your goal for the level, the information you will gather throughout your work and the people you will meet along the way. You can try it out!" #Highlight Notebook Icon
 
@@ -95,6 +96,8 @@ label tutorial:
 
     p "All right then I'll get started. See you!"
     hide Toni wave with easeoutleft
+
+    t "Mhh.. I wonder what kind of phishing email would Frank fall for..."
     #scene laptop email
     hide screen inv_screen
     jump phishing
@@ -108,13 +111,28 @@ screen phishing:
     add "images/bg laptop2.png"
     imagebutton auto "gui/phishing_mails/mail1_%s.png":
         focus_mask True
-        action Jump("password_story")
+        action Jump("right_phishing")
 
     imagebutton auto "gui/phishing_mails/mail2_%s.png":
         focus_mask True
-        action Jump("password_story")
+        action Jump("wrong_phishing")
+
+
+label wrong_phishing:
+    t "Mhh I don't think this is the right choice. If I remember correctly Frank is more into cats."
+    jump phishing
+
+label right_phishing: 
+    show bg desktop
+    t "Haha, that Frank guy is not a very smart one! Now I have access to his computer screen."
+    
+
+
+    
 
 label password_story:
+
+
 
     show screen inv_screen
     show bg laptop
