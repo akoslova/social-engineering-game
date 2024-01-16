@@ -105,6 +105,7 @@ label phishing:
     call screen phishing
 
 screen phishing:
+    add "images/bg laptop2.png"
     imagebutton auto "gui/phishing_mails/mail1_%s.png":
         focus_mask True
         action Jump("password_story")
@@ -119,11 +120,8 @@ label password_story:
     show bg laptop
     scene laptop top secret
     show bg laptop2
-    #clicking on screen
 
     "If I remember correctly, then the most common passwords are 123456, password, and qwerty. I could just try them out"
-
-    #show screen passcode
 
     label password:
         python:
@@ -137,10 +135,6 @@ label password_story:
     else:
         "Wrong Password! I should try an alternative..."
         jump password
-
-    
-        
-
 
 
 label right:
