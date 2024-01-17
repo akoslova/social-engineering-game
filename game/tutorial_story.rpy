@@ -125,21 +125,16 @@ label wrong_phishing:
 label right_phishing: 
     show bg desktop
     t "Haha, that Frank guy is not a very smart one! Now I have access to his computer screen."
-    
-
-
-    
+    t "Oh what's in that folder?"
 
 label password_story:
-
-
 
     show screen inv_screen
     show bg laptop
     scene laptop top secret
     show bg laptop2
-
-    "If I remember correctly, then the most common passwords are 123456, password, and qwerty. I could just try them out"
+    t "It's password protected."
+    t "If I remember correctly, then the most common passwords are 123456, password, and qwerty. I could just try them out"
 
     label password:
         python:
@@ -165,17 +160,27 @@ label right:
 
     menu:
 
-        "Download File and save on a USB drive":
-            jump evidence
+        "Download file and save on the USB drive, that you always have with you.":
+            jump usb
 
-        "Print out the file":
-            jump evidence
+        "Print out file and take the paper with you.":
+            jump printing
 
-        "Close the application and try forgetting about its not your business":
-            jump no_evidence
+        "Close the application and try forgetting about it, it's not your business.":
+            jump closed
 
-        #Choice has impact later ... remember choice?? --> int 1,2,3
 
+label printing:
+    t "Thank God, no one saw me printing that file. Next time, I should be more careful."
+    jump evidence
+
+label usb:
+    t "Now, I should get out of here quickly. I have a bad feeling about this."
+    jump evidence
+
+label closed:
+    t "I don't know if this was a smart idea, but I don't feel good about it."
+    jump no_evidence
 
 label evidence:
 
@@ -187,7 +192,7 @@ label evidence:
     
     "5 PM closing time… Your first day at work is finished. You leave the place hasty, to get to the appointment with your friend Cathy in time."
 
-    "I'm just glad I'm meeting Cathy tonight and hopefully with her help I can make a plan of what to do. I think I might be in trouble …"
+    t "I'm just glad I'm meeting Cathy tonight and hopefully with her help, I can make a plan of what to do. I think I might be in trouble …"
     hide Me with easeoutleft
     scene bg coffee
     show Me with easeinright
@@ -218,6 +223,10 @@ label evidence:
 
     "{i}Cathy and Cathy's phone number were added to your notebook.{\i}"
 
+    p "Thank you, I got it! But now let’s not talk about work anymore."
+
+    c "Yes, you’re right. Let’s have some drinks!"
+
     jump next_day
 
     #Transition/Finish scene in Coffee shop
@@ -232,7 +241,7 @@ label no_evidence:
 
     "5 PM closing time… Your first day at work is finished. You leave the place hasty, to get to the appointment with your friend Cathy in time."
 
-    "I'm just glad I'm meeting Cathy tonight and hopefully with her help I can make a plan of what to do. I think I might be in trouble …"
+    t "I'm just glad I'm meeting Cathy tonight and hopefully with her help I can make a plan of what to do. I think I might be in trouble …"
     hide Me with easeoutleft
     scene bg coffee
     show Me with easeinright
@@ -267,10 +276,7 @@ label no_evidence:
     p "Surely this will not be easy?"
 
     c "Hm, I might need more information. I will contact you on that matter! Do you have my new number already? If not maybe you should write it in your notebook"
-
-    p "Thank you, I got it! But now let’s not talk about work anymore."
-
-    c "Yes, you’re right. Let’s have some drinks!"
+    
 
     define cathy = Person("Cathy", "images/Cathy.png", "Reporter")
 
@@ -282,6 +288,10 @@ label no_evidence:
 
     "{i}Cathy and Cathy's phone number were added to your notebook.{\i}"
 
+    p "Thank you, I got it! But now let’s not talk about work anymore."
+
+    c "Yes, you’re right. Let’s have some drinks!"
+
     #Transition/Finish scene in Coffee shop
 
     jump next_day
@@ -290,7 +300,7 @@ label next_day:
 
     scene bg phone
 
-    "Cathy: Hey, I found out by using your given information that the company CORE Commercial Construction might be involved as well. Do you think you could get information from them? I marked the buiding on this map. I wish you luck and keep me updated!"
+    "Cathy: Hey, I found out by using your given information that the company CORE Commercial Construction might be involved as well. Do you think you could get information from them? I marked the building on this map. I wish you luck and keep me updated!"
 
     $ todo.update_aim("Get information about CORE")
 
