@@ -178,7 +178,7 @@ You also notice that the employees usually wear suits and that the security guar
 
 label Follow_people:
 
-"You enter the coffee shop and get yourself a nice hot steaming coffee. Now you start looking around."
+"You start looking around."
 
     menu:
 
@@ -269,13 +269,239 @@ label Cautious:
 
 label Screen_reflection:
 
+    "You try to look at the screen with a reflection of your smartphone
+    Success: You see his User Name for Outlook .. christian.baker@company.de"
+
+    menu:
+
+        "Continue watching":
+            jump Watching_1
+        
+        "Stop observing":
+            jump Stop_observing
+
+label Watching_1:
+
+    "He is logging in and made a mistake with his password..
+    He clicks on the reveal icon you can see his wrong input: aS&MIavmc12356#13"
+
     
+    menu:
+
+        "Continue watching":
+            jump Watching_2
+        
+        "Stop observing":
+            jump Stop_observing
+
+label Watching_2:
+
+    "He corrected his mistake and is now checking his E-mails"
+
+    menu:
+
+        "Continue watching":
+            jump Watching_3
+        
+        "Stop observing":
+            jump Stop_observing
+
+label Watching_3:
+
+    "Suddenly someone grabs your shoulder!"
+
+    s "Hey what are you doing! I saw you looking at your smartphone while it’s turned off the whole time!"
+
+    menu:
+
+        "Mind your own business I was just in my own thoughts!":
+            jump Option_1
+
+        "I have this match on Tinder I am trying to figure out what to write :) Man I am just unsure how to approach her, she looks stunning on all her pictures.":
+            jump Option_2
+
+        "I was doing nothing, do you think I am some spy or what.. trying to spy on this guy here?” (laughing)":
+            jump Option_3
+        
+        "Ignore him stand up and leave":
+            jump Option_4
+
+
+label Option_1:
+
+    s "Don't be cheeky! You see this is my security officer badge, you come with me now and we'll see what you've been doing all this time."
+    jump Caught
+    #Here the player gets caught - reset to a checkpoint
+
+label Option_2:
+
+    s "Oh ok I know that feeling. Good Luck with that man! Anyways I have to go."
+
+    "After that close encounter you decide to leave the coffee shop."
+    jump leave_shop
+
+label Option_3:
+
+    s "Hmm I dont know why i thought so but you are right. Sorry for that!"
+
+    "After that close encounter you decide to leave the coffee shop."
+
+label Option_4:
+
+    s "Hey!! where are you going? I am a security officer stand still!"
+
+    menu:
+
+        "Continue walking":
+            jump Continue_walking
+        "Stop your escape":
+            jump Caught
+
+label Continue_walking:
+
+    "You increase your walking speed and try to weave through the people at the entrance."
+
+    jump leaving_hastly
+
+label Caught:
+
+    # here the Player gets caught - Checkpoint
+
+
+label Stop_observing:
+
+    "You stop observing a turned off Phone looks suspicious."
+    "As you know his name now you try approaching him."
+
+    jump Approach_guy
+
+label Approach_guy:
+
+    p "Hey, Christian How are you?"
+
+    c " I am fine, just a bit stressed tho and who are you?"
+
+    menu:
+
+        "I am": #Playername
+            jump Real_name
+
+        #only possbile if John Doe is known
+        "I am John Doe.":
+            jump John_doe
+
+label Real_name:
+
+    p "What department are you working in? I remember seeing your face somewhere in the onboarding process."
+
+    c "Ooh I am from public relations work."
+
+    p "So I heard rumors that the company might be in trouble. Do you know anything about that? I just started here and I don't want to look again for a job. You know I have to care for my mom. She is already in elderly care and it is quite expensive."
+
+    c "I am not supposed to talk about things like that! But don't worry we have our methods to stop allegations of pesky reporters. 
+        What department are you from?"
+
+    p "something with accounting."
+
+    p "So is there something in the bush?"
+
+    c "I dont know who you are I have to leave now!"
+
+    "He gets up and leaves while giving you a mistrustful look."
+
+    jump Stand_up
+    
+label John_doe:
+
+    p "What department are you working in? I remember seeing your face somewhere in the onboarding process."
+
+    c "Ooh I am from public relations work."
+
+    p "So I heard rumors that the company might be in trouble. Do you know anything about that? I just started here and I don't want to look again for a job. You know I have to care for my mom. She is already in elderly care and it is quite expensive."
+
+    c "I am not supposed to talk about things like that! But don't worry we have our methods to stop allegations of pesky reporters. 
+        What department are you from?"
+
+    p "I am in the accounting division
+        So there is something in the bush?"
+    
+    c "I mean just the typical stuff supporting/buying politicians with money, not respecting the environment enough.. Nothing unheard off!"
+
+    p "Ok thank you! That calms me down a bit, have a nice break and see you!"
+
+    jump Stand_up
+
+label Stand_up:
+
+    "You got some information. Maybe you can try to observe something else now."
+
+        menu:
+            #If not done so already!
+            "Eavesdrop employees conversation.":
+                jump Employee_conversation
+            
+            "Leave the shop":
+                jump leave_shop
+
+
 label Employee_conversation:
-    
+
+#scene
+#show
+
+    e1 "Hey, have you guys heard about the charity event happening next week? It's for the local kids shelter. I'm thinking we should all go and show our support."
+
+    e2 "Oh yeah, I saw the email about it. Count me in! It's great that the company is encouraging us to get involved in the community."
+
+    e3 "I'm on board too. It's a fantastic cause. Plus, it'll be a nice break from work."
+
+    e1 "Absolutely. Now, let's talk projects. How's everyone doing with their current assignments?"
+
+    e2 "Well, the marketing team is gearing up for the product launch next month. We're working on some killer campaigns to create buzz."
+
+    e1 "That's fantastic to hear, Morgan. And you, Taylor?"
+
+    e3 "Our Project Phoenix, is in full swing. We're on track for the next milestone. The team's pulling together like a well-oiled machine."
+
+    e2 "Project Phoenix, huh? The name itself sounds intriguing. What's it about?"
+
+    e3 "It's a major software upgrade for our flagship product. We're incorporating cutting-edge features and revamping the user interface. It's pretty exciting stuff."
+
+    e1 "Great work, Taylor. Now, have you guys noticed the increased security personnel around the office lately? It's been making me a bit uneasy."
+
+    e2 "Yeah, I thought I was imagining things. What's going on?"
+
+    e3 "I spoke to HR about it. They mentioned that there have been some security concerns, so they've decided to beef up our office security for the time being."
+
+    e1 "Security concerns? That's a bit unnerving. I hope everything's okay."
+
+    e3 "They didn't give many details, just said it's a precaution. But let's stay vigilant and report anything suspicious. And hey, maybe the charity event will be a good opportunity to unwind and take our minds off things."
+
+    e2 "Agreed. Let's focus on making a positive impact both at work and in the community. And, of course, enjoy the charity event next week."
+
+    e1 "Sounds like a plan. Let's make it a team outing. I'm looking forward to it! Anyways time is over guys time to leave!"
+
+    "The trio finishes their lunch cleans up and leave their table."
+
+    "That was interesting. Lets try observing something else now"
+
+        jump Follow_people
+
 label leave_shop:
+
+    #scene
+    #Update Inventory
+
+    "While you leave the shop you notice an Employee Badge.
+    It is difficult to recognize because it is peeking out from under a chest of drawers. 
+    You take it without much thought."
+    "Check your notebook for everything you leaned about."
+
 
 label leaving_hastly:
 
+    "You leave the store and don't look back. You probably shouldn't be seen here again any time soon"
+    "Check your notebook for everything you leaned about."
 
 
 
