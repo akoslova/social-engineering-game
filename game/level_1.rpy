@@ -194,11 +194,87 @@ label Follow_people:
 
 label Laptop_observation:
 
+    #show LaptopGuy
+    #scene
 
+"You choose to sit on a table with a guy on his laptop in close proximity."
+
+    menu:
+
+        "Turn around and talk to him while trying to read of his screen":
+            jump Say_something
+        
+        "Try reading the screen of your smartphones screen reflection":
+            jump Screen_reflection
+
+        "Try looking over your shoulder to read the screen":
+            jump Look_shoulder
+
+
+label Say_something:
+
+    p "Hey Paul, how are you?"
+
+    l "I am not Paul!"
+
+    p "Sorry I confused you with someone else."
+
+    "He is eyeing you warily and closes his laptop and starts leaving the coffee shop.
+    That did not went well lets try something else!"
+
+    jump Laptop_observation
+
+
+label Look_shoulder:
+
+#scene 
+"You try to observe what he is doing on his laptop by looking over your shoulder."
+
+"No success: You can not really see anything!"
+
+    menu:
+
+        "Extend your head":
+            jump Extend_head
+        
+        "Try something else":
+            jump Laptop_observation
+
+label Extend_head:
+
+    "You extend your head and tilt your torso."
+    "While trying to look you catch the eye of someone watching you"
+
+    menu:
+
+        "Act natural":
+            jump Natural
+
+        "Be cautious":
+            jump Cautious
+
+label Natural:
+
+    "You react by looking over the other shoulder as well pretending as you would search for someone in the room."
+    "You got away with it!"
+    "Lets try the smartphone reflection now."
+
+    jump Screen_reflection
+
+label Cautious:
+
+    "You feel you have been caught out and decide to leave the store quickly."
+
+    jump leaving_hastly
+
+label Screen_reflection:
+
+    
 label Employee_conversation:
     
-
 label leave_shop:
+
+label leaving_hastly:
 
 
 
