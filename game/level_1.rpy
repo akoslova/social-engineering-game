@@ -1146,6 +1146,15 @@ label leavealone:
         "Take the ID batch in your inventory":
             jump idcard
 
+
+label punch:
+
+    "You punch him in the face and run as fast as you can. But only after three steps one of the security guards pulls you back and holds you tight. "
+    
+    "You realize that they are too strong and you will not get out of the situation anymore."
+
+
+
 label apology:
 
     "SG, still neutral: What's your name, I can look for you in our system."
