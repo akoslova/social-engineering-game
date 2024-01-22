@@ -21,6 +21,58 @@ define mr_johnson = Character (_("Mr. Johnson"), color="#4b0082")
 define cat = Character (_("Cat"), color="#fffaf0") #Furry cat
 
 
+define e4 = Character (_("Employee 4"), color="#6fd066")
+define e5 = Character (_("Employee 5"), color="#6fd066")
+define e6 = Character (_("Employee 6"), color="#6fd066")
+define e7 = Character (_("Employee 7"), color="#6fd066")
+define e8 = Character (_("Employee 8"), color="#6fd066")
+define e9 = Character (_("Employee 9"), color="#6fd066")
+define ivy = Character (_("Ivy P. Paperwork"), color="#6a5acd")
+define burt = Character (_("Burt W. Mopbucket"), color="#20b2aa")
+define staff = Character (_("IT Staff"), color="#ff6347")
+define mr_johnson = Character (_("Mr. Johnson"), color="#4b0082")
+define cat = Character (_("Cat"), color="#fffaf0") #Furry cat
+
+
+define e4 = Character (_("Employee 4"), color="#6fd066")
+define e5 = Character (_("Employee 5"), color="#6fd066")
+define e6 = Character (_("Employee 6"), color="#6fd066")
+define e7 = Character (_("Employee 7"), color="#6fd066")
+define e8 = Character (_("Employee 8"), color="#6fd066")
+define e9 = Character (_("Employee 9"), color="#6fd066")
+define ivy = Character (_("Ivy P. Paperwork"), color="#6a5acd")
+define burt = Character (_("Burt W. Mopbucket"), color="#20b2aa")
+define staff = Character (_("IT Staff"), color="#ff6347")
+define mr_johnson = Character (_("Mr. Johnson"), color="#4b0082")
+define cat = Character (_("Cat"), color="#fffaf0") #Furry cat
+
+
+define e4 = Character (_("Employee 4"), color="#6fd066")
+define e5 = Character (_("Employee 5"), color="#6fd066")
+define e6 = Character (_("Employee 6"), color="#6fd066")
+define e7 = Character (_("Employee 7"), color="#6fd066")
+define e8 = Character (_("Employee 8"), color="#6fd066")
+define e9 = Character (_("Employee 9"), color="#6fd066")
+define ivy = Character (_("Ivy P. Paperwork"), color="#6a5acd")
+define burt = Character (_("Burt W. Mopbucket"), color="#20b2aa")
+define staff = Character (_("IT Staff"), color="#ff6347")
+define mr_johnson = Character (_("Mr. Johnson"), color="#4b0082")
+define cat = Character (_("Cat"), color="#fffaf0") #Furry cat
+
+
+define e4 = Character (_("Employee 4"), color="#6fd066")
+define e5 = Character (_("Employee 5"), color="#6fd066")
+define e6 = Character (_("Employee 6"), color="#6fd066")
+define e7 = Character (_("Employee 7"), color="#6fd066")
+define e8 = Character (_("Employee 8"), color="#6fd066")
+define e9 = Character (_("Employee 9"), color="#6fd066")
+define ivy = Character (_("Ivy P. Paperwork"), color="#6a5acd")
+define burt = Character (_("Burt W. Mopbucket"), color="#20b2aa")
+define staff = Character (_("IT Staff"), color="#ff6347")
+define mr_johnson = Character (_("Mr. Johnson"), color="#4b0082")
+define cat = Character (_("Cat"), color="#fffaf0") #Furry cat
+
+
 
 label level_1:
 
@@ -1356,3 +1408,17 @@ label leavemain:
 
     jump cathymeet
 
+label cathymeet:
+    
+    p "Hey Cathy, I checked out CORE today but I could find any valid information[about]. I just found this photograph in the trash. Maybe we should give up and move on.."
+
+    "C: hmm, I am sorry.. let me see the photo. "
+#[show photo]
+    "C: Wait. That’s senator John Smith right there. Why would he be in this picture? "
+    p "That’s surprising, I didn’t know that. The other people are the CEOs of CORE."
+
+    "C: I have the feeling that something is wrong. Maybe you could find more information about Senator Smith, next."
+
+    p "Okay, I will be in touch!"
+
+ 
