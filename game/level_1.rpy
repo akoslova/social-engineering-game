@@ -8,6 +8,19 @@ define r = Character (_("Receptionist"), color="#633aeb")
 define e1 = Character (_("Employee 1"), color="#6fd066")
 define e2 = Character (_("Employee 2"), color="#6fd066")
 define e3 = Character (_("Employee 3"), color="#6fd066")
+define e4 = Character (_("Employee 4"), color="#6fd066")
+define e5 = Character (_("Employee 5"), color="#6fd066")
+define e6 = Character (_("Employee 6"), color="#6fd066")
+define e7 = Character (_("Employee 7"), color="#6fd066")
+define e8 = Character (_("Employee 8"), color="#6fd066")
+define e9 = Character (_("Employee 9"), color="#6fd066")
+define ivy = Character (_("Ivy P. Paperwork"), color="#6a5acd")
+define burt = Character (_("Burt W. Mopbucket"), color="#20b2aa")
+define staff = Character (_("IT Staff"), color="#ff6347")
+define mr_johnson = Character (_("Mr. Johnson"), color="#4b0082")
+define cat = Character (_("Cat"), color="#fffaf0") #Furry cat
+
+
 
 label level_1:
 
@@ -502,6 +515,591 @@ label leaving_hastly:
 
     "You leave the store and don't look back. You probably shouldn't be seen here again any time soon"
     "Check your notebook for everything you leaned about."
+
+
+
+
+label inside_building:
+    #bg_office_reception
+    "With your disguise intact, you confidently stride through the office building, blending in seamlessly with the bustling crowd. The air is thick with the hum of productivity as employees rush to and from."
+
+    menu:
+        "Explore the cubicles":
+            jump explore_cubicles
+        "Head to the break room":
+            jump break_room
+        "Check the elevators":
+            jump check_elevators
+
+label explore_cubicles:
+
+
+    #[Taking a photo from the mobile phone] [BG: Desk with the photo of a dog name whiskers]
+    "As you quietly explored the cubicles, your attention was drawn to a desk adorned with a framed picture of an elegant dog, its name proudly displayed beneath the image – Whiskers. The feline's regal demeanor made the picture amusingly out of place in the corporate setting. Intrigued, you decided to capture this curious discovery."
+
+    "After discreetly snapping a photo of Whiskers' portrait, you continued your investigation. Amongst the papers on the desk, you found an official document containing the name and date of birth of an employee. The document provided you with the name Alex Johnson and a birthdate (12/08/1975), leaving you to wonder about the connection between the cat and the employee."
+
+    "Quickly noting down the name and date of birth from the document, you proceeded further. There your eyes fell upon one famous quote which is unique in the office environment. 
+
+    # UPDATE INVENTORY
+
+    #[Wrting in Journal] [BG: Picture with quote written Here's looking at you, kid – Casablanca]
+
+    "A spark of recognition ignited in your mind as you realized the significance of this quote. Hastily, you made a mental connection between the employee's name, the birthdate, and the movie quote. Pulling out your journal, you meticulously wrote down the details: Alex Johnson, 12/08/1975, Quote: Here's looking at you, kid – Casablanca."
+
+    #UPDATE INVENTORY
+
+    "While you're capturing the information, you accidentally knock a pen off the desk, drawing the attention of an observant employee."
+    jump interaction_with_employee
+
+label break_room:
+    # [BG: Office Canteen with many employees]
+    
+    "The break room is bustling with activity. Colleagues gather around tables, sharing stories and enjoying a brief respite from their busy day."
+    menu:
+        "Join a Group of Colleagues Chatting Nearby":
+            jump colleagues_chatting_nearby
+        "Sit Alone and Observe from a Distance":
+            jump observe_from_a_distance
+
+label check_elevators:
+
+    # BG: Elevators
+
+    menu:
+        "Watch a Password Reset Procedure":
+            jump password_reset_procedure
+        "Interact with Employees Using the Elevator":
+            jump employees_using_elevator
+        "Examine Posted Notices or Instructions near the Elevators":
+            jump  instructions_near_the_elevators
+
+
+
+label interaction_with_employee:
+    # Interaction after knocking off the pen
+    menu:
+        "Apologize and engage in light conversation":
+            jump apologize_and_engage
+        "Act confused and ask for help":
+            jump act_confused_and_ask_for_help
+        "Feign ignorance":
+            jump feign_ignorance
+        "Try to deflect with humor":
+            jump deflect_with_humor
+
+label apologize_and_engage:
+
+    #BG in the cubicles
+    e4 "Hey, is everything alright here? You were looking at that desk pretty intently."
+
+
+    p "Oh, my apologies! I’m just trying to get my bearings. Everything's so high-tech here, and I’m still struggling with the basics, like those complex password policies."
+
+    e4 "Well, everyone has to follow the IT guidelines. It's for our own security. Are you sure you're in the right area?"
+
+    p "Yes, I'm just overwhelmed by the transition. Back at my last job, I had a simpler system for remembering passwords. Here, it's like you need an encryption key for everything. Do you ever find it a bit much?"
+
+    e4 "I guess it can be a lot at first. But you shouldn't really be discussing password strategies openly. It’s a security risk."
+
+    p "Of course, I understand the need for confidentiality. I was just hoping for some generic tips on managing all these different systems. It's a bit daunting, you know?"
+
+    e4 "Well, without going into specifics, I suppose some of us might use familiar things to create a complex password. But that's as much as I can say. You really should be careful about these conversations."
+
+    p "I appreciate the advice. I'll be sure to keep that in mind. Thank you for your help."
+
+    "Some people use familiar things to create a complex password"
+    
+    
+    jump continue_exploring
+
+
+
+
+label act_confused_and_ask_for_help:
+
+    #BG in the cubicles
+    p "I'm sorry, I got lost in thought. I'm actually trying to find the meeting room. Can you point me in the right direction?"
+
+    e4 "Oh, of course! No problem at all. You'll want to head down this hallway, take the second left, and then it's the third door on your right. You can't miss it; there's a sign that says 'Meeting Room' right outside the door."
+
+    p "Thanks so much! This place is a bit of a maze."
+
+    e4 "Tell me about it! Took me a week to stop getting lost. If you need anything else, just let one of us know. Good luck with your meeting!"
+
+    p "I appreciate it. Have a great day!"
+
+    jump continue_exploring
+
+
+label feign_ignorance:
+    #BG in the cubicles
+    p "Oh, this isn't my desk? I'm so sorry, I thought this was where I was supposed to be for my orientation. Do you know where that is?"
+
+    e4 "No worries at all! It can be confusing around here on your first day. Your orientation is actually happening in the conference room on the first floor. If you take the elevator down, it's right across from the reception area. You'll see a sign marked 'Orientation' outside the door."
+
+    p "Thank you for being so understanding. I'll head down there right away. Hopefully, I haven't missed too much."
+
+    e4 "I'm sure you'll be just fine. They usually start with introductions and some basic company policies, so you should be able to catch up quickly. If you need help finding anything else, just ask anyone here. We're all happy to help."
+
+    p "Thanks again. I'll do that. Have a good day!"
+
+    jump continue_exploring
+
+label deflect_with_humor:
+
+    #BG in the cubicles
+    p "I guess I'm just mesmerized by all the hustle and bustle here. It's like trying to remember a password you just created and forgot two seconds later. Happens to you too, right?"
+
+    e4 "Oh, absolutely! It's like my brain decides to do a hard reset the moment I hit 'save'. Just the other day, I spent 20 minutes resetting my password, only to realize I was typing it wrong because I forgot I added an exclamation mark at the end. It's always the special characters that get me."
+
+    p "I know, right? I think our brains weren't designed to hold onto complex passwords mixed with numbers, letters, and symbols. Maybe we should just start using 'password123' and call it a day."
+
+    e4 "Wouldn't that make our IT security team's heads spin! Imagine the chaos. But yeah, I feel you. Keeping track of all these passwords is a full-time job by itself."
+
+    p "Definitely. Well, I better get back to trying to navigate this place. Thanks for the laugh!"
+
+    e4 "Anytime! If you ever need a break from the password madness, you know where to find some sympathy. Good luck finding your way around!"
+
+    jump continue_exploring
+
+
+label colleagues_chatting_nearby:
+
+    # [BG: Office Canteen with many employees]
+    e5 "Hey, you're new here, right? We were just talking about the team-building event. Did you enjoy it?"
+
+
+    p "Hey, I am new here! The team-building event was really fun. I got to learn a lot about my new colleagues. How about you guys?"
+
+    e6 "Oh, it was great! I think it’s always good to step out of the work routine and get to know each other in a different setting."
+
+    e5 "Absolutely. Plus, it was fun sharing those quirky facts about ourselves. Like, who would've thought I’d be using the year I joined this company as a fun fact?"
+
+    p "That’s pretty interesting. Does the year hold a special significance for you?"
+
+    e5 "Well, it was a major turning point in my career, so yeah, it’s significant for me. Plus, it’s easy to remember, which always helps."
+
+    e6 "I went with something less obvious. I talked about my weird hobby of collecting vintage postcards."
+
+    p "That’s really unique, Sam. It must be quite a collection."
+
+    e6 "It is! Anyway, how did you find the password setup here? A bit daunting, isn't it?"
+
+    p "Yeah, it's definitely more complex than my previous job. I'm trying to come up with something strong yet memorable."
+
+    e5 "That's always the challenge. I always suggest mixing personal elements with random characters. Makes it strong and personal."
+
+    e6 "But not too personal, or obvious. Like, don't use your pet's name or anything. Everyone does that."
+
+    p "Right, I was thinking along the lines of something related to my start here. Maybe mixing in the year with other characters."
+
+    e5 "Hmm, it could work, but be careful with using anything too straightforward. The year on its own is a bit risky. You need to throw in some curveballs."
+
+    p "Got it, thanks for the tip. I’ll make sure it’s not something easily guessable."
+
+    e6 "Yeah, and remember, these conversations about passwords are a bit sensitive. Best to keep the specifics to ourselves."
+
+    p "Of course, I appreciate the advice. I'll come up with something solid and secure."
+
+    e5 "That's the spirit. And hey, welcome to the team! If you need any help, feel free to ask us."
+
+    p "Thanks! I'm sure I'll fit right in."
+
+
+    "Some people use mixing personal elements with random characters for passwords" 
+    
+    jump continue_exploring
+
+   
+label observe_from_a_distance:
+
+    # [BG: Office Canteen with many employees]
+
+    "From your isolated vantage point, you overhear fragmented conversations, catching bits and pieces about office life and daily routines. While you gain a general sense of the company culture, no specific information about password creation or other sensitive topics is gleaned."
+    jump continue_exploring
+
+label password_reset_procedure:
+
+    # BG in the elevators
+
+
+    "Near the elevators, you notice an IT support staff assisting an employee with a password reset. This situation provides a rare opportunity to understand the company's password policy. As the IT staff member guides the employee through the reset process, you overhear snippets of their conversation."
+    
+    staff "Remember, your password needs to be strong. It should be something memorable but not obvious to others."
+    "The employee nods, considering for a moment, then types something in. You can't see the exact keystrokes, but you notice the employee's eyes momentarily glance at a photo pinned nearby – it's a picture of a mountain."
+    e7 "Okay, done. I've used my favorite hiking trail name and added the year I first hiked it, plus an exclamation mark."
+    staff "That's a good mix. It's personal but not something everyone would know. Just make sure you remember it without writing it down."
+    "The employee leaves, looking satisfied. This interaction gives you a valuable insight into how employees might construct their passwords – using personal hobbies or experiences combined with significant dates and special characters."
+
+    jump continue_exploring
+
+label employees_using_elevator:
+
+    # [BG: Elevators]
+    "Spotting an opportunity, you approach an employee who looks like they might be heading to an IT support session."
+
+    p "Hi, I couldn't help overhearing you're heading to IT. I'm new here and still figuring things out. Any advice on managing all these passwords we have to use?"
+    e8 "Oh, hi. Honestly, I just follow whatever the IT guidelines say. Can't really go wrong with that, right?"
+    p "True, true. I was just wondering if there's a trick to remembering them. I always find myself getting them mixed up."
+    e8 "Sorry, I can't really help you there. I just do my best to keep them straight. Maybe IT could give you some tips?"
+    
+    "The employee gives a polite but dismissive smile and continues on their way, offering no further information."
+    jump continue_exploring
+
+
+label instructions_near_the_elevators:
+
+    # BG: Some image of instructions near elevator
+    "You carefully read the notices and instructions posted near the elevators. They mostly consist of safety protocols and elevator usage guidelines, offering no clues about password creation or security measures."
+
+    jump continue_exploring
+
+label continue_exploring:
+    
+
+    #BG Office stairs
+
+
+    "Regardless of your choice, you continue your exploration."
+    menu:
+        "Investigate Support Staff Contacts":
+            jump support_staff_contacts
+        "Explore Middle Management Contacts":
+            jump middle_contacts
+        "Search for a high-ranking employee":
+            jump search_high_ranking_employee
+
+
+
+label support_staff_contacts:
+
+
+    #  Scene"[Player with phone dailing and Burt on the other side]" BG: Inside some room
+    "Feeling like an undercover agent, you decide to explore the support staff, aiming for the custodian – Burt W. Mopbucket, the head of janitorial services. You figure Burt might have some amusing stories about his experiences while cleaning up after everyone."
+    "Dialing Burt's number, you brace yourself for a less-than-warm reception."
+
+    p "Hello, Burt? It's Mike from HR. Just doing a quick check-in. Any interesting or amusing things happening during your janitorial adventures?"
+    #disgruntled
+    burt "Mike from HR? What's this about? I've got a mop in my hand, and I'm not in the mood for chit-chat."
+
+    p "No chit-chat, Burt. Just wondering if you've come across any funny incidents or quirky moments while keeping our workplace spick and span."
+
+    burt "Look, Mike, I'm not here to gossip. I've got a job to do. If you need something cleaned up, submit a request through the proper channels."
+
+    p "Sure thing, Burt. Keep up the excellent work on those floors.
+
+    # You can't go back to this option
+    
+    jump encounter_with_office_cat
+
+label middle_contacts:
+    "With a sly grin, you decide to delve into the world of middle management, hoping to find an unsuspecting hero among the ranks. Scrolling through the directory, you pick Ivy P. Paperwork, the manager of documentation control. Her title might not scream glamour, but you figure she could be the keeper of hidden secrets."
+
+    #"[Player with phone dailing and Ivy on the other side]" BG: Inside some room
+
+    "You dial Ivy's number and, after a few rings, she picks up."
+
+    p "Hi, Ivy, it's Mike from HR. Just checking in to see if there's anything interesting happening in the documentation world. Any quirky office stories or unique challenges you've faced lately?"
+
+
+    #Guarded and skeptical
+    ivy "Mike from HR? This isn't some kind of survey, is it? I'm pretty busy here."
+
+    p "No survey, Ivy. Just trying to get a feel for the exciting world of middle management. Any funny anecdotes or amusing incidents you'd like to share?"
+
+    ivy "I'm not sure what you're getting at, Mike. We just handle paperwork and try to keep things running smoothly. If you have HR-related questions, you should go through the proper channels."
+
+    p "Got it, Ivy. Just thought I'd lighten the mood with some office tales.
+
+    jump encounter_with_office_cat
+
+
+label call_mr_johnson:
+
+
+    "You find the number of a high-ranking executive, Mr. Johnson, in the directory."
+    "You decide to call Mr. Johnson and try to extract information from him."
+
+    #"[Player with phone dailing and me johnson on the other side]" BG: Inside some room
+
+    menu:
+        "Introduce yourself as IT support":
+            jump introduce_as_IT
+        "Pretend to be a colleague":
+            pretend_to_be_colleague
+        "Pretend to be the CEO":
+            pretend_to_be_CEO
+     
+    
+label introduce_as_IT:
+
+
+    "You claim to be from IT support, conducting a routine check, and ask him for his computer details."
+    p "Hello, Mr. Johnson? This is Alex from IT support. We're conducting a routine check on all executive accounts today. Can I get your computer's model and current operating system version to ensure everything's up to date?"
+
+    mr_johnson "IT support, you say? That's odd; I wasn't notified of any routine checks happening today. Can you tell me exactly what kind of updates you're referring to?"
+
+    p "Oh, it's just standard procedure, sir. We're ensuring that all systems are secure and fully updated to prevent any potential security breaches. It's more of a precautionary measure."
+
+    mr_johnson "I see. But shouldn't these updates be automatic? And usually, for anything regarding executive accounts, there's an email sent out from IT. Can you verify which department you're calling from?"
+
+    p "Yes, of course, updates are typically automatic. However, for high-level executive accounts, we perform manual checks to personalize the security settings. I'm calling from the main IT department. Would you mind providing me with the requested details so we can proceed?"
+
+    mr_johnson "I think I'd be more comfortable verifying this call with our IT department directly before giving out any information. Can I have your extension so I can call you back?"
+
+    p "Actually, Mr. Johnson, I'm currently not at my desk, but I assure you, this won't take long. It's just a formality we need to complete for our records."
+
+    mr_johnson "I'm sorry, but without proper verification, I'm not comfortable disclosing any information over the phone. I'll reach out to our IT department myself and follow up on this. Goodbye."
+
+    #This is the wrong option and you cant go further so repeat level1
+
+    jump Caught
+
+
+label pretend_to_be_CEO:
+
+    p "Hello, Mr. Johnson? This is your CEO. I'm currently reviewing some critical documents for our upcoming board meeting and seem to be having trouble accessing the financial projections. I need to check them from another account. Could you assist me by providing your login credentials so I can verify some details urgently?"
+
+    mr_johnson "I'm sorry, but this is quite unusual. For security reasons, we're advised never to share our login credentials. Could you perhaps specify which documents you need? I can access and share them through a secure channel."
+
+    p "I understand your hesitation, but given the urgency and the sensitive nature of the information, this seemed like the most direct approach. It's just this once, for expediency."
+
+    mr_johnson "I appreciate the urgency, but sharing login details over the phone goes against our company's security policies. I can help in another way or perhaps we can arrange for IT to grant you temporary access?"
+
+    p "I see your point, and I respect your adherence to our security protocols. Let's go with your suggestion and involve IT for the appropriate access. My apologies for the unconventional request."
+
+    mr_johnson "No problem, I'll get in touch with IT right away and ensure they expedite your access. Thank you for understanding the importance of following our security protocols."
+
+#This is the wrong option and you cant go further so repeat level1
+
+    jump Caught
+
+
+label pretend_to_be_colleague:
+    p "Hello, Mr. Johnson? It's Mike from HR. I hope I'm not catching you at a bad time."
+
+    mr_johnson "Oh, hey Mike! No problem at all. What can I do for you?"
+
+    p "Well, I've been settling into my new role and heard some interesting rumors floating around the office. People are mentioning something about scandalous files on the network. Any truth to that?"
+
+    mr_johnson "Scandalous files? That's an unusual thing to hear about. Where did you get that information, Mike?"
+
+    p "Just some water cooler talk, you know how it goes. I thought I'd check in with someone in the know, like you. Keep it between us, though."
+
+    mr_johnson "Water cooler talk, huh? Seems a bit odd for that to be the topic of casual conversation. Why are you so interested in this, Mike?"
+
+    p "Oh, it's just the usual office grapevine, you know? Curiosity got the better of me. I figured I'd check with someone who has the real scoop."
+
+    mr_johnson "Well, yes, there is a computer in Room 303 with some sensitive information, but it's nothing for everyone to be discussing. Keep it quiet, alright?"
+
+    p "Absolutely, Mr. Johnson. I get it; sensitive stuff. Your secret's safe with me. Anything I should be aware of, or is it all under control?"
+
+    mr_johnson "We're handling it. Just be cautious about spreading rumors, Mike. We don't need unnecessary panic around here."
+
+    p "Of course, Mr. Johnson. I appreciate the heads up. If there's anything I can do to assist or keep things under wraps, you know where to find me."
+
+    mr_johnson "Thanks, Mike. Let's keep it professional around here, alright? I don't want this turning into a bigger issue than it needs to be."
+
+    p "Agreed, Mr. Johnson. I'll be sure to keep things on the down-low. Anything else I should know or any way I can help with the situation?"
+
+    mr_johnson "No, just focus on your work for now. We'll handle this internally. If we need anything from HR, we'll reach out. Thanks for checking in, Mike."
+
+    p "No problem, Mr. Johnson. I'm here if you need anything. Have a good day."
+
+    jump encounter_with_office_cat
+
+label encounter_with_office_cat:
+
+    # Furry Cat Bg: Hallway of the office
+
+
+    "As you navigate the halls, you encounter an office cat. It seems to take a liking to you, following you curiously."
+
+    menu:
+        "Pet the cat":
+            jump pet_the_cat
+        "Ignore_the_cat":
+            Ignore_the_cat
+
+label pet_the_cat:
+
+
+    #Bg: some hidden compartemnt
+
+
+    "You take a moment to pet the cat, appreciating the unexpected companionship."
+    p "Well, aren't you a friendly one? Need a partner in crime, huh?"
+    "The cat unexpectedly nudges a wall panel with its head, revealing a hidden compartment."
+
+    p "Now that's interesting. What secrets are you hiding, my furry friend?"
+
+    "Inside the compartment, you find a set of old keys."
+
+    menu:
+        "Take the keys":
+            jump take_the_keys
+        "Ignore the keys and go to room 303"
+            jump room_303
+
+
+label Ignore_the_cat:
+    jump Caught
+
+
+
+
+label take_the_keys:
+    "You decide to take the keys, thinking they might come in handy."
+    jump room_303
+
+
+
+label room_303:
+    "You enter Room 303, the cat still by your side. The dimly lit room is filled with rows of computers."
+
+
+    "As you try to access the computer, you realize it's password-protected."
+
+    menu:
+        "Unlock the computer":
+            jump unlock_the_computer
+        "Open the Cupboard with the keys you found"
+            jump open_the_cupboard
+
+
+    #If the player uses option 1 first then the computer will not be unlcoked 
+    #Only after exploring the option 2 player will be able to unlock the computer
+
+
+
+label unlock_the_computer:
+
+    # Computer scene
+
+
+    "Frustrated by the password prompt, you decide to take a more direct approach and attempt to unlock the computer. Trying a few common passwords that often slip people's minds or are used out of convenience, you input variations of 'password,' '123456,' and 'admin,' but to no avail. The computer remains securely locked, refusing to grant access."
+
+    p "Well, that was worth a shot."
+
+    #Then you look in the INVENTORY and find out about the photo of a dog, a document in which date of birth is mentioned and the photo you find after opening the cupboard.
+
+    #SO there will be computer screen 
+    #The password will be whiskers19752926  first dog name, then date of birth(year) and then the image found in the background.
+
+
+    jump hidden_camera
+
+
+
+
+label open_the_cupboard:
+    #After opening the cupboard you find the photo of Mr. johnson along with family and in the background you can see a number "2926"
+
+    jump unlock_the_computer
+
+
+
+label hidden_camera:
+
+    #BG: camera inside the room
+
+
+    "As you delve into the files, you notice a hidden security camera"
+    menu:
+        "Disable the Camera":
+            jump disable_the_camera
+        "Evade the Camera's View":
+            evade_camera_view
+        "Create a Distraction":
+            create_a_distraction
+
+label disable_the_camera:
+    "With a sense of urgency, you decide to disable the hidden security camera to avoid leaving any evidence of your covert operation. Stealthily reaching into your pocket, you pull out a small toolkit equipped with electronic gadgets."
+
+    p "Time to go incognito."
+
+    "Carefully, you open the panel concealing the camera's wires, aiming to cut the power source or manipulate its circuits. However, in the process, a tiny alarm is triggered, and a soft electronic beep resonates in the room."
+
+    #*Automated System:* "Security breach detected. Security breach detected."
+
+    "Panicking, you realize that your attempt to disable the camera has backfired. The unexpected alarm attracts attention, and you hear distant footsteps approaching rapidly."
+
+    jump Caught
+
+
+label evade_camera_view:
+    "Choosing a more subtle approach, you decide to evade the camera's view. Carefully studying the room, you identify blind spots and strategically move from cover to cover, using office furniture and potted plants to shield yourself from the camera's lens."
+
+    "Silently, you navigate the room, successfully avoiding detection. As you reach the desired spot without triggering any alarms, a sense of relief washes over you. The camera continues to monitor the room, unaware of your presence."
+
+    jump fumbling_with_the_camera
+
+
+label create_a_distraction:
+    "Thinking quickly, you decide to create a distraction to divert attention away from the camera's view. Your plan is to trigger a minor, but noticeable incident elsewhere in the room to draw the camera's focus."
+
+    p "Let's cause a little diversion."
+    "You spot a small stack of papers near a fan. Moving cautiously, you turn the fan to its highest setting, aiming to scatter the papers across the room. The idea is that the fluttering papers will create enough movement to redirect the camera's attention temporarily."
+    "As you activate the fan, the papers whirl into the air, creating a chaotic flurry. However, this action inadvertently triggers the room's motion sensors, which are linked to the security system."
+    
+    #Automated System: "Unusual activity detected. Investigating."
+    "The sudden activation of the motion sensors, coupled with the chaotic movement of papers, escalates the situation. Lights begin to flash, and an alarm blares through the room."
+
+
+    "Realizing that the diversion has escalated far beyond your intentions, you hear security personnel being alerted over the building's intercom system."
+
+    jump Caught
+
+
+    
+
+label fumbling_with_the_camera:
+    menu:
+        "Act casual":
+            jump act_casual
+        "Confront the employee":
+            confront_the_employee
+
+
+
+label act_casual:
+    e9 "Hey, what are you doing in here?"
+
+    "You act casual, pretending to be lost."
+
+    p "Oh, hey there. I was just trying to find the restroom, and I must have taken a wrong turn. Sorry about that!"
+
+    "The employee eyes you skeptically but seems to buy your explanation. He points you in the direction of the restroom, and you proceed as if nothing happened."
+
+    "As you leave the room, you take note of the employee's suspicious gaze but continue to act nonchalant. You casually stroll through the corridors, blending in with the office environment. "
+
+    jump Leaving_building
+
+
+label confront_the_employee:
+
+    p "Oh, hey there. I'm just doing some maintenance work. Got a call about an issue with the camera in this room."
+
+    e9 "Maintenance? I didn't hear anything about that."
+
+    e9 "I better call security and confirm this. We can't have unauthorized people messing with our cameras."
+
+
+    "The employee remains suspicious and decides to check with security. Your attempt to confront him raises further red flags."
+
+
+    jump Caught
+
+
+
+label caught:
+
+
+    "Your attempt has backfired. Security is on their way."
+
+
+
 
 
 
