@@ -494,9 +494,9 @@ label Employee_conversation:
 
     e1 "Sounds like a plan. Let's make it a team outing. I'm looking forward to it! Anyways time is over guys time to leave!"
 
-    "The trio finishes their lunch cleans up and leave their table."
+    "The trio finishes their lunch cleans up and leaves their table."
 
-    "That was interesting. Lets try observing something else now"
+    "That was interesting. Lets try observing something else now."
 
     jump Follow_people
 
@@ -508,13 +508,13 @@ label leave_shop:
     "While you leave the shop you notice an Employee Badge.
     It is difficult to recognize because it is peeking out from under a chest of drawers. 
     You take it without much thought."
-    "Check your notebook for everything you leaned about."
+    "Check your notebook for everything you learned about."
 
 
 label leaving_hastly:
 
     "You leave the store and don't look back. You probably shouldn't be seen here again any time soon"
-    "Check your notebook for everything you leaned about."
+    "Check your notebook for everything you learned about."
 
 label inside_building:
     #bg_office_reception
@@ -784,7 +784,7 @@ label support_staff_contacts:
 
     burt "Look, Mike, I'm not here to gossip. I've got a job to do. If you need something cleaned up, submit a request through the proper channels."
 
-    p "Sure thing, Burt. Keep up the excellent work on those floors.
+    p "Sure thing, Burt. Keep up the excellent work on those floors."
 
     # You can't go back to this option
     
@@ -807,7 +807,7 @@ label middle_contacts:
 
     ivy "I'm not sure what you're getting at, Mike. We just handle paperwork and try to keep things running smoothly. If you have HR-related questions, you should go through the proper channels."
 
-    p "Got it, Ivy. Just thought I'd lighten the mood with some office tales.
+    p "Got it, Ivy. Just thought I'd lighten the mood with some office tales."
 
     jump encounter_with_office_cat
 
@@ -824,9 +824,9 @@ label call_mr_johnson:
         "Introduce yourself as IT support":
             jump introduce_as_IT
         "Pretend to be a colleague":
-            pretend_to_be_colleague
+            jump pretend_to_be_colleague
         "Pretend to be the CEO":
-            pretend_to_be_CEO
+            jump pretend_to_be_CEO
      
     
 label introduce_as_IT:
@@ -917,7 +917,7 @@ label encounter_with_office_cat:
         "Pet the cat":
             jump pet_the_cat
         "Ignore_the_cat":
-            Ignore_the_cat
+            jump Ignore_the_cat
 
 label pet_the_cat:
 
@@ -936,7 +936,7 @@ label pet_the_cat:
     menu:
         "Take the keys":
             jump take_the_keys
-        "Ignore the keys and go to room 303"
+        "Ignore the keys and go to room 303":
             jump room_303
 
 
@@ -961,7 +961,7 @@ label room_303:
     menu:
         "Unlock the computer":
             jump unlock_the_computer
-        "Open the Cupboard with the keys you found"
+        "Open the Cupboard with the keys you found":
             jump open_the_cupboard
 
 
@@ -1056,7 +1056,7 @@ label fumbling_with_the_camera:
         "Act casual":
             jump act_casual
         "Confront the employee":
-            confront_the_employee
+            jump confront_the_employee
 
 
 
