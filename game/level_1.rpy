@@ -11,8 +11,8 @@ define e3 = Character (_("Employee 3"), color="#6fd066")
 
 label level_1:
 
-"After a long ride in the subway you finally reach N 42 Street which is very busy at that time. You notice small firms like 1940paper.inc, SmrtWays and many more having their unique blinking Signs and advertisements and the big banks and firms residing in massive Skyscrapers.
-And also your target. It is right across the Metro Exit indicated by the big lettering on the glass front above the entrance. CORE it reads in big red letters."
+    "After a long ride in the subway you finally reach N 42 Street which is very busy at that time. You notice small firms like 1940paper.inc, SmrtWays and many more having their unique blinking Signs and advertisements and the big banks and firms residing in massive Skyscrapers.
+    And also your target. It is right across the Metro Exit indicated by the big lettering on the glass front above the entrance. CORE it reads in big red letters."
 
     menu:
 
@@ -27,7 +27,7 @@ And also your target. It is right across the Metro Exit indicated by the big let
 
 label Building_options:
 
-"You notice that there are different entrances besides the main entrance with a lobby. An underground parking garage where black limousines come and go. A back entrance which is used by staff from their canteen for example."
+    "You notice that there are different entrances besides the main entrance with a lobby. An underground parking garage where black limousines come and go. A back entrance which is used by staff from their canteen for example."
 
     menu:
 
@@ -45,7 +45,7 @@ label Main_entrance:
 
     #scene bg main entrance
 
-"When you enter the lobby, you are greeted by a receptionist, a security guard who looks at you without suspicion, and a few notices informing you about the company and a job opening in the business department."
+    "When you enter the lobby, you are greeted by a receptionist, a security guard who looks at you without suspicion, and a few notices informing you about the company and a job opening in the business department."
 
     menu:
 
@@ -149,11 +149,11 @@ label success:
 
     "Succes! You pull it off and get the overall unnoticed"
 
-#Update Inventory: Have the beige overall with the branding
-        jump Building_options
+        #Update Inventory: Have the beige overall with the branding
+        #jump Building_options
 
         #If the counter is 1 for every option (Building is explored! Now only from two options can be chosen)
-        jump level_1
+        #jump level_1
 
 
 
@@ -162,9 +162,9 @@ label Collect_information:
     #IF this Option is not chosen the Information of John Doe is not usable troughout this plot!!! Needs to be included in the code
     # When chosen set counter to 1 for watch the people so it cant be chosen again
 
-"As you watch people leaving the building, you notice a member of staff wearing his badge on the outside of his trouser pocket.
-You manage to read his full name, John Doe, and the department: Arithmetic Department. You make a note in your notebook.
-You also notice that the employees usually wear suits and that the security guards have a grey uniform."
+    "As you watch people leaving the building, you notice a member of staff wearing his badge on the outside of his trouser pocket.
+    You manage to read his full name, John Doe, and the department: Arithmetic Department. You make a note in your notebook.
+    You also notice that the employees usually wear suits and that the security guards have a grey uniform."
 
 
     menu:
@@ -178,7 +178,7 @@ You also notice that the employees usually wear suits and that the security guar
 
 label Follow_people:
 
-"You start looking around."
+    "You start looking around."
 
     menu:
 
@@ -197,7 +197,7 @@ label Laptop_observation:
     #show LaptopGuy
     #scene
 
-"You choose to sit on a table with a guy on his laptop in close proximity."
+    "You choose to sit on a table with a guy on his laptop in close proximity."
 
     menu:
 
@@ -228,9 +228,9 @@ label Say_something:
 label Look_shoulder:
 
 #scene 
-"You try to observe what he is doing on his laptop by looking over your shoulder."
+    "You try to observe what he is doing on his laptop by looking over your shoulder."
 
-"No success: You can not really see anything!"
+    "No success: You can not really see anything!"
 
     menu:
 
@@ -435,13 +435,13 @@ label Stand_up:
 
     "You got some information. Maybe you can try to observe something else now."
 
-        menu:
+    menu:
             #If not done so already!
-            "Eavesdrop employees conversation.":
-                jump Employee_conversation
+        "Eavesdrop employees conversation.":
+            jump Employee_conversation
             
-            "Leave the shop":
-                jump leave_shop
+        "Leave the shop":
+            jump leave_shop
 
 
 label Employee_conversation:
@@ -485,7 +485,7 @@ label Employee_conversation:
 
     "That was interesting. Lets try observing something else now"
 
-        jump Follow_people
+    jump Follow_people
 
 label leave_shop:
 
@@ -523,7 +523,7 @@ label leaving_hastly:
 
 label Leaving_building:
 
-"I should get out of here before anyone catches me."
+    "I should get out of here before anyone catches me."
 
     menu:
 
