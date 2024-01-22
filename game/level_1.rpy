@@ -555,6 +555,67 @@ label leavealone:
         "Take the ID batch in your inventory":
             jump idcard
 
+label apology:
+
+    "SG, still neutral: What's your name, I can look for you in our system."
+
+    menu:
+
+        "I am Ryan Nordberg":
+            jump ryan
+        "I am Christian Baker":
+            jump christian
+
+
+label ryan:
+
+    "SG: “There is no Ryan Nordberg in our system."
+
+    menu:
+
+        "I am new here at this company, maybe that’s why it is not listed yet":
+            jump lie
+        "I have to go to an important appointment and you are wasting my time. Please get your manager.":
+            jump berude
+
+label lie:
+
+    "The SG calls his colleague on the phone: “ Hey there is a person, some Ryan Nordberg, he doesn’t have an ID and I can’t find him in our system. What am I supposed to do?"
+
+    "SG: “Alright, I won’t let him leave”"
+
+    "The security guard brings you into a small room. "
+    "As you are waiting for the police you know that you will not be able to continue your mission and that you have to take accountability for your illegal activities."
+
+    #gameover
+
+label berude:
+
+#[Surprised look]
+    "It’s ok Ryan, you can pass. Next time bring your ID."
+
+    p "That was close. Thank god, I got out of here. I am going to meet Cathy to tell her about everything."
+
+    jump cathymeet
+
+
+
+
+
+
+
+label christian:
+
+#[SG, male, serious look]
+    "You see the security guard typing something on his keyboard. "
+    "SG: “Alright there we go, Christian Baker. Have a great day!"
+
+#outside
+
+    p "That was close. Thank god, I got out of here. I am going to meet Cathy to tell her about everything."
+
+    jump cathymeet
+
 
 
 label leavecanteen:
@@ -573,19 +634,52 @@ label leavecanteen:
         "Yes, sure, what do you need help with?":
             jump helped
 
-label decline:
+label decine:
+
+    "C: Ok, that is unfortunate. I will do it myself then"
+
+    "You see that some of the canteen employees starts looking at you skeptical"
+    menu:
+
+        "Rush out as fast as you can.":
+            jump rushout
+        "Act like you are busy with washing some dishes.":
+            jump wash
+
+
+
+label wash:
+
+    "While washing some dishes you can listen to a conversation of some of the kitchen staff. "
+
+    "Person1: “This week we had a delivery with boxes full of avocados"
+
+    "Person 2: “Yes, I have heard our company now buys them from AvoHarvest and gets huge discounts."
+
+    menu: 
+        "Stay and continue listening":
+            jump listenkitchen
+
+        "Leave the kitchen through the back door":
+            jump leavekitchen
+
+
+
+
+
+label rushout:
 
    "You ran out of the back door of the canteen kitchen. However the canteen staff noticed you were acting very suspiciously." 
 
    p "That was close. Thank god, I got out of here. I am going to meet Cathy to tell her about everything."
+
+   jump cathymeet
 
 label helped:
 
     "Cook: We have to do the salad. Please add all the ingredients to the bowl."
 
     "Cook: Thank you for your help."
-
-    "C: Please add all the ingredients to the bowl."
 
     "As you want to leave through the back door, you can overhear two employees chattering."
 
@@ -615,14 +709,32 @@ label listenkitchen:
         "Sorry, I couldn’t help. You look so cute.":
             jump flirt2
 
+label apology2:
 
+    "She gives you a weird look but then turns away to continue doing her job. "
+    "You are relieved that she didn’t ask you anything and rush out through the back door as fast as you can."
+#Outside
+    p "Thank god, I got out of here. I am going to meet Cathy to tell her about everything."
+
+    jump cathymeet
+
+label flirt2:
+
+    "Person 1[looking mad]: “Are you crazy? I will forward this harrassment to security. Who are you?"
+
+    "You apologize for offending her but now all eyes in the kitchen are on you. You see her calling security on her phone, knowing that you will not get out of this situation anymore."
+
+    #game over
 
 
 
 label leavekitchen:
 
-    "y"
+    "You left the building out of the back door of the kitchen."
 
+    p "Thank god, nobody caught me. I am going to meet Cathy to tell her about everything."
+
+    jump cathymeet
 
 
 
@@ -633,9 +745,14 @@ label leavemain:
     "You see a group of employees walking towards the exit. You run along with them inconspicuously and walk quickly behind one person through the security door."
 
 #Security guard will tap on your shoulder, 
-#SG: Hey there! Stop!
-#You turn around
-#SG: Hey you lost your wallet
-#Player: Oh thank you Sir! 
+    "When suddenly a security guy taps on your shoulder"
+    "SG: Hey there! Stop!"
+    "Oh no, I got caught..."
+    "SG: Hey you lost your wallet"
+    p "Player: Oh thank you Sir! "
 
-#You rush out of the building
+    "You rush out of the building" 
+    "Thank god, nobody caught me. I am going to meet Cathy to tell her about everything."
+
+    jump cathymeet
+
