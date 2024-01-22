@@ -536,7 +536,9 @@ label explore_cubicles:
 
     "After discreetly snapping a photo of Whiskers' portrait, you continued your investigation. Amongst the papers on the desk, you found an official document containing the name and date of birth of an employee. The document provided you with the name Alex Johnson and a birthdate (12/08/1975), leaving you to wonder about the connection between the cat and the employee."
 
-    "Quickly noting down the name and date of birth from the document, you proceeded further. There your eyes fell upon one famous quote which is unique in the office environment."
+    "Quickly noting down the name and date of birth from the document, you proceeded further."
+
+    "There your eyes fell upon one famous quote which is unique in the office environment."
 
     # UPDATE INVENTORY
 
