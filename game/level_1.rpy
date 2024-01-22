@@ -536,7 +536,7 @@ label Leaving_building:
         "Wait until you don’t see anyone else to leave.":
             jump leavealone
 
-label leavecanteen:
+label leavealone:
 
     "As you approach the security door, you notice that you would have needed an ID to scan for it to open."
 
@@ -557,7 +557,7 @@ label leavecanteen:
 
 
 
-label leavemain:
+label leavecanteen:
 
     "You change back into your kitchen clothes and walk into the company's kitchen."
 
@@ -566,12 +566,69 @@ label leavemain:
 
     "C: Hey, sorry but can you quickly help out with the dessert. It's so busy right now we can't keep up."
 
-#[[P: “No sorry, I don’t have time right now."]]
+    menu:
 
-#[[Yes sure, what do you need help with?]]
+        "No sorry, I don't have time right now.":
+            jump decline
+        "Yes, sure, what do you need help with?":
+            jump helped
+
+label decline:
+
+   "You ran out of the back door of the canteen kitchen. However the canteen staff noticed you were acting very suspiciously." 
+
+   p "That was close. Thank god, I got out of here. I am going to meet Cathy to tell her about everything."
+
+label helped:
+
+    "Cook: We have to do the salad. Please add all the ingredients to the bowl."
+
+    "Cook: Thank you for your help."
+
+    "C: Please add all the ingredients to the bowl."
+
+    "As you want to leave through the back door, you can overhear two employees chattering."
+
+    "Person1: “This week we had a delivery with boxes full of avocados”"
+
+    "Person 2: “Yes, I have heard our company now buys them from AvoHarvest and gets huge discounts."
+
+    menu:
+
+        "Stay and continue listening":
+            jump listenkitchen
+
+        "Leave the kitchen through the back door":
+            jump leavekitchen
+
+label listenkitchen:
+
+    "One of the two employees notices you looking at them."
+
+    "Person 1: Hey, is there something wrong? Why are you staring at us?"
+
+    menu: 
+
+        "Sorry I didn't mean to stare at you":
+            jump apology2
+
+        "Sorry, I couldn’t help. You look so cute.":
+            jump flirt2
 
 
-label leavealone:
+
+
+
+label leavekitchen:
+
+    "y"
+
+
+
+
+
+
+label leavemain:
 
     "You see a group of employees walking towards the exit. You run along with them inconspicuously and walk quickly behind one person through the security door."
 
