@@ -536,7 +536,7 @@ label explore_cubicles:
 
     "After discreetly snapping a photo of Whiskers' portrait, you continued your investigation. Amongst the papers on the desk, you found an official document containing the name and date of birth of an employee. The document provided you with the name Alex Johnson and a birthdate (12/08/1975), leaving you to wonder about the connection between the cat and the employee."
 
-    "Quickly noting down the name and date of birth from the document, you proceeded further. There your eyes fell upon one famous quote which is unique in the office environment. 
+    "Quickly noting down the name and date of birth from the document, you proceeded further. There your eyes fell upon one famous quote which is unique in the office environment."
 
     # UPDATE INVENTORY
 
@@ -605,7 +605,7 @@ label apologize_and_engage:
 
     p "I appreciate the advice. I'll be sure to keep that in mind. Thank you for your help."
 
-    "Some people use familiar things to create a complex password"
+    "Some people use familiar things to create a complex password."
     
     
     jump continue_exploring
@@ -818,7 +818,7 @@ label call_mr_johnson:
     "You find the number of a high-ranking executive, Mr. Johnson, in the directory."
     "You decide to call Mr. Johnson and try to extract information from him."
 
-    #"[Player with phone dailing and me johnson on the other side]" BG: Inside some room
+    #Player with phone dailing and me johnson on the other side BG: Inside some room
 
     menu:
         "Introduce yourself as IT support":
@@ -979,10 +979,10 @@ label unlock_the_computer:
 
     p "Well, that was worth a shot."
 
-    #Then you look in the INVENTORY and find out about the photo of a dog, a document in which date of birth is mentioned and the photo you find after opening the cupboard.
+    #Then you look in the INVENTORY and find out about the photo of a dog, a document in which date of #birth is mentioned and the photo you find after opening the cupboard.
 
     #SO there will be computer screen 
-    #The password will be whiskers19752926  first dog name, then date of birth(year) and then the image found in the background.
+    #The password will be whiskers19752926  first dog name, then date of birth(year) and then the image #found in the background.
 
 
     jump hidden_camera
@@ -991,7 +991,7 @@ label unlock_the_computer:
 
 
 label open_the_cupboard:
-    #After opening the cupboard you find the photo of Mr. johnson along with family and in the background you can see a number "2926"
+    #After opening the cupboard you find the photo of Mr. johnson along with family and in the #background you can see a number "2926"
 
     jump unlock_the_computer
 
