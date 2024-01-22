@@ -21,58 +21,6 @@ define mr_johnson = Character (_("Mr. Johnson"), color="#4b0082")
 define cat = Character (_("Cat"), color="#fffaf0") #Furry cat
 
 
-define e4 = Character (_("Employee 4"), color="#6fd066")
-define e5 = Character (_("Employee 5"), color="#6fd066")
-define e6 = Character (_("Employee 6"), color="#6fd066")
-define e7 = Character (_("Employee 7"), color="#6fd066")
-define e8 = Character (_("Employee 8"), color="#6fd066")
-define e9 = Character (_("Employee 9"), color="#6fd066")
-define ivy = Character (_("Ivy P. Paperwork"), color="#6a5acd")
-define burt = Character (_("Burt W. Mopbucket"), color="#20b2aa")
-define staff = Character (_("IT Staff"), color="#ff6347")
-define mr_johnson = Character (_("Mr. Johnson"), color="#4b0082")
-define cat = Character (_("Cat"), color="#fffaf0") #Furry cat
-
-
-define e4 = Character (_("Employee 4"), color="#6fd066")
-define e5 = Character (_("Employee 5"), color="#6fd066")
-define e6 = Character (_("Employee 6"), color="#6fd066")
-define e7 = Character (_("Employee 7"), color="#6fd066")
-define e8 = Character (_("Employee 8"), color="#6fd066")
-define e9 = Character (_("Employee 9"), color="#6fd066")
-define ivy = Character (_("Ivy P. Paperwork"), color="#6a5acd")
-define burt = Character (_("Burt W. Mopbucket"), color="#20b2aa")
-define staff = Character (_("IT Staff"), color="#ff6347")
-define mr_johnson = Character (_("Mr. Johnson"), color="#4b0082")
-define cat = Character (_("Cat"), color="#fffaf0") #Furry cat
-
-
-define e4 = Character (_("Employee 4"), color="#6fd066")
-define e5 = Character (_("Employee 5"), color="#6fd066")
-define e6 = Character (_("Employee 6"), color="#6fd066")
-define e7 = Character (_("Employee 7"), color="#6fd066")
-define e8 = Character (_("Employee 8"), color="#6fd066")
-define e9 = Character (_("Employee 9"), color="#6fd066")
-define ivy = Character (_("Ivy P. Paperwork"), color="#6a5acd")
-define burt = Character (_("Burt W. Mopbucket"), color="#20b2aa")
-define staff = Character (_("IT Staff"), color="#ff6347")
-define mr_johnson = Character (_("Mr. Johnson"), color="#4b0082")
-define cat = Character (_("Cat"), color="#fffaf0") #Furry cat
-
-
-define e4 = Character (_("Employee 4"), color="#6fd066")
-define e5 = Character (_("Employee 5"), color="#6fd066")
-define e6 = Character (_("Employee 6"), color="#6fd066")
-define e7 = Character (_("Employee 7"), color="#6fd066")
-define e8 = Character (_("Employee 8"), color="#6fd066")
-define e9 = Character (_("Employee 9"), color="#6fd066")
-define ivy = Character (_("Ivy P. Paperwork"), color="#6a5acd")
-define burt = Character (_("Burt W. Mopbucket"), color="#20b2aa")
-define staff = Character (_("IT Staff"), color="#ff6347")
-define mr_johnson = Character (_("Mr. Johnson"), color="#4b0082")
-define cat = Character (_("Cat"), color="#fffaf0") #Furry cat
-
-
 
 label level_1:
 
@@ -1059,9 +1007,9 @@ label hidden_camera:
         "Disable the Camera":
             jump disable_the_camera
         "Evade the Camera's View":
-            evade_camera_view
+            jump evade_camera_view
         "Create a Distraction":
-            create_a_distraction
+            jump create_a_distraction
 
 label disable_the_camera:
     "With a sense of urgency, you decide to disable the hidden security camera to avoid leaving any evidence of your covert operation. Stealthily reaching into your pocket, you pull out a small toolkit equipped with electronic gadgets."
