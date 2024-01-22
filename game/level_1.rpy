@@ -506,21 +506,6 @@ label leaving_hastly:
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 label Leaving_building:
 
     "I should get out of here before anyone catches me."
