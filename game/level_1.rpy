@@ -1,6 +1,7 @@
 $ renpy.include("inventory.rpy")
 
 define p2 = Character(_("Me"), color="#c8c8ff")
+define cathy = Character(_("Cathy"), color="#6fd066")
 define l = Character(_("LaptopGuy"), color="#c8fff3")
 define c = Character (_("Christian"), color="#db8941")
 define s = Character (_("Security Officer"), color="#3939f5")
@@ -192,12 +193,12 @@ label Collect_information:
     #IF this Option is not chosen the Information of John Doe is not usable troughout this plot!!! Needs to be included in the code
     # When chosen set counter to 1 for watch the people so it cant be chosen again
     scene bg main ent
-    show Me with easeinleft:
-        xzoom = -1.0
+    show Me with easeinleft
+#        xzoom = -1.0
 
-    "As you watch people leaving the building, you notice a member of staff wearing his badge on the outside of his trouser pocket.
-    You manage to read his full name, John Doe, and the department: Arithmetic Department. You make a note in your notebook.
-    You also notice that the employees usually wear suits and that the security guards have a grey uniform."
+    "As you watch people leaving the building, you notice a member of staff wearing his badge on the outside of his trouser pocket."
+    "You manage to read his full name, John Doe, and the department: Arithmetic Department. You make a note in your notebook."
+    "You also notice that the employees usually wear suits and that the security guards have a grey uniform."
 
 
     menu:
@@ -535,6 +536,70 @@ label leaving_hastly:
 
     "You leave the store and don't look back. You probably shouldn't be seen here again any time soon"
     "Check your notebook for everything you learned about."
+    #scene in front of office building
+    "It's the next day. You gathered a lot of information and now want to target CORE and try to get inside their head quarter."
+    jump getinside
+
+label getinside:
+
+    menu:
+        "Go to the company disguised as a canteen employee":
+            jump canteendisguise
+        "Go as employee with the badge found": #(Works with the good ending coffee shop)"
+            jump withbadge
+        "Dress as a security guard":
+            jump securitydisguise
+
+label canteendisguise:
+    "Disguised as canteen employee, you walk towards the back entrance that leads to the company’s canteen. Heavily loaded and appearing to be busy with work, you move toward the door and open it. Then suddenly a kitchen employee looks at you weirdly."
+
+    #[That person sees you Character canteen employee, surprised, stressed expression
+    menu:
+        "Hide your face, and try not to drag too much attention on you":
+            jump hideface
+        "Act friendy and ask him for help with the box you are carrying": #(Works with the good ending coffee shop)"
+            jump askhelp
+    
+
+label hideface:
+    "Employee: Hey I’ve never seen you here, who are you?"
+    p2 "I’m Drew, just started working here."
+    "Employee: I haven't heard of a new colleague starting here." 
+    "I feel like you are just trying to sneak inside the office for some reason. I will call security"
+    menu:
+        "Run inside the building":
+            jump runinside
+        "Run outside the building ": 
+            jump runoutside
+
+label runinside:
+    "As soon as you run towards the door that leads deeper inside the building other people notice you and you feel someone tackle you over"#go to checkoint
+ 
+
+
+
+label runoutside:
+
+    "You rush through the door and run as fast as you can. But the man is running after you." 
+    "You gain more and more distance and finally he looses track of you. "
+    "While calming you breath you think about how to enter the building instead"
+    
+    
+label askhelp:
+    p2 "Hey, could you please help me with the box, you look like you are stronger than me."
+    "Employee: Oh yes sure!"
+    "You hand him the box"
+    p2 "Thank you. Do you go to the gym?"
+    "Employee: Thanks! Yes, I go almost every day."
+    p2 "Wow, you definetely need to give me work out tips. I have to go now though. See you!"
+    "Employee: Have a nice one!"
+
+
+
+
+
+
+
 
 label inside_building:
     #bg_office_reception
@@ -1382,12 +1447,12 @@ label cathymeet:
     
     p2 "Hey Cathy, I checked out CORE today but I could find any valid information[about]. I just found this photograph in the trash. Maybe we should give up and move on.."
 
-    "C: hmm, I am sorry.. let me see the photo. "
+    cathy "Hmm, I am sorry.. let me see the photo. "
 #[show photo]
     "C: Wait. That’s senator John Smith right there. Why would he be in this picture? "
     p2 "That’s surprising, I didn’t know that. The other people are the CEOs of CORE."
 
-    "C: I have the feeling that something is wrong. Maybe you could find more information about Senator Smith, next."
+    cathy "I have the feeling that something is wrong. Maybe you could find more information about Senator Smith, next."
 
     p2 "Okay, I will be in touch!"
 
