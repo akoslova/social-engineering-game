@@ -554,9 +554,9 @@ label withbadge:
 
 label securitydisguise:#wear tshirt with security on it
     "You wear your self designed T-shirt that says security and walk towards the main entrance."
-     "SG: Hey you! Stop! Who are you?
-     p2 "I am Drew, working for security of this company"
-     "SG: That shirt is not part of our uniform. I will call the police."
+    "SG: Hey you! Stop! Who are you?"
+    p2 "I am Drew, working for security of this company"
+    "SG: That shirt is not part of our uniform. I will call the police."
 
 
 label canteendisguise:
