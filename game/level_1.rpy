@@ -549,6 +549,15 @@ label getinside:
             jump withbadge
         "Dress as a security guard":
             jump securitydisguise
+label withbadge:
+    jump inside_building
+
+label securitydisguise:#wear tshirt with security on it
+    "You wear your self designed T-shirt that says security and walk towards the main entrance."
+     "SG: Hey you! Stop! Who are you?
+     p2 "I am Drew, working for security of this company"
+     "SG: That shirt is not part of our uniform. I will call the police."
+
 
 label canteendisguise:
     "Disguised as canteen employee, you walk towards the back entrance that leads to the company’s canteen. Heavily loaded and appearing to be busy with work, you move toward the door and open it. Then suddenly a kitchen employee looks at you weirdly."
@@ -582,7 +591,8 @@ label runoutside:
 
     "You rush through the door and run as fast as you can. But the man is running after you." 
     "You gain more and more distance and finally he looses track of you. "
-    "While calming you breath you think about how to enter the building instead"
+    "While calming you breath you think about how to enter the building instead."
+    jump inside_building
     
     
 label askhelp:
