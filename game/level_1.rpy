@@ -1453,7 +1453,7 @@ label leavemain:
     p2 "Player: Oh thank you Sir! "
 
     "You rush out of the building" 
-    "Thank god, nobody caught me. I am going to meet Cathy to tell her about everything."
+    p2 "Thank god, nobody caught me. I am going to meet Cathy to tell her about everything."
 
     jump cathymeet
 
