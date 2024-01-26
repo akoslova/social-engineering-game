@@ -19,6 +19,10 @@ define ivy = Character (_("Ivy P. Paperwork"), color="#6a5acd")
 define burt = Character (_("Burt W. Mopbucket"), color="#20b2aa")
 define staff = Character (_("IT Staff"), color="#ff6347")
 define mr_johnson = Character (_("Mr. Johnson"), color="#4b0082")
+define k1 = Character (_("Kitchen staff 1"), color="#6fd066")
+define k2 = Character (_("Kitchen staff 2"), color="#6fd066")
+define k3 = Character (_("Kitchen staff 3"), color="#6fd066")
+
 define cat = Character (_("Cat"), color="#fffaf0") #Furry cat
 
 image Receptionist2="receptionist2.png"
@@ -554,9 +558,9 @@ label withbadge:
 
 label securitydisguise:#wear tshirt with security on it
     "You wear your self designed T-shirt that says security and walk towards the main entrance."
-    "SG: Hey you! Stop! Who are you?"
+    s "Hey you! Stop! Who are you?"
     p2 "I am Drew, working for security of this company"
-    "SG: That shirt is not part of our uniform. I will call the police."
+    s "That shirt is not part of our uniform. I will call the police."
 
 
 label canteendisguise:
@@ -1229,7 +1233,7 @@ label leavealone:
     "As you approach the security door, you notice that you would have needed an ID to scan for it to open."
 
 #[Security guard will tap on your shoulder, you turn around]
-    "SG: “Where is your ID card”"
+    s "Where is your ID card"
 
     p2 "I must have lost it, it was right there on my pants"
 
@@ -1254,7 +1258,7 @@ label punch:
 
 label apology:
 
-    "SG, still neutral: What's your name, I can look for you in our system."
+    s "What's your name, I can look for you in our system."
 
     menu:
 
@@ -1266,7 +1270,7 @@ label apology:
 
 label ryan:
 
-    "SG: “There is no Ryan Nordberg in our system."
+    s "There is no Ryan Nordberg in our system."
 
     menu:
 
@@ -1277,11 +1281,11 @@ label ryan:
 
 label lie:
 
-    "The SG calls his colleague on the phone: “ Hey there is a person, some Ryan Nordberg, he doesn’t have an ID and I can’t find him in our system. What am I supposed to do?"
+    "The security guard calls his colleague on the phone: “ Hey there is a person, some Ryan Nordberg, he doesn’t have an ID and I can’t find him in our system. What am I supposed to do?"
 
-    "SG: “Alright, I won’t let him leave”"
+    s "Alright, I won’t let him leave"
 
-    "The security guard brings you into a small room. "
+    "He brings you into a small room."
     "As you are waiting for the police you know that you will not be able to continue your mission and that you have to take accountability for your illegal activities."
 
     #gameover
@@ -1305,7 +1309,7 @@ label christian:
 
 #[SG, male, serious look]
     "You see the security guard typing something on his keyboard. "
-    "SG: “Alright there we go, Christian Baker. Have a great day!"
+    s "Alright there we go, Christian Baker. Have a great day!"
 
 #outside
 
@@ -1322,7 +1326,7 @@ label leavecanteen:
     "The kitchen is brimming with energy and hectic as chefs and kitchen staff hustle to prepare dishes for the employees. No one really pays attention to you. "
     "You feel safe and almost reach the exit door but suddenly a woman stops you in front of the door."
 
-    "C: Hey, sorry but can you quickly help out with the dessert. It's so busy right now we can't keep up."
+    k1 "Hey, sorry but can you quickly help out with the dessert. It's so busy right now we can't keep up."
 
     menu:
 
@@ -1333,7 +1337,7 @@ label leavecanteen:
 
 label decine:
 
-    "C: Ok, that is unfortunate. I will do it myself then"
+    k1 "Ok, that is unfortunate. I will do it myself then"
 
     "You see that some of the canteen employees starts looking at you skeptical"
     menu:
@@ -1349,9 +1353,9 @@ label wash:
 
     "While washing some dishes you can listen to a conversation of some of the kitchen staff. "
 
-    "Person1: “This week we had a delivery with boxes full of avocados"
+    k2 "This week we had a delivery with boxes full of avocados"
 
-    "Person 2: “Yes, I have heard our company now buys them from AvoHarvest and gets huge discounts."
+    k3 "Yes, I have heard our company now buys them from AvoHarvest and gets huge discounts."
 
     menu: 
         "Stay and continue listening":
@@ -1374,15 +1378,15 @@ label rushout:
 
 label helped:
 
-    "Cook: We have to do the salad. Please add all the ingredients to the bowl."
+    k1 "We have to do the salad. Please add all the ingredients to the bowl."
 
-    "Cook: Thank you for your help."
+    k1 "Thank you for your help."
 
     "As you want to leave through the back door, you can overhear two employees chattering."
 
-    "Person1: “This week we had a delivery with boxes full of avocados”"
+    k2 "This week we had a delivery with boxes full of avocados”"
 
-    "Person 2: “Yes, I have heard our company now buys them from AvoHarvest and gets huge discounts."
+    k3 "Yes, I have heard our company now buys them from AvoHarvest and gets huge discounts."
 
     menu:
 
@@ -1396,7 +1400,7 @@ label listenkitchen:
 
     "One of the two employees notices you looking at them."
 
-    "Person 1: Hey, is there something wrong? Why are you staring at us?"
+    k2 "Hey, is there something wrong? Why are you staring at us?"
 
     menu: 
 
@@ -1443,9 +1447,9 @@ label leavemain:
 
 #Security guard will tap on your shoulder, 
     "When suddenly a security guy taps on your shoulder"
-    "SG: Hey there! Stop!"
+    s "Hey there! Stop!"
     "Oh no, I got caught..."
-    "SG: Hey you lost your wallet"
+    s "Hey you lost your wallet"
     p2 "Player: Oh thank you Sir! "
 
     "You rush out of the building" 
@@ -1455,7 +1459,7 @@ label leavemain:
 
 label cathymeet:
     
-    p2 "Hey Cathy, I checked out CORE today but I could find any valid information[about]. I just found this photograph in the trash. Maybe we should give up and move on.."
+    p2 "Hey Cathy, I checked out CORE today but I could find any valid information. I just found this photograph in the trash. Maybe we should give up and move on.."
 
     cathy "Hmm, I am sorry.. let me see the photo. "
 #[show photo]

@@ -120,13 +120,13 @@ screen phishing:
 
 
 label wrong_phishing:
-    t "Mhh I don't think this is the right choice. If I remember correctly Frank is more into cats."
+    p "Mhh I don't think this is the right choice. If I remember correctly Frank is more into cats."
     jump phishing
 
 label right_phishing: 
     show bg desktop
-    t "Haha, that Frank guy is not a very smart one! Now I have access to his computer screen."
-    t "Oh what's in that folder?"
+    p "Haha, that Frank guy is not a very smart one! Now I have access to his computer screen."
+    p "Oh what's in that folder?"
 
 label password_story:
 
@@ -134,8 +134,8 @@ label password_story:
     show bg laptop
     scene laptop top secret
     show bg laptop2
-    t "It's password protected."
-    t "If I remember correctly, then the most common passwords are 123456, password, and qwerty. I could just try them out"
+    p "It's password protected."
+    p "If I remember correctly, then the most common passwords are 123456, password, and qwerty. I could just try them out"
 
     label password:
         python:
@@ -147,13 +147,13 @@ label password_story:
         jump right
         
     else:
-        "Wrong Password! I should try an alternative..."
+        p "Wrong Password! I should try an alternative..."
         jump password
 
 
 label right:
 
-    "That worked! Ok what is this?"
+    p "That worked! Ok what is this?"
 
     #Show PDF Top Secret Document
     show secret doc at Position(ypos=0.8) with zoomin
@@ -172,15 +172,15 @@ label right:
 
 
 label printing:
-    t "Thank God, no one saw me printing that file. Next time, I should be more careful."
+    p "Thank God, no one saw me printing that file. Next time, I should be more careful."
     jump evidence
 
 label usb:
-    t "Now, I should get out of here quickly. I have a bad feeling about this."
+    p "Now, I should get out of here quickly. I have a bad feeling about this."
     jump evidence
 
 label closed:
-    t "I don't know if this was a smart idea, but I don't feel good about it."
+    p "I don't know if this was a smart idea, but I don't feel good about it."
     jump no_evidence
 
 label evidence:
@@ -193,7 +193,7 @@ label evidence:
     
     "5 PM closing time… Your first day at work is finished. You leave the place hasty, to get to the appointment with your friend Cathy in time."
 
-    t "I'm just glad I'm meeting Cathy tonight and hopefully with her help, I can make a plan of what to do. I think I might be in trouble …"
+    p "I'm just glad I'm meeting Cathy tonight and hopefully with her help, I can make a plan of what to do. I think I might be in trouble …"
     hide Me with easeoutleft
     scene bg coffee
     show Me with easeinright
@@ -242,7 +242,7 @@ label no_evidence:
 
     "5 PM closing time… Your first day at work is finished. You leave the place hasty, to get to the appointment with your friend Cathy in time."
 
-    t "I'm just glad I'm meeting Cathy tonight and hopefully with her help I can make a plan of what to do. I think I might be in trouble …"
+    p "I'm just glad I'm meeting Cathy tonight and hopefully with her help I can make a plan of what to do. I think I might be in trouble …"
     hide Me with easeoutleft
     scene bg coffee
     show Me with easeinright
