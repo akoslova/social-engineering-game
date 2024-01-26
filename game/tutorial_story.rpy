@@ -262,15 +262,25 @@ label no_evidence:
 
     c "Can you remember anything? What was mentioned?"
 
-    p "I remember reading about forest clearance and farmer strikes"
+    menu:
+        "I remember reading about forest clearance and farmer strikes" :
+            jump remembered
         
-    p "I think there was the mentioning of avocados"
+        "I think there was the mentioning of avocados" :
+            jump remembered
 
-    p "I read the word classified"
+        "I read the word classified" :
+            jump remembered
 
-    p "I remember something about having a surprise birthday party for the head of the department"
+        "I remember something about having a surprise birthday party for the head of the department" :
+            jump remembered
+
+    
+
 
     # solution to not use label
+
+label remembered:
 
     c "Maybe you're on to something big. Can I have a look at your notes? I might be able to write a story about it. What do you think?"
 
