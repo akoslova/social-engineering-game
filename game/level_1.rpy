@@ -196,9 +196,9 @@ label Collect_information:
 
     #IF this Option is not chosen the Information of John Doe is not usable troughout this plot!!! Needs to be included in the code
     # When chosen set counter to 1 for watch the people so it cant be chosen again
-    scene bg main ent
-    show Me with easeinleft
-#        xzoom = -1.0
+    scene bg main ent2
+    show Me with easeinleft:
+        xzoom -1.0
 
     "As you watch people leaving the building, you notice a member of staff wearing his badge on the outside of his trouser pocket."
     "You manage to read his full name, John Doe, and the department: Arithmetic Department. You make a note in your notebook."
