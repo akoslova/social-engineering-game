@@ -396,22 +396,3 @@ label insideguest:
 
     "While dancing, your eyes keenly scan the faces of the gathered guests. Among the sea of influential figures, you spot the Senator John Smith from your picture."
 
-# Entering the ballroom as a server.
-
-label entering_ballroom:
-
-    "Text from Cathy: Did you manage to get in?"
-    "Player: Yes, I am a server."
-    "Cathy: Ok, meet me inside the ballroom."
-
-    "You pick up a tray with delicious food and step into the ballroom."
-
-    "You find yourself in the grand ballroom with an assembly of well-dressed individuals. The air is filled with excitement as the most important figures of the company mingle with wealthy potential donors."
-
-    "Your eyes sweep across the space, searching for Cathy. Dressed in a red dress, she captures your attention. Adopting the role of a server, you gracefully approach her. In a casual exchange, she selects one of the snacks from your tray and replaces it with an empty plate."
-
-    "While pretending to be a server, your eyes keenly scan the faces of the gathered guests. Among the sea of influential figures, you spot Senator John Smith from your picture."
-
-    "Update inventory-recorder"
-    "[something peeks out from under the plate → Recorder] Player has to click on it"
-
