@@ -1,16 +1,16 @@
-Mon Jan 29 14:33:20 2024
+Mon Jan 29 17:07:47 2024
 Windows-10-10.0.22621
 Ren'Py 8.1.3.23091805
  
 
-Bootstrap to the start of init.init. took 0.05s
+Bootstrap to the start of init.init. took 0.04s
 Early init. took 0.00s
-Loader init. took 0.04s
+Loader init. took 0.06s
 Loading error handling. took 0.03s
-Loading script. took 0.23s
-Loading save slot metadata. took 0.06s
+Loading script. took 0.20s
+Loading save slot metadata. took 0.05s
 Loading persistent. took 0.00s
-Running init code. took 0.07s
+Running init code. took 0.06s
 Loading analysis data. took 0.02s
 Analyze and compile ATL. took 0.00s
 Reloading save slot metadata. took 0.03s
@@ -25,7 +25,7 @@ nvdrs: Loaded, about to disable thread optimizations.
 nvdrs: b"Couldn't load nvlib." (can be ignored)
 Creating interface object. took 0.00s
 Cleaning stores took 0.00s
-Init translation took 0.05s
+Init translation took 0.03s
 Build styles took 0.00s
 Load screen analysis took 0.00s
 Analyze screens took 0.01s
@@ -35,7 +35,7 @@ Save pyanalysis. took 0.00s
 Save bytecode. took 0.03s
 Running _start took 0.00s
 Performance test:
-Interface start. took 0.12s
+Interface start. took 0.10s
 
 Initializing gl2 renderer:
 primary display bounds: (0, 0, 1920, 1080)

@@ -3,6 +3,8 @@ $ renpy.include("inventory.rpy")
 define p3 = Character(_("Me"), color="#c8c8ff")
 define cathy2 = Character(_("Cathy"), color="#6fd066")
 define so = Character (_("Security Officer"), color="#3939f5")
+define hc = Character (_("Head Chef"), color="#3939f5")
+define s = Character (_("Server"), color="#3939f5")
 
 
 label level_2:
@@ -285,4 +287,131 @@ label player_with_phone:# [At home, Player with phone]
     cathy2 "I have a plan. As a journalist, I can go there without an invitation because they like it when the press reports on their generous charity event." 
     cathy2 "I will steal some catering clothes and hide them outside for you." 
 
+    jump next_day
+
+label next_day:
+
+    "You stand outside the event venue, adorned in a chef's uniform stolen from a nearby catering van."
+    "Choose a role to blend in seamlessly."
+
+    menu:
+        
+        "Assume the role of a server, allowing you to move around discreetly.":
+            jump server_route
+
+        "Pose as the head chef, giving you more authority and access.":
+            jump head_chef_route
+
+label server_route:
+
+    "You confidently slip into the role of a server, blending in with the catering staff bustling around the event location."
+    #noch weiter
+
+label head_chef_route:
+
+    #[HEAD CHEF; MAD]
+    "Despite your efforts to pose as the head chef, things don't go as smoothly as planned. The real head chef, who was briefly away, returns unexpectedly."
+
+    hc "Excuse me? Who are you, and why are you wearing my uniform?"
+    p3 "Oh, my apologies! I'm the new chef brought in for the special menu tonight. They said there would be some changes, and I was told to coordinate directly with you."
+
+    hc "Changes? No one informed me about any changes. What's your name?"
+    p3 "Chef Johnson. They rushed me in at the last minute for this event."
+
+    hc "Johnson? I've been the head chef here for years, and I've never heard of you."
+
+    menu:
+        "Decide to discuss further with him":
+            jump caught_route
+
+        "Tell him you will try to contact the manager to resolve the confusion":
+            jump outside_route
+
+label caught_route:
+
+    # go to checkpoint
+    p3 "Well, that is unfortunate, but I am the head chef for today."
+    hc "Nice try, but I've been running this kitchen for years, and I know all my staff. And you're definitely not the chef approved for this event."
+
+label outside_route:
+
+    #Standing in front of ballroom
+
+    "You rush outside the room and try to calm yourself down. The head chef didn't buy a word you said, and you almost got caught."
+    
+    menu: 
+        "Go inside the ballroom": 
+            jump insidefail
+        "Check out the building": 
+            jump check_out_building #noch machen
+
+
+
+
+label insidefail:
+
+    s "Hey, you! Aren’t you the guy that pretended to be the head chef?"
+    s "Don't play innocent! Security!!"
+    "They point an accusatory finger in your direction, and the eyes of nearby guests begin to turn toward you."
+    "You know that your disguise has been revealed, and you have to face the consequences of your activities..."
+    
+    # go to checkpoint
+
+label insideserver:
+
+    cathy2 "Did you manage to get in?"
+    p3 "Yes, I am a server."
+    cathy "Ok meet me inside the ball room."
+
+    "You pick up a tray with delicious food and step into the ball room. "
+    "You find yourself in the grand ball room with an assembly of well dressed individuals. "
+    "The air is filled with excitement as the most important figures of the company mingle with wealthy potential donors. "
+    "Your eyes sweep across the space, searching for Cathy. Dressed in a red dress, she captures your attention. "
+    "Adopting the role of a server, you gracefully approach her. In a casual exchange, she selects one of the snacks from your tray and replaces it with an empty plate."
+    #   [something peeks out from under the plate → Recorder] Player has to click on it
+    "While pretending to be a server, your eyes keenly scan the faces of the gathered guests. "
+    "Among the sea of influential figures, you spot the Senator John Smith from your picture."
+
+    #Update inventory-recorder
+ 
+
+
+label insideguest:
+
+    cathy2 "Did you manage to get in?"
+    p3 "There was a slight complication I am now an official guest"
+    cathy2 "Ok meet me at the the dance floor "
+
+    "Dressed in your elegant suit, you enter the ball room. "
+    "You find yourself in the grand ball room with an assembly of well dressed individuals. "
+    "The air is filled with excitement as the most important figures of the company mingle with wealthy potential donors. "
+    "Your eyes scan the surroundings, on the lookout for Cathy. Amidst the crowd, she stands out in a long red dress. "
+    "Purposefully, you make your way towards her."
+    p3 "May i ask you to a dance?"
+    cathy "Sure!"
+    "You and Cathy sway to the rhythm of the music, lost in the dance. "
+    "Suddenly, she discreetly retrieves a small item from her purse and passes it to you inconspicuously. "
+    "Upon closer inspection, you discover it's a compact recorder, swiftly stashing it away in your sleeves."
+    #Update inventory-recorder
+
+    "While dancing, your eyes keenly scan the faces of the gathered guests. Among the sea of influential figures, you spot the Senator John Smith from your picture."
+
+# Entering the ballroom as a server.
+
+label entering_ballroom:
+
+    "Text from Cathy: Did you manage to get in?"
+    "Player: Yes, I am a server."
+    "Cathy: Ok, meet me inside the ballroom."
+
+    "You pick up a tray with delicious food and step into the ballroom."
+
+    "You find yourself in the grand ballroom with an assembly of well-dressed individuals. The air is filled with excitement as the most important figures of the company mingle with wealthy potential donors."
+
+    "Your eyes sweep across the space, searching for Cathy. Dressed in a red dress, she captures your attention. Adopting the role of a server, you gracefully approach her. In a casual exchange, she selects one of the snacks from your tray and replaces it with an empty plate."
+
+    "While pretending to be a server, your eyes keenly scan the faces of the gathered guests. Among the sea of influential figures, you spot Senator John Smith from your picture."
+
+    "Update inventory-recorder"
+    "[something peeks out from under the plate → Recorder] Player has to click on it"
 
