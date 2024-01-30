@@ -280,21 +280,54 @@ label no_evidence:
 
     menu:
         "I remember reading about forest clearance and farmer strikes" :
-            jump remembered
+            jump remembered_1
         
         "I think there was the mentioning of avocados" :
-            jump remembered
+            jump remembered_2
 
         "I read the word classified" :
-            jump remembered
+            jump remembered_3
 
         "I remember something about having a surprise birthday party for the head of the department" :
-            jump remembered
+            jump not_remembered
 
     
-    # solution to not use label
+label not_remembered:
 
-label remembered:
+    c "That's not worth a story, are you kidding me?"
+
+    p "You are right! I remember something else"
+
+    menu:
+        "I remember reading about forest clearance and farmer strikes" :
+            jump remembered_1
+        
+        "I think there was the mentioning of avocados" :
+            jump remembered_2
+
+        "I read the word classified" :
+            jump remembered_3
+
+label remembered_2:
+
+    c "Avocados aha, that can not be it right?"
+
+        "I remember reading about forest clearance and farmer strikes" :
+            jump remembered_1
+    
+
+        "I read the word classified" :
+            jump remembered_3
+
+label remembered_3:
+
+    c "Thats more interesting but what is it about?"
+
+        "I remember reading about forest clearance and farmer strikes" :
+            jump remembered_1
+
+
+label remembered_1:
 
     c "Maybe you're on to something big. Can I have a look at your notes? I might be able to write a story about it. What do you think?"
 
