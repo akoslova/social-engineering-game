@@ -287,9 +287,9 @@ label player_with_phone:# [At home, Player with phone]
     cathy2 "I have a plan. As a journalist, I can go there without an invitation because they like it when the press reports on their generous charity event." 
     cathy2 "I will steal some catering clothes and hide them outside for you." 
 
-    jump next_day
+    jump next_day_2
 
-label next_day:
+label next_day_2:
 
     "You stand outside the event venue, adorned in a chef's uniform stolen from a nearby catering van."
     "Choose a role to blend in seamlessly."

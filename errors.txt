@@ -2,9 +2,11 @@
 errors listed below, and try again.
 
 
-File "game/tutorial_story.rpy", line 266: end of line expected.
-    p "I remember reading about forest clearance and farmer strikes" :
-                                                                     ^
+The label next_day is defined twice, at File "game/level_2.rpy", line 292:
+label next_day:
+and File "game/tutorial_story.rpy", line 310:
+label next_day:
+
 
 Ren'Py Version: Ren'Py 8.1.3.23091805
-Fri Jan 26 13:40:30 2024
+Tue Jan 30 11:02:28 2024

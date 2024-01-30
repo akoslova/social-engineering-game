@@ -56,8 +56,6 @@ label tutorial:
     t "Hey there, welcome to the team!"
     t "I am Toni. Today, on your first day at work, I'm going to help you get settled into the company and get to grips with everything."
 
-    #menu: 
-
     p "Thank you. Nice to meet you!"
     hide Toni
     show Toni smile
@@ -99,7 +97,7 @@ label tutorial:
     hide Toni wave with easeoutleft
 
     t "Mhh.. I wonder what kind of phishing email would Frank fall for..."
-    #scene laptop email
+
     hide screen inv_screen
     jump phishing
 
@@ -120,17 +118,25 @@ screen phishing:
 
 
 label wrong_phishing:
+    show screen inv_screen
     p "Mhh I don't think this is the right choice. If I remember correctly Frank is more into cats."
     jump phishing
+    hide screen inv_screen
 
 label right_phishing: 
     show bg desktop
+    show screen inv_screen
+    
     p "Haha, that Frank guy is not a very smart one! Now I have access to his computer screen."
+    
+    $ todo.update_aim("")
+    
+    "{i} You successfully completed your aim! {\i}"
+
     p "Oh what's in that folder?"
 
 label password_story:
 
-    show screen inv_screen
     show bg laptop
     scene laptop top secret
     show bg laptop2
@@ -157,7 +163,19 @@ label right:
 
     #Show PDF Top Secret Document
     show secret doc at Position(ypos=0.8) with zoomin
-    pause(2.0)
+    p "Mhmm..."
+
+    define info1 = InventoryData("Deforestation", "obscure activities not in compliance with environmental regulations")
+    define info2 = InventoryData("Farmer strikes", "An unresolved problem of domestic workers on strike")
+    define info3 = InventoryData("Confrontation with local wildlife and people", "appears to be violent")
+
+    $ inventory.add_data(info1)
+    $ inventory.add_data(info2)
+    $ inventory.add_data(info3)
+
+    "{i}Some bullet points of information were added to your notebook.{\i}"
+
+    hide secret doc
 
     menu:
 
@@ -258,8 +276,6 @@ label no_evidence:
 
     p "No, really not, I swear on our friendship"
 
-    #menu
-
     c "Can you remember anything? What was mentioned?"
 
     menu:
@@ -276,8 +292,6 @@ label no_evidence:
             jump remembered
 
     
-
-
     # solution to not use label
 
 label remembered:
@@ -311,7 +325,7 @@ label next_day:
 
     scene bg phone
 
-    "Cathy: Hey, I found out by using your given information that the company CORE Commercial Construction might be involved as well. Do you think you could get information from them? I marked the building on this map. I wish you luck and keep me updated!"
+    "{i}Cathy: Hey, I found out by using your given information that the company CORE Commercial Construction might be involved as well. Do you think you could get information from them? I marked the building on this map. I wish you luck and keep me updated!{\i}"
 
     $ todo.update_aim("Get information about CORE")
 

@@ -24,7 +24,7 @@ init python:
 
     Level("tutorial", True)
     Level("level_1", True)
-    Level("level_2")
+    Level("level_2", True)
     Level("level_3")
     Level("level_4")
     Level("level_5")
@@ -44,20 +44,10 @@ screen levels(adj):
             imagebutton auto "gui/levelselection/" + i.label + "_locked_%s.png":
                 focus_mask True
 
-    
-
-        #textbutton _("That's enough for now."):
-            #xfill True
-            #action Return(False)
-            #top_margin 10
-
 
 # This is used to preserve the state of the scrollbar on the selection
 # screen.
 default tutorials_adjustment = ui.adjustment()
-
-# True if this is the first time through the tutorials.
-#default tutorials_first_time = True
 
 
 label  start:
