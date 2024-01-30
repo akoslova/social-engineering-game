@@ -1,80 +1,39 @@
-Tue Jan 30 11:24:57 2024
+Tue Jan 30 13:29:30 2024
 macOS-10.16-x86_64-i386-64bit
 Ren'Py 8.1.3.23091805
  
 
-Bootstrap to the start of init.init. took 0.14s
-Early init. took 0.00s
-Loader init. took 0.03s
-Loading error handling. took 0.68s
-Loading script. took 1.14s
-Loading save slot metadata. took 0.14s
+Bootstrap to the start of init.init. took 0.07s
+Early init. took 0.03s
+Loader init. took 0.07s
+Loading error handling. took 0.07s
+Loading script. took 0.57s
+Loading save slot metadata. took 0.07s
 Loading persistent. took 0.00s
-Running init code. took 0.40s
-Loading analysis data. took 0.13s
-Analyze and compile ATL. took 0.02s
-Reloading save slot metadata. took 0.17s
+Running init code. took 0.09s
+Loading analysis data. took 0.04s
+Analyze and compile ATL. took 0.00s
+Reloading save slot metadata. took 0.09s
 Index archives took 0.00s
-Dump and make backups. took 0.44s
-Cleaning cache. took 0.00s
-Making clean stores. took 0.00s
-Initial gc. took 0.07s
-DPI scale factor: 1.000000
-Creating interface object. took 0.00s
-Cleaning stores took 0.00s
-Init translation took 0.72s
-Build styles took 0.13s
-Load screen analysis took 0.73s
-Analyze screens took 0.00s
-Save screen analysis took 0.00s
-Prepare screens took 1.38s
-Save pyanalysis. took 0.00s
-Save bytecode. took 0.00s
-Running _start took 0.01s
-Performance test:
-Interface start. took 0.81s
-
-Initializing gl2 renderer:
-primary display bounds: (0, 0, 1440, 900)
-swap interval: 1 frames
-Windowed mode.
-Vendor: "b'Intel Inc.'"
-Renderer: b'Intel(R) UHD Graphics 617'
-Version: b'2.1 INTEL-18.5.8'
-Display Info: None
-Screen sizes: virtual=(1920, 1080) physical=(1338, 753) drawable=(2676, 1506)
-Maximum texture size: 4096x4096
-Resetting cache.
-Bootstrap to the start of init.init. took 333.29s
-Early init. took 0.00s
-Loader init. took 0.01s
-Loading error handling. took 0.03s
-Loading script. took 0.29s
-Loading save slot metadata. took 0.05s
-Loading persistent. took 0.00s
-Running init code. took 0.06s
-Loading analysis data. took 0.03s
-Analyze and compile ATL. took 0.02s
-Reloading save slot metadata. took 0.16s
-Index archives took 0.00s
+Backing up script files to '/Users/anastasiakozlova/Library/RenPy/backups/social-engineering-game':
 Dump and make backups. took 0.08s
 Cleaning cache. took 0.00s
 Making clean stores. took 0.00s
-Initial gc. took 0.06s
+Initial gc. took 0.03s
 DPI scale factor: 1.000000
 Creating interface object. took 0.00s
 Cleaning stores took 0.00s
-Init translation took 0.07s
-Build styles took 0.00s
-Load screen analysis took 0.05s
-Analyze screens took 0.00s
-Save screen analysis took 0.00s
+Init translation took 0.06s
+Build styles took 0.01s
+Load screen analysis took 0.00s
+Analyze screens took 0.02s
+Save screen analysis took 0.03s
 Prepare screens took 0.10s
 Save pyanalysis. took 0.00s
-Save bytecode. took 0.03s
+Save bytecode. took 0.04s
 Running _start took 0.00s
 Performance test:
-Interface start. took 0.11s
+Interface start. took 0.37s
 
 Initializing gl2 renderer:
 primary display bounds: (0, 0, 1440, 900)
@@ -87,75 +46,61 @@ Display Info: None
 Screen sizes: virtual=(1920, 1080) physical=(1338, 753) drawable=(2676, 1506)
 Maximum texture size: 4096x4096
 Resetting cache.
-Bootstrap to the start of init.init. took 336.89s
+Bootstrap to the start of init.init. took 2599.70s
 Early init. took 0.00s
-Loader init. took 0.01s
-Loading error handling. took 0.04s
-Loading script. took 0.29s
+Loader init. took 0.04s
+Loading error handling. took 0.06s
+Loading script. took 0.48s
+Loading save slot metadata. took 0.05s
+Loading persistent. took 0.00s
+
+The label password is defined twice, at File "game/level_1.rpy", line 1153:
+    label password:
+and File "game/tutorial_story.rpy", line 148:
+    label password:
+
+DPI scale factor: 1.000000
+Interface start. took 0.23s
+
+Initializing gl2 renderer:
+primary display bounds: (0, 0, 1440, 900)
+swap interval: 1 frames
+Windowed mode.
+Vendor: "b'Intel Inc.'"
+Renderer: b'Intel(R) UHD Graphics 617'
+Version: b'2.1 INTEL-18.5.8'
+Display Info: None
+Screen sizes: virtual=(1920, 1080) physical=(1338, 753) drawable=(2676, 1506)
+Maximum texture size: 4096x4096
+Resetting cache.
+Bootstrap to the start of init.init. took 2629.99s
+Early init. took 0.00s
+Loader init. took 0.02s
+Loading error handling. took 0.08s
+Loading script. took 0.55s
 Loading save slot metadata. took 0.05s
 Loading persistent. took 0.00s
 Running init code. took 0.06s
-Loading analysis data. took 0.04s
-Analyze and compile ATL. took 0.00s
+Loading analysis data. took 0.03s
+Analyze and compile ATL. took 0.01s
 Reloading save slot metadata. took 0.05s
 Index archives took 0.00s
-Dump and make backups. took 0.11s
+Backing up script files to '/Users/anastasiakozlova/Library/RenPy/backups/social-engineering-game':
+Dump and make backups. took 0.13s
 Cleaning cache. took 0.00s
 Making clean stores. took 0.00s
-Initial gc. took 0.07s
+Initial gc. took 0.10s
 DPI scale factor: 1.000000
 Creating interface object. took 0.00s
 Cleaning stores took 0.00s
-Init translation took 0.07s
-Build styles took 0.02s
-Load screen analysis took 0.07s
-Analyze screens took 0.00s
-Save screen analysis took 0.00s
-Prepare screens took 0.20s
-Save pyanalysis. took 0.00s
-Save bytecode. took 0.00s
-Running _start took 0.01s
-Performance test:
-Interface start. took 0.13s
-
-Initializing gl2 renderer:
-primary display bounds: (0, 0, 1440, 900)
-swap interval: 1 frames
-Windowed mode.
-Vendor: "b'Intel Inc.'"
-Renderer: b'Intel(R) UHD Graphics 617'
-Version: b'2.1 INTEL-18.5.8'
-Display Info: None
-Screen sizes: virtual=(1920, 1080) physical=(1338, 753) drawable=(2676, 1506)
-Maximum texture size: 4096x4096
-Resetting cache.
-Bootstrap to the start of init.init. took 340.50s
-Early init. took 0.00s
-Loader init. took 0.01s
-Loading error handling. took 0.04s
-Loading script. took 0.26s
-Loading save slot metadata. took 0.04s
-Loading persistent. took 0.00s
-Running init code. took 0.05s
-Loading analysis data. took 0.03s
-Analyze and compile ATL. took 0.00s
-Reloading save slot metadata. took 0.03s
-Index archives took 0.00s
-Dump and make backups. took 0.10s
-Cleaning cache. took 0.00s
-Making clean stores. took 0.00s
-Initial gc. took 0.07s
-DPI scale factor: 1.000000
-Creating interface object. took 0.00s
-Cleaning stores took 0.00s
-Init translation took 0.11s
+Init translation took 0.09s
 Build styles took 0.01s
-Load screen analysis took 0.06s
-Analyze screens took 0.00s
-Save screen analysis took 0.00s
-Prepare screens took 0.17s
-Save pyanalysis. took 0.00s
-Save bytecode. took 0.00s
+Load screen analysis took 0.00s
+Analyze screens took 0.03s
+Save screen analysis took 0.04s
+Prepare screens took 0.11s
+Save pyanalysis. took 0.02s
+Save bytecode. took 0.03s
 Running _start took 0.00s
 Performance test:
 Interface start. took 0.10s
@@ -171,165 +116,17 @@ Display Info: None
 Screen sizes: virtual=(1920, 1080) physical=(1338, 753) drawable=(2676, 1506)
 Maximum texture size: 4096x4096
 Resetting cache.
-Bootstrap to the start of init.init. took 568.31s
+Bootstrap to the start of init.init. took 2677.31s
 Early init. took 0.00s
 Loader init. took 0.03s
-Loading error handling. took 0.06s
-Loading script. took 0.40s
+Loading error handling. took 0.04s
+Loading script. took 0.48s
 Loading save slot metadata. took 0.04s
 Loading persistent. took 0.00s
-Running init code. took 0.07s
-Loading analysis data. took 0.08s
-Analyze and compile ATL. took 0.01s
-Reloading save slot metadata. took 0.06s
-Index archives took 0.00s
-Dump and make backups. took 0.22s
-Cleaning cache. took 0.00s
-Making clean stores. took 0.00s
-Initial gc. took 0.10s
-DPI scale factor: 1.000000
-Creating interface object. took 0.00s
-Cleaning stores took 0.00s
-Init translation took 0.10s
-Build styles took 0.01s
-Load screen analysis took 0.10s
-Analyze screens took 0.00s
-Save screen analysis took 0.00s
-Prepare screens took 0.56s
-Save pyanalysis. took 0.00s
-Save bytecode. took 0.00s
-Running _start took 0.00s
-Performance test:
-Interface start. took 0.46s
-
-Initializing gl2 renderer:
-primary display bounds: (0, 0, 1440, 900)
-swap interval: 1 frames
-Windowed mode.
-Vendor: "b'Intel Inc.'"
-Renderer: b'Intel(R) UHD Graphics 617'
-Version: b'2.1 INTEL-18.5.8'
-Display Info: None
-Screen sizes: virtual=(1920, 1080) physical=(1338, 753) drawable=(2676, 1506)
-Maximum texture size: 4096x4096
-
-Full traceback:
-  File "renpy/common/00start.rpy", line 212, in script call
-    call _load_reload_game from _call__load_reload_game_1
-  File "renpy/common/00keymap.rpy", line 529, in script
-    python hide:
-  File "/Users/anastasiakozlova/renpy-8.1.3-sdk/renpy/ast.py", line 1138, in execute
-    renpy.python.py_exec_bytecode(self.code.bytecode, self.hide, store=self.store)
-  File "/Users/anastasiakozlova/renpy-8.1.3-sdk/renpy/python.py", line 1122, in py_exec_bytecode
-    exec(bytecode, globals, locals)
-  File "renpy/common/00keymap.rpy", line 529, in <module>
-    python hide:
-  File "renpy/common/00keymap.rpy", line 540, in _execute_python_hide
-    renpy.load(renpy.session["_reload_slot"])
-  File "/Users/anastasiakozlova/renpy-8.1.3-sdk/renpy/loadsave.py", line 810, in load
-    log_data, signature = location.load(filename)
-  File "/Users/anastasiakozlova/renpy-8.1.3-sdk/renpy/savelocation.py", line 520, in load
-    return l.load(slotname) # type: ignore
-  File "/Users/anastasiakozlova/renpy-8.1.3-sdk/renpy/savelocation.py", line 284, in load
-    with zipfile.ZipFile(filename, "r") as zf:
-  File "/home/tom/ab/renpy-build-fix/tmp/install.linux-x86_64/lib/python3.9/zipfile.py", line 1239, in __init__
-FileNotFoundError: [Errno 2] No such file or directory: '/Users/anastasiakozlova/Library/RenPy/SocialEngineeringGame-1699518966/sync/_reload-1-LT1.save'
-
-While running game code:
-  File "renpy/common/00start.rpy", line 212, in script call
-    call _load_reload_game from _call__load_reload_game_1
-  File "renpy/common/00keymap.rpy", line 529, in script
-    python hide:
-  File "renpy/common/00keymap.rpy", line 529, in <module>
-    python hide:
-  File "renpy/common/00keymap.rpy", line 540, in _execute_python_hide
-    renpy.load(renpy.session["_reload_slot"])
-FileNotFoundError: [Errno 2] No such file or directory: '/Users/anastasiakozlova/Library/RenPy/SocialEngineeringGame-1699518966/sync/_reload-1-LT1.save'
-s
-Index archives took 0.00s
-Dump and make backups. took 0.23s
-Cleaning cache. took 0.00s
-Making clean stores. took 0.00s
-Initial gc. took 0.09s
-DPI scale factor: 1.000000
-Creating interface object. took 0.00s
-Cleaning stores took 0.00s
-Init translation took 0.10s
-Build styles took 0.01s
-Load screen analysis took 0.12s
-Analyze screens took 0.01s
-Save screen analysis took 0.00s
-Prepare screens took 0.55s
-Save pyanalysis. took 0.00s
-Save bytecode. took 0.00s
-Running _start took 0.00s
-Performance test:
-Interface start. took 0.35s
-
-Initializing gl2 renderer:
-primary display bounds: (0, 0, 1440, 900)
-swap interval: 1 frames
-Windowed mode.
-Vendor: "b'Intel Inc.'"
-Renderer: b'Intel(R) UHD Graphics 617'
-Version: b'2.1 INTEL-18.5.8'
-Display Info: None
-Screen sizes: virtual=(1920, 1080) physical=(1338, 753) drawable=(2676, 1506)
-Maximum texture size: 4096x4096
-Resetting cache.
-Bootstrap to the start of init.init. took 618.80s
-Early init. took 0.00s
-Loader init. took 0.02s
-Loading error handling. took 0.08s
-Loading script. took 0.60s
-Loading save slot metadata. took 0.06s
-Loading persistent. took 0.00s
-Running init code. took 0.07s
-Loading analysis data. took 0.03s
-Analyze and compile ATL. took 0.01s
-Reloading save slot metadata. took 0.06s
-Index archives took 0.00s
-Dump and make backups. took 0.08s
-Cleaning cache. took 0.00s
-Making clean stores. took 0.00s
-Initial gc. took 0.06s
-DPI scale factor: 1.000000
-Creating interface object. took 0.00s
-Cleaning stores took 0.00s
-Init translation took 0.07s
-Build styles took 0.01s
-Load screen analysis took 0.05s
-Analyze screens took 0.00s
-Save screen analysis took 0.00s
-Prepare screens took 0.10s
-Save pyanalysis. took 0.00s
-Save bytecode. took 0.00s
-Running _start took 0.00s
-Performance test:
-Interface start. took 0.09s
-
-Initializing gl2 renderer:
-primary display bounds: (0, 0, 1440, 900)
-swap interval: 1 frames
-Windowed mode.
-Vendor: "b'Intel Inc.'"
-Renderer: b'Intel(R) UHD Graphics 617'
-Version: b'2.1 INTEL-18.5.8'
-Display Info: None
-Screen sizes: virtual=(1920, 1080) physical=(1338, 753) drawable=(2676, 1506)
-Maximum texture size: 4096x4096
-Resetting cache.
-Bootstrap to the start of init.init. took 649.54s
-Early init. took 0.00s
-Loader init. took 0.02s
-Loading error handling. took 0.03s
-Loading script. took 0.38s
-Loading save slot metadata. took 0.03s
-Loading persistent. took 0.00s
-Running init code. took 0.04s
+Running init code. took 0.06s
 Loading analysis data. took 0.03s
 Analyze and compile ATL. took 0.00s
-Reloading save slot metadata. took 0.03s
+Reloading save slot metadata. took 0.04s
 Index archives took 0.00s
 Backing up script files to '/Users/anastasiakozlova/Library/RenPy/backups/social-engineering-game':
 Dump and make backups. took 0.07s
@@ -345,8 +142,8 @@ Load screen analysis took 0.00s
 Analyze screens took 0.02s
 Save screen analysis took 0.04s
 Prepare screens took 0.10s
-Save pyanalysis. took 0.02s
-Save bytecode. took 0.03s
+Save pyanalysis. took 0.00s
+Save bytecode. took 0.02s
 Running _start took 0.00s
 Performance test:
 Interface start. took 0.08s
@@ -362,77 +159,34 @@ Display Info: None
 Screen sizes: virtual=(1920, 1080) physical=(1338, 753) drawable=(2676, 1506)
 Maximum texture size: 4096x4096
 Resetting cache.
-Bootstrap to the start of init.init. took 934.88s
+Bootstrap to the start of init.init. took 2978.50s
 Early init. took 0.00s
-Loader init. took 0.03s
-Loading error handling. took 0.05s
-Loading script. took 0.39s
-Loading save slot metadata. took 0.06s
+Loader init. took 0.06s
+Loading error handling. took 0.04s
+Loading script. took 0.72s
+Loading save slot metadata. took 0.11s
 Loading persistent. took 0.00s
 Running init code. took 0.07s
-Loading analysis data. took 0.03s
+Loading analysis data. took 0.04s
 Analyze and compile ATL. took 0.01s
-Reloading save slot metadata. took 0.05s
+Reloading save slot metadata. took 0.11s
 Index archives took 0.00s
 Backing up script files to '/Users/anastasiakozlova/Library/RenPy/backups/social-engineering-game':
 Dump and make backups. took 0.08s
 Cleaning cache. took 0.00s
 Making clean stores. took 0.00s
-Initial gc. took 0.08s
+Initial gc. took 0.07s
 DPI scale factor: 1.000000
 Creating interface object. took 0.00s
 Cleaning stores took 0.00s
-Init translation took 0.09s
+Init translation took 0.08s
 Build styles took 0.01s
 Load screen analysis took 0.00s
 Analyze screens took 0.03s
-Save screen analysis took 0.04s
-Prepare screens took 0.13s
-Save pyanalysis. took 0.02s
-Save bytecode. took 0.03s
-Running _start took 0.00s
-Performance test:
-Interface start. took 0.13s
-
-Initializing gl2 renderer:
-primary display bounds: (0, 0, 1440, 900)
-swap interval: 1 frames
-Windowed mode.
-Vendor: "b'Intel Inc.'"
-Renderer: b'Intel(R) UHD Graphics 617'
-Version: b'2.1 INTEL-18.5.8'
-Display Info: None
-Screen sizes: virtual=(1920, 1080) physical=(1338, 753) drawable=(2676, 1506)
-Maximum texture size: 4096x4096
-Resetting cache.
-Bootstrap to the start of init.init. took 946.22s
-Early init. took 0.00s
-Loader init. took 0.03s
-Loading error handling. took 0.06s
-Loading script. took 0.57s
-Loading save slot metadata. took 0.04s
-Loading persistent. took 0.00s
-Running init code. took 0.06s
-Loading analysis data. took 0.03s
-Analyze and compile ATL. took 0.01s
-Reloading save slot metadata. took 0.04s
-Index archives took 0.00s
-Backing up script files to '/Users/anastasiakozlova/Library/RenPy/backups/social-engineering-game':
-Dump and make backups. took 0.07s
-Cleaning cache. took 0.00s
-Making clean stores. took 0.00s
-Initial gc. took 0.05s
-DPI scale factor: 1.000000
-Creating interface object. took 0.00s
-Cleaning stores took 0.00s
-Init translation took 0.07s
-Build styles took 0.01s
-Load screen analysis took 0.00s
-Analyze screens took 0.03s
-Save screen analysis took 0.03s
-Prepare screens took 0.10s
-Save pyanalysis. took 0.00s
-Save bytecode. took 0.02s
+Save screen analysis took 0.05s
+Prepare screens took 0.16s
+Save pyanalysis. took 0.03s
+Save bytecode. took 0.05s
 Running _start took 0.00s
 Performance test:
 Interface start. took 0.09s
@@ -448,60 +202,17 @@ Display Info: None
 Screen sizes: virtual=(1920, 1080) physical=(1338, 753) drawable=(2676, 1506)
 Maximum texture size: 4096x4096
 Resetting cache.
-Bootstrap to the start of init.init. took 995.79s
-Early init. took 0.00s
-Loader init. took 0.01s
-Loading error handling. took 0.05s
-Loading script. took 0.49s
-Loading save slot metadata. took 0.06s
+Bootstrap to the start of init.init. took 3091.33s
+Early init. took 0.01s
+Loader init. took 0.06s
+Loading error handling. took 0.08s
+Loading script. took 0.61s
+Loading save slot metadata. took 0.05s
 Loading persistent. took 0.00s
 Running init code. took 0.07s
 Loading analysis data. took 0.04s
 Analyze and compile ATL. took 0.01s
-Reloading save slot metadata. took 0.08s
-Index archives took 0.00s
-Backing up script files to '/Users/anastasiakozlova/Library/RenPy/backups/social-engineering-game':
-Dump and make backups. took 0.13s
-Cleaning cache. took 0.00s
-Making clean stores. took 0.00s
-Initial gc. took 0.21s
-DPI scale factor: 1.000000
-Creating interface object. took 0.00s
-Cleaning stores took 0.00s
-Init translation took 0.14s
-Build styles took 0.01s
-Load screen analysis took 0.00s
-Analyze screens took 0.07s
-Save screen analysis took 0.04s
-Prepare screens took 0.27s
-Save pyanalysis. took 0.00s
-Save bytecode. took 0.06s
-Running _start took 0.00s
-Performance test:
-Interface start. took 0.13s
-
-Initializing gl2 renderer:
-primary display bounds: (0, 0, 1440, 900)
-swap interval: 1 frames
-Windowed mode.
-Vendor: "b'Intel Inc.'"
-Renderer: b'Intel(R) UHD Graphics 617'
-Version: b'2.1 INTEL-18.5.8'
-Display Info: None
-Screen sizes: virtual=(1920, 1080) physical=(1338, 753) drawable=(2676, 1506)
-Maximum texture size: 4096x4096
-Resetting cache.
-Bootstrap to the start of init.init. took 1043.36s
-Early init. took 0.00s
-Loader init. took 0.01s
-Loading error handling. took 0.04s
-Loading script. took 0.52s
-Loading save slot metadata. took 0.05s
-Loading persistent. took 0.00s
-Running init code. took 0.06s
-Loading analysis data. took 0.03s
-Analyze and compile ATL. took 0.01s
-Reloading save slot metadata. took 0.04s
+Reloading save slot metadata. took 0.05s
 Index archives took 0.00s
 Backing up script files to '/Users/anastasiakozlova/Library/RenPy/backups/social-engineering-game':
 Dump and make backups. took 0.08s
@@ -511,103 +222,17 @@ Initial gc. took 0.07s
 DPI scale factor: 1.000000
 Creating interface object. took 0.00s
 Cleaning stores took 0.00s
-Init translation took 0.07s
+Init translation took 0.09s
 Build styles took 0.01s
 Load screen analysis took 0.00s
 Analyze screens took 0.02s
-Save screen analysis took 0.06s
-Prepare screens took 0.13s
-Save pyanalysis. took 0.03s
-Save bytecode. took 0.03s
-Running _start took 0.00s
-Performance test:
-Interface start. took 0.11s
-
-Initializing gl2 renderer:
-primary display bounds: (0, 0, 1440, 900)
-swap interval: 1 frames
-Windowed mode.
-Vendor: "b'Intel Inc.'"
-Renderer: b'Intel(R) UHD Graphics 617'
-Version: b'2.1 INTEL-18.5.8'
-Display Info: None
-Screen sizes: virtual=(1920, 1080) physical=(1338, 753) drawable=(2676, 1506)
-Maximum texture size: 4096x4096
-Resetting cache.
-Bootstrap to the start of init.init. took 1073.09s
-Early init. took 0.00s
-Loader init. took 0.03s
-Loading error handling. took 0.10s
-Loading script. took 0.53s
-Loading save slot metadata. took 0.05s
-Loading persistent. took 0.00s
-Running init code. took 0.05s
-Loading analysis data. took 0.03s
-Analyze and compile ATL. took 0.01s
-Reloading save slot metadata. took 0.04s
-Index archives took 0.00s
-Backing up script files to '/Users/anastasiakozlova/Library/RenPy/backups/social-engineering-game':
-Dump and make backups. took 0.09s
-Cleaning cache. took 0.00s
-Making clean stores. took 0.00s
-Initial gc. took 0.06s
-DPI scale factor: 1.000000
-Creating interface object. took 0.00s
-Cleaning stores took 0.00s
-Init translation took 0.14s
-Build styles took 0.01s
-Load screen analysis took 0.00s
-Analyze screens took 0.03s
-Save screen analysis took 0.05s
-Prepare screens took 0.11s
+Save screen analysis took 0.04s
+Prepare screens took 0.09s
 Save pyanalysis. took 0.00s
-Save bytecode. took 0.03s
+Save bytecode. took 0.02s
 Running _start took 0.00s
 Performance test:
-Interface start. took 0.10s
-
-Initializing gl2 renderer:
-primary display bounds: (0, 0, 1440, 900)
-swap interval: 1 frames
-Windowed mode.
-Vendor: "b'Intel Inc.'"
-Renderer: b'Intel(R) UHD Graphics 617'
-Version: b'2.1 INTEL-18.5.8'
-Display Info: None
-Screen sizes: virtual=(1920, 1080) physical=(1338, 753) drawable=(2676, 1506)
-Maximum texture size: 4096x4096
-Resetting cache.
-Bootstrap to the start of init.init. took 1221.01s
-Early init. took 0.00s
-Loader init. took 0.03s
-Loading error handling. took 0.07s
-Loading script. took 0.96s
-Loading save slot metadata. took 0.05s
-Loading persistent. took 0.00s
-Running init code. took 0.07s
-Loading analysis data. took 0.06s
-Analyze and compile ATL. took 0.01s
-Reloading save slot metadata. took 0.06s
-Index archives took 0.00s
-Backing up script files to '/Users/anastasiakozlova/Library/RenPy/backups/social-engineering-game':
-Dump and make backups. took 0.12s
-Cleaning cache. took 0.00s
-Making clean stores. took 0.00s
-Initial gc. took 0.09s
-DPI scale factor: 1.000000
-Creating interface object. took 0.00s
-Cleaning stores took 0.00s
-Init translation took 0.07s
-Build styles took 0.00s
-Load screen analysis took 0.00s
-Analyze screens took 0.02s
-Save screen analysis took 0.03s
-Prepare screens took 0.17s
-Save pyanalysis. took 0.02s
-Save bytecode. took 0.03s
-Running _start took 0.00s
-Performance test:
-Interface start. took 0.10s
+Interface start. took 0.09s
 
 Initializing gl2 renderer:
 primary display bounds: (0, 0, 1440, 900)

@@ -1,7 +1,7 @@
 $ renpy.include("inventory.rpy")
+$ renpy.include("tutorial_story.rpy")
+$ renpy.include("level_1.rpy")
 
-define p3 = Character(_("Me"), color="#c8c8ff")
-define cathy2 = Character(_("Cathy"), color="#6fd066")
 define so = Character (_("Security Officer"), color="#3939f5")
 define hc = Character (_("Head Chef"), color="#3939f5")
 define s = Character (_("Server"), color="#3939f5")
@@ -234,17 +234,17 @@ label try_and_explain:
 
     so "Hey! What are you doing here? This area is off-limits at this time of night."
 
-    p3 "Oh, hi there! I was just passing by and heard this loud noise. It sounded like a cat in distress, so I thought I'd check it out."
+    p "Oh, hi there! I was just passing by and heard this loud noise. It sounded like a cat in distress, so I thought I'd check it out."
 
     # (raising an eyebrow)
     so "A cat, you say? And you decided to investigate by rummaging through our dumpsters?"
 
-    p3 "Well, I didn't exactly rummage. I was just trying to see if the cat was okay. It seemed scared."
+    p "Well, I didn't exactly rummage. I was just trying to see if the cat was okay. It seemed scared."
 
     so "I find that hard to believe. People don't usually wander around private property because they hear a cat. Do you have any ID on you? Why are you really here?"
 
     # (fumbling for an excuse)
-    p3 "I... um, I do have my ID. But honestly, I was just concerned about the cat. Nothing more."
+    p "I... um, I do have my ID. But honestly, I was just concerned about the cat. Nothing more."
 
     #(not convinced)
     so "I'm going to have to ask you to stay right here while I call this in. Your story doesn't add up, and you shouldn't be on this property without a valid reason."
@@ -281,11 +281,11 @@ label offer_snack:
 
 label player_with_phone:# [At home, Player with phone]
     "You decide to call Cathy and update her on your findings"
-    p3 "Hey Cathy, I found out about a secret meeting at the annual charity event."
-    cathy2 "Great! That means we have to be there and collect some evidence for my story!"
-    p3 "This will be impossible, I know that they have a guest list, we can’t just show up!"
-    cathy2 "I have a plan. As a journalist, I can go there without an invitation because they like it when the press reports on their generous charity event." 
-    cathy2 "I will steal some catering clothes and hide them outside for you." 
+    p "Hey Cathy, I found out about a secret meeting at the annual charity event."
+    c "Great! That means we have to be there and collect some evidence for my story!"
+    p "This will be impossible, I know that they have a guest list, we can’t just show up!"
+    c "I have a plan. As a journalist, I can go there without an invitation because they like it when the press reports on their generous charity event." 
+    c "I will steal some catering clothes and hide them outside for you." 
 
     jump next_day_2
 
@@ -313,10 +313,10 @@ label head_chef_route:
     "Despite your efforts to pose as the head chef, things don't go as smoothly as planned. The real head chef, who was briefly away, returns unexpectedly."
 
     hc "Excuse me? Who are you, and why are you wearing my uniform?"
-    p3 "Oh, my apologies! I'm the new chef brought in for the special menu tonight. They said there would be some changes, and I was told to coordinate directly with you."
+    p "Oh, my apologies! I'm the new chef brought in for the special menu tonight. They said there would be some changes, and I was told to coordinate directly with you."
 
     hc "Changes? No one informed me about any changes. What's your name?"
-    p3 "Chef Johnson. They rushed me in at the last minute for this event."
+    p "Chef Johnson. They rushed me in at the last minute for this event."
 
     hc "Johnson? I've been the head chef here for years, and I've never heard of you."
 
@@ -330,7 +330,7 @@ label head_chef_route:
 label caught_route:
 
     # go to checkpoint
-    p3 "Well, that is unfortunate, but I am the head chef for today."
+    p "Well, that is unfortunate, but I am the head chef for today."
     hc "Nice try, but I've been running this kitchen for years, and I know all my staff. And you're definitely not the chef approved for this event."
 
 label outside_route:
@@ -359,8 +359,8 @@ label insidefail:
 
 label insideserver:
 
-    cathy2 "Did you manage to get in?"
-    p3 "Yes, I am a server."
+    c "Did you manage to get in?"
+    p "Yes, I am a server."
     cathy "Ok meet me inside the ball room."
 
     "You pick up a tray with delicious food and step into the ball room. "
@@ -378,16 +378,16 @@ label insideserver:
 
 label insideguest:
 
-    cathy2 "Did you manage to get in?"
-    p3 "There was a slight complication I am now an official guest"
-    cathy2 "Ok meet me at the the dance floor "
+    c "Did you manage to get in?"
+    p "There was a slight complication I am now an official guest"
+    c "Ok meet me at the the dance floor "
 
     "Dressed in your elegant suit, you enter the ball room. "
     "You find yourself in the grand ball room with an assembly of well dressed individuals. "
     "The air is filled with excitement as the most important figures of the company mingle with wealthy potential donors. "
     "Your eyes scan the surroundings, on the lookout for Cathy. Amidst the crowd, she stands out in a long red dress. "
     "Purposefully, you make your way towards her."
-    p3 "May i ask you to a dance?"
+    p "May i ask you to a dance?"
     cathy "Sure!"
     "You and Cathy sway to the rhythm of the music, lost in the dance. "
     "Suddenly, she discreetly retrieves a small item from her purse and passes it to you inconspicuously. "

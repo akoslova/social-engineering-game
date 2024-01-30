@@ -1,9 +1,11 @@
 $ renpy.include("inventory.rpy")
 
+default povname = "Me"
+
 # Declare characters used by this game.
 define r = Character(_("Receptionist"), color="#c8ffc8")
 define t = Character(_("Toni"), color ="#ffffff")
-define p = Character(_("Me"), color="#c8c8ff")
+define p = Character("[povname]", color="#c8c8ff")
 define c = Character(_("Cathy"), color="#dde100")
 
 image Receptionist="receptionist.png"
@@ -36,7 +38,7 @@ label tutorial:
     
     r "Good morning. Are you new here? What’s your name?"
 
-    define p = Character("[povname]", color="#c8c8ff")
+    #define p = Character("[povname]", color="#c8c8ff")
 
     python:
         style.input.color = "#ffffff"
