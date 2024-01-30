@@ -1,7 +1,6 @@
 $ renpy.include("screens.rpy")
 $ i = 0
 
-
 screen inv_screen():
     modal False
 
@@ -133,3 +132,23 @@ screen nameInput(prompt):
             size 26
             color "#ffffff"
 
+screen map():
+    add "gui/map/background.png"
+
+    modal True 
+
+    imagebutton auto "gui/map/cafe_active_%s.png":
+        focus_mask True
+        action Hide("map"), Jump("start")
+
+    imagebutton auto "gui/map/core_active_%s.png":
+        focus_mask True
+        action Hide("map"), Jump("start")
+
+    imagebutton auto "gui/map/event_active_%s.png":
+        focus_mask True
+        action Hide("map"), Jump("start")
+
+    imagebutton auto "gui/map/tastyfood_active_%s.png":
+        focus_mask True
+        action Hide("map"), Jump("start")
