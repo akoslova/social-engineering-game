@@ -1,6 +1,6 @@
 $ renpy.include("inventory.rpy")
+$ renpy.include("tutorial_story.rpy")
 
-define p2 = Character(_("Me"), color="#c8c8ff")
 define cathy = Character(_("Cathy"), color="#6fd066")
 define l = Character(_("LaptopGuy"), color="#c8fff3")
 define c = Character (_("Christian"), color="#db8941")
@@ -39,7 +39,8 @@ image bg garage="bg garage.jpg"
 label level_1:
     scene bg n42
     show Me with easeinright
-    "After a long ride in the subway you finally reach N 42 Street which is very busy at that time. You notice small firms like 1940paper.inc, SmrtWays and many more having their unique blinking Signs and advertisements and the big banks and firms residing in massive Skyscrapers."
+    "After a long ride in the subway you finally reach N 42 Street which is very busy at that time."
+    "You notice small firms like 1940paper.inc, SmrtWays and many more having their unique blinking Signs and advertisements and the big banks and firms residing in massive Skyscrapers."
     "And also your target. It is right across the Metro Exit indicated by the big lettering on the glass front above the entrance. CORE it reads in big red letters."
 
     menu:
@@ -91,12 +92,12 @@ label Main_entrance:
 label interview:
 
 
-    p2 "Hello, I am here because I am interested in the position in the Customer Service department. Where do I have to go to talk to the appropiate person?"
+    p "Hello, I am here because I am interested in the position in the Customer Service department. Where do I have to go to talk to the appropiate person?"
     show Receptionist2 smile 
 
     r "Do you have a job interview? I have not received any information that applicants are coming for an interview today!"
 
-    p2 "No I was the area and wanted to swing by see how it goes"
+    p "No I was the area and wanted to swing by see how it goes"
 
     r "Ohh wow you have to submit an application online and then you might get invited for the interview Sir! So If you have no other questions please leave the lobby."
 
@@ -109,7 +110,7 @@ label interview:
 
 label basic_core:
 
-    p2 "What can you tell me about CORE?"
+    p "What can you tell me about CORE?"
 
     r "We are an international construcing buisness tasked to build and demolish buildings. For the rest, please check our homepage."
 
@@ -123,7 +124,7 @@ label basic_core:
 
 label flirt:
 
-    p2 "How you doin? "
+    p "How you doin? "
 
     #show Receptionist angry
     show Receptionist2 angry 
@@ -251,11 +252,11 @@ label Laptop_observation:
 
 label Say_something:
 
-    p2 "Hey Paul, how are you?"
+    p "Hey Paul, how are you?"
 
     l "I am not Paul!"
 
-    p2 "Sorry I confused you with someone else."
+    p "Sorry I confused you with someone else."
 
     "He is eyeing you warily and closes his laptop and starts leaving the coffee shop.
     That did not went well lets try something else!"
@@ -415,7 +416,7 @@ label Stop_observing:
 
 label Approach_guy:
 
-    p2 "Hey, Christian How are you?"
+    p "Hey, Christian How are you?"
 
     c " I am fine, just a bit stressed tho and who are you?"
 
@@ -430,18 +431,18 @@ label Approach_guy:
 
 label Real_name:
 
-    p2 "What department are you working in? I remember seeing your face somewhere in the onboarding process."
+    p "What department are you working in? I remember seeing your face somewhere in the onboarding process."
 
     c "Ooh I am from public relations work."
 
-    p2 "So I heard rumors that the company might be in trouble. Do you know anything about that? I just started here and I don't want to look again for a job. You know I have to care for my mom. She is already in elderly care and it is quite expensive."
+    p "So I heard rumors that the company might be in trouble. Do you know anything about that? I just started here and I don't want to look again for a job. You know I have to care for my mom. She is already in elderly care and it is quite expensive."
 
     c "I am not supposed to talk about things like that! But don't worry we have our methods to stop allegations of pesky reporters. 
         What department are you from?"
 
-    p2 "something with accounting."
+    p "something with accounting."
 
-    p2 "So is there something in the bush?"
+    p "So is there something in the bush?"
 
     c "I dont know who you are I have to leave now!"
 
@@ -451,21 +452,21 @@ label Real_name:
     
 label John_doe:
 
-    p2 "What department are you working in? I remember seeing your face somewhere in the onboarding process."
+    p "What department are you working in? I remember seeing your face somewhere in the onboarding process."
 
     c "Ooh I am from public relations work."
 
-    p2 "So I heard rumors that the company might be in trouble. Do you know anything about that? I just started here and I don't want to look again for a job. You know I have to care for my mom. She is already in elderly care and it is quite expensive."
+    p "So I heard rumors that the company might be in trouble. Do you know anything about that? I just started here and I don't want to look again for a job. You know I have to care for my mom. She is already in elderly care and it is quite expensive."
 
     c "I am not supposed to talk about things like that! But don't worry we have our methods to stop allegations of pesky reporters. 
         What department are you from?"
 
-    p2 "I am in the accounting division
+    p "I am in the accounting division
         So there is something in the bush?"
     
     c "I mean just the typical stuff supporting/buying politicians with money, not respecting the environment enough.. Nothing unheard off!"
 
-    p2 "Ok thank you! That calms me down a bit, have a nice break and see you!"
+    p "Ok thank you! That calms me down a bit, have a nice break and see you!"
 
     jump Stand_up
 
@@ -559,7 +560,7 @@ label withbadge:
 label securitydisguise:#wear tshirt with security on it
     "You wear your self designed T-shirt that says security and walk towards the main entrance."
     s "Hey you! Stop! Who are you?"
-    p2 "I am Drew, working for security of this company"
+    p "I am Drew, working for security of this company"
     s "That shirt is not part of our uniform. I will call the police."
 
 
@@ -576,7 +577,7 @@ label canteendisguise:
 
 label hideface:
     "Employee: Hey I’ve never seen you here, who are you?"
-    p2 "I’m Drew, just started working here."
+    p "I’m Drew, just started working here."
     "Employee: I haven't heard of a new colleague starting here." 
     "I feel like you are just trying to sneak inside the office for some reason. I will call security"
     menu:
@@ -600,12 +601,12 @@ label runoutside:
     
     
 label askhelp:
-    p2 "Hey, could you please help me with the box, you look like you are stronger than me."
+    p "Hey, could you please help me with the box, you look like you are stronger than me."
     "Employee: Oh yes sure!"
     "You hand him the box"
-    p2 "Thank you. Do you go to the gym?"
+    p "Thank you. Do you go to the gym?"
     "Employee: Thanks! Yes, I go almost every day."
-    p2 "Wow, you definetely need to give me work out tips. I have to go now though. See you!"
+    p "Wow, you definetely need to give me work out tips. I have to go now though. See you!"
     "Employee: Have a nice one!"
 
 
@@ -692,19 +693,19 @@ label apologize_and_engage:
     e4 "Hey, is everything alright here? You were looking at that desk pretty intently."
 
 
-    p2 "Oh, my apologies! I’m just trying to get my bearings. Everything's so high-tech here, and I’m still struggling with the basics, like those complex password policies."
+    p "Oh, my apologies! I’m just trying to get my bearings. Everything's so high-tech here, and I’m still struggling with the basics, like those complex password policies."
 
     e4 "Well, everyone has to follow the IT guidelines. It's for our own security. Are you sure you're in the right area?"
 
-    p2 "Yes, I'm just overwhelmed by the transition. Back at my last job, I had a simpler system for remembering passwords. Here, it's like you need an encryption key for everything. Do you ever find it a bit much?"
+    p "Yes, I'm just overwhelmed by the transition. Back at my last job, I had a simpler system for remembering passwords. Here, it's like you need an encryption key for everything. Do you ever find it a bit much?"
 
     e4 "I guess it can be a lot at first. But you shouldn't really be discussing password strategies openly. It’s a security risk."
 
-    p2 "Of course, I understand the need for confidentiality. I was just hoping for some generic tips on managing all these different systems. It's a bit daunting, you know?"
+    p "Of course, I understand the need for confidentiality. I was just hoping for some generic tips on managing all these different systems. It's a bit daunting, you know?"
 
     e4 "Well, without going into specifics, I suppose some of us might use familiar things to create a complex password. But that's as much as I can say. You really should be careful about these conversations."
 
-    p2 "I appreciate the advice. I'll be sure to keep that in mind. Thank you for your help."
+    p "I appreciate the advice. I'll be sure to keep that in mind. Thank you for your help."
 
     "Some people use familiar things to create a complex password."
     
@@ -717,45 +718,45 @@ label apologize_and_engage:
 label act_confused_and_ask_for_help:
 
     #BG in the cubicles
-    p2 "I'm sorry, I got lost in thought. I'm actually trying to find the meeting room. Can you point me in the right direction?"
+    p "I'm sorry, I got lost in thought. I'm actually trying to find the meeting room. Can you point me in the right direction?"
 
     e4 "Oh, of course! No problem at all. You'll want to head down this hallway, take the second left, and then it's the third door on your right. You can't miss it; there's a sign that says 'Meeting Room' right outside the door."
 
-    p2 "Thanks so much! This place is a bit of a maze."
+    p "Thanks so much! This place is a bit of a maze."
 
     e4 "Tell me about it! Took me a week to stop getting lost. If you need anything else, just let one of us know. Good luck with your meeting!"
 
-    p2 "I appreciate it. Have a great day!"
+    p "I appreciate it. Have a great day!"
 
     jump continue_exploring
 
 
 label feign_ignorance:
     #BG in the cubicles
-    p2 "Oh, this isn't my desk? I'm so sorry, I thought this was where I was supposed to be for my orientation. Do you know where that is?"
+    p "Oh, this isn't my desk? I'm so sorry, I thought this was where I was supposed to be for my orientation. Do you know where that is?"
 
     e4 "No worries at all! It can be confusing around here on your first day. Your orientation is actually happening in the conference room on the first floor. If you take the elevator down, it's right across from the reception area. You'll see a sign marked 'Orientation' outside the door."
 
-    p2 "Thank you for being so understanding. I'll head down there right away. Hopefully, I haven't missed too much."
+    p "Thank you for being so understanding. I'll head down there right away. Hopefully, I haven't missed too much."
 
     e4 "I'm sure you'll be just fine. They usually start with introductions and some basic company policies, so you should be able to catch up quickly. If you need help finding anything else, just ask anyone here. We're all happy to help."
 
-    p2 "Thanks again. I'll do that. Have a good day!"
+    p "Thanks again. I'll do that. Have a good day!"
 
     jump continue_exploring
 
 label deflect_with_humor:
 
     #BG in the cubicles
-    p2 "I guess I'm just mesmerized by all the hustle and bustle here. It's like trying to remember a password you just created and forgot two seconds later. Happens to you too, right?"
+    p "I guess I'm just mesmerized by all the hustle and bustle here. It's like trying to remember a password you just created and forgot two seconds later. Happens to you too, right?"
 
     e4 "Oh, absolutely! It's like my brain decides to do a hard reset the moment I hit 'save'. Just the other day, I spent 20 minutes resetting my password, only to realize I was typing it wrong because I forgot I added an exclamation mark at the end. It's always the special characters that get me."
 
-    p2 "I know, right? I think our brains weren't designed to hold onto complex passwords mixed with numbers, letters, and symbols. Maybe we should just start using 'password123' and call it a day."
+    p "I know, right? I think our brains weren't designed to hold onto complex passwords mixed with numbers, letters, and symbols. Maybe we should just start using 'password123' and call it a day."
 
     e4 "Wouldn't that make our IT security team's heads spin! Imagine the chaos. But yeah, I feel you. Keeping track of all these passwords is a full-time job by itself."
 
-    p2 "Definitely. Well, I better get back to trying to navigate this place. Thanks for the laugh!"
+    p "Definitely. Well, I better get back to trying to navigate this place. Thanks for the laugh!"
 
     e4 "Anytime! If you ever need a break from the password madness, you know where to find some sympathy. Good luck finding your way around!"
 
@@ -768,41 +769,41 @@ label colleagues_chatting_nearby:
     e5 "Hey, you're new here, right? We were just talking about the team-building event. Did you enjoy it?"
 
 
-    p2 "Hey, I am new here! The team-building event was really fun. I got to learn a lot about my new colleagues. How about you guys?"
+    p "Hey, I am new here! The team-building event was really fun. I got to learn a lot about my new colleagues. How about you guys?"
 
     e6 "Oh, it was great! I think it’s always good to step out of the work routine and get to know each other in a different setting."
 
     e5 "Absolutely. Plus, it was fun sharing those quirky facts about ourselves. Like, who would've thought I’d be using the year I joined this company as a fun fact?"
 
-    p2 "That’s pretty interesting. Does the year hold a special significance for you?"
+    p "That’s pretty interesting. Does the year hold a special significance for you?"
 
     e5 "Well, it was a major turning point in my career, so yeah, it’s significant for me. Plus, it’s easy to remember, which always helps."
 
     e6 "I went with something less obvious. I talked about my weird hobby of collecting vintage postcards."
 
-    p2 "That’s really unique, Sam. It must be quite a collection."
+    p "That’s really unique, Sam. It must be quite a collection."
 
     e6 "It is! Anyway, how did you find the password setup here? A bit daunting, isn't it?"
 
-    p2 "Yeah, it's definitely more complex than my previous job. I'm trying to come up with something strong yet memorable."
+    p "Yeah, it's definitely more complex than my previous job. I'm trying to come up with something strong yet memorable."
 
     e5 "That's always the challenge. I always suggest mixing personal elements with random characters. Makes it strong and personal."
 
     e6 "But not too personal, or obvious. Like, don't use your pet's name or anything. Everyone does that."
 
-    p2 "Right, I was thinking along the lines of something related to my start here. Maybe mixing in the year with other characters."
+    p "Right, I was thinking along the lines of something related to my start here. Maybe mixing in the year with other characters."
 
     e5 "Hmm, it could work, but be careful with using anything too straightforward. The year on its own is a bit risky. You need to throw in some curveballs."
 
-    p2 "Got it, thanks for the tip. I’ll make sure it’s not something easily guessable."
+    p "Got it, thanks for the tip. I’ll make sure it’s not something easily guessable."
 
     e6 "Yeah, and remember, these conversations about passwords are a bit sensitive. Best to keep the specifics to ourselves."
 
-    p2 "Of course, I appreciate the advice. I'll come up with something solid and secure."
+    p "Of course, I appreciate the advice. I'll come up with something solid and secure."
 
     e5 "That's the spirit. And hey, welcome to the team! If you need any help, feel free to ask us."
 
-    p2 "Thanks! I'm sure I'll fit right in."
+    p "Thanks! I'm sure I'll fit right in."
 
 
     "Some people use mixing personal elements with random characters for passwords" 
@@ -837,9 +838,9 @@ label employees_using_elevator:
     # [BG: Elevators]
     "Spotting an opportunity, you approach an employee who looks like they might be heading to an IT support session."
 
-    p2 "Hi, I couldn't help overhearing you're heading to IT. I'm new here and still figuring things out. Any advice on managing all these passwords we have to use?"
+    p "Hi, I couldn't help overhearing you're heading to IT. I'm new here and still figuring things out. Any advice on managing all these passwords we have to use?"
     e8 "Oh, hi. Honestly, I just follow whatever the IT guidelines say. Can't really go wrong with that, right?"
-    p2 "True, true. I was just wondering if there's a trick to remembering them. I always find myself getting them mixed up."
+    p "True, true. I was just wondering if there's a trick to remembering them. I always find myself getting them mixed up."
     e8 "Sorry, I can't really help you there. I just do my best to keep them straight. Maybe IT could give you some tips?"
     
     "The employee gives a polite but dismissive smile and continues on their way, offering no further information."
@@ -877,15 +878,15 @@ label support_staff_contacts:
     "Feeling like an undercover agent, you decide to explore the support staff, aiming for the custodian – Burt W. Mopbucket, the head of janitorial services. You figure Burt might have some amusing stories about his experiences while cleaning up after everyone."
     "Dialing Burt's number, you brace yourself for a less-than-warm reception."
 
-    p2 "Hello, Burt? It's Mike from HR. Just doing a quick check-in. Any interesting or amusing things happening during your janitorial adventures?"
+    p "Hello, Burt? It's Mike from HR. Just doing a quick check-in. Any interesting or amusing things happening during your janitorial adventures?"
     #disgruntled
     burt "Mike from HR? What's this about? I've got a mop in my hand, and I'm not in the mood for chit-chat."
 
-    p2 "No chit-chat, Burt. Just wondering if you've come across any funny incidents or quirky moments while keeping our workplace spick and span."
+    p "No chit-chat, Burt. Just wondering if you've come across any funny incidents or quirky moments while keeping our workplace spick and span."
 
     burt "Look, Mike, I'm not here to gossip. I've got a job to do. If you need something cleaned up, submit a request through the proper channels."
 
-    p2 "Sure thing, Burt. Keep up the excellent work on those floors."
+    p "Sure thing, Burt. Keep up the excellent work on those floors."
 
     # You can't go back to this option
     
@@ -898,17 +899,17 @@ label middle_contacts:
 
     "You dial Ivy's number and, after a few rings, she picks up."
 
-    p2 "Hi, Ivy, it's Mike from HR. Just checking in to see if there's anything interesting happening in the documentation world. Any quirky office stories or unique challenges you've faced lately?"
+    p "Hi, Ivy, it's Mike from HR. Just checking in to see if there's anything interesting happening in the documentation world. Any quirky office stories or unique challenges you've faced lately?"
 
 
     #Guarded and skeptical
     ivy "Mike from HR? This isn't some kind of survey, is it? I'm pretty busy here."
 
-    p2 "No survey, Ivy. Just trying to get a feel for the exciting world of middle management. Any funny anecdotes or amusing incidents you'd like to share?"
+    p "No survey, Ivy. Just trying to get a feel for the exciting world of middle management. Any funny anecdotes or amusing incidents you'd like to share?"
 
     ivy "I'm not sure what you're getting at, Mike. We just handle paperwork and try to keep things running smoothly. If you have HR-related questions, you should go through the proper channels."
 
-    p2 "Got it, Ivy. Just thought I'd lighten the mood with some office tales."
+    p "Got it, Ivy. Just thought I'd lighten the mood with some office tales."
 
     jump encounter_with_office_cat
 
@@ -934,19 +935,19 @@ label introduce_as_IT:
 
 
     "You claim to be from IT support, conducting a routine check, and ask him for his computer details."
-    p2 "Hello, Mr. Johnson? This is Alex from IT support. We're conducting a routine check on all executive accounts today. Can I get your computer's model and current operating system version to ensure everything's up to date?"
+    p "Hello, Mr. Johnson? This is Alex from IT support. We're conducting a routine check on all executive accounts today. Can I get your computer's model and current operating system version to ensure everything's up to date?"
 
     mr_johnson "IT support, you say? That's odd; I wasn't notified of any routine checks happening today. Can you tell me exactly what kind of updates you're referring to?"
 
-    p2 "Oh, it's just standard procedure, sir. We're ensuring that all systems are secure and fully updated to prevent any potential security breaches. It's more of a precautionary measure."
+    p "Oh, it's just standard procedure, sir. We're ensuring that all systems are secure and fully updated to prevent any potential security breaches. It's more of a precautionary measure."
 
     mr_johnson "I see. But shouldn't these updates be automatic? And usually, for anything regarding executive accounts, there's an email sent out from IT. Can you verify which department you're calling from?"
 
-    p2 "Yes, of course, updates are typically automatic. However, for high-level executive accounts, we perform manual checks to personalize the security settings. I'm calling from the main IT department. Would you mind providing me with the requested details so we can proceed?"
+    p "Yes, of course, updates are typically automatic. However, for high-level executive accounts, we perform manual checks to personalize the security settings. I'm calling from the main IT department. Would you mind providing me with the requested details so we can proceed?"
 
     mr_johnson "I think I'd be more comfortable verifying this call with our IT department directly before giving out any information. Can I have your extension so I can call you back?"
 
-    p2 "Actually, Mr. Johnson, I'm currently not at my desk, but I assure you, this won't take long. It's just a formality we need to complete for our records."
+    p "Actually, Mr. Johnson, I'm currently not at my desk, but I assure you, this won't take long. It's just a formality we need to complete for our records."
 
     mr_johnson "I'm sorry, but without proper verification, I'm not comfortable disclosing any information over the phone. I'll reach out to our IT department myself and follow up on this. Goodbye."
 
@@ -957,15 +958,15 @@ label introduce_as_IT:
 
 label pretend_to_be_CEO:
 
-    p2 "Hello, Mr. Johnson? This is your CEO. I'm currently reviewing some critical documents for our upcoming board meeting and seem to be having trouble accessing the financial projections. I need to check them from another account. Could you assist me by providing your login credentials so I can verify some details urgently?"
+    p "Hello, Mr. Johnson? This is your CEO. I'm currently reviewing some critical documents for our upcoming board meeting and seem to be having trouble accessing the financial projections. I need to check them from another account. Could you assist me by providing your login credentials so I can verify some details urgently?"
 
     mr_johnson "I'm sorry, but this is quite unusual. For security reasons, we're advised never to share our login credentials. Could you perhaps specify which documents you need? I can access and share them through a secure channel."
 
-    p2 "I understand your hesitation, but given the urgency and the sensitive nature of the information, this seemed like the most direct approach. It's just this once, for expediency."
+    p "I understand your hesitation, but given the urgency and the sensitive nature of the information, this seemed like the most direct approach. It's just this once, for expediency."
 
     mr_johnson "I appreciate the urgency, but sharing login details over the phone goes against our company's security policies. I can help in another way or perhaps we can arrange for IT to grant you temporary access?"
 
-    p2 "I see your point, and I respect your adherence to our security protocols. Let's go with your suggestion and involve IT for the appropriate access. My apologies for the unconventional request."
+    p "I see your point, and I respect your adherence to our security protocols. Let's go with your suggestion and involve IT for the appropriate access. My apologies for the unconventional request."
 
     mr_johnson "No problem, I'll get in touch with IT right away and ensure they expedite your access. Thank you for understanding the importance of following our security protocols."
 
@@ -975,35 +976,35 @@ label pretend_to_be_CEO:
 
 
 label pretend_to_be_colleague:
-    p2 "Hello, Mr. Johnson? It's Mike from HR. I hope I'm not catching you at a bad time."
+    p "Hello, Mr. Johnson? It's Mike from HR. I hope I'm not catching you at a bad time."
 
     mr_johnson "Oh, hey Mike! No problem at all. What can I do for you?"
 
-    p2 "Well, I've been settling into my new role and heard some interesting rumors floating around the office. People are mentioning something about scandalous files on the network. Any truth to that?"
+    p "Well, I've been settling into my new role and heard some interesting rumors floating around the office. People are mentioning something about scandalous files on the network. Any truth to that?"
 
     mr_johnson "Scandalous files? That's an unusual thing to hear about. Where did you get that information, Mike?"
 
-    p2 "Just some water cooler talk, you know how it goes. I thought I'd check in with someone in the know, like you. Keep it between us, though."
+    p "Just some water cooler talk, you know how it goes. I thought I'd check in with someone in the know, like you. Keep it between us, though."
 
     mr_johnson "Water cooler talk, huh? Seems a bit odd for that to be the topic of casual conversation. Why are you so interested in this, Mike?"
 
-    p2 "Oh, it's just the usual office grapevine, you know? Curiosity got the better of me. I figured I'd check with someone who has the real scoop."
+    p "Oh, it's just the usual office grapevine, you know? Curiosity got the better of me. I figured I'd check with someone who has the real scoop."
 
     mr_johnson "Well, yes, there is a computer in Room 303 with some sensitive information, but it's nothing for everyone to be discussing. Keep it quiet, alright?"
 
-    p2 "Absolutely, Mr. Johnson. I get it; sensitive stuff. Your secret's safe with me. Anything I should be aware of, or is it all under control?"
+    p "Absolutely, Mr. Johnson. I get it; sensitive stuff. Your secret's safe with me. Anything I should be aware of, or is it all under control?"
 
     mr_johnson "We're handling it. Just be cautious about spreading rumors, Mike. We don't need unnecessary panic around here."
 
-    p2 "Of course, Mr. Johnson. I appreciate the heads up. If there's anything I can do to assist or keep things under wraps, you know where to find me."
+    p "Of course, Mr. Johnson. I appreciate the heads up. If there's anything I can do to assist or keep things under wraps, you know where to find me."
 
     mr_johnson "Thanks, Mike. Let's keep it professional around here, alright? I don't want this turning into a bigger issue than it needs to be."
 
-    p2 "Agreed, Mr. Johnson. I'll be sure to keep things on the down-low. Anything else I should know or any way I can help with the situation?"
+    p "Agreed, Mr. Johnson. I'll be sure to keep things on the down-low. Anything else I should know or any way I can help with the situation?"
 
     mr_johnson "No, just focus on your work for now. We'll handle this internally. If we need anything from HR, we'll reach out. Thanks for checking in, Mike."
 
-    p2 "No problem, Mr. Johnson. I'm here if you need anything. Have a good day."
+    p "No problem, Mr. Johnson. I'm here if you need anything. Have a good day."
 
     jump encounter_with_office_cat
 
@@ -1027,10 +1028,10 @@ label pet_the_cat:
 
 
     "You take a moment to pet the cat, appreciating the unexpected companionship."
-    p2 "Well, aren't you a friendly one? Need a partner in crime, huh?"
+    p "Well, aren't you a friendly one? Need a partner in crime, huh?"
     "The cat unexpectedly nudges a wall panel with its head, revealing a hidden compartment."
 
-    p2 "Now that's interesting. What secrets are you hiding, my furry friend?"
+    p "Now that's interesting. What secrets are you hiding, my furry friend?"
 
     "Inside the compartment, you find a set of old keys."
 
@@ -1078,7 +1079,7 @@ label unlock_the_computer:
 
     "Frustrated by the password prompt, you decide to take a more direct approach and attempt to unlock the computer. Trying a few common passwords that often slip people's minds or are used out of convenience, you input variations of 'password,' '123456,' and 'admin,' but to no avail. The computer remains securely locked, refusing to grant access."
 
-    p2 "Well, that was worth a shot."
+    p "Well, that was worth a shot."
 
     #Then you look in the INVENTORY and find out about the photo of a dog, a document in which date of #birth is mentioned and the photo you find after opening the cupboard.
 
@@ -1115,7 +1116,7 @@ label hidden_camera:
 label disable_the_camera:
     "With a sense of urgency, you decide to disable the hidden security camera to avoid leaving any evidence of your covert operation. Stealthily reaching into your pocket, you pull out a small toolkit equipped with electronic gadgets."
 
-    p2 "Time to go incognito."
+    p "Time to go incognito."
 
     "Carefully, you open the panel concealing the camera's wires, aiming to cut the power source or manipulate its circuits. However, in the process, a tiny alarm is triggered, and a soft electronic beep resonates in the room."
 
@@ -1137,7 +1138,7 @@ label evade_camera_view:
 label create_a_distraction:
     "Thinking quickly, you decide to create a distraction to divert attention away from the camera's view. Your plan is to trigger a minor, but noticeable incident elsewhere in the room to draw the camera's focus."
 
-    p2 "Let's cause a little diversion."
+    p "Let's cause a little diversion."
     "You spot a small stack of papers near a fan. Moving cautiously, you turn the fan to its highest setting, aiming to scatter the papers across the room. The idea is that the fluttering papers will create enough movement to redirect the camera's attention temporarily."
     "As you activate the fan, the papers whirl into the air, creating a chaotic flurry. However, this action inadvertently triggers the room's motion sensors, which are linked to the security system."
     
@@ -1166,7 +1167,7 @@ label act_casual:
 
     "You act casual, pretending to be lost."
 
-    p2 "Oh, hey there. I was just trying to find the restroom, and I must have taken a wrong turn. Sorry about that!"
+    p "Oh, hey there. I was just trying to find the restroom, and I must have taken a wrong turn. Sorry about that!"
 
     "The employee eyes you skeptically but seems to buy your explanation. He points you in the direction of the restroom, and you proceed as if nothing happened."
 
@@ -1177,7 +1178,7 @@ label act_casual:
 
 label confront_the_employee:
 
-    p2 "Oh, hey there. I'm just doing some maintenance work. Got a call about an issue with the camera in this room."
+    p "Oh, hey there. I'm just doing some maintenance work. Got a call about an issue with the camera in this room."
 
     e9 "Maintenance? I didn't hear anything about that."
 
@@ -1235,7 +1236,7 @@ label leavealone:
 #[Security guard will tap on your shoulder, you turn around]
     s "Where is your ID card"
 
-    p2 "I must have lost it, it was right there on my pants"
+    p "I must have lost it, it was right there on my pants"
 
     menu:
 
@@ -1295,7 +1296,7 @@ label berude:
 #[Surprised look]
     "It’s ok Ryan, you can pass. Next time bring your ID."
 
-    p2 "That was close. Thank god, I got out of here. I am going to meet Cathy to tell her about everything."
+    p "That was close. Thank god, I got out of here. I am going to meet Cathy to tell her about everything."
 
     jump cathymeet
 
@@ -1313,7 +1314,7 @@ label christian:
 
 #outside
 
-    p2 "That was close. Thank god, I got out of here. I am going to meet Cathy to tell her about everything."
+    p "That was close. Thank god, I got out of here. I am going to meet Cathy to tell her about everything."
 
     jump cathymeet
 
@@ -1372,7 +1373,7 @@ label rushout:
 
    "You ran out of the back door of the canteen kitchen. However the canteen staff noticed you were acting very suspiciously." 
 
-   p2 "That was close. Thank god, I got out of here. I am going to meet Cathy to tell her about everything."
+   p "That was close. Thank god, I got out of here. I am going to meet Cathy to tell her about everything."
 
    jump cathymeet
 
@@ -1415,7 +1416,7 @@ label apology2:
     "She gives you a weird look but then turns away to continue doing her job. "
     "You are relieved that she didn’t ask you anything and rush out through the back door as fast as you can."
 #Outside
-    p2 "Thank god, I got out of here. I am going to meet Cathy to tell her about everything."
+    p "Thank god, I got out of here. I am going to meet Cathy to tell her about everything."
 
     jump cathymeet
 
@@ -1433,7 +1434,7 @@ label leavekitchen:
 
     "You left the building out of the back door of the kitchen."
 
-    p2 "Thank god, nobody caught me. I am going to meet Cathy to tell her about everything."
+    p "Thank god, nobody caught me. I am going to meet Cathy to tell her about everything."
 
     jump cathymeet
 
@@ -1450,24 +1451,26 @@ label leavemain:
     s "Hey there! Stop!"
     "Oh no, I got caught..."
     s "Hey you lost your wallet"
-    p2 "Player: Oh thank you Sir! "
+    p "Player: Oh thank you Sir! "
 
     "You rush out of the building" 
-    p2 "Thank god, nobody caught me. I am going to meet Cathy to tell her about everything."
+    p "Thank god, nobody caught me. I am going to meet Cathy to tell her about everything."
 
     jump cathymeet
 
 label cathymeet:
     
-    p2 "Hey Cathy, I checked out CORE today but I could find any valid information. I just found this photograph in the trash. Maybe we should give up and move on.."
+    p "Hey Cathy, I checked out CORE today but I could find any valid information. I just found this photograph in the trash. Maybe we should give up and move on.."
 
     cathy "Hmm, I am sorry.. let me see the photo. "
 #[show photo]
     "C: Wait. That’s senator John Smith right there. Why would he be in this picture? "
-    p2 "That’s surprising, I didn’t know that. The other people are the CEOs of CORE."
+    p "That’s surprising, I didn’t know that. The other people are the CEOs of CORE."
 
     cathy "I have the feeling that something is wrong. Maybe you could find more information about Senator Smith, next."
 
-    p2 "Okay, I will be in touch!"
+    p "Okay, I will be in touch!"
+
+    jump start
 
  

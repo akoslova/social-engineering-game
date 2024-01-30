@@ -332,3 +332,4 @@ label next_day:
     "{i}Your goal was updated. {\i}"
 
     #Notebook Map is introduced
+    jump start

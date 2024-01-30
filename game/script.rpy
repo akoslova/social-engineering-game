@@ -38,8 +38,6 @@ screen levels(adj):
             imagebutton auto "gui/levelselection/" + i.label + "_unlocked_%s.png":
                 focus_mask True
                 action Jump(i.label)
-                #left_padding 20
-                #xfill True
         else:
             imagebutton auto "gui/levelselection/" + i.label + "_locked_%s.png":
                 focus_mask True
@@ -50,7 +48,7 @@ screen levels(adj):
 default tutorials_adjustment = ui.adjustment()
 
 
-label  start:
+label start:
 
     #call screen levels
     call screen levels(adj=tutorials_adjustment)

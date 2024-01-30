@@ -396,3 +396,4 @@ label insideguest:
 
     "While dancing, your eyes keenly scan the faces of the gathered guests. Among the sea of influential figures, you spot the Senator John Smith from your picture."
 
+    jump start
