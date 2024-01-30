@@ -314,7 +314,8 @@ label remembered_2:
 
     c "Avocados aha, that can not be it right?"
 
-        "I remember reading about forest clearance and farmer strikes" :
+    menu:
+        "I remember reading about forest clearance and farmer strikes":
             jump remembered_1
     
 
@@ -325,8 +326,9 @@ label remembered_3:
 
     c "Thats more interesting but what is it about?"
 
-        "I remember reading about forest clearance and farmer strikes" :
-            jump remembered_1
+    "I remember reading about forest clearance and farmer strikes" 
+    
+    jump remembered_1
 
 
 label remembered_1:
