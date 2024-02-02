@@ -13,6 +13,7 @@ define e6 = Character (_("Employee 6"), color="#6fd066")
 define e7 = Character (_("Employee 7"), color="#6fd066")
 define e8 = Character (_("Employee 8"), color="#6fd066")
 define e9 = Character (_("Employee 9"), color="#6fd066")
+define e10 = Character (_("Employee 10"), color="#6fd066")
 define ivy = Character (_("Ivy P. Paperwork"), color="#6a5acd")
 define burt = Character (_("Burt W. Mopbucket"), color="#20b2aa")
 define staff = Character (_("IT Staff"), color="#ff6347")
@@ -601,7 +602,7 @@ label leaving_hastly:
     "{i}Your goal was updated. {\i}"
     jump getinside
 
-label getinside:
+label getinside: #checkpoint 3
 
     menu:
         "Go to the company disguised as a canteen employee":
@@ -618,7 +619,7 @@ label securitydisguise: #wear tshirt with security on it
     "You wear your self designed T-shirt that says security and walk towards the main entrance."
     s "Hey you! Stop! Who are you?"
     p "I am Drew, working for security of this company"
-    s "That shirt is not part of our uniform. I will call the police."
+    s "That shirt is not part of our uniform. I will call the police."#goto checkpoint 3
 
 label canteendisguise:
     "Disguised as canteen employee, you walk towards the back entrance that leads to the company’s canteen. Heavily loaded and appearing to be busy with work, you move toward the door and open it. Then suddenly a kitchen employee looks at you weirdly."
@@ -655,15 +656,15 @@ label runoutside:
     "While calming you breath you think about how to enter the building instead."
     jump inside_building
     
-    
+    #e10: man who looks like he goes to the gym in cooking clothes
 label askhelp:
     p "Hey, could you please help me with the box, you look like you are stronger than me."
-    "Employee: Oh yes sure!"
+    e10 "Oh yes sure!"
     "You hand him the box"
     p "Thank you. Do you go to the gym?"
-    "Employee: Thanks! Yes, I go almost every day."
+    e10  "Thanks! Yes, I go almost every day."#flattered expression
     p "Wow, you definitely need to give me work out tips. I have to go now though. See you!"
-    "Employee: Have a nice one!"
+    e10 "Have a nice one!"
 
     jump inside_building
 
@@ -1276,7 +1277,7 @@ label confront_the_employee:
 
 label Leaving_building:
 
-    "I should get out of here before anyone catches me."
+    "I should get out of here before anyone catches me." #checkpoint4
 
     menu:
 
@@ -1307,7 +1308,7 @@ label leavealone:
         "Take the ID badge in your inventory" if badge_found:
             jump idcard
 
-label punch:
+label punch:#scene you punching him
 
     "You punch him in the face and run as fast as you can. But only after three steps one of the security guards pulls you back and holds you tight. "
     
@@ -1324,7 +1325,7 @@ label apology:
         "I am Christian Baker":
             jump christian
 
-label ryan:
+label ryan:#confused
 
     s "There is no Ryan Nordberg in our system."
 
@@ -1345,14 +1346,16 @@ label lie:
     "As you are waiting for the police you know that you will not be able to continue your mission and that you have to take accountability for your illegal activities."
 
     #gameover
-    jump Caught # like that?
+    jump Caught # like that? #go to checkpoint4
 
 label berude:
 
 #[Surprised look]
 #TO DO
 
-    "It’s ok Ryan, you can pass. Next time bring your ID."
+    s "It’s ok Ryan, you can pass. Next time bring your ID."#friendly
+
+    #outside
 
     p "That was close. Thank god, I got out of here. I am going to meet Cathy to tell her about everything."
 
@@ -1375,7 +1378,7 @@ label christian:
 
 label leavecanteen:
 
-    "You change back into your kitchen clothes and walk into the company's kitchen."
+    "You change back into your kitchen clothes and walk into the company's kitchen." #you with kitchen clothes
 
     "The kitchen is brimming with energy and hectic as chefs and kitchen staff hustle to prepare dishes for the employees. No one really pays attention to you. "
     "You feel safe and almost reach the exit door but suddenly a woman stops you in front of the door."
@@ -1393,7 +1396,7 @@ label decline:
 
     k1 "Ok, that is unfortunate. I will do it myself then"
 
-    "You see that some of the canteen employees starts looking at you skeptical"
+    "You see that some of the canteen employees starts looking at you skeptical"#skeptic look
     menu:
 
         "Rush out as fast as you can.":
@@ -1473,7 +1476,7 @@ label flirt2:
 
     "You apologize for offending her but now all eyes in the kitchen are on you. You see her calling security on her phone, knowing that you will not get out of this situation anymore."
 
-    jump Caught
+    jump Caught #goto checkpoint 4
 
 label leavekitchen:
 
@@ -1500,14 +1503,14 @@ label leavemain:
 
     jump cathymeet
 
-label cathymeet:
+label cathymeet:#meet her in a cafe/bar
     
     p "Hey Cathy, I checked out CORE today but I could find any valid information. I just found this photograph in the trash. Maybe we should give up and move on.."
 
     c "Hmm, I am sorry.. let me see the photo. "
 #[show photo]
 #to do
-    "C: Wait. That’s senator John Smith right there. Why would he be in this picture? "
+    c "Wait. That’s senator John Smith right there. Why would he be in this picture? "
     p "That’s surprising, I didn’t know that. The other people are the CEOs of CORE."
 
     c "I have the feeling that something is wrong. Maybe you could find more information about Senator Smith, next."
