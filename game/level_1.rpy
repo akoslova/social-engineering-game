@@ -1,6 +1,6 @@
 $ renpy.include("inventory.rpy")
 $ renpy.include("tutorial_story.rpy")
-
+languageTool.language
 define l = Character(_("LaptopGuy"), color="#c8fff3")
 define c = Character (_("Christian"), color="#db8941")
 define s = Character (_("Security Officer"), color="#3939f5")
@@ -39,7 +39,7 @@ label level_1:
     show Me with easeinright
     "After a long ride in the subway you finally reach N 42 Street which is very busy at that time."
     "You notice small firms like 1940paper.inc, SmrtWays and many more having their unique blinking Signs and advertisements and the big banks and firms residing in massive Skyscrapers."
-    "And also your target. It is right across the Metro Exit indicated by the big lettering on the glass front above the entrance. CORE it reads in big red letters."
+    "And also, your target. It is right across the Metro Exit indicated by the big lettering on the glass front above the entrance. CORE it reads in big red letters."
 
 label investigate:
 
@@ -112,9 +112,9 @@ label interview:
 
     r "Do you have a job interview? I have not received any information that applicants are coming for an interview today!"
 
-    p "No I was the area and wanted to swing by see how it goes"
+    p "No I was the area and wanted to swing by, see how it goes"
 
-    r "Ohh wow you have to submit an application online and then you might get invited for the interview Sir! So If you have no other questions please leave the lobby."
+    r "Ohh wow! You have to submit an application online and then you might get invited for the interview Sir! So If you have no other questions please leave the lobby."
 
     menu:
 
@@ -207,7 +207,7 @@ label success:
 
     $ inventory.add_data(overall)
 
-    "{i}The beige overall was added to your notebook. {\i}"
+    "{i}The beige overall was added in your notebook. {\i}"
 
     $ overall_success = True
   
@@ -272,7 +272,7 @@ label Laptop_observation:
 
     "You choose to sit on a table with a guy on his laptop in close proximity."
 
-    #maybe also count choices and hide if they were already selected?
+    #maybe also count choices and hide if they were already selected? YES
     menu:
 
         "Turn around and talk to him while trying to read of his screen":
@@ -296,7 +296,7 @@ label Say_something:
     "He is eyeing you warily and closes his laptop and starts leaving the coffee shop.
     That did not went well lets try something else!"
 
-    jump Laptop_observation
+    jump Laptop_observation #This makes no sense as you can still proceed without the information from this -> Should Jump to Follow people and Laptop choice is gone
 
 
 label Look_shoulder:
@@ -443,7 +443,7 @@ label Caught:
 
     "You lost the level and need to restart"
     jump level_1
-    # here the Player gets caught - Checkpoint
+    # here the Player gets caught - Checkpoint should be before entering the coffee shop (No need to investigate building again if done so already)
 
 
 label Stop_observing:
@@ -481,11 +481,11 @@ label Real_name:
     c "I am not supposed to talk about things like that! But don't worry we have our methods to stop allegations of pesky reporters. 
         What department are you from?"
 
-    p "something with accounting."
+    p "Something with accounting."
 
     p "So is there something in the bush?"
 
-    c "I dont know who you are I have to leave now!"
+    c "I dont know who you are. I have to leave now!"
 
     "He gets up and leaves while giving you a mistrustful look."
 
@@ -516,7 +516,7 @@ label Stand_up:
     "You got some information. Maybe you can try to observe something else now."
 
     menu:
-            #If not done so already!
+            #If not done so already! Count choice
         "Eavesdrop employees conversation.":
             jump Employee_conversation
             
@@ -579,11 +579,11 @@ label leave_shop:
     $ inventory.add_data(badge)
 
     $ badge_found = True
-    "{i}The badge was added to your notebook. {\i}"
+    "{i}The badge was added in your notebook. {\i}"
 
     "Check your notebook for everything you learned about." #John Doe and christian baker should have an entry
 
-    #TO DO - where do you jump to?
+    #TO DO - where do you jump to? Transition Blackscreen could be fine
     "It's the next day. You gathered a lot of information and now want to target CORE and try to get inside their head quarter."
 
     $ todo.update_aim("Get inside the CORE head quarter")
@@ -594,7 +594,7 @@ label leave_shop:
 label leaving_hastly:
 
     "You leave the store and don't look back. You probably shouldn't be seen here again any time soon"
-    "Check your notebook for everything you learned about." #??
+    "Check your notebook for everything you learned about." #Notebook should open highlight new entries and items
     #scene in front of office building
     #TO DO
     "It's the next day. You gathered a lot of information and now want to target CORE and try to get inside their head quarter."
