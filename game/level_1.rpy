@@ -248,6 +248,8 @@ label Collect_information:
 
 label Follow_people:
 
+#Checkpoint as you can get caught 
+
     "You start looking around."
 
     menu:
@@ -336,14 +338,14 @@ label Natural:
 
 label Cautious:
 
-    "You feel you have been caught out and decide to leave the store quickly."
+    "You have the feeling that you have been caught, and your decision is to leave the store quickly."
 
     jump leaving_hastly
 
 label Screen_reflection:
 
     "You try to look at the screen with a reflection of your smartphone
-    Success: You see his User Name for Outlook .. christian.baker@company.de"
+    Success: You see his User Name for Outlook: christian.baker@company.de"
 
     menu:
 
@@ -568,7 +570,6 @@ label Employee_conversation:
 label leave_shop:
 
     #scene
-    #Update Inventory - update what?
 
     "While you leave the shop you notice an Employee Badge.
     It is difficult to recognize because it is peeking out from under a chest of drawers. 
@@ -580,7 +581,7 @@ label leave_shop:
     $ badge_found = True
     "{i}The badge was added to your notebook. {\i}"
 
-    "Check your notebook for everything you learned about." #??
+    "Check your notebook for everything you learned about." #John Doe and christian baker should have an entry
 
     #TO DO - where do you jump to?
     "It's the next day. You gathered a lot of information and now want to target CORE and try to get inside their head quarter."
