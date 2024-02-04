@@ -1,6 +1,6 @@
 $ renpy.include("inventory.rpy")
 $ renpy.include("tutorial_story.rpy")
-languageTool.language
+#languageTool.language
 define l = Character(_("LaptopGuy"), color="#c8fff3")
 define c = Character (_("Christian"), color="#db8941")
 define s = Character (_("Security Officer"), color="#3939f5")
@@ -27,12 +27,39 @@ define cat = Character (_("Cat"), color="#fffaf0") #Furry cat
 image Receptionist2="receptionist2.png"
 image Receptionist2 angry="receptionist2 angry.png"
 image Receptionist2 smile="receptionist2 smile.png"
+image k1 stressed="chef1 stressed.png"
+image k1 happy="chef1 happy.png"
+image Me canteen="playercanteen.png"
+image e4="e4.png"
+image e4 smile="e4 smile.png"
+image k2 stressed="chef2 stressed.png"
+image k2 happy="chef2 happy.png"
+image k2 angry="chef2 angry.png"
 
 image bg n42="bg n42.jpg"
 image bg coreback="bg coreback.jpg"
+image bg coreback2="bg coreback2.jpg"
+image bg coreback3="bg coreback3.jpg"
 image bg main ent="bg main ent.jpg"
 image bg main ent2="bg main ent2.jpg"
 image bg garage="bg garage.jpg"
+image bg cafe="bg cafe.jpg"
+image bg cafe1="bg cafe1.jpg"
+image bg cafe2="bg cafe2.jpg"
+image bg badge="bg badge.jpg"
+image bg canteendoor="bg canteendoor.jpg"
+image bg kitchen="bg kitchen.jpg"
+image bg whiskers="bg whiskers.jpg"
+image bg cublicles="bg cubicles.jpg"
+image bg office canteen="bg office canteen.jpg"
+image bg office cat="bg office cat.jpg"
+image bg office cat2="bg office cat2.jpg"
+image bg office cat3="bg office cat3.jpg"
+image bg room303="bg room303.jpg"
+image bg computer="bg computer.jpg"
+image bg locker="bg locker.jpg"
+image bg elevator="bg elevator.jpg"
+image bg checkpoint="bg checkpoint.jpg"
 
 label level_1:
     scene bg n42
@@ -42,7 +69,8 @@ label level_1:
     "And also, your target. It is right across the Metro Exit indicated by the big lettering on the glass front above the entrance. CORE it reads in big red letters."
 
 label investigate:
-
+    scene bg n42
+    show Me with easeinright    
     default full_building = False
     default john_doe_known = False
     default badge_found = False
@@ -200,7 +228,7 @@ label Back_entrance:
             jump Building_options
 
 label success:
-
+    scene bg coreback2
     "Succes! You pull it off and can grab the overall unnoticed."
 
     define overall = InventoryData("New Item", "You own a beige overall with the CORE branding")
@@ -249,6 +277,7 @@ label Collect_information:
 label Follow_people:
 
 #Checkpoint as you can get caught 
+    scene bg cafe
 
     "You start looking around."
 
@@ -269,6 +298,7 @@ label Laptop_observation:
     #show LaptopGuy
     #scene
     #TO DO
+    scene bg cafe1
 
     "You choose to sit on a table with a guy on his laptop in close proximity."
 
@@ -527,6 +557,11 @@ label Stand_up:
 label Employee_conversation:
 
 #scene
+    scene bg cafe2
+
+    show Me with easeinleft:
+        xzoom -2.0
+        yzoom 2.0
 #show
 
     e1 "Hey, have you guys heard about the charity event happening next week? It's for the local kids shelter. I'm thinking we should all go and show our support."
@@ -570,7 +605,7 @@ label Employee_conversation:
 label leave_shop:
 
     #scene
-
+    scene bg badge
     "While you leave the shop you notice an Employee Badge.
     It is difficult to recognize because it is peeking out from under a chest of drawers. 
     You take it without much thought."
@@ -584,6 +619,7 @@ label leave_shop:
     "Check your notebook for everything you learned about." #John Doe and christian baker should have an entry
 
     #TO DO - where do you jump to? Transition Blackscreen could be fine
+    scene bg n42
     "It's the next day. You gathered a lot of information and now want to target CORE and try to get inside their head quarter."
 
     $ todo.update_aim("Get inside the CORE head quarter")
@@ -592,10 +628,12 @@ label leave_shop:
 
 
 label leaving_hastly:
+    scene bg n42
 
     "You leave the store and don't look back. You probably shouldn't be seen here again any time soon"
     "Check your notebook for everything you learned about." #Notebook should open highlight new entries and items
     #scene in front of office building
+    
     #TO DO
     "It's the next day. You gathered a lot of information and now want to target CORE and try to get inside their head quarter."
 
@@ -604,6 +642,8 @@ label leaving_hastly:
     jump getinside
 
 label getinside: #checkpoint 3
+    
+
 
     menu:
         "Go to the company disguised as a canteen employee":
@@ -623,7 +663,17 @@ label securitydisguise: #wear tshirt with security on it
     s "That shirt is not part of our uniform. I will call the police."#goto checkpoint 3
 
 label canteendisguise:
-    "Disguised as canteen employee, you walk towards the back entrance that leads to the company’s canteen. Heavily loaded and appearing to be busy with work, you move toward the door and open it. Then suddenly a kitchen employee looks at you weirdly."
+    scene bg coreback3
+    show Me with easeinleft:
+        xzoom -1.0
+
+    "Disguised as canteen employee, you walk towards the back entrance that leads to the company’s canteen." 
+    scene bg canteendoor
+    show Me
+    "Heavily loaded and appearing to be busy with work, you move toward the door and open it. Then suddenly a kitchen employee looks at you weirdly."
+    scene bg kitchen
+    show Me canteen
+    show k1 stressed
 
     #[That person sees you Character canteen employee, surprised, stressed expression
     #TO DO
@@ -651,7 +701,7 @@ label runinside:
  
 
 label runoutside:
-
+    scene bg coreback3
     "You rush through the door and run as fast as you can. But the man is running after you." 
     "You gain more and more distance and finally he looses track of you. "
     "While calming you breath you think about how to enter the building instead."
@@ -663,6 +713,7 @@ label askhelp:
     e10 "Oh yes sure!"
     "You hand him the box"
     p "Thank you. Do you go to the gym?"
+    show k1 happy
     e10  "Thanks! Yes, I go almost every day."#flattered expression
     p "Wow, you definitely need to give me work out tips. I have to go now though. See you!"
     e10 "Have a nice one!"
@@ -670,6 +721,8 @@ label askhelp:
     jump inside_building
 
 label inside_building:
+    scene bg main ent
+    
     #bg_office_reception
     #TO DO
     "With your disguise intact, you confidently stride through the office building, blending in seamlessly with the bustling crowd. The air is thick with the hum of productivity as employees rush to and from."
@@ -683,7 +736,11 @@ label inside_building:
             jump check_elevators
 
 label explore_cubicles:
-
+    scene bg cubicles
+    show Me with easeinright
+    "Now that you're inside you change back to your regular attire"
+    
+    scene bg whiskers
     #[Taking a photo from the mobile phone] [BG: Desk with the photo of a dog name whiskers]
     #TO DO
     "As you quietly explored the cubicles, your attention was drawn to a desk adorned with a framed picture of an elegant dog, its name proudly displayed beneath the image – Whiskers."
@@ -724,7 +781,12 @@ label explore_cubicles:
 label break_room:
     # [BG: Office Canteen with many employees]
     # TO DO
-    
+    scene bg office canteen
+    "Now that you're inside you change back to your regular attire"
+
+
+    show Me with easeinright
+
     "The break room is bustling with activity. Colleagues gather around tables, sharing stories and enjoying a brief respite from their busy day."
     menu:
         "Join a Group of Colleagues Chatting Nearby":
@@ -733,7 +795,10 @@ label break_room:
             jump observe_from_a_distance
 
 label check_elevators:
-
+    scene bg elevator
+    show Me with easeinleft:
+        xzoom -1.0
+        
     # BG: Elevators
     #TO DO
 
@@ -746,6 +811,9 @@ label check_elevators:
             jump instructions_near_the_elevators
 
 label interaction_with_employee:
+    scene bg cubicles
+    show Me 
+    show e4
     # Interaction after knocking off the pen
     menu:
         "Apologize and engage in light conversation":
@@ -758,7 +826,9 @@ label interaction_with_employee:
             jump deflect_with_humor
 
 label apologize_and_engage:
-
+    scene bg cubicles
+    show Me 
+    show e4
     #BG in the cubicles
     # TO DO
     e4 "Hey, is everything alright here? You were looking at that desk pretty intently."
@@ -784,7 +854,9 @@ label apologize_and_engage:
     jump continue_exploring
 
 label act_confused_and_ask_for_help:
-
+    scene bg cubicles
+    show Me 
+    show e4 
     #BG in the cubicles
     # TO DO
     p "I'm sorry, I got lost in thought. I'm actually trying to find the meeting room. Can you point me in the right direction?"
@@ -792,7 +864,7 @@ label act_confused_and_ask_for_help:
     e4 "Oh, of course! No problem at all. You'll want to head down this hallway, take the second left, and then it's the third door on your right. You can't miss it; there's a sign that says 'Meeting Room' right outside the door."
 
     p "Thanks so much! This place is a bit of a maze."
-
+    show e4 smile
     e4 "Tell me about it! Took me a week to stop getting lost. If you need anything else, just let one of us know. Good luck with your meeting!"
 
     p "I appreciate it. Have a great day!"
@@ -801,6 +873,9 @@ label act_confused_and_ask_for_help:
 
 
 label feign_ignorance:
+    scene bg cubicles
+    show Me 
+    show e4 
     #BG in the cubicles
     # TO DO
     p "Oh, this isn't my desk? I'm so sorry, I thought this was where I was supposed to be for my orientation. Do you know where that is?"
@@ -816,9 +891,12 @@ label feign_ignorance:
     jump continue_exploring
 
 label deflect_with_humor:
-
+    scene bg cubicles
+    show Me 
+    show e4 
     #BG in the cubicles
     p "I guess I'm just mesmerized by all the hustle and bustle here. It's like trying to remember a password you just created and forgot two seconds later. Happens to you too, right?"
+    show e4 smile
 
     e4 "Oh, absolutely! It's like my brain decides to do a hard reset the moment I hit 'save'. Just the other day, I spent 20 minutes resetting my password, only to realize I was typing it wrong because I forgot I added an exclamation mark at the end. It's always the special characters that get me."
 
@@ -833,12 +911,16 @@ label deflect_with_humor:
     jump continue_exploring
 
 label colleagues_chatting_nearby:
+    scene bg office canteen
 
+    show Me 
+    show e5 with easeinleft
     # [BG: Office Canteen with many employees]
     e5 "Hey, you're new here, right? We were just talking about the team-building event. Did you enjoy it?"
 
 
     p "Hey, I am new here! The team-building event was really fun. I got to learn a lot about my new colleagues. How about you guys?"
+    show e6 with easeinleft
 
     e6 "Oh, it was great! I think it’s always good to step out of the work routine and get to know each other in a different setting."
 
@@ -880,14 +962,17 @@ label colleagues_chatting_nearby:
     jump continue_exploring
 
 label observe_from_a_distance:
+    scene bg office canteen
 
+    show Me with easeinleft:
+        xzoom -1.0
     # [BG: Office Canteen with many employees]
 
     "From your isolated vantage point, you overhear fragmented conversations, catching bits and pieces about office life and daily routines. While you gain a general sense of the company culture, no specific information about password creation or other sensitive topics is gleaned."
     jump continue_exploring
 
 label password_reset_procedure:
-
+    scene bg elevator
     # BG in the elevators
     # TO DO
 
@@ -1081,7 +1166,7 @@ label encounter_with_office_cat:
 
     # Furry Cat Bg: Hallway of the office
     #TO DO
-
+    scene bg office cat
     "As you navigate the halls, you encounter an office cat. It seems to take a liking to you, following you curiously."
 
     menu:
@@ -1091,6 +1176,7 @@ label encounter_with_office_cat:
             jump Ignore_the_cat
 
 label pet_the_cat:
+    scene bg office cat3
 
     #Bg: some hidden compartemnt
     #TO DO
@@ -1098,7 +1184,7 @@ label pet_the_cat:
     "You take a moment to pet the cat, appreciating the unexpected companionship."
     p "Well, aren't you a friendly one? Need a partner in crime, huh?"
     "The cat unexpectedly nudges a wall panel with its head, revealing a hidden compartment."
-
+    scene bg office cat2
     p "Now that's interesting. What secrets are you hiding, my furry friend?"
 
     "Inside the compartment, you find a set of old keys."
@@ -1118,6 +1204,7 @@ label take_the_keys:
     jump room_303
 
 label room_303:
+    scene bg room303
     "You enter Room 303, the cat still by your side. The dimly lit room is filled with rows of computers."
 
 
@@ -1136,7 +1223,7 @@ label desk_choices:
     #Only after exploring the option 2 player will be able to unlock the computer
 
 label unlock_the_computer:
-
+    scene bg computer
     # Computer scene
     #TO DO
 
@@ -1178,6 +1265,8 @@ label unlock_the_computer:
     jump hidden_camera
 
 label open_the_cupboard:
+    scene bg locker
+
     #After opening the cupboard you find the photo of Mr. johnson along with family and in the #background you can see a number "2926"
 
     # Will be added to the notebook as soon as we have a visual by the design team
@@ -1292,7 +1381,7 @@ label Leaving_building:
             jump leavealone
 
 label leavealone:
-
+    scene bg checkpoint
     "As you approach the security door, you notice that you would have needed an ID to scan for it to open."
 
 #[Security guard will tap on your shoulder, you turn around]
@@ -1378,13 +1467,14 @@ label christian:
     jump cathymeet
 
 label leavecanteen:
-
+    scene bg kitchen
+    show Me chef
     "You change back into your kitchen clothes and walk into the company's kitchen." #you with kitchen clothes
 
     "The kitchen is brimming with energy and hectic as chefs and kitchen staff hustle to prepare dishes for the employees. No one really pays attention to you. "
     "You feel safe and almost reach the exit door but suddenly a woman stops you in front of the door."
-
-    k1 "Hey, sorry but can you quickly help out with the dessert. It's so busy right now we can't keep up."
+    show k2 stressed with easeinleft
+    k2 "Hey, sorry but can you quickly help out with the dessert. It's so busy right now we can't keep up."
 
     menu:
 
@@ -1394,8 +1484,9 @@ label leavecanteen:
             jump helped
 
 label decline:
-
-    k1 "Ok, that is unfortunate. I will do it myself then"
+    show Me chef
+    show k2 stressed 
+    k2 "Ok, that is unfortunate. I will do it myself then"
 
     "You see that some of the canteen employees starts looking at you skeptical"#skeptic look
     menu:
@@ -1406,9 +1497,11 @@ label decline:
             jump wash
 
 label wash:
-
+    hide Me
     "While washing some dishes you can listen to a conversation of some of the kitchen staff. "
-
+    show k2 happy with easeinleft
+    show k1 happy with easeinright:
+        xzoom -1.0 
     k2 "This week we had a delivery with boxes full of avocados"
 
     k3 "Yes, I have heard our company now buys them from AvoHarvest and gets huge discounts."
@@ -1429,14 +1522,16 @@ label rushout:
     jump cathymeet
 
 label helped:
+    show Me chef
+    show k2 happy 
+    k2 "We have to do the salad. Please add all the ingredients to the bowl."
 
-    k1 "We have to do the salad. Please add all the ingredients to the bowl."
-
-    k1 "Thank you for your help."
+    k2 "Thank you for your help."
 
     "As you want to leave through the back door, you can overhear two employees chattering."
-
-    k2 "This week we had a delivery with boxes full of avocados”"
+    show k1 happy with easeinright:
+        xzoom -1.0
+    k1 "This week we had a delivery with boxes full of avocados”"
 
     k3 "Yes, I have heard our company now buys them from AvoHarvest and gets huge discounts."
 
@@ -1449,9 +1544,10 @@ label helped:
             jump leavekitchen
 
 label listenkitchen:
-
+    scene bg kitchen
+    show Me chef
     "One of the two employees notices you looking at them."
-
+    show k2 stressed with easeinleft
     k2 "Hey, is there something wrong? Why are you staring at us?"
 
     menu: 
@@ -1472,7 +1568,7 @@ label apology2:
     jump cathymeet
 
 label flirt2:
-
+    show k2 angry
     "Person 1[looking mad]: “Are you crazy? I will forward this harrassment to security. Who are you?"
 
     "You apologize for offending her but now all eyes in the kitchen are on you. You see her calling security on her phone, knowing that you will not get out of this situation anymore."
@@ -1480,7 +1576,7 @@ label flirt2:
     jump Caught #goto checkpoint 4
 
 label leavekitchen:
-
+    scene bg coreback3
     "You left the building out of the back door of the kitchen."
 
     p "Thank god, nobody caught me. I am going to meet Cathy to tell her about everything."
@@ -1505,7 +1601,9 @@ label leavemain:
     jump cathymeet
 
 label cathymeet:#meet her in a cafe/bar
-    
+    scene bg coffee
+    show Me with easeinright
+    show cathy with easeinleft
     p "Hey Cathy, I checked out CORE today but I could find any valid information. I just found this photograph in the trash. Maybe we should give up and move on.."
 
     c "Hmm, I am sorry.. let me see the photo. "
