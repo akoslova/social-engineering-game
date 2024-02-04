@@ -82,7 +82,8 @@ label investigate:
             jump Building_options
         
         "Stand in front of the building and observe who enters and leaves it":
-            jump Collect_information
+            #jump Collect_information
+            jump Leaving_building
 
         "You notice that a lot of them go to the coffee shop across the street. You decide to follow them and get a coffee yourself":
             jump Follow_people
@@ -1022,7 +1023,7 @@ label continue_exploring:
         "Explore Middle Management Contacts":
             jump middle_contacts
         "Search for a high-ranking employee":
-            jump search_high_ranking_employee
+            jump call_mr_johnson
 
 label support_staff_contacts:
 
@@ -1504,7 +1505,7 @@ label wash:
         xzoom -1.0 
     k2 "This week we had a delivery with boxes full of avocados"
 
-    k3 "Yes, I have heard our company now buys them from AvoHarvest and gets huge discounts."
+    k3 "Yes, I have heard our company now buys them from TastyFood and gets huge discounts."
 
     menu: 
         "Stay and continue listening":
@@ -1533,7 +1534,7 @@ label helped:
         xzoom -1.0
     k1 "This week we had a delivery with boxes full of avocados”"
 
-    k3 "Yes, I have heard our company now buys them from AvoHarvest and gets huge discounts."
+    k3 "Yes, I have heard our company now buys them from TastyFood and gets huge discounts."
 
     menu:
 
@@ -1604,7 +1605,7 @@ label cathymeet:#meet her in a cafe/bar
     scene bg coffee
     show Me with easeinright
     show cathy with easeinleft
-    p "Hey Cathy, I checked out CORE today but I could find any valid information. I just found this photograph in the trash. Maybe we should give up and move on.."
+    p "Hey Cathy, I checked out CORE today but I could not find any valid information. I just found this photograph in the trash. Maybe we should give up and move on.."
 
     c "Hmm, I am sorry.. let me see the photo. "
 #[show photo]
