@@ -1,10 +1,9 @@
 $ renpy.include("inventory.rpy")
-
-define p = Character(_("Me"), color="#c8c8ff")
+$ renpy.include("tutorial_story.rpy")
+#languageTool.language
 define l = Character(_("LaptopGuy"), color="#c8fff3")
 define c = Character (_("Christian"), color="#db8941")
 define s = Character (_("Security Officer"), color="#3939f5")
-define r = Character (_("Receptionist"), color="#633aeb")
 define e1 = Character (_("Employee 1"), color="#6fd066")
 define e2 = Character (_("Employee 2"), color="#6fd066")
 define e3 = Character (_("Employee 3"), color="#6fd066")
@@ -14,51 +13,113 @@ define e6 = Character (_("Employee 6"), color="#6fd066")
 define e7 = Character (_("Employee 7"), color="#6fd066")
 define e8 = Character (_("Employee 8"), color="#6fd066")
 define e9 = Character (_("Employee 9"), color="#6fd066")
+define e10 = Character (_("Employee 10"), color="#6fd066")
 define ivy = Character (_("Ivy P. Paperwork"), color="#6a5acd")
 define burt = Character (_("Burt W. Mopbucket"), color="#20b2aa")
 define staff = Character (_("IT Staff"), color="#ff6347")
 define mr_johnson = Character (_("Mr. Johnson"), color="#4b0082")
+define k1 = Character (_("Kitchen staff 1"), color="#6fd066")
+define k2 = Character (_("Kitchen staff 2"), color="#6fd066")
+define k3 = Character (_("Kitchen staff 3"), color="#6fd066")
+
 define cat = Character (_("Cat"), color="#fffaf0") #Furry cat
 
+image Receptionist2="receptionist2.png"
+image Receptionist2 angry="receptionist2 angry.png"
+image Receptionist2 smile="receptionist2 smile.png"
+image k1 stressed="chef1 stressed.png"
+image k1 happy="chef1 happy.png"
+image Me canteen="playercanteen.png"
+image e4="e4.png"
+image e4 smile="e4 smile.png"
+image k2 stressed="chef2 stressed.png"
+image k2 happy="chef2 happy.png"
+image k2 angry="chef2 angry.png"
 
+image bg n42="bg n42.jpg"
+image bg coreback="bg coreback.jpg"
+image bg coreback2="bg coreback2.jpg"
+image bg coreback3="bg coreback3.jpg"
+image bg main ent="bg main ent.jpg"
+image bg main ent2="bg main ent2.jpg"
+image bg garage="bg garage.jpg"
+image bg cafe="bg cafe.jpg"
+image bg cafe1="bg cafe1.jpg"
+image bg cafe2="bg cafe2.jpg"
+image bg badge="bg badge.jpg"
+image bg canteendoor="bg canteendoor.jpg"
+image bg kitchen="bg kitchen.jpg"
+image bg whiskers="bg whiskers.jpg"
+image bg cublicles="bg cubicles.jpg"
+image bg office canteen="bg office canteen.jpg"
+image bg office cat="bg office cat.jpg"
+image bg office cat2="bg office cat2.jpg"
+image bg office cat3="bg office cat3.jpg"
+image bg room303="bg room303.jpg"
+image bg computer="bg computer.jpg"
+image bg locker="bg locker.jpg"
+image bg elevator="bg elevator.jpg"
+image bg checkpoint="bg checkpoint.jpg"
 
 label level_1:
+    scene bg n42
+    show Me with easeinright
+    "After a long ride in the subway you finally reach N 42 Street which is very busy at that time."
+    "You notice small firms like 1940paper.inc, SmrtWays and many more having their unique blinking Signs and advertisements and the big banks and firms residing in massive Skyscrapers."
+    "And also, your target. It is right across the Metro Exit indicated by the big lettering on the glass front above the entrance. CORE it reads in big red letters."
 
-    "After a long ride in the subway you finally reach N 42 Street which is very busy at that time. You notice small firms like 1940paper.inc, SmrtWays and many more having their unique blinking Signs and advertisements and the big banks and firms residing in massive Skyscrapers.
-    And also your target. It is right across the Metro Exit indicated by the big lettering on the glass front above the entrance. CORE it reads in big red letters."
+label investigate:
+    scene bg n42
+    show Me with easeinright    
+    default full_building = False
+    default john_doe_known = False
+    default badge_found = False
 
     menu:
 
-        "Look around and inspect the building":
+        "Look around and inspect the building" if not full_building:
+            "You notice that there are different entrances besides the main entrance with a lobby. An underground parking garage where black limousines come and go. A back entrance which is used by staff from their canteen for example."
             jump Building_options
         
         "Stand in front of the building and observe who enters and leaves it":
-            jump Collect_information
+            jump Leaving_building
 
         "You notice that a lot of them go to the coffee shop across the street. You decide to follow them and get a coffee yourself":
             jump Follow_people
 
 label Building_options:
 
-    "You notice that there are different entrances besides the main entrance with a lobby. An underground parking garage where black limousines come and go. A back entrance which is used by staff from their canteen for example."
+    default not_inspected_entrance = True
+    default not_inspected_garage = True
+    default not_inspected_back = True
+    default overall_success = False
 
     menu:
 
-        "Check the main entrance":
+        "Check the main entrance" if not_inspected_entrance:
             jump Main_entrance
         
-        "Go towards the parking garage":
+        "Go towards the parking garage" if not_inspected_garage:
             jump Parking_garage
 
-        "Look around the back for an entrance":
+        "Look around the back for an entrance" if not_inspected_back:
             jump Back_entrance
+
+        "You lost the level and need to restart" if not not_inspected_back and not not_inspected_garage and not not_inspected_entrance:
+            jump level_1
+
+        "You successfully explored the building! You can now further investigate." if not not_inspected_back and not not_inspected_garage and not not_inspected_entrance and overall_success:
+            $ full_building = True
+            jump investigate
 
 
 label Main_entrance:
 
     #scene bg main entrance
-
+    scene bg main ent
+    show Me with easeinright
     "When you enter the lobby, you are greeted by a receptionist, a security guard who looks at you without suspicion, and a few notices informing you about the company and a job opening in the business department."
+    show Receptionist2 with easeinleft
 
     menu:
 
@@ -73,16 +134,15 @@ label Main_entrance:
 
 label interview:
 
-    show Me with easeinright
-    show Receptionist with easeinleft
 
     p "Hello, I am here because I am interested in the position in the Customer Service department. Where do I have to go to talk to the appropiate person?"
+    show Receptionist2 smile 
 
     r "Do you have a job interview? I have not received any information that applicants are coming for an interview today!"
 
-    p "No I was the area and wanted to swing by see how it goes"
+    p "No I was the area and wanted to swing by, see how it goes"
 
-    r "Ohh wow you have to submit an application online and then you might get invited for the interview Sir! So If you have no other questions please leave the lobby."
+    r "Ohh wow! You have to submit an application online and then you might get invited for the interview Sir! So If you have no other questions please leave the lobby."
 
     menu:
 
@@ -107,9 +167,10 @@ label basic_core:
 
 label flirt:
 
-    p "How you doin? "
+    p "How you doin?"
 
     #show Receptionist angry
+    show Receptionist2 angry 
 
     r "Stop your inappropriate advances at once, or I will call the security guards to have you removed from this property!"
 
@@ -122,28 +183,39 @@ label leaving_lobby:
 
     "You decide that you are not going to get anywhere or even get in trouble by staying in the lobby longer and you go back out."
 
-    jump Building_options
+    "You need to choose a different option."
 
-    #Needs to count 1 for Main entrance so it cant be chosen again! Ideally jump directly to the 3 choices
+    $ not_inspected_entrance = False
+
+    jump Building_options
 
 label Parking_garage:
 
     # sceen bg garage (with surveillance)
-
+    scene bg garage
+    show Me with easeinleft:
+        xzoom -1.0
+    
     "You decide to go towards the Driveway of the parking garage.
     While approaching you notice the security cameras and the closed garage doors. There is no way you can or should try to access the company here!"
 
+    "You need to choose a different option."
+
+    $ not_inspected_garage = False
+
     jump Building_options
 
-    #Needs to count 1 for Parking Garage so it cant be chosen again! Ideally jump directly to the 3 choices
 
 label Back_entrance:
 
     # sceen bg back entrance View from further away on to people working at back entrance
 
+    scene bg coreback
+    show Me with easeinleft:
+        xzoom -1.0
     "You see some people moving boxes and shouting at each other while working. They are dressed in branded overalls in beige colors. You notice that in the back of the truck with the boxes there is one of these overalls hanging unattended."
 
-    #Needs to count 1 for Back entrance so it cant be chosen again!
+    $ not_inspected_back = False
 
     menu:
 
@@ -152,44 +224,60 @@ label Back_entrance:
         
 
         "Maybe that's too risky I should head back to observe other parts of the building":
+
             jump Building_options
 
-        #If the counter is 1 for every option (Building is explored! Now only from two options can be chosen)
-            jump level_1
-
-
 label success:
+    scene bg coreback2
+    "Succes! You pull it off and can grab the overall unnoticed."
 
-    "Succes! You pull it off and get the overall unnoticed"
+    define overall = InventoryData("New Item", "You own a beige overall with the CORE branding")
 
-        #Update Inventory: Have the beige overall with the branding
-        #jump Building_options
+    $ inventory.add_data(overall)
 
-        #If the counter is 1 for every option (Building is explored! Now only from two options can be chosen)
-        #jump level_1
+    "{i}The beige overall was added in your notebook. {\i}"
 
+    $ overall_success = True
+  
+    jump Building_options
 
 
 label Collect_information:
 
     #IF this Option is not chosen the Information of John Doe is not usable troughout this plot!!! Needs to be included in the code
     # When chosen set counter to 1 for watch the people so it cant be chosen again
+    scene bg main ent2
+    show Me with easeinleft:
+        xzoom -1.0
 
-    "As you watch people leaving the building, you notice a member of staff wearing his badge on the outside of his trouser pocket.
-    You manage to read his full name, John Doe, and the department: Arithmetic Department. You make a note in your notebook.
-    You also notice that the employees usually wear suits and that the security guards have a grey uniform."
+    "As you watch people leaving the building, you notice a member of staff wearing his badge on the outside of his trouser pocket."
+    "You manage to read his full name, John Doe, and the department: Arithmetic Department."
+    $ john_doe_known = True
+    define john_doe = InventoryData("John Doe", "Employee at CORE, Arithmethic Department")
 
+    $ inventory.add_data(john_doe)
+
+    "{i} John Doe was added to your notebook. {\i}"
+
+    "You also notice that the employees usually wear suits and that the security guards have a grey uniform."
 
     menu:
 
-        "Look around and inspect the building":
+        "Look around and inspect the building" if not full_building:
             jump Building_options
 
-        "Follow them and get a coffee yourself":
+        "Follow them and get a coffee yourself" if not full_building:
             jump Follow_people
+    
+    "You decide to follow the people and get a coffee for yourself." 
+
+    jump Follow_people 
 
 
 label Follow_people:
+
+#Checkpoint as you can get caught 
+    scene bg cafe
 
     "You start looking around."
 
@@ -209,9 +297,12 @@ label Laptop_observation:
 
     #show LaptopGuy
     #scene
+    #TO DO
+    scene bg cafe1
 
     "You choose to sit on a table with a guy on his laptop in close proximity."
 
+    #maybe also count choices and hide if they were already selected? YES
     menu:
 
         "Turn around and talk to him while trying to read of his screen":
@@ -235,11 +326,12 @@ label Say_something:
     "He is eyeing you warily and closes his laptop and starts leaving the coffee shop.
     That did not went well lets try something else!"
 
-    jump Laptop_observation
+    jump Laptop_observation #This makes no sense as you can still proceed without the information from this -> Should Jump to Follow people and Laptop choice is gone
 
 
 label Look_shoulder:
 
+#TO DO
 #scene 
     "You try to observe what he is doing on his laptop by looking over your shoulder."
 
@@ -276,14 +368,14 @@ label Natural:
 
 label Cautious:
 
-    "You feel you have been caught out and decide to leave the store quickly."
+    "You have the feeling that you have been caught, and your decision is to leave the store quickly."
 
     jump leaving_hastly
 
 label Screen_reflection:
 
     "You try to look at the screen with a reflection of your smartphone
-    Success: You see his User Name for Outlook .. christian.baker@company.de"
+    Success: You see his User Name for Outlook: christian.baker@company.de"
 
     menu:
 
@@ -358,6 +450,7 @@ label Option_3:
     s "Hmm I dont know why i thought so but you are right. Sorry for that!"
 
     "After that close encounter you decide to leave the coffee shop."
+    jump leave_shop
 
 label Option_4:
 
@@ -378,7 +471,9 @@ label Continue_walking:
 
 label Caught:
 
-    # here the Player gets caught - Checkpoint
+    "You lost the level and need to restart"
+    jump level_1
+    # here the Player gets caught - Checkpoint should be before entering the coffee shop (No need to investigate building again if done so already)
 
 
 label Stop_observing:
@@ -392,16 +487,18 @@ label Approach_guy:
 
     p "Hey, Christian How are you?"
 
-    c " I am fine, just a bit stressed tho and who are you?"
+    c "I am fine, just a bit stressed tho and who are you?"
 
     menu:
 
-        "I am": #Playername
+        "I am [povname]" if john_doe_known: 
             jump Real_name
 
-        #only possbile if John Doe is known
-        "I am John Doe.":
+        "I am John Doe." if john_doe_known:
             jump John_doe
+    
+    "I am [povname]"
+    jump Real_name
 
 label Real_name:
 
@@ -414,11 +511,11 @@ label Real_name:
     c "I am not supposed to talk about things like that! But don't worry we have our methods to stop allegations of pesky reporters. 
         What department are you from?"
 
-    p "something with accounting."
+    p "Something with accounting."
 
     p "So is there something in the bush?"
 
-    c "I dont know who you are I have to leave now!"
+    c "I dont know who you are. I have to leave now!"
 
     "He gets up and leaves while giving you a mistrustful look."
 
@@ -449,7 +546,7 @@ label Stand_up:
     "You got some information. Maybe you can try to observe something else now."
 
     menu:
-            #If not done so already!
+            #If not done so already! Count choice
         "Eavesdrop employees conversation.":
             jump Employee_conversation
             
@@ -460,6 +557,11 @@ label Stand_up:
 label Employee_conversation:
 
 #scene
+    scene bg cafe2
+
+    show Me with easeinleft:
+        xzoom -2.0
+        yzoom 2.0
 #show
 
     e1 "Hey, have you guys heard about the charity event happening next week? It's for the local kids shelter. I'm thinking we should all go and show our support."
@@ -503,23 +605,128 @@ label Employee_conversation:
 label leave_shop:
 
     #scene
-    #Update Inventory
-
+    scene bg badge
     "While you leave the shop you notice an Employee Badge.
     It is difficult to recognize because it is peeking out from under a chest of drawers. 
     You take it without much thought."
-    "Check your notebook for everything you learned about."
+    define badge = InventoryData("New Item", "Employee badge")
+
+    $ inventory.add_data(badge)
+
+    $ badge_found = True
+    "{i}The badge was added in your notebook. {\i}"
+
+    "Check your notebook for everything you learned about." #John Doe and christian baker should have an entry
+
+    #TO DO - where do you jump to? Transition Blackscreen could be fine
+    scene bg n42
+    "It's the next day. You gathered a lot of information and now want to target CORE and try to get inside their head quarter."
+
+    $ todo.update_aim("Get inside the CORE head quarter")
+    "{i}Your goal was updated. {\i}"
+    jump getinside
 
 
 label leaving_hastly:
+    scene bg n42
 
     "You leave the store and don't look back. You probably shouldn't be seen here again any time soon"
-    "Check your notebook for everything you learned about."
+    "Check your notebook for everything you learned about." #Notebook should open highlight new entries and items
+    #scene in front of office building
+    
+    #TO DO
+    "It's the next day. You gathered a lot of information and now want to target CORE and try to get inside their head quarter."
+
+    $ todo.update_aim("Get inside the CORE head quarter")
+    "{i}Your goal was updated. {\i}"
+    jump getinside
+
+label getinside: #checkpoint 3
+    
+
+
+    menu:
+        "Go to the company disguised as a canteen employee":
+            jump canteendisguise
+        "Go as an employee with the badge found" if badge_found: 
+            jump withbadge
+        "Dress as a security guard":
+            jump securitydisguise
+
+label withbadge:
+    jump inside_building
+
+label securitydisguise: #wear tshirt with security on it
+    "You wear your self designed T-shirt that says security and walk towards the main entrance."
+    s "Hey you! Stop! Who are you?"
+    p "I am Drew, working for security of this company"
+    s "That shirt is not part of our uniform. I will call the police."#goto checkpoint 3
+
+label canteendisguise:
+    scene bg coreback3
+    show Me with easeinleft:
+        xzoom -1.0
+
+    "Disguised as canteen employee, you walk towards the back entrance that leads to the company’s canteen." 
+    scene bg canteendoor
+    show Me
+    "Heavily loaded and appearing to be busy with work, you move toward the door and open it. Then suddenly a kitchen employee looks at you weirdly."
+    scene bg kitchen
+    show Me canteen
+    show k1 stressed
+
+    #[That person sees you Character canteen employee, surprised, stressed expression
+    #TO DO
+    menu:
+        "Hide your face, and try not to drag too much attention on you":
+            jump hideface
+        "Act friendy and ask him for help with the box you are carrying" if badge_found: 
+            jump askhelp
+    
+
+label hideface:
+    "Employee: Hey I’ve never seen you here, who are you?"
+    p "I’m Drew, just started working here."
+    "Employee: I haven't heard of a new colleague starting here." 
+    "I feel like you are just trying to sneak inside the office for some reason. I will call security"
+    menu:
+        "Run inside the building":
+            jump runinside
+        "Run outside the building ": 
+            jump runoutside
+
+label runinside:
+    "As soon as you run towards the door that leads deeper inside the building other people notice you and you feel someone tackle you over"
+    jump Caught # is that right?
+ 
+
+label runoutside:
+    scene bg coreback3
+    "You rush through the door and run as fast as you can. But the man is running after you." 
+    "You gain more and more distance and finally he looses track of you. "
+    "While calming you breath you think about how to enter the building instead."
+    jump inside_building
+    
+    #e10: man who looks like he goes to the gym in cooking clothes
+label askhelp:
+    p "Hey, could you please help me with the box, you look like you are stronger than me."
+    e10 "Oh yes sure!"
+    "You hand him the box"
+    p "Thank you. Do you go to the gym?"
+    show k1 happy
+    e10  "Thanks! Yes, I go almost every day."#flattered expression
+    p "Wow, you definitely need to give me work out tips. I have to go now though. See you!"
+    e10 "Have a nice one!"
+
+    jump inside_building
 
 label inside_building:
+    scene bg main ent
+    
     #bg_office_reception
+    #TO DO
     "With your disguise intact, you confidently stride through the office building, blending in seamlessly with the bustling crowd. The air is thick with the hum of productivity as employees rush to and from."
-
+    # Checkpoint 1as the Option 1 is correct, if the player chooses 2nd or 3rd option then he will jump to inside_building
     menu:
         "Explore the cubicles":
             jump explore_cubicles
@@ -529,29 +736,57 @@ label inside_building:
             jump check_elevators
 
 label explore_cubicles:
-
-
+    scene bg cubicles
+    show Me with easeinright
+    "Now that you're inside you change back to your regular attire"
+    
+    scene bg whiskers
     #[Taking a photo from the mobile phone] [BG: Desk with the photo of a dog name whiskers]
-    "As you quietly explored the cubicles, your attention was drawn to a desk adorned with a framed picture of an elegant dog, its name proudly displayed beneath the image – Whiskers. The feline's regal demeanor made the picture amusingly out of place in the corporate setting. Intrigued, you decided to capture this curious discovery."
+    #TO DO
+    "As you quietly explored the cubicles, your attention was drawn to a desk adorned with a framed picture of an elegant dog, its name proudly displayed beneath the image 'Whiskers'."
 
-    "After discreetly snapping a photo of Whiskers' portrait, you continued your investigation. Amongst the papers on the desk, you found an official document containing the name and date of birth of an employee. The document provided you with the name Alex Johnson and a birthdate (12/08/1975), leaving you to wonder about the connection between the cat and the employee."
+    "The feline's regal demeanor made the picture amusingly out of place in the corporate setting. Intrigued, you decided to capture this curious discovery."
 
-    "Quickly noting down the name and date of birth from the document, you proceeded further. There your eyes fell upon one famous quote which is unique in the office environment. 
+    "After discreetly snapping a photo of Whiskers' portrait, you continued your investigation. Amongst the papers on the desk, you found an official document containing the name and date of birth of an employee."
 
-    # UPDATE INVENTORY
+    "The document provided you with the name Alex Johnson and a birthdate (12/08/1975), leaving you to wonder about the connection between the cat and the employee."
+
+    "Quickly noting down the name and date of birth from the document, you proceeded further."
+
+    define alex_data = InventoryData("Alex Johnson", "Birth: 12/08/1975, potential owner of cat Whiskers")
+
+    $ inventory.add_data(alex_data)
+
+    "{i}The information about Alex Johnson and Whiskers was added to your notebook. {\i}"
+
+    "There your eyes fell upon one famous quote which is unique in the office environment."
 
     #[Wrting in Journal] [BG: Picture with quote written Here's looking at you, kid – Casablanca]
+    #Could you please explain what you mean?
 
-    "A spark of recognition ignited in your mind as you realized the significance of this quote. Hastily, you made a mental connection between the employee's name, the birthdate, and the movie quote. Pulling out your journal, you meticulously wrote down the details: Alex Johnson, 12/08/1975, Quote: Here's looking at you, kid – Casablanca."
+    "A spark of recognition ignited in your mind as you realized the significance of this quote. Hastily, you made a mental connection between the employee's name, the birthdate, and the movie quote."
 
-    #UPDATE INVENTORY
+    "Pulling out your notebook, you meticulously wrote down the details: Alex Johnson, 12/08/1975, Quote: Here's looking at you, kid – Casablanca."
+
+    define alex_data_2 = InventoryData("Alex Johnson", "Birth: 12/08/1975, potential owner of cat Whiskers, Quote: Here's looking at you, kid – Casablanca")
+
+    $ inventory.remove_data(alex_data)
+    $ inventory.add_data(alex_data_2)
+
+    "{i}The information was added to your notebook. {\i}"
 
     "While you're capturing the information, you accidentally knock a pen off the desk, drawing the attention of an observant employee."
     jump interaction_with_employee
 
 label break_room:
     # [BG: Office Canteen with many employees]
-    
+    # TO DO
+    scene bg office canteen
+    "Now that you're inside you change back to your regular attire"
+
+
+    show Me with easeinright
+
     "The break room is bustling with activity. Colleagues gather around tables, sharing stories and enjoying a brief respite from their busy day."
     menu:
         "Join a Group of Colleagues Chatting Nearby":
@@ -560,8 +795,12 @@ label break_room:
             jump observe_from_a_distance
 
 label check_elevators:
-
+    scene bg elevator
+    show Me with easeinleft:
+        xzoom -1.0
+        
     # BG: Elevators
+    #TO DO
 
     menu:
         "Watch a Password Reset Procedure":
@@ -569,11 +808,12 @@ label check_elevators:
         "Interact with Employees Using the Elevator":
             jump employees_using_elevator
         "Examine Posted Notices or Instructions near the Elevators":
-            jump  instructions_near_the_elevators
-
-
+            jump instructions_near_the_elevators
 
 label interaction_with_employee:
+    scene bg cubicles
+    show Me 
+    show e4
     # Interaction after knocking off the pen
     menu:
         "Apologize and engage in light conversation":
@@ -586,18 +826,21 @@ label interaction_with_employee:
             jump deflect_with_humor
 
 label apologize_and_engage:
-
+    scene bg cubicles
+    show Me 
+    show e4
     #BG in the cubicles
+    # TO DO
     e4 "Hey, is everything alright here? You were looking at that desk pretty intently."
 
 
-    p "Oh, my apologies! I’m just trying to get my bearings. Everything's so high-tech here, and I’m still struggling with the basics, like those complex password policies."
+    p "Oh, my apologies! I'm just trying to get my bearings. Everything's so high-tech here, and I'm still struggling with the basics, like those complex password policies."
 
     e4 "Well, everyone has to follow the IT guidelines. It's for our own security. Are you sure you're in the right area?"
 
     p "Yes, I'm just overwhelmed by the transition. Back at my last job, I had a simpler system for remembering passwords. Here, it's like you need an encryption key for everything. Do you ever find it a bit much?"
 
-    e4 "I guess it can be a lot at first. But you shouldn't really be discussing password strategies openly. It’s a security risk."
+    e4 "I guess it can be a lot at first. But you shouldn't really be discussing password strategies openly. It's a security risk."
 
     p "Of course, I understand the need for confidentiality. I was just hoping for some generic tips on managing all these different systems. It's a bit daunting, you know?"
 
@@ -605,23 +848,23 @@ label apologize_and_engage:
 
     p "I appreciate the advice. I'll be sure to keep that in mind. Thank you for your help."
 
-    "Some people use familiar things to create a complex password"
+    "Some people use familiar things to create a complex password."
     
     
     jump continue_exploring
 
-
-
-
 label act_confused_and_ask_for_help:
-
+    scene bg cubicles
+    show Me 
+    show e4 
     #BG in the cubicles
+    # TO DO
     p "I'm sorry, I got lost in thought. I'm actually trying to find the meeting room. Can you point me in the right direction?"
 
     e4 "Oh, of course! No problem at all. You'll want to head down this hallway, take the second left, and then it's the third door on your right. You can't miss it; there's a sign that says 'Meeting Room' right outside the door."
 
     p "Thanks so much! This place is a bit of a maze."
-
+    show e4 smile
     e4 "Tell me about it! Took me a week to stop getting lost. If you need anything else, just let one of us know. Good luck with your meeting!"
 
     p "I appreciate it. Have a great day!"
@@ -630,7 +873,11 @@ label act_confused_and_ask_for_help:
 
 
 label feign_ignorance:
+    scene bg cubicles
+    show Me 
+    show e4 
     #BG in the cubicles
+    # TO DO
     p "Oh, this isn't my desk? I'm so sorry, I thought this was where I was supposed to be for my orientation. Do you know where that is?"
 
     e4 "No worries at all! It can be confusing around here on your first day. Your orientation is actually happening in the conference room on the first floor. If you take the elevator down, it's right across from the reception area. You'll see a sign marked 'Orientation' outside the door."
@@ -644,9 +891,12 @@ label feign_ignorance:
     jump continue_exploring
 
 label deflect_with_humor:
-
+    scene bg cubicles
+    show Me 
+    show e4 
     #BG in the cubicles
     p "I guess I'm just mesmerized by all the hustle and bustle here. It's like trying to remember a password you just created and forgot two seconds later. Happens to you too, right?"
+    show e4 smile
 
     e4 "Oh, absolutely! It's like my brain decides to do a hard reset the moment I hit 'save'. Just the other day, I spent 20 minutes resetting my password, only to realize I was typing it wrong because I forgot I added an exclamation mark at the end. It's always the special characters that get me."
 
@@ -660,26 +910,29 @@ label deflect_with_humor:
 
     jump continue_exploring
 
-
 label colleagues_chatting_nearby:
+    scene bg office canteen
 
+    show Me 
+    show e5 with easeinleft
     # [BG: Office Canteen with many employees]
     e5 "Hey, you're new here, right? We were just talking about the team-building event. Did you enjoy it?"
 
 
     p "Hey, I am new here! The team-building event was really fun. I got to learn a lot about my new colleagues. How about you guys?"
+    show e6 with easeinleft
 
-    e6 "Oh, it was great! I think it’s always good to step out of the work routine and get to know each other in a different setting."
+    e6 "Oh, it was great! I think it's always good to step out of the work routine and get to know each other in a different setting."
 
-    e5 "Absolutely. Plus, it was fun sharing those quirky facts about ourselves. Like, who would've thought I’d be using the year I joined this company as a fun fact?"
+    e5 "Absolutely. Plus, it was fun sharing those quirky facts about ourselves. Like, who would've thought I'd be using the year I joined this company as a fun fact?"
 
-    p "That’s pretty interesting. Does the year hold a special significance for you?"
+    p "That's pretty interesting. Does the year hold a special significance for you?"
 
-    e5 "Well, it was a major turning point in my career, so yeah, it’s significant for me. Plus, it’s easy to remember, which always helps."
+    e5 "Well, it was a major turning point in my career, so yeah, it's significant for me. Plus, it's easy to remember, which always helps."
 
     e6 "I went with something less obvious. I talked about my weird hobby of collecting vintage postcards."
 
-    p "That’s really unique, Sam. It must be quite a collection."
+    p "That's really unique, Sam. It must be quite a collection."
 
     e6 "It is! Anyway, how did you find the password setup here? A bit daunting, isn't it?"
 
@@ -693,7 +946,7 @@ label colleagues_chatting_nearby:
 
     e5 "Hmm, it could work, but be careful with using anything too straightforward. The year on its own is a bit risky. You need to throw in some curveballs."
 
-    p "Got it, thanks for the tip. I’ll make sure it’s not something easily guessable."
+    p "Got it, thanks for the tip. I'll make sure it's not something easily guessable."
 
     e6 "Yeah, and remember, these conversations about passwords are a bit sensitive. Best to keep the specifics to ourselves."
 
@@ -704,22 +957,24 @@ label colleagues_chatting_nearby:
     p "Thanks! I'm sure I'll fit right in."
 
 
-    "Some people use mixing personal elements with random characters for passwords" 
+    "You didn't find much information about the passwords" 
     
-    jump continue_exploring
+    jump inside_building
 
-   
 label observe_from_a_distance:
+    scene bg office canteen
 
+    show Me with easeinleft:
+        xzoom -1.0
     # [BG: Office Canteen with many employees]
 
     "From your isolated vantage point, you overhear fragmented conversations, catching bits and pieces about office life and daily routines. While you gain a general sense of the company culture, no specific information about password creation or other sensitive topics is gleaned."
-    jump continue_exploring
+    jump inside_building
 
 label password_reset_procedure:
-
+    scene bg elevator
     # BG in the elevators
-
+    # TO DO
 
     "Near the elevators, you notice an IT support staff assisting an employee with a password reset. This situation provides a rare opportunity to understand the company's password policy. As the IT staff member guides the employee through the reset process, you overhear snippets of their conversation."
     
@@ -727,13 +982,14 @@ label password_reset_procedure:
     "The employee nods, considering for a moment, then types something in. You can't see the exact keystrokes, but you notice the employee's eyes momentarily glance at a photo pinned nearby – it's a picture of a mountain."
     e7 "Okay, done. I've used my favorite hiking trail name and added the year I first hiked it, plus an exclamation mark."
     staff "That's a good mix. It's personal but not something everyone would know. Just make sure you remember it without writing it down."
-    "The employee leaves, looking satisfied. This interaction gives you a valuable insight into how employees might construct their passwords – using personal hobbies or experiences combined with significant dates and special characters."
+    "The employee leaves, looking satisfied. This interaction gives you a valuable insight into how employees might construct their passwords using personal hobbies or experiences combined with significant dates and special characters."
 
-    jump continue_exploring
+    jump inside_building
 
 label employees_using_elevator:
 
     # [BG: Elevators]
+    #TO DO
     "Spotting an opportunity, you approach an employee who looks like they might be heading to an IT support session."
 
     p "Hi, I couldn't help overhearing you're heading to IT. I'm new here and still figuring things out. Any advice on managing all these passwords we have to use?"
@@ -742,38 +998,39 @@ label employees_using_elevator:
     e8 "Sorry, I can't really help you there. I just do my best to keep them straight. Maybe IT could give you some tips?"
     
     "The employee gives a polite but dismissive smile and continues on their way, offering no further information."
-    jump continue_exploring
-
+    jump inside_building
 
 label instructions_near_the_elevators:
 
     # BG: Some image of instructions near elevator
+    #TO DO
     "You carefully read the notices and instructions posted near the elevators. They mostly consist of safety protocols and elevator usage guidelines, offering no clues about password creation or security measures."
 
-    jump continue_exploring
+    jump inside_building
 
 label continue_exploring:
     
-
     #BG Office stairs
+    #TO DO
 
+    # Checkpoint 2, here the 3rd option is correct and if you choose 1 or 2nd option you continue #further but you will not find out about the room 303 so the player again comes at this option
+
+    default support_staff_contacts_done = False
 
     "Regardless of your choice, you continue your exploration."
     menu:
-        "Investigate Support Staff Contacts":
+        "Investigate Support Staff Contacts" if support_staff_contacts_done:
             jump support_staff_contacts
         "Explore Middle Management Contacts":
             jump middle_contacts
         "Search for a high-ranking employee":
-            jump search_high_ranking_employee
-
-
+            jump call_mr_johnson
 
 label support_staff_contacts:
 
-
+    #TO DO
     #  Scene"[Player with phone dailing and Burt on the other side]" BG: Inside some room
-    "Feeling like an undercover agent, you decide to explore the support staff, aiming for the custodian – Burt W. Mopbucket, the head of janitorial services. You figure Burt might have some amusing stories about his experiences while cleaning up after everyone."
+    "Feeling like an undercover agent, you decide to explore the support staff, aiming for the custodian Burt W. Mopbucket, the head of janitorial services. You figure Burt might have some amusing stories about his experiences while cleaning up after everyone."
     "Dialing Burt's number, you brace yourself for a less-than-warm reception."
 
     p "Hello, Burt? It's Mike from HR. Just doing a quick check-in. Any interesting or amusing things happening during your janitorial adventures?"
@@ -786,13 +1043,14 @@ label support_staff_contacts:
 
     p "Sure thing, Burt. Keep up the excellent work on those floors."
 
-    # You can't go back to this option
+    $ support_staff_contacts_done = True
     
     jump encounter_with_office_cat
 
 label middle_contacts:
     "With a sly grin, you decide to delve into the world of middle management, hoping to find an unsuspecting hero among the ranks. Scrolling through the directory, you pick Ivy P. Paperwork, the manager of documentation control. Her title might not scream glamour, but you figure she could be the keeper of hidden secrets."
 
+    # TO DO
     #"[Player with phone dailing and Ivy on the other side]" BG: Inside some room
 
     "You dial Ivy's number and, after a few rings, she picks up."
@@ -818,7 +1076,8 @@ label call_mr_johnson:
     "You find the number of a high-ranking executive, Mr. Johnson, in the directory."
     "You decide to call Mr. Johnson and try to extract information from him."
 
-    #"[Player with phone dailing and me johnson on the other side]" BG: Inside some room
+    #Player with phone dailing and me johnson on the other side BG: Inside some room
+    #TO DO
 
     menu:
         "Introduce yourself as IT support":
@@ -830,7 +1089,6 @@ label call_mr_johnson:
      
     
 label introduce_as_IT:
-
 
     "You claim to be from IT support, conducting a routine check, and ask him for his computer details."
     p "Hello, Mr. Johnson? This is Alex from IT support. We're conducting a routine check on all executive accounts today. Can I get your computer's model and current operating system version to ensure everything's up to date?"
@@ -849,7 +1107,7 @@ label introduce_as_IT:
 
     mr_johnson "I'm sorry, but without proper verification, I'm not comfortable disclosing any information over the phone. I'll reach out to our IT department myself and follow up on this. Goodbye."
 
-    #This is the wrong option and you cant go further so repeat level1
+    #This is the wrong option and you cant go further so go to Checkpoint 2
 
     jump Caught
 
@@ -868,7 +1126,7 @@ label pretend_to_be_CEO:
 
     mr_johnson "No problem, I'll get in touch with IT right away and ensure they expedite your access. Thank you for understanding the importance of following our security protocols."
 
-#This is the wrong option and you cant go further so repeat level1
+#This is the wrong option and you cant go further so go to checkpooint 2
 
     jump Caught
 
@@ -909,8 +1167,8 @@ label pretend_to_be_colleague:
 label encounter_with_office_cat:
 
     # Furry Cat Bg: Hallway of the office
-
-
+    #TO DO
+    scene bg office cat
     "As you navigate the halls, you encounter an office cat. It seems to take a liking to you, following you curiously."
 
     menu:
@@ -920,15 +1178,15 @@ label encounter_with_office_cat:
             jump Ignore_the_cat
 
 label pet_the_cat:
-
+    scene bg office cat3
 
     #Bg: some hidden compartemnt
-
+    #TO DO
 
     "You take a moment to pet the cat, appreciating the unexpected companionship."
     p "Well, aren't you a friendly one? Need a partner in crime, huh?"
     "The cat unexpectedly nudges a wall panel with its head, revealing a hidden compartment."
-
+    scene bg office cat2
     p "Now that's interesting. What secrets are you hiding, my furry friend?"
 
     "Inside the compartment, you find a set of old keys."
@@ -941,66 +1199,94 @@ label pet_the_cat:
 
 
 label Ignore_the_cat:
+
+    #This is the wrong option and you cant go further so go to checkpooint 2
     jump Caught
 
-
-
-
 label take_the_keys:
+
+    # Here the player does not know about room 303 if he has selected option 1 and option 2 from label #continue_exploring. 
     "You decide to take the keys, thinking they might come in handy."
     jump room_303
 
-
-
 label room_303:
+    scene bg room303
     "You enter Room 303, the cat still by your side. The dimly lit room is filled with rows of computers."
 
 
     "As you try to access the computer, you realize it's password-protected."
 
+    #default computer_info_collected = False
+
+label desk_choices:
     menu:
         "Unlock the computer":
             jump unlock_the_computer
         "Open the Cupboard with the keys you found":
             jump open_the_cupboard
 
-
     #If the player uses option 1 first then the computer will not be unlcoked 
     #Only after exploring the option 2 player will be able to unlock the computer
 
-
-
 label unlock_the_computer:
-
+    scene bg computer
     # Computer scene
+    #TO DO
 
-
-    "Frustrated by the password prompt, you decide to take a more direct approach and attempt to unlock the computer. Trying a few common passwords that often slip people's minds or are used out of convenience, you input variations of 'password,' '123456,' and 'admin,' but to no avail. The computer remains securely locked, refusing to grant access."
+    "Frustrated by the password prompt, you decide to take a more direct approach and attempt to unlock the computer."
+    
+    "Trying a few common passwords that often slip people's minds or are used out of convenience, you input variations of 'password,' '123456,' and 'admin,' but to no avail. "
+    
+    "The computer remains securely locked, refusing to grant access."
 
     p "Well, that was worth a shot."
 
-    #Then you look in the INVENTORY and find out about the photo of a dog, a document in which date of birth is mentioned and the photo you find after opening the cupboard.
+    "Password: whiskers19752926 (This is just until we complete this story part)"
 
+    #Then you look in the INVENTORY and find out about the photo of a dog, a document in which date of #birth is mentioned and the photo you find after opening the cupboard.
+    
+    # Is the player supposed to try different passwords here?
+    label password_2:
+        python:
+            style.input.color = "#ffffff"
+            password_2 = renpy.input("", length=32, screen = "nameInput")
+            password_2 = password_2.strip()
+
+    if password_2 == "whiskers19752926":
+        jump right
+        
+    else:
+        p "Wrong Password! Would you like to try again?"
+        menu:
+            "Try again":
+                jump password_2
+            "Return to choices":
+                jump desk_choices
+    
     #SO there will be computer screen 
-    #The password will be whiskers19752926  first dog name, then date of birth(year) and then the image found in the background.
+    #The password will be whiskers19752926  first dog name, then date of birth(year) and then the image #found in the background.
 
+    #work with computer info collected?
 
     jump hidden_camera
 
-
-
-
 label open_the_cupboard:
-    #After opening the cupboard you find the photo of Mr. johnson along with family and in the background you can see a number "2926"
+    scene bg locker
+
+    #After opening the cupboard you find the photo of Mr. johnson along with family and in the #background you can see a number "2926"
+
+    # Will be added to the notebook as soon as we have a visual by the design team
+
+    #$ computer_info_collected = True
 
     jump unlock_the_computer
 
 
-
 label hidden_camera:
 
+    # Checkpoint 3 , after unlock the computer if the player gets caught after this, he can come back #to this option
     #BG: camera inside the room
-
+    #TO DO
 
     "As you delve into the files, you notice a hidden security camera"
     menu:
@@ -1019,9 +1305,11 @@ label disable_the_camera:
     "Carefully, you open the panel concealing the camera's wires, aiming to cut the power source or manipulate its circuits. However, in the process, a tiny alarm is triggered, and a soft electronic beep resonates in the room."
 
     #*Automated System:* "Security breach detected. Security breach detected."
+    #TO DO
 
     "Panicking, you realize that your attempt to disable the camera has backfired. The unexpected alarm attracts attention, and you hear distant footsteps approaching rapidly."
 
+    #This is the wrong option and you cant go further so go to checkpooint 3
     jump Caught
 
 
@@ -1041,15 +1329,14 @@ label create_a_distraction:
     "As you activate the fan, the papers whirl into the air, creating a chaotic flurry. However, this action inadvertently triggers the room's motion sensors, which are linked to the security system."
     
     #Automated System: "Unusual activity detected. Investigating."
-    "The sudden activation of the motion sensors, coupled with the chaotic movement of papers, escalates the situation. Lights begin to flash, and an alarm blares through the room."
+    #TO DO
 
+    "The sudden activation of the motion sensors, coupled with the chaotic movement of papers, escalates the situation. Lights begin to flash, and an alarm blares through the room."
 
     "Realizing that the diversion has escalated far beyond your intentions, you hear security personnel being alerted over the building's intercom system."
 
+    #This is the wrong option and you cant go further so go to checkpooint 3
     jump Caught
-
-
-    
 
 label fumbling_with_the_camera:
     menu:
@@ -1057,8 +1344,6 @@ label fumbling_with_the_camera:
             jump act_casual
         "Confront the employee":
             jump confront_the_employee
-
-
 
 label act_casual:
     e9 "Hey, what are you doing in here?"
@@ -1085,36 +1370,14 @@ label confront_the_employee:
 
     "The employee remains suspicious and decides to check with security. Your attempt to confront him raises further red flags."
 
-
-    jump Caught
-
-
-
-label caught:
-
-
     "Your attempt has backfired. Security is on their way."
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    #This is the wrong option and you cant go further so go to checkpooint 3
+    jump Caught
 
 label Leaving_building:
 
-    "I should get out of here before anyone catches me."
+    "I should get out of here before anyone catches me." #checkpoint4
 
     menu:
 
@@ -1128,11 +1391,11 @@ label Leaving_building:
             jump leavealone
 
 label leavealone:
-
+    scene bg checkpoint
     "As you approach the security door, you notice that you would have needed an ID to scan for it to open."
 
 #[Security guard will tap on your shoulder, you turn around]
-    "SG: “Where is your ID card”"
+    s "Where is your ID card"
 
     p "I must have lost it, it was right there on my pants"
 
@@ -1142,22 +1405,18 @@ label leavealone:
             jump punch
         "I must have lost it, it was right there on my pants":
             jump apology
-#only if true
-        "Take the ID batch in your inventory":
+        "Take the ID badge in your inventory" if badge_found:
             jump idcard
 
-
-label punch:
+label punch:#scene you punching him
 
     "You punch him in the face and run as fast as you can. But only after three steps one of the security guards pulls you back and holds you tight. "
     
     "You realize that they are too strong and you will not get out of the situation anymore."
 
-
-
 label apology:
 
-    "SG, still neutral: What's your name, I can look for you in our system."
+    s "What's your name, I can look for you in our system."
 
     menu:
 
@@ -1166,10 +1425,9 @@ label apology:
         "I am Christian Baker":
             jump christian
 
+label ryan:#confused
 
-label ryan:
-
-    "SG: “There is no Ryan Nordberg in our system."
+    s "There is no Ryan Nordberg in our system."
 
     menu:
 
@@ -1180,52 +1438,53 @@ label ryan:
 
 label lie:
 
-    "The SG calls his colleague on the phone: “ Hey there is a person, some Ryan Nordberg, he doesn’t have an ID and I can’t find him in our system. What am I supposed to do?"
+    "The security guard calls his colleague on the phone: “ Hey there is a person, some Ryan Nordberg, he doesn’t have an ID and I can’t find him in our system. What am I supposed to do?"
 
-    "SG: “Alright, I won’t let him leave”"
+    s "Alright, I won’t let him leave"
 
-    "The security guard brings you into a small room. "
+    "He brings you into a small room."
     "As you are waiting for the police you know that you will not be able to continue your mission and that you have to take accountability for your illegal activities."
 
     #gameover
+    jump Caught # like that? #go to checkpoint4
 
 label berude:
 
 #[Surprised look]
-    "It’s ok Ryan, you can pass. Next time bring your ID."
+#TO DO
+
+    s "It’s ok Ryan, you can pass. Next time bring your ID."#friendly
+
+    #outside
 
     p "That was close. Thank god, I got out of here. I am going to meet Cathy to tell her about everything."
 
     jump cathymeet
-
-
-
-
-
-
 
 label christian:
 
 #[SG, male, serious look]
+# TO DO
+
     "You see the security guard typing something on his keyboard. "
-    "SG: “Alright there we go, Christian Baker. Have a great day!"
+    s "Alright there we go, Christian Baker. Have a great day!"
 
 #outside
+# TO DO
 
     p "That was close. Thank god, I got out of here. I am going to meet Cathy to tell her about everything."
 
     jump cathymeet
 
-
-
 label leavecanteen:
-
-    "You change back into your kitchen clothes and walk into the company's kitchen."
+    scene bg kitchen
+    show Me chef
+    "You change back into your kitchen clothes and walk into the company's kitchen." #you with kitchen clothes
 
     "The kitchen is brimming with energy and hectic as chefs and kitchen staff hustle to prepare dishes for the employees. No one really pays attention to you. "
     "You feel safe and almost reach the exit door but suddenly a woman stops you in front of the door."
-
-    "C: Hey, sorry but can you quickly help out with the dessert. It's so busy right now we can't keep up."
+    show k2 stressed with easeinleft
+    k2 "Hey, sorry but can you quickly help out with the dessert. It's so busy right now we can't keep up."
 
     menu:
 
@@ -1234,11 +1493,12 @@ label leavecanteen:
         "Yes, sure, what do you need help with?":
             jump helped
 
-label decine:
+label decline:
+    show Me chef
+    show k2 stressed 
+    k2 "Ok, that is unfortunate. I will do it myself then"
 
-    "C: Ok, that is unfortunate. I will do it myself then"
-
-    "You see that some of the canteen employees starts looking at you skeptical"
+    "You see that some of the canteen employees starts looking at you skeptical"#skeptic look
     menu:
 
         "Rush out as fast as you can.":
@@ -1246,15 +1506,15 @@ label decine:
         "Act like you are busy with washing some dishes.":
             jump wash
 
-
-
 label wash:
-
+    hide Me
     "While washing some dishes you can listen to a conversation of some of the kitchen staff. "
+    show k2 happy with easeinleft
+    show k1 happy with easeinright:
+        xzoom -1.0 
+    k2 "This week we had a delivery with boxes full of avocados"
 
-    "Person1: “This week we had a delivery with boxes full of avocados"
-
-    "Person 2: “Yes, I have heard our company now buys them from AvoHarvest and gets huge discounts."
+    k3 "Yes, I have heard our company now buys them from TastyFood and gets huge discounts."
 
     menu: 
         "Stay and continue listening":
@@ -1263,29 +1523,27 @@ label wash:
         "Leave the kitchen through the back door":
             jump leavekitchen
 
-
-
-
-
 label rushout:
 
-   "You ran out of the back door of the canteen kitchen. However the canteen staff noticed you were acting very suspiciously." 
+    "You ran out of the back door of the canteen kitchen. However the canteen staff noticed you were acting very suspiciously." 
 
-   p "That was close. Thank god, I got out of here. I am going to meet Cathy to tell her about everything."
+    p "That was close. Thank god, I got out of here. I am going to meet Cathy to tell her about everything."
 
-   jump cathymeet
+    jump cathymeet
 
 label helped:
+    show Me chef
+    show k2 happy 
+    k2 "We have to do the salad. Please add all the ingredients to the bowl."
 
-    "Cook: We have to do the salad. Please add all the ingredients to the bowl."
-
-    "Cook: Thank you for your help."
+    k2 "Thank you for your help."
 
     "As you want to leave through the back door, you can overhear two employees chattering."
+    show k1 happy with easeinright:
+        xzoom -1.0
+    k1 "This week we had a delivery with boxes full of avocados”"
 
-    "Person1: “This week we had a delivery with boxes full of avocados”"
-
-    "Person 2: “Yes, I have heard our company now buys them from AvoHarvest and gets huge discounts."
+    k3 "Yes, I have heard our company now buys them from TastyFood and gets huge discounts."
 
     menu:
 
@@ -1296,10 +1554,11 @@ label helped:
             jump leavekitchen
 
 label listenkitchen:
-
+    scene bg kitchen
+    show Me chef
     "One of the two employees notices you looking at them."
-
-    "Person 1: Hey, is there something wrong? Why are you staring at us?"
+    show k2 stressed with easeinleft
+    k2 "Hey, is there something wrong? Why are you staring at us?"
 
     menu: 
 
@@ -1319,54 +1578,54 @@ label apology2:
     jump cathymeet
 
 label flirt2:
-
+    show k2 angry
     "Person 1[looking mad]: “Are you crazy? I will forward this harrassment to security. Who are you?"
 
     "You apologize for offending her but now all eyes in the kitchen are on you. You see her calling security on her phone, knowing that you will not get out of this situation anymore."
 
-    #game over
-
-
+    jump Caught #goto checkpoint 4
 
 label leavekitchen:
-
+    scene bg coreback3
     "You left the building out of the back door of the kitchen."
 
     p "Thank god, nobody caught me. I am going to meet Cathy to tell her about everything."
 
     jump cathymeet
 
-
-
-
-
 label leavemain:
 
     "You see a group of employees walking towards the exit. You run along with them inconspicuously and walk quickly behind one person through the security door."
 
 #Security guard will tap on your shoulder, 
+# to do
     "When suddenly a security guy taps on your shoulder"
-    "SG: Hey there! Stop!"
+    s "Hey there! Stop!"
     "Oh no, I got caught..."
-    "SG: Hey you lost your wallet"
+    s "Hey you lost your wallet"
     p "Player: Oh thank you Sir! "
 
     "You rush out of the building" 
-    "Thank god, nobody caught me. I am going to meet Cathy to tell her about everything."
+    p "Thank god, nobody caught me. I am going to meet Cathy to tell her about everything."
 
     jump cathymeet
 
-label cathymeet:
-    
-    p "Hey Cathy, I checked out CORE today but I could find any valid information[about]. I just found this photograph in the trash. Maybe we should give up and move on.."
+label cathymeet:#meet her in a cafe/bar
+    scene bg coffee
+    show Me with easeinright
+    show cathy with easeinleft
+    p "Hey Cathy, I checked out CORE today but I could not find any valid information. I just found this photograph in the trash. Maybe we should give up and move on.."
 
-    "C: hmm, I am sorry.. let me see the photo. "
+    c "Hmm, I am sorry.. let me see the photo. "
 #[show photo]
-    "C: Wait. That’s senator John Smith right there. Why would he be in this picture? "
+#to do
+    c "Wait. That’s senator John Smith right there. Why would he be in this picture? "
     p "That’s surprising, I didn’t know that. The other people are the CEOs of CORE."
 
-    "C: I have the feeling that something is wrong. Maybe you could find more information about Senator Smith, next."
+    c "I have the feeling that something is wrong. Maybe you could find more information about Senator Smith, next."
 
     p "Okay, I will be in touch!"
+
+    jump start
 
  

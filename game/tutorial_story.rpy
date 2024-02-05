@@ -1,9 +1,11 @@
 $ renpy.include("inventory.rpy")
 
+default povname = "Me"
+
 # Declare characters used by this game.
 define r = Character(_("Receptionist"), color="#c8ffc8")
 define t = Character(_("Toni"), color ="#ffffff")
-define p = Character(_("Me"), color="#c8c8ff")
+define p = Character("[povname]", color="#c8c8ff")
 define c = Character(_("Cathy"), color="#dde100")
 
 image Receptionist="receptionist.png"
@@ -12,6 +14,7 @@ image Toni smile="tony_smile.png"
 image Toni wave="tony_wave.png"
 image Me="playermale.png"
 image cathy="Cathy.png"
+
 
 image secret doc="secret_doc.jpg"
 image bd phone="bg phone.png"
@@ -35,7 +38,7 @@ label tutorial:
     
     r "Good morning. Are you new here? What’s your name?"
 
-    define p = Character("[povname]", color="#c8c8ff")
+    #define p = Character("[povname]", color="#c8c8ff")
 
     python:
         style.input.color = "#ffffff"
@@ -54,8 +57,6 @@ label tutorial:
 
     t "Hey there, welcome to the team!"
     t "I am Toni. Today, on your first day at work, I'm going to help you get settled into the company and get to grips with everything."
-
-    #menu: 
 
     p "Thank you. Nice to meet you!"
     hide Toni
@@ -98,7 +99,7 @@ label tutorial:
     hide Toni wave with easeoutleft
 
     t "Mhh.. I wonder what kind of phishing email would Frank fall for..."
-    #scene laptop email
+
     hide screen inv_screen
     jump phishing
 
@@ -119,22 +120,30 @@ screen phishing:
 
 
 label wrong_phishing:
-    t "Mhh I don't think this is the right choice. If I remember correctly Frank is more into cats."
+    show screen inv_screen
+    p "Mhh I don't think this is the right choice. If I remember correctly Frank is more into cats."
     jump phishing
+    hide screen inv_screen
 
 label right_phishing: 
     show bg desktop
-    t "Haha, that Frank guy is not a very smart one! Now I have access to his computer screen."
-    t "Oh what's in that folder?"
+    show screen inv_screen
+    
+    p "Haha, that Frank guy is not a very smart one! Now I have access to his computer screen."
+    
+    $ todo.update_aim("")
+    
+    "{i} You successfully completed your aim! {\i}"
+
+    p "Oh what's in that folder?"
 
 label password_story:
 
-    show screen inv_screen
     show bg laptop
     scene laptop top secret
     show bg laptop2
-    t "It's password protected."
-    t "If I remember correctly, then the most common passwords are 123456, password, and qwerty. I could just try them out"
+    p "It's password protected."
+    p "If I remember correctly, then the most common passwords are 123456, password, and qwerty. I could just try them out"
 
     label password:
         python:
@@ -146,17 +155,29 @@ label password_story:
         jump right
         
     else:
-        "Wrong Password! I should try an alternative..."
+        p "Wrong Password! I should try an alternative..."
         jump password
 
 
 label right:
 
-    "That worked! Ok what is this?"
+    p "That worked! Ok what is this?"
 
     #Show PDF Top Secret Document
     show secret doc at Position(ypos=0.8) with zoomin
-    pause(2.0)
+    p "Mhmm..."
+
+    define info1 = InventoryData("Deforestation", "obscure activities not in compliance with environmental regulations")
+    define info2 = InventoryData("Farmer strikes", "An unresolved problem of domestic workers on strike")
+    define info3 = InventoryData("Confrontation with local wildlife and people", "appears to be violent")
+
+    $ inventory.add_data(info1)
+    $ inventory.add_data(info2)
+    $ inventory.add_data(info3)
+
+    "{i}Some bullet points of information were added to your notebook.{\i}"
+
+    hide secret doc
 
     menu:
 
@@ -171,15 +192,15 @@ label right:
 
 
 label printing:
-    t "Thank God, no one saw me printing that file. Next time, I should be more careful."
+    p "Thank God, no one saw me printing that file. Next time, I should be more careful."
     jump evidence
 
 label usb:
-    t "Now, I should get out of here quickly. I have a bad feeling about this."
+    p "Now, I should get out of here quickly. I have a bad feeling about this."
     jump evidence
 
 label closed:
-    t "I don't know if this was a smart idea, but I don't feel good about it."
+    p "I don't know if this was a smart idea, but I don't feel good about it."
     jump no_evidence
 
 label evidence:
@@ -192,7 +213,7 @@ label evidence:
     
     "5 PM closing time… Your first day at work is finished. You leave the place hasty, to get to the appointment with your friend Cathy in time."
 
-    t "I'm just glad I'm meeting Cathy tonight and hopefully with her help, I can make a plan of what to do. I think I might be in trouble …"
+    p "I'm just glad I'm meeting Cathy tonight and hopefully with her help, I can make a plan of what to do. I think I might be in trouble …"
     hide Me with easeoutleft
     scene bg coffee
     show Me with easeinright
@@ -241,7 +262,7 @@ label no_evidence:
 
     "5 PM closing time… Your first day at work is finished. You leave the place hasty, to get to the appointment with your friend Cathy in time."
 
-    t "I'm just glad I'm meeting Cathy tonight and hopefully with her help I can make a plan of what to do. I think I might be in trouble …"
+    p "I'm just glad I'm meeting Cathy tonight and hopefully with her help I can make a plan of what to do. I think I might be in trouble …"
     hide Me with easeoutleft
     scene bg coffee
     show Me with easeinright
@@ -257,19 +278,60 @@ label no_evidence:
 
     p "No, really not, I swear on our friendship"
 
-    #menu
-
     c "Can you remember anything? What was mentioned?"
 
-    p "I remember reading about forest clearance and farmer strikes"
+    menu:
+        "I remember reading about forest clearance and farmer strikes" :
+            jump remembered_1
         
-    p "I think there was the mentioning of avocados"
+        "I think there was the mentioning of avocados" :
+            jump remembered_2
 
-    p "I read the word classified"
+        "I read the word classified" :
+            jump remembered_3
 
-    p "I remember something about having a surprise birthday party for the head of the department"
+        "I remember something about having a surprise birthday party for the head of the department" :
+            jump not_remembered
 
-    # solution to not use label
+    
+label not_remembered:
+
+    c "That's not worth a story, are you kidding me?"
+
+    p "You are right! I remember something else"
+
+    menu:
+        "I remember reading about forest clearance and farmer strikes" :
+            jump remembered_1
+        
+        "I think there was the mentioning of avocados" :
+            jump remembered_2
+
+        "I read the word classified" :
+            jump remembered_3
+
+label remembered_2:
+
+    c "Avocados aha, that can not be it right?"
+
+    menu:
+        "I remember reading about forest clearance and farmer strikes":
+            jump remembered_1
+    
+
+        "I read the word classified" :
+            jump remembered_3
+
+label remembered_3:
+
+    c "Thats more interesting but what is it about?"
+
+    "I remember reading about forest clearance and farmer strikes" 
+    
+    jump remembered_1
+
+
+label remembered_1:
 
     c "Maybe you're on to something big. Can I have a look at your notes? I might be able to write a story about it. What do you think?"
 
@@ -300,10 +362,14 @@ label next_day:
 
     scene bg phone
 
-    "Cathy: Hey, I found out by using your given information that the company CORE Commercial Construction might be involved as well. Do you think you could get information from them? I marked the building on this map. I wish you luck and keep me updated!"
+    "{i}Cathy: Hey, I found out by using your given information that the company CORE Commercial Construction might be involved as well. Do you think you could get information from them? I marked the building on this map. I wish you luck and keep me updated!{\i}"
 
     $ todo.update_aim("Get information about CORE")
 
     "{i}Your goal was updated. {\i}"
 
     #Notebook Map is introduced
+    call screen map
+    hide screen map
+
+    jump start
