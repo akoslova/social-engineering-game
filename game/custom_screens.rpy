@@ -132,23 +132,40 @@ screen nameInput(prompt):
             size 26
             color "#ffffff"
 
-screen map():
+screen map(place):
     add "gui/map/background.png"
 
     modal True 
 
-    imagebutton auto "gui/map/cafe_active_%s.png":
+    imagebutton idle "gui/map/cafe.png":
         focus_mask True
-        action Hide("map"), Jump("start")
 
-    imagebutton auto "gui/map/core_active_%s.png":
+    imagebutton idle "gui/map/core.png":
         focus_mask True
-        action Hide("map"), Jump("start")
 
-    imagebutton auto "gui/map/event_active_%s.png":
+    imagebutton idle "gui/map/event.png":
         focus_mask True
-        action Hide("map"), Jump("start")
 
-    imagebutton auto "gui/map/tastyfood_active_%s.png":
+    imagebutton idle "gui/map/tastyfood.png":
         focus_mask True
-        action Hide("map"), Jump("start")
+
+
+    if place == "cafe":
+        imagebutton auto "gui/map/cafe_active_%s.png":
+            focus_mask True
+            action Hide("map"), Return()
+
+    if place == "core":
+        imagebutton auto "gui/map/core_active_%s.png":
+            focus_mask True
+            action Hide("map"), Return()
+
+    if  place == "event":
+        imagebutton auto "gui/map/event_active_%s.png":
+            focus_mask True
+            action Hide("map"), Return()
+
+    if place == "tastyfood":
+        imagebutton auto "gui/map/tastyfood_active_%s.png":
+            focus_mask True
+            action Hide("map"), Return()

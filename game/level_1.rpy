@@ -35,7 +35,14 @@ image bg garage="bg garage.jpg"
 
 label level_1:
     scene bg n42
+
+    "{i}Go to CORE.{\i}"
+
+    call screen map("core") 
+    hide screen map 
+
     show Me with easeinright
+
     "After a long ride in the subway you finally reach N 42 Street which is very busy at that time."
     "You notice small firms like 1940paper.inc, SmrtWays and many more having their unique blinking Signs and advertisements and the big banks and firms residing in massive Skyscrapers."
     "And also your target. It is right across the Metro Exit indicated by the big lettering on the glass front above the entrance. CORE it reads in big red letters."
@@ -269,10 +276,12 @@ label Laptop_observation:
 
     "You choose to sit on a table with a guy on his laptop in close proximity."
 
+    default say_sth = False
+    
     #maybe also count choices and hide if they were already selected?
     menu:
 
-        "Turn around and talk to him while trying to read of his screen":
+        "Turn around and talk to him while trying to read of his screen" if not say_sth:
             jump Say_something
         
         "Try reading the screen of your smartphones screen reflection":
@@ -293,6 +302,7 @@ label Say_something:
     "He is eyeing you warily and closes his laptop and starts leaving the coffee shop.
     That did not went well lets try something else!"
 
+    $ say_sth = True
     jump Laptop_observation
 
 
@@ -303,6 +313,7 @@ label Look_shoulder:
     "You try to observe what he is doing on his laptop by looking over your shoulder."
 
     "No success: You can not really see anything!"
+
 
     menu:
 

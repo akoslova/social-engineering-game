@@ -215,7 +215,13 @@ label evidence:
 
     p "I'm just glad I'm meeting Cathy tonight and hopefully with her help, I can make a plan of what to do. I think I might be in trouble …"
     hide Me with easeoutleft
-    scene bg coffee
+
+    "{i}Go to the café.{\i}"
+
+    call screen map("cafe") 
+    hide screen map 
+
+    scene bg coffee 
     show Me with easeinright
     "As you are walking towards the bar, you can not get this information out of your head. Is there something illegal going on at your new working place?"
   
@@ -264,6 +270,12 @@ label no_evidence:
 
     p "I'm just glad I'm meeting Cathy tonight and hopefully with her help I can make a plan of what to do. I think I might be in trouble …"
     hide Me with easeoutleft
+
+    "{i}Go to the café.{\i}"
+
+    call screen map("cafe") 
+    hide screen map 
+
     scene bg coffee
     show Me with easeinright
     "As you are walking towards the bar, you can not get this information out of your head. Is there something illegal going on at your new working place?"
@@ -367,9 +379,5 @@ label next_day:
     $ todo.update_aim("Get information about CORE")
 
     "{i}Your goal was updated. {\i}"
-
-    #Notebook Map is introduced
-    call screen map
-    hide screen map
 
     jump start
