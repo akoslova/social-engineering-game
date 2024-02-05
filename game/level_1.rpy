@@ -82,7 +82,6 @@ label investigate:
             jump Building_options
         
         "Stand in front of the building and observe who enters and leaves it":
-            #jump Collect_information
             jump Leaving_building
 
         "You notice that a lot of them go to the coffee shop across the street. You decide to follow them and get a coffee yourself":
