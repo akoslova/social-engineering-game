@@ -343,8 +343,19 @@ label outside_route:
         "Go inside the ballroom": 
             jump insidefail
         "Check out the building": 
-            jump check_out_building #noch machen
+            jump check_out_building 
 
+
+label check_out_building:
+    "You walk through the dimly lit corridors of the building."
+    "Suddenly, distant voices begin to echo, gradually growing louder and more distinct. "
+    "Instinctively, you press your back against the wall, peering cautiously around the corner. "
+    "Just as you begin to contemplate slipping away unnoticed you recognize the unmistakable silhouette of the senator."
+    menu: 
+        "Hide behind a wall": 
+            jump hidewall #noch machen
+        "Act like you are looking for the bathroom":
+            jump actbathroom #nochmachen
 
 
 
@@ -369,11 +380,19 @@ label insideserver:
     "Your eyes sweep across the space, searching for Cathy. Dressed in a red dress, she captures your attention. "
     "Adopting the role of a server, you gracefully approach her. In a casual exchange, she selects one of the snacks from your tray and replaces it with an empty plate."
     #   [something peeks out from under the plate → Recorder] Player has to click on it
-    "While pretending to be a server, your eyes keenly scan the faces of the gathered guests. "
-    "Among the sea of influential figures, you spot the Senator John Smith from your picture."
-
     #Update inventory-recorder
  
+    "While pretending to be a server, your eyes keenly scan the faces of the gathered guests. "
+    "Among the sea of influential figures, you spot the Senator John Smith from your picture."
+    "In the midst of the lively chatter, you observe him checking his watch, hinting a sense of urgency."
+    "Suddenly you see him getting up and leaving the room."
+    menu: 
+        "Follow him inconspiciously": 
+            jump followsenator 
+        "Stay and listen to the speeches":
+            jump listenspeeches 
+
+    
 
 
 label insideguest:
@@ -395,5 +414,50 @@ label insideguest:
     #Update inventory-recorder
 
     "While dancing, your eyes keenly scan the faces of the gathered guests. Among the sea of influential figures, you spot the Senator John Smith from your picture."
+    "In the midst of the lively chatter, you observe him checking his watch, hinting a sense of urgency."
+    "Suddenly you see him getting up and leaving the room."
+    menu: 
+        "Follow him inconspiciously": 
+            jump followsenator 
+        "Stay and listen to the speeches":
+            jump listenspeeches 
 
-    jump start
+label followsenator:
+
+    "You follow him carefully. He walks down the corridor and looks around right before he enters into a room and puts up a sign “No disturbing”"
+
+    "As he closes the door behind him, you are walking towards the door. You can hear voices inside the room."
+
+    menu:
+        "Go inside the room as a server and place a tray of food in the room with a recorder hidden underneath the tray.":
+            jump insiderecord
+
+        "Listen from outside the room and record it.":
+            jump ousiderecord
+
+label insiderecord:
+    #[Three people 1 female, two male (one of them senator John Smith) staring at you]
+    "You gently knock on the door before entering the room."
+    "Person: Hey! What the hell do you think you're doing? This is a private meeting!"
+    p "Oh, I'm sorry. I didn't realize there was a private meeting going on. I just wanted to serve some drinks."
+    "Person: [angry] Well, you can't just barge in like that! We're in the middle of something important."
+
+    p "I honestly didn't know. I wouldn't have come in if I had known there was a meeting."
+    "Person: Well, now you know. So, get out and let us finish what we're doing. You can leave the drinks here."
+    "You quickly retrieve what you came for, feeling the tension in the room. As you leave, the door closes behind you."
+
+label outsiderecord:
+#nochmachen
+
+
+
+    
+
+label listenspeeches:
+
+    "SPEAKER 1: Ladies and gentlemen, in times of challenge, we must unite and strive for progress. Our collective efforts can shape a better world for generations to come."
+
+    "…as you listen to the speeches you completely forget about the secret meeting that takes places at that same time, leaving you unaware of the information that would have completed your mission. The night proceeds, and the secrets remain hidden."
+
+
+    
