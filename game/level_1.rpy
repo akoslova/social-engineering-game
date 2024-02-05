@@ -742,10 +742,7 @@ label explore_cubicles:
     
     scene bg whiskers
     #[Taking a photo from the mobile phone] [BG: Desk with the photo of a dog name whiskers]
-    #TO DO
-    "As you quietly explored the cubicles, your attention was drawn to a desk adorned with a framed picture of an elegant dog, its name proudly displayed beneath the image 'Whiskers'."
-
-    "The feline's regal demeanor made the picture amusingly out of place in the corporate setting. Intrigued, you decided to capture this curious discovery."
+    "As you quietly explored the cubicles, your attention was drawn to a desk adorned with a framed picture of an elegant dog, its name proudly displayed beneath the image  Whiskers. The feline's regal demeanor made the picture amusingly out of place in the corporate setting. Intrigued, you decided to capture this curious discovery."
 
     "After discreetly snapping a photo of Whiskers' portrait, you continued your investigation. Amongst the papers on the desk, you found an official document containing the name and date of birth of an employee."
 
@@ -961,6 +958,7 @@ label colleagues_chatting_nearby:
     
     jump inside_building
 
+   
 label observe_from_a_distance:
     scene bg office canteen
 
@@ -1000,6 +998,7 @@ label employees_using_elevator:
     "The employee gives a polite but dismissive smile and continues on their way, offering no further information."
     jump inside_building
 
+
 label instructions_near_the_elevators:
 
     # BG: Some image of instructions near elevator
@@ -1013,9 +1012,7 @@ label continue_exploring:
     #BG Office stairs
     #TO DO
 
-    # Checkpoint 2, here the 3rd option is correct and if you choose 1 or 2nd option you continue #further but you will not find out about the room 303 so the player again comes at this option
-
-    default support_staff_contacts_done = False
+     # Checkpoint 2, here the 3rd option is correct and if you choose 1 or 2nd option you continue #further but you will not find out about the room 303 so the player again comes at this option
 
     "Regardless of your choice, you continue your exploration."
     menu:
