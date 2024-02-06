@@ -30,11 +30,19 @@ image Receptionist2 smile="receptionist2 smile.png"
 image k1 stressed="chef1 stressed.png"
 image k1 happy="chef1 happy.png"
 image Me canteen="playercanteen.png"
+image Me chef="playerchef.png"
 image e4="e4.png"
+image e5="e5.png"
+image e6="e6.png"
+image e9="e9.png"
 image e4 smile="e4 smile.png"
 image k2 stressed="chef2 stressed.png"
 image k2 happy="chef2 happy.png"
 image k2 angry="chef2 angry.png"
+image guard1 = "guard1.png"
+image guard surprised = "guard surprised.png"
+image guard wallet = "guard wallet.png"
+image punch = "punch.png"
 
 image bg n42="bg n42.jpg"
 image bg coreback="bg coreback.jpg"
@@ -56,10 +64,19 @@ image bg office cat="bg office cat.jpg"
 image bg office cat2="bg office cat2.jpg"
 image bg office cat3="bg office cat3.jpg"
 image bg room303="bg room303.jpg"
+image bg fan="bg fan.jpg"
 image bg computer="bg computer.jpg"
 image bg locker="bg locker.jpg"
 image bg elevator="bg elevator.jpg"
-image bg checkpoint="bg checkpoint.jpg"
+image bg elevator2="bg elevator2.jpg"
+image bg elevator inst="bg elevator inst.jpg"
+image bg checkpoint2="bg checkpoint2.jpg"
+image bg checkpoint3="bg checkpoint3.jpg"
+image bg camera="bg camera.jpg"
+image bg cam alarm="bg cam alarm.jpg"
+image bg caught="bg caught.jpg"
+image bg staircase="bg staircase.jpg"
+image bg call="bg call.jpg"
 
 label level_1:
     scene bg n42
@@ -470,7 +487,7 @@ label Continue_walking:
     jump leaving_hastly
 
 label Caught:
-
+    scene bg caught
     "You lost the level and need to restart"
     jump level_1
     # here the Player gets caught - Checkpoint should be before entering the coffee shop (No need to investigate building again if done so already)
@@ -970,7 +987,9 @@ label observe_from_a_distance:
     jump inside_building
 
 label password_reset_procedure:
-    scene bg elevator
+    scene bg elevator2
+    show Me with easeinleft:
+        xzoom -1.0
     # BG in the elevators
     # TO DO
 
@@ -985,11 +1004,13 @@ label password_reset_procedure:
     jump inside_building
 
 label employees_using_elevator:
-
+    scene bg elevator
+    show Me 
+    
     # [BG: Elevators]
     #TO DO
     "Spotting an opportunity, you approach an employee who looks like they might be heading to an IT support session."
-
+    show e8 with easeinleft
     p "Hi, I couldn't help overhearing you're heading to IT. I'm new here and still figuring things out. Any advice on managing all these passwords we have to use?"
     e8 "Oh, hi. Honestly, I just follow whatever the IT guidelines say. Can't really go wrong with that, right?"
     p "True, true. I was just wondering if there's a trick to remembering them. I always find myself getting them mixed up."
@@ -1000,6 +1021,7 @@ label employees_using_elevator:
 
 
 label instructions_near_the_elevators:
+    scene bg elevator
 
     # BG: Some image of instructions near elevator
     #TO DO
@@ -1008,11 +1030,12 @@ label instructions_near_the_elevators:
     jump inside_building
 
 label continue_exploring:
-    
+    scene bg staircase
+    show Me
     #BG Office stairs
     #TO DO
 
-     # Checkpoint 2, here the 3rd option is correct and if you choose 1 or 2nd option you continue #further but you will not find out about the room 303 so the player again comes at this option
+    # Checkpoint 2, here the 3rd option is correct and if you choose 1 or 2nd option you continue #further but you will not find out about the room 303 so the player again comes at this option
 
     "Regardless of your choice, you continue your exploration."
     menu:
@@ -1024,7 +1047,7 @@ label continue_exploring:
             jump call_mr_johnson
 
 label support_staff_contacts:
-
+    scene bg call
     #TO DO
     #  Scene"[Player with phone dailing and Burt on the other side]" BG: Inside some room
     "Feeling like an undercover agent, you decide to explore the support staff, aiming for the custodian Burt W. Mopbucket, the head of janitorial services. You figure Burt might have some amusing stories about his experiences while cleaning up after everyone."
@@ -1045,6 +1068,7 @@ label support_staff_contacts:
     jump encounter_with_office_cat
 
 label middle_contacts:
+    scene bg call
     "With a sly grin, you decide to delve into the world of middle management, hoping to find an unsuspecting hero among the ranks. Scrolling through the directory, you pick Ivy P. Paperwork, the manager of documentation control. Her title might not scream glamour, but you figure she could be the keeper of hidden secrets."
 
     # TO DO
@@ -1068,7 +1092,7 @@ label middle_contacts:
 
 
 label call_mr_johnson:
-
+    scene bg call
 
     "You find the number of a high-ranking executive, Mr. Johnson, in the directory."
     "You decide to call Mr. Johnson and try to extract information from him."
@@ -1284,6 +1308,7 @@ label hidden_camera:
     # Checkpoint 3 , after unlock the computer if the player gets caught after this, he can come back #to this option
     #BG: camera inside the room
     #TO DO
+    scene bg camera
 
     "As you delve into the files, you notice a hidden security camera"
     menu:
@@ -1300,7 +1325,7 @@ label disable_the_camera:
     p "Time to go incognito."
 
     "Carefully, you open the panel concealing the camera's wires, aiming to cut the power source or manipulate its circuits. However, in the process, a tiny alarm is triggered, and a soft electronic beep resonates in the room."
-
+    scene bg cam alarm
     #*Automated System:* "Security breach detected. Security breach detected."
     #TO DO
 
@@ -1311,6 +1336,7 @@ label disable_the_camera:
 
 
 label evade_camera_view:
+    show Me with easeinright
     "Choosing a more subtle approach, you decide to evade the camera's view. Carefully studying the room, you identify blind spots and strategically move from cover to cover, using office furniture and potted plants to shield yourself from the camera's lens."
 
     "Silently, you navigate the room, successfully avoiding detection. As you reach the desired spot without triggering any alarms, a sense of relief washes over you. The camera continues to monitor the room, unaware of your presence."
@@ -1322,20 +1348,28 @@ label create_a_distraction:
     "Thinking quickly, you decide to create a distraction to divert attention away from the camera's view. Your plan is to trigger a minor, but noticeable incident elsewhere in the room to draw the camera's focus."
 
     p "Let's cause a little diversion."
-    "You spot a small stack of papers near a fan. Moving cautiously, you turn the fan to its highest setting, aiming to scatter the papers across the room. The idea is that the fluttering papers will create enough movement to redirect the camera's attention temporarily."
-    "As you activate the fan, the papers whirl into the air, creating a chaotic flurry. However, this action inadvertently triggers the room's motion sensors, which are linked to the security system."
+    "You spot a small stack of papers near a fan. Moving cautiously, you turn the fan to its highest setting, aiming to scatter the papers across the room."
+    "The idea is that the fluttering papers will create enough movement to redirect the camera's attention temporarily."
+    scene bg fan
+    "As you activate the fan, the papers whirl into the air, creating a chaotic flurry."
+    "However, this action inadvertently triggers the room's motion sensors, which are linked to the security system."
     
     #Automated System: "Unusual activity detected. Investigating."
     #TO DO
 
     "The sudden activation of the motion sensors, coupled with the chaotic movement of papers, escalates the situation. Lights begin to flash, and an alarm blares through the room."
-
+    scene bg cam alarm
     "Realizing that the diversion has escalated far beyond your intentions, you hear security personnel being alerted over the building's intercom system."
 
     #This is the wrong option and you cant go further so go to checkpooint 3
     jump Caught
 
 label fumbling_with_the_camera:
+    scene bg room303
+    show Me
+    show e9 with easeinleft
+    e9 "Hey, what are you doing in here?"
+    
     menu:
         "Act casual":
             jump act_casual
@@ -1343,7 +1377,7 @@ label fumbling_with_the_camera:
             jump confront_the_employee
 
 label act_casual:
-    e9 "Hey, what are you doing in here?"
+    
 
     "You act casual, pretending to be lost."
 
@@ -1373,7 +1407,7 @@ label confront_the_employee:
     jump Caught
 
 label Leaving_building:
-
+    scene bg cubicles
     "I should get out of here before anyone catches me." #checkpoint4
 
     menu:
@@ -1388,10 +1422,14 @@ label Leaving_building:
             jump leavealone
 
 label leavealone:
-    scene bg checkpoint
+    scene bg checkpoint2
+    show Me with easeinright
     "As you approach the security door, you notice that you would have needed an ID to scan for it to open."
 
 #[Security guard will tap on your shoulder, you turn around]
+    scene bg checkpoint3
+    show Me 
+    show guard1 with easeinleft
     s "Where is your ID card"
 
     p "I must have lost it, it was right there on my pants"
@@ -1406,13 +1444,16 @@ label leavealone:
             jump idcard
 
 label punch:#scene you punching him
-
+    hide Me
+    hide guard1
+    show punch
     "You punch him in the face and run as fast as you can. But only after three steps one of the security guards pulls you back and holds you tight. "
     
     "You realize that they are too strong and you will not get out of the situation anymore."
 
 label apology:
-
+    show guard1
+    show Me 
     s "What's your name, I can look for you in our system."
 
     menu:
@@ -1446,13 +1487,16 @@ label lie:
     jump Caught # like that? #go to checkpoint4
 
 label berude:
-
+    show guard surprised
 #[Surprised look]
 #TO DO
 
     s "It’s ok Ryan, you can pass. Next time bring your ID."#friendly
 
     #outside
+    scene bg n42
+    show Me with easeinleft:
+        xzoom -1.0
 
     p "That was close. Thank god, I got out of here. I am going to meet Cathy to tell her about everything."
 
@@ -1468,7 +1512,9 @@ label christian:
 
 #outside
 # TO DO
-
+    scene bg n42
+    show Me with easeinleft:
+        xzoom -1.0
     p "That was close. Thank god, I got out of here. I am going to meet Cathy to tell her about everything."
 
     jump cathymeet
@@ -1521,6 +1567,8 @@ label wash:
             jump leavekitchen
 
 label rushout:
+    scene bg coreback3
+    show Me
 
     "You ran out of the back door of the canteen kitchen. However the canteen staff noticed you were acting very suspiciously." 
 
@@ -1591,17 +1639,26 @@ label leavekitchen:
     jump cathymeet
 
 label leavemain:
-
+    scene bg checkpoint2
+    show Me with easeinright
     "You see a group of employees walking towards the exit. You run along with them inconspicuously and walk quickly behind one person through the security door."
 
 #Security guard will tap on your shoulder, 
 # to do
+    
     "When suddenly a security guy taps on your shoulder"
+    scene bg checkpoint3
+    show Me 
+    show guard1
     s "Hey there! Stop!"
     "Oh no, I got caught..."
+    show guard wallet
     s "Hey you lost your wallet"
+    
     p "Player: Oh thank you Sir! "
-
+    scene bg n42
+    show Me with easeinleft:
+        xzoom -1.0
     "You rush out of the building" 
     p "Thank god, nobody caught me. I am going to meet Cathy to tell her about everything."
 
