@@ -294,7 +294,7 @@ label Collect_information:
 
 label Follow_people:
 
-#Checkpoint as you can get caught 
+#Set here the beginning of the Checkpoint for the caught label / Options Laptop Observation, Employee Obs. needs counting so it is not possible to do it twice
     scene bg cafe
 
     "You start looking around."
@@ -344,7 +344,8 @@ label Say_something:
     "He is eyeing you warily and closes his laptop and starts leaving the coffee shop.
     That did not went well lets try something else!"
 
-    jump Laptop_observation #This makes no sense as you can still proceed without the information from this -> Should Jump to Follow people and Laptop choice is gone
+    jump Follow_people #Option with Laptop is now true so cant be chosen again
+
 
 
 label Look_shoulder:
@@ -454,7 +455,6 @@ label Option_1:
 
     s "Don't be cheeky! You see this is my security officer badge, you come with me now and we'll see what you've been doing all this time."
     jump Caught
-    #Here the player gets caught - reset to a checkpoint
 
 label Option_2:
 
@@ -491,7 +491,7 @@ label Caught:
     scene bg caught
     "You lost the level and need to restart"
     jump level_1
-    # here the Player gets caught - Checkpoint should be before entering the coffee shop (No need to investigate building again if done so already)
+    # here the Player gets caught - go to Checkpoint  (No need to investigate building again if done so already so this information is needed)
 
 
 label Stop_observing:
