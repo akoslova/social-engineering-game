@@ -1406,7 +1406,7 @@ label confront_the_employee:
     jump Caught
 
 label Leaving_building:
-    scene bg cubicles
+    
     "I should get out of here before anyone catches me." #checkpoint4
 
     menu:
@@ -1651,6 +1651,7 @@ label leavemain:
     show guard1
     s "Hey there! Stop!"
     "Oh no, I got caught..."
+    hide guard1
     show guard wallet
     s "Hey you lost your wallet"
     
