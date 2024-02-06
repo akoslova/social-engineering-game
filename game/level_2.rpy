@@ -289,6 +289,8 @@ label player_with_phone:# [At home, Player with phone]
 
     jump next_day_2
 
+    #checkpoint m
+
 label next_day_2:
 
     "You stand outside the event venue, adorned in a chef's uniform stolen from a nearby catering van."
@@ -329,7 +331,7 @@ label head_chef_route:
 
 label caught_route:
 
-    # go to checkpoint
+    # go to checkpoint m
     p "Well, that is unfortunate, but I am the head chef for today."
     hc "Nice try, but I've been running this kitchen for years, and I know all my staff. And you're definitely not the chef approved for this event."
 
@@ -353,9 +355,34 @@ label check_out_building:
     "Just as you begin to contemplate slipping away unnoticed you recognize the unmistakable silhouette of the senator."
     menu: 
         "Hide behind a wall": 
-            jump hidewall #noch machen
+            jump hidewall 
         "Act like you are looking for the bathroom":
             jump actbathroom #nochmachen
+
+label hidewall:
+    "As the voices gradually grow louder, you hold your breath, fearing discovery. "
+    "Then you see three people passing you. Fortunately, they don’t notice you as they disappear into a nearby room. "
+
+    "As they close the door behind them, you are walking towards the door. You can hear voices inside the room."
+
+    menu:
+        "Go inside the room as a server and place a tray of food in the room with a recorder hidden underneath the tray.":
+            jump insiderecord
+
+        "Listen from outside the room and record it.":
+            jump ousiderecord
+
+
+label actbathroom:
+    "You try to act casual and as if you are searching for the bathroom. Suddenly three people appear, one of them you recognize as the senator."
+
+
+#senator evil/mad
+    "What are you snooping around for? The ballroom's that way." 
+    "Oh I’m just looking for the bathroom, could you please show me where I can find it?"
+    "There is no bathroom here. And you shouldn't be hanging around here. This is a restricted area."
+    "I'll get security to throw you out"
+#go to checkpoint m
 
 
 
@@ -366,7 +393,7 @@ label insidefail:
     "They point an accusatory finger in your direction, and the eyes of nearby guests begin to turn toward you."
     "You know that your disguise has been revealed, and you have to face the consequences of your activities..."
     
-    # go to checkpoint
+    # go to checkpoint m
 
 label insideserver:
 
@@ -399,7 +426,7 @@ label insideguest:
 
     c "Did you manage to get in?"
     p "There was a slight complication I am now an official guest"
-    c "Ok meet me at the the dance floor "
+    c "Ok meet me at the the dance floor."
 
     "Dressed in your elegant suit, you enter the ball room. "
     "You find yourself in the grand ball room with an assembly of well dressed individuals. "
