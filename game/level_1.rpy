@@ -76,7 +76,7 @@ image bg camera="bg camera.jpg"
 image bg cam alarm="bg cam alarm.jpg"
 image bg caught="bg caught.jpg"
 image bg staircase="bg staircase.jpg"
-image bg call="bg call.jpg"
+image bg calls="bg calls.jpg"
 
 label level_1:
     scene bg n42
@@ -1047,7 +1047,7 @@ label continue_exploring:
             jump call_mr_johnson
 
 label support_staff_contacts:
-    scene bg call
+    scene bg calls
     #TO DO
     #  Scene"[Player with phone dailing and Burt on the other side]" BG: Inside some room
     "Feeling like an undercover agent, you decide to explore the support staff, aiming for the custodian Burt W. Mopbucket, the head of janitorial services. You figure Burt might have some amusing stories about his experiences while cleaning up after everyone."
@@ -1068,7 +1068,7 @@ label support_staff_contacts:
     jump encounter_with_office_cat
 
 label middle_contacts:
-    scene bg call
+    scene bg calls
     "With a sly grin, you decide to delve into the world of middle management, hoping to find an unsuspecting hero among the ranks. Scrolling through the directory, you pick Ivy P. Paperwork, the manager of documentation control. Her title might not scream glamour, but you figure she could be the keeper of hidden secrets."
 
     # TO DO
@@ -1092,8 +1092,7 @@ label middle_contacts:
 
 
 label call_mr_johnson:
-    scene bg call
-
+    scene bg calls
     "You find the number of a high-ranking executive, Mr. Johnson, in the directory."
     "You decide to call Mr. Johnson and try to extract information from him."
 
