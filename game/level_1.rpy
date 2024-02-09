@@ -2,7 +2,7 @@ $ renpy.include("inventory.rpy")
 $ renpy.include("tutorial_story.rpy")
 #languageTool.language
 define l = Character(_("LaptopGuy"), color="#c8fff3")
-define c = Character (_("Christian"), color="#db8941")
+define ch = Character (_("Christian"), color="#db8941")
 define s = Character (_("Security Officer"), color="#3939f5")
 define e1 = Character (_("Employee 1"), color="#6fd066")
 define e2 = Character (_("Employee 2"), color="#6fd066")
@@ -505,7 +505,7 @@ label Approach_guy:
 
     p "Hey, Christian How are you?"
 
-    c "I am fine, just a bit stressed tho and who are you?"
+    ch "I am fine, just a bit stressed tho and who are you?"
 
     menu:
 
@@ -522,18 +522,18 @@ label Real_name:
 
     p "What department are you working in? I remember seeing your face somewhere in the onboarding process."
 
-    c "Ooh I am from public relations work."
+    ch "Ooh I am from public relations work."
 
     p "So I heard rumors that the company might be in trouble. Do you know anything about that? I just started here and I don't want to look again for a job. You know I have to care for my mom. She is already in elderly care and it is quite expensive."
 
-    c "I am not supposed to talk about things like that! But don't worry we have our methods to stop allegations of pesky reporters. 
+    ch "I am not supposed to talk about things like that! But don't worry we have our methods to stop allegations of pesky reporters. 
         What department are you from?"
 
     p "Something with accounting."
 
     p "So is there something in the bush?"
 
-    c "I dont know who you are. I have to leave now!"
+    ch "I dont know who you are. I have to leave now!"
 
     "He gets up and leaves while giving you a mistrustful look."
 
@@ -543,17 +543,17 @@ label John_doe:
 
     p "What department are you working in? I remember seeing your face somewhere in the onboarding process."
 
-    c "Ooh I am from public relations work."
+    ch "Ooh I am from public relations work."
 
     p "So I heard rumors that the company might be in trouble. Do you know anything about that? I just started here and I don't want to look again for a job. You know I have to care for my mom. She is already in elderly care and it is quite expensive."
 
-    c "I am not supposed to talk about things like that! But don't worry we have our methods to stop allegations of pesky reporters. 
+    ch "I am not supposed to talk about things like that! But don't worry we have our methods to stop allegations of pesky reporters. 
         What department are you from?"
 
     p "I am in the accounting division
         So there is something in the bush?"
     
-    c "I mean just the typical stuff supporting/buying politicians with money, not respecting the environment enough.. Nothing unheard off!"
+    ch "I mean just the typical stuff supporting/buying politicians with money, not respecting the environment enough.. Nothing unheard off!"
 
     p "Ok thank you! That calms me down a bit, have a nice break and see you!"
 
