@@ -680,6 +680,8 @@ label securitydisguise: #wear tshirt with security on it
     p "I am Drew, working for security of this company"
     s "That shirt is not part of our uniform. I will call the police."#goto checkpoint 3
 
+    jump getinside
+
 label canteendisguise:
     scene bg coreback3
     show Me with easeinleft:
