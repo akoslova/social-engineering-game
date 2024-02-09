@@ -5,7 +5,6 @@ $ renpy.include("level_1.rpy")
 define so = Character (_("Security Officer"), color="#3939f5")
 define hc = Character (_("Head Chef"), color="#3939f5")
 define s = Character (_("Server"), color="#3939f5")
-define senator = Character (_("Senator John"), color="#39f53c")
 
 
 label level_2:
@@ -294,7 +293,7 @@ label player_with_phone:# [At home, Player with phone]
 
 label next_day_2:
 
-    "You stand outside the event venue, adorned in a chef's uniform stolen from a nearby catering van."
+    "You stand outside the event venue, adorned in the chef's uniform stolen from a nearby catering van."
     "Choose a role to blend in seamlessly."
 
     menu:
@@ -305,14 +304,18 @@ label next_day_2:
         "Pose as the head chef, giving you more authority and access.":
             jump head_chef_route
 
-label server_route:
+label server_route:#you wearing server/kitchen clothes
 
     "You confidently slip into the role of a server, blending in with the catering staff bustling around the event location."
-    #noch weiter
+
+    "Then you check you phone for new messages."
+
+    jump insideserver
+    
 
 label head_chef_route:
 
-    #[HEAD CHEF; MAD]
+    #[HEAD CHEF; MAD] you wearing server/kitchen clothes
     "Despite your efforts to pose as the head chef, things don't go as smoothly as planned. The real head chef, who was briefly away, returns unexpectedly."
 
     hc "Excuse me? Who are you, and why are you wearing my uniform?"
@@ -350,6 +353,7 @@ label outside_route:
 
 
 label check_out_building:
+#dimly lit corridors
     "You walk through the dimly lit corridors of the building."
     "Suddenly, distant voices begin to echo, gradually growing louder and more distinct. "
     "Instinctively, you press your back against the wall, peering cautiously around the corner. "
@@ -358,9 +362,9 @@ label check_out_building:
         "Hide behind a wall": 
             jump hidewall 
         "Act like you are looking for the bathroom":
-            jump actbathroom #nochmachen
-
+            jump actbathroom 
 label hidewall:
+#hiding space: maybe behind a wall/door, and door visible
     "As the voices gradually grow louder, you hold your breath, fearing discovery. "
     "Then you see three people passing you. Fortunately, they don’t notice you as they disappear into a nearby room. "
 
@@ -382,15 +386,18 @@ label actbathroom:
     "What are you snooping around for? The ballroom's that way." 
     "Oh I’m just looking for the bathroom, could you please show me where I can find it?"
     "There is no bathroom here. And you shouldn't be hanging around here. This is a restricted area."
-    "I'll get security to throw you out"
+    "I'll get security to throw you out!"
 #go to checkpoint m
 
 
 
 label insidefail:
 
+#other kitchen employee
+
     s "Hey, you! Aren’t you the guy that pretended to be the head chef?"
     s "Don't play innocent! Security!!"
+    #yelling
     "They point an accusatory finger in your direction, and the eyes of nearby guests begin to turn toward you."
     "You know that your disguise has been revealed, and you have to face the consequences of your activities..."
     
@@ -398,19 +405,24 @@ label insidefail:
 
 label insideserver:
 
+#text message bg
+
     c "Did you manage to get in?"
     p "Yes, I am a server."
     cathy "Ok meet me inside the ball room."
 
-    "You pick up a tray with delicious food and step into the ball room. "
+    #you with a tray inside ballroom bg
+
+    "You pick up a tray with delicious food and step into the room. "
     "You find yourself in the grand ball room with an assembly of well dressed individuals. "
     "The air is filled with excitement as the most important figures of the company mingle with wealthy potential donors. "
     "Your eyes sweep across the space, searching for Cathy. Dressed in a red dress, she captures your attention. "
-    "Adopting the role of a server, you gracefully approach her. In a casual exchange, she selects one of the snacks from your tray and replaces it with an empty plate."
+    "Adopting the role of a server, you gracefully approach her. In casual exchange, she selects one of the snacks from your tray and replaces it with an empty plate."
     #   [something peeks out from under the plate → Recorder] Player has to click on it
     #Update inventory-recorder
  
     "While pretending to be a server, your eyes keenly scan the faces of the gathered guests. "
+    #senator smith in focus, checking his watch
     "Among the sea of influential figures, you spot the Senator John Smith from your picture."
     "In the midst of the lively chatter, you observe him checking his watch, hinting a sense of urgency."
     "Suddenly you see him getting up and leaving the room."
@@ -429,18 +441,18 @@ label insideguest:
     p "There was a slight complication I am now an official guest"
     c "Ok meet me at the the dance floor."
 
-    "Dressed in your elegant suit, you enter the ball room. "
+    "Dressed in your elegant suit, you enter the room. "
     "You find yourself in the grand ball room with an assembly of well dressed individuals. "
     "The air is filled with excitement as the most important figures of the company mingle with wealthy potential donors. "
     "Your eyes scan the surroundings, on the lookout for Cathy. Amidst the crowd, she stands out in a long red dress. "
     "Purposefully, you make your way towards her."
     p "May i ask you to a dance?"
-    cathy "Sure!"
+    c "Sure!"
     "You and Cathy sway to the rhythm of the music, lost in the dance. "
     "Suddenly, she discreetly retrieves a small item from her purse and passes it to you inconspicuously. "
     "Upon closer inspection, you discover it's a compact recorder, swiftly stashing it away in your sleeves."
     #Update inventory-recorder
-
+#senator smith in focus, checking his watch
     "While dancing, your eyes keenly scan the faces of the gathered guests. Among the sea of influential figures, you spot the Senator John Smith from your picture."
     "In the midst of the lively chatter, you observe him checking his watch, hinting a sense of urgency."
     "Suddenly you see him getting up and leaving the room."
@@ -451,7 +463,7 @@ label insideguest:
             jump listenspeeches 
 
 label followsenator:
-
+#corridor bg with door visible
     "You follow him carefully. He walks down the corridor and looks around right before he enters into a room and puts up a sign “No disturbing”"
 
     "As he closes the door behind him, you are walking towards the door. You can hear voices inside the room."
@@ -464,7 +476,7 @@ label followsenator:
             jump ousiderecord
 
 label insiderecord:
-    #[Three people 1 female, two male (one of them senator John Smith) staring at you]
+    #[Three people 1 female, two male (one of them senator John Smith) staring at you, agressively]
     "You gently knock on the door before entering the room."
     "Person: Hey! What the hell do you think you're doing? This is a private meeting!"
     p "Oh, I'm sorry. I didn't realize there was a private meeting going on. I just wanted to serve some drinks."
@@ -475,8 +487,15 @@ label insiderecord:
     "You quickly retrieve what you came for, feeling the tension in the room. As you leave, the door closes behind you."
 
 label outsiderecord:
-#nochmachen
-# muss hier probehören da erst später mit cathy die aufzeichnung angehört wird und dann wäre der Sprung zu weit?!
+
+#you in front of door
+
+
+    "You sneak up to the door, catching some hushed voices. "
+    "Then you hit the record button, but soon realize that you can barely make out anything from the conversation."
+    
+    #checkpoint m
+
 
 
     
@@ -487,112 +506,7 @@ label listenspeeches:
 
     "…as you listen to the speeches you completely forget about the secret meeting that takes places at that same time, leaving you unaware of the information that would have completed your mission. The night proceeds, and the secrets remain hidden."
 
-# checkpoint recorded
-# I start with retreiving ...
-
-label getrecording:
-
-    "As you reach the door, you hesitate before knocking, but there's no response. With a cautious push, you enter the room, the weight of the silence weighing on you.
-    Your hand reaches for the recording, picking it up and tucking it safely into your pocket, the mission nearly accomplished, when the sound of footsteps startles you and the door swings open."
-
-    #scene empty secret room
-    #show senator
-    senator "Sorry J forgot my lighter in this room…"
-
-    menu:
-
-        "Pick up glasses":
-            jump picked_up_glasses
-
-        "Turn around":
-            jump turn_around
-
-        "Start running":
-            jump running_from
+    #checkpoint m
 
 
-label picked_up_glasses:
-    #show player with glasses dressed in service clothes
-
-    senator "YOU Again?!"
-
-    p "I am sorry! I was just cleaning up to get your glasses as they are needed in the ballroom. We are running low on unused glasses."
-
-    senator "Hmpf! Did you see my lighter anywhere?"
-
-    p "No, I have to go to the kitchen, the staff needs all the help they can get, its like hell right now."
-
-    jump succesful_leaving
-
-label turn_around:
-
-    senator "YOU Again?!"
-
-    p "I was just going to clean up here."
-
-    senator "You know what's funny? You barged into our meeting and now you're back in this room. Somehow I think we should get to the bottom of you."
-
-    senator "So what are you hiding or do you need it beaten out of you? I have the right person to talk to about it and he doesn't ask as nicely as I do. But just keep quiet, actually it's more fun for all of us, you know."
-
-    jump running_from
-
-label running_from:
-
-    "You start running, knocking him aside and running out the door. 
-    Suddenly you are stopped, someone grabs you and pushes you against the wall.
-    You try to free yourself, but your arms are caught in a vice-like grip. You have a bad feeling when you see the senator coming towards you, snorting with rage.
-    He points a finger at you"
-
-    senator "You got him? Good, he attacked me! Lets find out what he is doing here!"
-
-    jump caught_from_senator
-
-label caught_from_senator:
-
-    "That's it, you can't talk your way out of this one"
-    # jump checkpoint recorded
-
-label succesful_leaving:
-
-    "You do not wait for an answer, but leave as quickly as you can, hoping that the senators will not notice your trembling. 
-    You could even swear that your shaking hands make the drinking glasses ring slightly."
-
-    menu: 
-
-        #to do
-
-label leave_event:
-
-    "After successfully retrieving the recording, you waste no time in slipping out of the event, the weight of the evidence burning a hole in your pocket. 
-    You dial Cathy's number as you hail a cab, arranging to meet her at a discreet location where you can reveal the truth hidden within the recording." 
-
-        jump next_day_3
-
-label next_day_3:
-# scene meetingspot
-# show cathy
-
-    c "Hey, how are you? I am honestly very excited to hear your recording. What you have been doing the last few days is crazy and everything with social.. how was it called?"
-
-    p "Social Engineering. Yeah not the machine or the software itself has the weak point but the human in front of it. Thats the trick!"
-
-    "You hand her one of your in ears and play back the recording."
-
-    #Audio recording?! Script is done!
-
-    "You turn your gaze to Cathy as the last words are spoken in the recording."
-
-    c "Holy shit who are those guys?"
-
-    p "Your senator, the one you said was suspicious, one of those guys is from CORP and the other one I don't know. I saw his face for a moment, but I can't remember where I saw him before."
-
-    # show cathy worried
-    c "So they want to hire the Crimson Group... that's not good, I heard about them, they may have been involved in suppressing riots in Jordan and Russia. 
-    I think there was also a colleague who was assaulted by one of their mercenaries while writing about it.
-    They are dangerous, you really should not try to go to their base of operations."
-
-    p "Hmm I will think of a way to target them without getting harmed. Are you worried about me?"
-
-    c "Maybe a little bit! I mean we are a good team are we not?"
-
-        #jump to level 3
+    
