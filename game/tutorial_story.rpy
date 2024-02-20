@@ -380,8 +380,4 @@ label next_day:
 
     "{i}Your goal was updated. {\i}"
 
-    #Notebook Map is introduced
-    call screen map
-    hide screen map
-
     jump start
