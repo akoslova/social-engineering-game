@@ -6,6 +6,8 @@ define so = Character (_("Security Officer"), color="#3939f5")
 define hc = Character (_("Head Chef"), color="#3939f5")
 define s = Character (_("Server"), color="#3939f5")
 
+image bg caught="bg caught.jpg"
+
 
 label level_2:
     "After a brief meeting with the reporter, you're now certain of the politician's identity. With the name and party affiliation of Senator John Smith from Liberty party in hand, your investigation enters its next phase."
@@ -19,6 +21,10 @@ label level_2:
         "Dive into Instagram, analyzing tagged locations and posts.":
             jump dive_into_insta
 
+label Caught:
+    scene bg caught
+    "You lost the level and need to restart"
+    jump level_2
 
 label focus_on_google:
 

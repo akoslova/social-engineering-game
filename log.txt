@@ -45,3 +45,182 @@ Version: b'2.1 INTEL-18.5.8'
 Display Info: None
 Screen sizes: virtual=(1920, 1080) physical=(1205, 678) drawable=(2410, 1356)
 Maximum texture size: 4096x4096
+Resetting cache.
+Bootstrap to the start of init.init. took 170.74s
+Early init. took 0.00s
+Loader init. took 0.03s
+Loading error handling. took 0.06s
+Loading script. took 0.33s
+Loading save slot metadata. took 0.05s
+Loading persistent. took 0.00s
+Running init code. took 0.06s
+Loading analysis data. took 0.02s
+Analyze and compile ATL. took 0.00s
+Reloading save slot metadata. took 0.03s
+Index archives took 0.00s
+Backing up script files to '/Users/anastasiakozlova/Library/RenPy/backups/social-engineering-game':
+Dump and make backups. took 0.07s
+Cleaning cache. took 0.00s
+Making clean stores. took 0.00s
+Initial gc. took 0.06s
+DPI scale factor: 1.000000
+Creating interface object. took 0.00s
+Cleaning stores took 0.00s
+Init translation took 0.06s
+Build styles took 0.00s
+Load screen analysis took 0.00s
+Analyze screens took 0.02s
+Save screen analysis took 0.03s
+Prepare screens took 0.10s
+Save pyanalysis. took 0.00s
+Save bytecode. took 0.03s
+Running _start took 0.00s
+Performance test:
+Interface start. took 0.08s
+
+Initializing gl2 renderer:
+primary display bounds: (0, 0, 1440, 900)
+swap interval: 1 frames
+Windowed mode.
+Vendor: "b'Intel Inc.'"
+Renderer: b'Intel(R) UHD Graphics 617'
+Version: b'2.1 INTEL-18.5.8'
+Display Info: None
+Screen sizes: virtual=(1920, 1080) physical=(1205, 678) drawable=(2410, 1356)
+Maximum texture size: 4096x4096
+
+Full traceback:
+  File "game/script.rpy", line 54, in script
+    call screen levels(adj=tutorials_adjustment)
+  File "/Users/anastasiakozlova/renpy-8.1.3-sdk/renpy/ast.py", line 2259, in execute
+    self.call("execute")
+  File "/Users/anastasiakozlova/renpy-8.1.3-sdk/renpy/ast.py", line 2241, in call
+    return renpy.statements.call(method, parsed, *args, **kwargs)
+  File "/Users/anastasiakozlova/renpy-8.1.3-sdk/renpy/statements.py", line 342, in call
+    return method(parsed, *args, **kwargs)
+  File "renpy/common/000statements.rpy", line 670, in execute_call_screen
+    store._return = renpy.call_screen(name, *args, **kwargs)
+  File "/Users/anastasiakozlova/renpy-8.1.3-sdk/renpy/exports.py", line 3347, in call_screen
+    rv = renpy.ui.interact(mouse="screen", type="screen", roll_forward=roll_forward)
+  File "/Users/anastasiakozlova/renpy-8.1.3-sdk/renpy/ui.py", line 299, in interact
+    rv = renpy.game.interface.interact(roll_forward=roll_forward, **kwargs)
+  File "/Users/anastasiakozlova/renpy-8.1.3-sdk/renpy/display/core.py", line 3582, in interact
+    repeat, rv = self.interact_core(preloads=preloads, trans_pause=trans_pause, pause=pause, pause_start=pause_start, pause_modal=pause_modal, **kwargs) # type: ignore
+  File "/Users/anastasiakozlova/renpy-8.1.3-sdk/renpy/display/core.py", line 4055, in interact_core
+    root_widget.visit_all(lambda d : d.per_interact())
+  File "/Users/anastasiakozlova/renpy-8.1.3-sdk/renpy/display/core.py", line 684, in visit_all
+    d.visit_all(callback, seen)
+  File "/Users/anastasiakozlova/renpy-8.1.3-sdk/renpy/display/core.py", line 684, in visit_all
+    d.visit_all(callback, seen)
+  File "/Users/anastasiakozlova/renpy-8.1.3-sdk/renpy/display/core.py", line 684, in visit_all
+    d.visit_all(callback, seen)
+  File "/Users/anastasiakozlova/renpy-8.1.3-sdk/renpy/display/screen.py", line 476, in visit_all
+    callback(self)
+  File "/Users/anastasiakozlova/renpy-8.1.3-sdk/renpy/display/core.py", line 4055, in <lambda>
+    root_widget.visit_all(lambda d : d.per_interact())
+  File "/Users/anastasiakozlova/renpy-8.1.3-sdk/renpy/display/screen.py", line 487, in per_interact
+    self.update()
+  File "/Users/anastasiakozlova/renpy-8.1.3-sdk/renpy/display/screen.py", line 680, in update
+    self.screen.function(**self.scope)
+  File "game/script.rpy", line 33, in execute
+    screen levels(adj):
+  File "game/script.rpy", line 33, in execute
+    screen levels(adj):
+  File "game/script.rpy", line 36, in execute
+    for i in levels:
+  File "game/script.rpy", line 37, in execute
+    if (i.unlocked):
+  File "game/script.rpy", line 38, in execute
+    imagebutton auto "gui/levelselection/" + i.label + "_unlocked_%s.png":
+  File "/Users/anastasiakozlova/renpy-8.1.3-sdk/renpy/ui.py", line 948, in _imagebutton
+    idle = choice(idle, idle_image, "idle", required=True)
+  File "/Users/anastasiakozlova/renpy-8.1.3-sdk/renpy/ui.py", line 942, in choice
+    raise Exception("Imagebutton does not have a %s image. (auto=%r)." % (name, auto))
+Exception: Imagebutton does not have a idle image. (auto='gui/levelselection/level_3_unlocked_%s.png').
+
+While running game code:
+  File "game/script.rpy", line 54, in script
+    call screen levels(adj=tutorials_adjustment)
+  File "renpy/common/000statements.rpy", line 670, in execute_call_screen
+    store._return = renpy.call_screen(name, *args, **kwargs)
+  File "game/script.rpy", line 33, in execute
+    screen levels(adj):
+  File "game/script.rpy", line 33, in execute
+    screen levels(adj):
+  File "game/script.rpy", line 36, in execute
+    for i in levels:
+  File "game/script.rpy", line 37, in execute
+    if (i.unlocked):
+  File "game/script.rpy", line 38, in execute
+    imagebutton auto "gui/levelselection/" + i.label + "_unlocked_%s.png":
+Exception: Imagebutton does not have a idle image. (auto='gui/levelselection/level_3_unlocked_%s.png').
+Resetting cache.
+Bootstrap to the start of init.init. took 187.77s
+Early init. took 0.00s
+Loader init. took 0.01s
+Loading error handling. took 0.05s
+Loading script. took 0.42s
+Loading save slot metadata. took 0.05s
+Loading persistent. took 0.00s
+Running init code. took 0.06s
+Loading analysis data. took 0.02s
+Analyze and compile ATL. took 0.00s
+Reloading save slot metadata. took 0.03s
+Index archives took 0.00s
+Backing up script files to '/Users/anastasiakozlova/Library/RenPy/backups/social-engineering-game':
+Dump and make backups. took 0.07s
+Cleaning cache. took 0.00s
+Making clean stores. took 0.00s
+Initial gc. took 0.05s
+DPI scale factor: 1.000000
+Creating interface object. took 0.00s
+Cleaning stores took 0.00s
+Init translation took 0.06s
+Build styles took 0.00s
+Load screen analysis took 0.00s
+Analyze screens took 0.02s
+Save screen analysis took 0.03s
+Prepare screens took 0.09s
+Save pyanalysis. took 0.00s
+Save bytecode. took 0.02s
+Running _start took 0.00s
+Performance test:
+Interface start. took 0.09s
+
+Initializing gl2 renderer:
+primary display bounds: (0, 0, 1440, 900)
+swap interval: 1 frames
+Windowed mode.
+Vendor: "b'Intel Inc.'"
+Renderer: b'Intel(R) UHD Graphics 617'
+Version: b'2.1 INTEL-18.5.8'
+Display Info: None
+Screen sizes: virtual=(1920, 1080) physical=(1205, 678) drawable=(2410, 1356)
+Maximum texture size: 4096x4096
+Resetting cache.
+Bootstrap to the start of init.init. took 301.50s
+Early init. took 0.00s
+Loader init. took 0.02s
+Loading error handling. took 0.05s
+Loading script. took 0.34s
+Loading save slot metadata. took 0.04s
+Loading persistent. took 0.00s
+
+The label Caught is defined twice, at File "game/level_1.rpy", line 488:
+label Caught:
+and File "game/level_2.rpy", line 24:
+label Caught:
+
+DPI scale factor: 1.000000
+Interface start. took 0.33s
+
+Initializing gl2 renderer:
+primary display bounds: (0, 0, 1440, 900)
+swap interval: 1 frames
+Windowed mode.
+Vendor: "b'Intel Inc.'"
+Renderer: b'Intel(R) UHD Graphics 617'
+Version: b'2.1 INTEL-18.5.8'
+Display Info: None
+Screen sizes: virtual=(1920, 1080) physical=(1205, 678) drawable=(2410, 1356)
+Maximum texture size: 4096x4096
