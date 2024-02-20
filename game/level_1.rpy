@@ -80,6 +80,7 @@ image bg staircase="bg staircase.jpg"
 image bg calls="bg calls.jpg"
 
 label level_1:
+    call inventory
     scene bg n42
     show Me with easeinright
     "After a long ride in the subway you finally reach N 42 Street which is very busy at that time."
