@@ -138,7 +138,6 @@ label paper_waste:
 
 label other_waste:
 
-    # Here no option is correct option 3 will result in CAUGHT
 
     menu:
         "Brave the rotten food to look for any discarded personal items that could hold information.":
@@ -153,6 +152,7 @@ label intact_documents:
     # Emails prinouts
     "Finds a series of personal messages and email printouts that hint at Senator Smith's character and the positive morale among his staff."
 
+    jump paper_waste
 
 label shredded_documents:
 
@@ -169,10 +169,14 @@ label finding_envelopes:
 
     "Reveals a stack of outdated office calendars and generic event flyers, none of which pertain to Senator Smith's current activities."
 
+    jump paper_waste
+
 label rotten_food:
 
     # Broken smartphone
     "Leads to the discovery of a broken smartphone."
+
+    jump Caught
 
 label electronic_devices:
 
@@ -180,6 +184,7 @@ label electronic_devices:
 
     "Uncovers a USB drive among the refuse. However, upon closer inspection, it appears damaged and unlikely to function, rendering its potential contents inaccessible and leaving you with more questions than answers."
 
+    jump Caught
 
 label unusual_items:
 
@@ -226,6 +231,7 @@ label ignore_and_focus:
 
     # Here option 1 and option 2 are wrong and leads to caught
     "As you delve deeper into the documents, the cat, undeterred, continues its exploration, causing papers to scatter. Suddenly, the noise escalates as the cat finds something intriguing and dashes out, papers in tow. The commotion attracts attention, and you hear footsteps approaching."
+    jump Caught
 
 menu:
         "Try to explain your presence as a curious passerby who heard a noise.":
