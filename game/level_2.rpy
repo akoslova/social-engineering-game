@@ -2,6 +2,7 @@ $ renpy.include("inventory.rpy")
 $ renpy.include("tutorial_story.rpy")
 $ renpy.include("level_1.rpy")
 
+define inf_sd = " "
 define so = Character (_("Security Officer"), color="#3939f5")
 define hc = Character (_("Head Chef"), color="#3939f5")
 define s = Character (_("Server"), color="#3939f5")
@@ -11,6 +12,7 @@ image bg caught="bg caught.jpg"
 
 
 label level_2:
+    call inventory
     "After a brief meeting with the reporter, you're now certain of the politician's identity. With the name and party affiliation of Senator John Smith from Liberty party in hand, your investigation enters its next phase."
 
 
@@ -156,11 +158,74 @@ label intact_documents:
     jump paper_waste
 
 label shredded_documents:
+    "Uncovers a puzzle challenge where you must reassemble a shredded document."
+    call screen paper_puzzle
 
     # MINI GAME OF PAPER PUZZLE
+    screen paper_puzzle:
+        image Solid("#474747")
+        draggroup:
+            drag:
+                xpos 0.25
+                ypos 0.3
+                child "gui/invitation_letter/piece3.png"
+                draggable True
+                drag_raise True
+            drag:
+                xpos 0.1
+                ypos 0.25
+                child "gui/invitation_letter/piece5.png"
+                draggable True
+                drag_raise True
+            drag:
+                xpos 0.2
+                ypos 0.3
+                child "gui/invitation_letter/piece1.png"
+                draggable True
+                drag_raise True
+            drag:
+                xpos 0.15
+                ypos 0.15
+                child "gui/invitation_letter/piece8.png"
+                draggable True
+                drag_raise True
+            drag:
+                xpos 0.25
+                ypos 0.3
+                child "gui/invitation_letter/piece2.png"
+                draggable True
+                drag_raise True
+            drag:
+                xpos 0.25
+                ypos 0.2
+                child "gui/invitation_letter/piece4.png"
+                draggable True
+                drag_raise True
+            drag:
+                xpos 0.3
+                ypos 0.2
+                child "gui/invitation_letter/piece7.png"
+                draggable True
+                drag_raise True
+            drag:
+                xpos 0.25
+                ypos 0.35
+                child "gui/invitation_letter/piece6.png"
+                draggable True
+                drag_raise True
+    
+        imagebutton auto "gui/inventory/back_%s.png":
+            focus_mask True
+            action Jump("save_information")
 
+    label save_information:
+        python:
+            style.input.color = "#ffffff"
+            inf_sd = renpy.input("Type in the information you want to save in your journal", length=100)
+            inf_sd = inf_sd.strip()
+        define save_inf = InventoryData("Information found on shredded document", inf_sd)
+        $ inventory.add_data(save_inf)
 
-    "Uncovers a puzzle challenge where you must reassemble a shredded document."
 
     jump noisy_cat
 
