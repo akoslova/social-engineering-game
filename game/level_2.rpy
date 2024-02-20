@@ -21,7 +21,7 @@ label level_2:
         "Dive into Instagram, analyzing tagged locations and posts.":
             jump dive_into_insta
 
-label Caught:
+label Caught_Level2:
     scene bg caught
     "You lost the level and need to restart"
     jump level_2
@@ -176,7 +176,7 @@ label rotten_food:
     # Broken smartphone
     "Leads to the discovery of a broken smartphone."
 
-    jump Caught
+    jump Caught_Level2
 
 label electronic_devices:
 
@@ -184,7 +184,7 @@ label electronic_devices:
 
     "Uncovers a USB drive among the refuse. However, upon closer inspection, it appears damaged and unlikely to function, rendering its potential contents inaccessible and leaving you with more questions than answers."
 
-    jump Caught
+    jump Caught_Level2
 
 label unusual_items:
 
@@ -193,7 +193,7 @@ label unusual_items:
     "Disturbs a hidden mechanical device, which turns out to be an old, malfunctioning paper shredder wedged between bags of paper waste. Its sudden activation creates a brief but loud grinding noise, disrupting the quiet of the evening. This unexpected noise hastens your decision to leave before drawing any further attention."
 
 
-    jump Caught
+    jump Caught_Level2
 
 
 label noisy_cat:
@@ -231,7 +231,7 @@ label ignore_and_focus:
 
     # Here option 1 and option 2 are wrong and leads to caught
     "As you delve deeper into the documents, the cat, undeterred, continues its exploration, causing papers to scatter. Suddenly, the noise escalates as the cat finds something intriguing and dashes out, papers in tow. The commotion attracts attention, and you hear footsteps approaching."
-    jump Caught
+    jump Caught_Level2
 
 menu:
         "Try to explain your presence as a curious passerby who heard a noise.":
@@ -261,7 +261,7 @@ label try_and_explain:
     #(not convinced)
     so "I'm going to have to ask you to stay right here while I call this in. Your story doesn't add up, and you shouldn't be on this property without a valid reason."
 
-    jump Caught
+    jump Caught_Level2
 
 
 label hide_behind_bins:
@@ -270,7 +270,7 @@ label hide_behind_bins:
 
     "You try to hide behind the bins but the Security Officer notices you. You have been Caught red-handed"
 
-    jump Caught
+    jump Caught_Level2
 
 label moment_to_escape:
 
