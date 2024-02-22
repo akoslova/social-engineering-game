@@ -558,11 +558,13 @@ label insiderecord:
     "You gently knock on the door before entering the room."
     "Person: Hey! What the hell do you think you're doing? This is a private meeting!"
     p "Oh, I'm sorry. I didn't realize there was a private meeting going on. I just wanted to serve some drinks."
-    "Person: [angry] Well, you can't just barge in like that! We're in the middle of something important."
+    "Person: Well, you can't just barge in like that! We're in the middle of something important."
 
     p "I honestly didn't know. I wouldn't have come in if I had known there was a meeting."
     "Person: Well, now you know. So, get out and let us finish what we're doing. You can leave the drinks here."
     "You quickly retrieve what you came for, feeling the tension in the room. As you leave, the door closes behind you."
+
+    jump waiting_for
 
 label outsiderecord:
 
@@ -584,12 +586,15 @@ label listenspeeches:
     #checkpoint m
 
 
-#What happens in between?
+label waiting_for:
+    
+
+    "You make use of the hiding place you have already discovered and watch the door tensely. As the three people leave the room, you wait briefly to avoid a blatant return and then set off to retrieve the recording."
 
 
 label getrecording:
 
-    "As you reach the door, you hesitate before knocking, but there's no response. With a cautious push, you enter the room, the weight of the silence weighing on you.
+    "With a cautious push, you enter the room, the weight of the silence weighing on you closing the door behind you.
     Your hand reaches for the recording, picking it up and tucking it safely into your pocket, the mission nearly accomplished, when the sound of footsteps startles you and the door swings open."
 
     #scene empty secret room
