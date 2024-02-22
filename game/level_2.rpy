@@ -670,8 +670,8 @@ label succesful_leaving:
 
 label stay_party:
 
-    "You decide to stay a bit longer and look for Cathy. As you find her engrossed in a conversation with a colleague you 
-    her and pull her onto the dance floor with your hand. While you sway to the beat of the music, you tell her about the successful recording and the close encounter with the senator" 
+    "You decide to stay a bit longer and look for Cathy. As you find her engrossed in a conversation with a colleague you excuse and pull her onto the dance floor with your hand.
+    While you sway to the beat of the music, you tell her about the successful recording and the close encounter with the senator" 
 #show cathy
     p "My fingertips are itching to find out what was said on the recording should we get out of here and finally reveal this secret?"
 
