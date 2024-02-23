@@ -31,7 +31,7 @@ label pretexting:
 
 label jason_hardman:
 
-        "Hello ... here is Jason ..."
+    "Hello ... here is Jason ..."
 
     menu:
 
@@ -117,15 +117,18 @@ label js_op2_2:
     menu: 
 
         "My mom":
+            jump js_op2_1_1
         
         "No one":
+            jump js_op2_1_1
 
         "He mentioned it to me":
+            jump js_op2_1_1
 
 
 label tina_hardman:
 
-        "Hello here Is Tina Hardman"
+    "Hello here Is Tina Hardman"
 
     menu:
 
@@ -137,3 +140,4 @@ label tina_hardman:
 label alexander:
 
 label doctor_dale:
+
