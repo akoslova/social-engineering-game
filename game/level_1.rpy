@@ -84,7 +84,7 @@ label level_1:
     scene bg n42
     show Me with easeinright
     "After a long ride in the subway you finally reach N 42 Street which is very busy at that time."
-    "You notice small firms like 1940paper.inc, SmrtWays and many more having their unique blinking Signs and advertisements and the big banks and firms residing in massive Skyscrapers."
+    "You notice small firms like 1940paper.inc, SmrtWays and many more having their unique blinking signs and advertisements and the big banks and firms residing in massive skyscrapers."
     "And also, your target. It is right across the Metro Exit indicated by the big lettering on the glass front above the entrance. CORE it reads in big red letters."
 
 label investigate:
@@ -101,7 +101,7 @@ label investigate:
             jump Building_options
         
         "Stand in front of the building and observe who enters and leaves it":
-            jump Leaving_building
+            jump Collect_information
 
         "You notice that a lot of them go to the coffee shop across the street. You decide to follow them and get a coffee yourself":
             jump Follow_people
@@ -158,9 +158,9 @@ label interview:
 
     r "Do you have a job interview? I have not received any information that applicants are coming for an interview today!"
 
-    p "No I was the area and wanted to swing by, see how it goes"
+    p "No I was the area and wanted to swing by, see how it goes."
 
-    r "Ohh wow! You have to submit an application online and then you might get invited for the interview Sir! So If you have no other questions please leave the lobby."
+    r "Ohh wow! You have to submit an application online and then you might get invited for the interview, Sir! So if you have no other questions, please leave the lobby."
 
     menu:
 
@@ -177,7 +177,7 @@ label basic_core:
 
     menu:
 
-        "Pretend to be there for an interview":
+        "Pretend to be there for an interview":#if not already condition
             jump interview
 
         "Try flirting with the attractive receptionist":
@@ -682,7 +682,7 @@ label canteendisguise:
     show Me with easeinleft:
         xzoom -1.0
 
-    "Disguised as canteen employee, you walk towards the back entrance that leads to the company’s canteen." 
+    "Disguised as canteen employee, you walk towards the back entrance that leads to the company’s canteen." #ToDo: canteen outfit missing
     scene bg canteendoor
     show Me
     "Heavily loaded and appearing to be busy with work, you move toward the door and open it. Then suddenly a kitchen employee looks at you weirdly."
@@ -698,10 +698,10 @@ label canteendisguise:
     
 
 label hideface:
-    "Employee: Hey I’ve never seen you here, who are you?"
+    k1 "Hey I’ve never seen you here, who are you?"
     p "I’m Drew, just started working here."
-    "Employee: I haven't heard of a new colleague starting here." 
-    "I feel like you are just trying to sneak inside the office for some reason. I will call security"
+    k1 "Employee: I haven't heard of a new colleague starting here." 
+    k1 "I feel like you are just trying to sneak inside the office for some reason. I will call security"
     menu:
         "Run inside the building":
             jump runinside
@@ -710,7 +710,7 @@ label hideface:
 
 label runinside:
     "As soon as you run towards the door that leads deeper inside the building other people notice you and you feel someone tackle you over"
-    jump get_inside 
+    jump getinside #checkpoint 3
  
 
 label runoutside:
@@ -718,7 +718,7 @@ label runoutside:
     "You rush through the door and run as fast as you can. But the man is running after you." 
     "You gain more and more distance and finally he looses track of you. "
     "While calming you breath you think about how to enter the building instead."
-    jump inside_building
+    jump getinside
     
     #e10: man who looks like he goes to the gym in cooking clothes
 label askhelp:
@@ -753,7 +753,8 @@ label explore_cubicles:
     
     scene bg whiskers
     #[Taking a photo from the mobile phone] [BG: Desk with the photo of a dog name whiskers]
-    "As you quietly explored the cubicles, your attention was drawn to a desk adorned with a framed picture of an elegant dog, its name proudly displayed beneath the image  Whiskers. The feline's regal demeanor made the picture amusingly out of place in the corporate setting. Intrigued, you decided to capture this curious discovery."
+    "As you quietly explored the cubicles, your attention was drawn to a desk adorned with a framed picture of an elegant dog, its name proudly displayed beneath the image  Whiskers. "
+    "The feline's regal demeanor made the picture amusingly out of place in the corporate setting. Intrigued, you decided to capture this curious discovery."
 
     "After discreetly snapping a photo of Whiskers' portrait, you continued your investigation. Amongst the papers on the desk, you found an official document containing the name and date of birth of an employee."
 
@@ -788,7 +789,7 @@ label explore_cubicles:
 
 label break_room:
 
-    scene bg office canteen
+    #scene bg office canteen #error
     "Now that you're inside you change back to your regular attire"
 
 
@@ -1021,7 +1022,7 @@ label continue_exploring:
 
     "Regardless of your choice, you continue your exploration."
     menu:
-        "Investigate Support Staff Contacts" if support_staff_contacts_done:
+        "Investigate Support Staff Contacts": #if support_staff_contacts_done: error
             jump support_staff_contacts
         "Explore Middle Management Contacts":
             jump middle_contacts
