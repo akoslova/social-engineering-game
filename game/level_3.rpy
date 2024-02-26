@@ -141,3 +141,17 @@ label alexander:
 
 label doctor_dale:
 
+label phising_lvl3:
+    "You decide to try your luck by writing a phishing email to all the employees from the Crimson Group."
+    "Task: Arrange the email snippets to create an effective phishing email "
+
+    #Minigame Email
+
+label notsuccessful: 
+    "Unfortunately, none of the mercenaries fell for your phishing email. Try again. "
+label successful: 
+    "Transition next day…"
+    "Jack Morrison clicked on your link. Now you have access to his computer."
+
+
+
