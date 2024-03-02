@@ -303,7 +303,7 @@ label Follow_people:
         "You decide to sit near a table and listen to 3 employees talking":
             jump Employee_conversation
         
-        "You leave the shop beacuse nothing here seems interesting":
+        "You leave the shop because nothing here seems interesting":
             jump leave_shop
 
 
@@ -753,16 +753,16 @@ label explore_cubicles:
     
     scene bg whiskers
     #[Taking a photo from the mobile phone] [BG: Desk with the photo of a dog name whiskers]
-    "As you quietly explored the cubicles, your attention was drawn to a desk adorned with a framed picture of an elegant dog, its name proudly displayed beneath the image  Whiskers. "
+    "As you quietly explore the cubicles, your attention is drawn to a desk adorned with a framed picture of an elegant dog, its name proudly displayes beneath the image  Whiskers."
     "The feline's regal demeanor made the picture amusingly out of place in the corporate setting. Intrigued, you decided to capture this curious discovery."
 
-    "After discreetly snapping a photo of Whiskers' portrait, you continued your investigation. Amongst the papers on the desk, you found an official document containing the name and date of birth of an employee."
+    "After discreetly snapping a photo of Whiskers' portrait, you continue your investigation. Amongst the papers on the desk, you find an official document containing the name and date of birth of an employee."
 
-    "The document provided you with the name Alex Johnson and a birthdate (12/08/1975), leaving you to wonder about the connection between the cat and the employee."
+    "The document provides you with the name Alex Johnson and a birthdate (12/08/1975), leaving you to wonder about the connection between the dog and the employee."
 
-    "Quickly noting down the name and date of birth from the document, you proceeded further."
+    "Quickly noting down the name and date of birth from the document, you proceed further."
 
-    define alex_data = InventoryData("Alex Johnson", "Birth: 12/08/1975, potential owner of cat Whiskers")
+    define alex_data = InventoryData("Alex Johnson", "Birth: 12/08/1975, potential owner of dog Whiskers")
 
     $ inventory.add_data(alex_data)
 
@@ -773,9 +773,9 @@ label explore_cubicles:
     #[Wrting in Journal] [BG: Picture with quote written Here's looking at you, kid – Casablanca]
     #Could you please explain what you mean?
 
-    "A spark of recognition ignited in your mind as you realized the significance of this quote. Hastily, you made a mental connection between the employee's name, the birthdate, and the movie quote."
+    "A spark of recognition ignites in your mind as you realize the significance of this quote. Hastily, you make a mental connection between the employee's name, the birthdate, and the movie quote."
 
-    "Pulling out your notebook, you meticulously wrote down the details: Alex Johnson, 12/08/1975, Quote: Here's looking at you, kid – Casablanca."
+    "Pulling out your notebook, you meticulously write down the details: Alex Johnson, 12/08/1975, Quote: Here's looking at you, kid – Casablanca."
 
     define alex_data_2 = InventoryData("Alex Johnson", "Birth: 12/08/1975, potential owner of cat Whiskers, Quote: Here's looking at you, kid – Casablanca")
 
@@ -1022,7 +1022,8 @@ label continue_exploring:
 
     "Regardless of your choice, you continue your exploration."
     menu:
-        "Investigate Support Staff Contacts": #if support_staff_contacts_done: error
+        "Investigate Support Staff Contacts": 
+            #if support_staff_contacts_done: error
             jump support_staff_contacts
         "Explore Middle Management Contacts":
             jump middle_contacts
@@ -1164,7 +1165,7 @@ label encounter_with_office_cat:
     menu:
         "Pet the cat":
             jump pet_the_cat
-        "Ignore_the_cat":
+        "Ignore the cat":
             jump Ignore_the_cat
 
 label pet_the_cat:
@@ -1190,7 +1191,7 @@ label Ignore_the_cat:
     jump continue_exploring
 
 label take_the_keys:
-
+    # update inventory Old keys
     # Here the player does not know about room 303 if he has selected option 1 and option 2 from label #continue_exploring. 
     "You decide to take the keys, thinking they might come in handy."
     jump room_303
@@ -1256,7 +1257,7 @@ label unlock_the_computer:
 label open_the_cupboard:
     scene bg locker
 
-    "After opening the cupboard you find the photo of Mr. johnson along with family and in the #background you can see a number '2926'"
+    "After opening the cupboard you find the photo of Mr. johnson along with family and in the background you can see a number '2926'"
 
 
     define whiskers_dog = Person("Whiskers", "images/bg whiskers.jpg", "2926")
