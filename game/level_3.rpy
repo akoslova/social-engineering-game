@@ -10,6 +10,9 @@ define ph = Character (_("Patric Hardman"), color="#3939f5")
 
 #show player character with phone
 
+label level_3:
+    call inventory
+    
 label pretexting:
 
     "As the phishing mail failed to bear any results you decide to give pretexting a try. With the information from the website and the secondary research about the mercenary hardman

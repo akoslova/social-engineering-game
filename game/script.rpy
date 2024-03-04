@@ -25,8 +25,8 @@ init python:
     Level("tutorial", True)
     Level("level_1", True)
     Level("level_2", True)
-    Level("level_3")
-    Level("level_4")
+    Level("level_3", True)
+    Level("level_4", True)
     Level("level_5")
 
 
