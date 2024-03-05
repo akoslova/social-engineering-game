@@ -535,8 +535,7 @@ label Real_name:
 
     p "Sooo.. I heard rumors that the company might be in trouble. Do you know anything about that? I just started here and I don't want to look again for a job. You know I have to care for my mom. She is already in elderly care and it is quite expensive."
 
-    ch "I am not supposed to talk about things like that! But don't worry we have our methods to stop allegations of pesky reporters. "
-        "What department are you from?"
+    ch "I am not supposed to talk about things like that! But don't worry we have our methods to stop allegations of pesky reporters. What department are you from?"
 
     p "Something with accounting."
 
@@ -556,11 +555,9 @@ label John_doe:
 
     p "Sooo.. I heard rumors that the company might be in trouble. Do you know anything about that? I just started here and I don't want to look again for a job. You know I have to care for my mom. She is already in elderly care and it is quite expensive."
 
-    ch "I am not supposed to talk about things like that! But don't worry we have our methods to stop allegations of pesky reporters. "
-       "What department are you from?"
+    ch "I am not supposed to talk about things like that! But don't worry we have our methods to stop allegations of pesky reporters. What department are you from?"
 
-    p "I am in the accounting division"
-        "So there is something in the bush?"
+    p "I am in the accounting division. So there is something in the bush?"
     
     ch "I mean just the typical stuff supporting the wrong parties, buying politicians with money, not respecting the environment enough.. Nothing you haven't heard a thousand times before!"
 
