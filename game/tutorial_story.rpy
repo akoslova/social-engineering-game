@@ -122,7 +122,7 @@ screen phishing:
 
 
 label wrong_phishing:
-    #TODO: missing background
+    scene bg office
     show screen inv_screen
     p "Mhh I don't think this is the right choice. If I remember correctly Frank is more into cats."
     jump phishing
