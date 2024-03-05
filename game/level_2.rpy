@@ -116,7 +116,8 @@ label senator_office:
     "You successfully pinpoint the location of Senator Smith's office. The information gathered paints a picture of Senator Smith as a man of integrity and dedication, deeply involved in his community and his duties as a member of the Liberty Party."
 
 
-    "Following your visit to Senator John Smith's office, you decide it's time to get your hands dirty—literally. The dumpsters located discreetly behind the office building hold the potential to unveil secrets that no digital footprint could reveal. As you approach, you notice two distinct dumpsters: one clearly labeled for paper waste, the other for general refuse. "
+    "Following your visit to Senator John Smith's office, you decide it's time to get your hands dirty—literally."
+    "The dumpsters located discreetly behind the office building hold the potential to unveil secrets that no digital footprint could reveal. As you approach, you notice two distinct dumpsters: one clearly labeled for paper waste, the other for general refuse. "
 
     menu:
         "Paper Waste Bin":
@@ -158,7 +159,7 @@ label intact_documents:
     jump paper_waste
 
 label shredded_documents:
-    "Uncovers a puzzle challenge where you must reassemble a shredded document."
+    "Try to reassemble the shredded document."
     call screen paper_puzzle
 
     # MINI GAME OF PAPER PUZZLE
@@ -256,7 +257,8 @@ label unusual_items:
 
     # Broken shredder paper
 
-    "Disturbs a hidden mechanical device, which turns out to be an old, malfunctioning paper shredder wedged between bags of paper waste. Its sudden activation creates a brief but loud grinding noise, disrupting the quiet of the evening. This unexpected noise hastens your decision to leave before drawing any further attention."
+    "Revealing a hidden mechanical device, which turns out to be an old, malfunctioning paper shredder wedged between bags of paper waste."
+    "Its sudden activation creates a brief but loud grinding noise, disrupting the quiet of the evening. This unexpected noise hastens your decision to leave before drawing any further attention."
 
 
     jump Caught_Level2
@@ -267,7 +269,8 @@ label noisy_cat:
     # Cat on the other side of the Bin.
     # Here option 3 is correct
 
-    "As you sift through the papers, the silence of the evening is suddenly broken by a loud noise. Startled, you turn to find a stray cat rummaging through the other side of the dumpster, its eyes reflecting in the dim light. The cat, more curious than frightened, begins to make a ruckus, drawing your attention away from the task at hand."
+    "As you sift through the papers, the silence of the evening is suddenly broken by a loud noise."
+    "Startled, you turn to find a stray cat rummaging through the other side of the dumpster, its eyes reflecting in the dim light. The cat, more curious than frightened, begins to make a ruckus, drawing your attention away from the task at hand."
 
     menu: 
         "Attempt to gently shoo the cat away, hoping it leaves without causing further commotion.":
@@ -296,7 +299,8 @@ label shoo_the_cat:
 label ignore_and_focus:
 
     # Here option 1 and option 2 are wrong and leads to caught
-    "As you delve deeper into the documents, the cat, undeterred, continues its exploration, causing papers to scatter. Suddenly, the noise escalates as the cat finds something intriguing and dashes out, papers in tow. The commotion attracts attention, and you hear footsteps approaching."
+    "As you delve deeper into the documents, the cat, undeterred, continues its exploration, causing papers to scatter."
+    "Suddenly, the noise escalates as the cat finds something intriguing and dashes out, papers in tow. The commotion attracts attention, and you hear footsteps approaching."
     jump Caught_Level2
 
 menu:
@@ -358,7 +362,7 @@ label offer_snack:
 
 
 label player_with_phone:# [At home, Player with phone]
-    "You decide to call Cathy and update her on your findings"
+    "You decide its time to call Cathy and update her on your findings"
     p "Hey Cathy, I found out about a secret meeting at the annual charity event."
     c "Great! That means we have to be there and collect some evidence for my story!"
     p "This will be impossible, I know that they have a guest list, we can’t just show up!"
@@ -487,7 +491,7 @@ label insideserver:
 
     c "Did you manage to get in?"
     p "Yes, I am a server."
-    cathy "Ok meet me inside the ball room."
+    c "Ok meet me inside the ball room."
 
     #you with a tray inside ballroom bg
 
