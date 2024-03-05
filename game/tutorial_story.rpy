@@ -100,7 +100,7 @@ label tutorial:
 
     t "Mhh.. I wonder what kind of phishing email would Frank fall for..."
 
-    hide screen inv_screen
+    #hide screen inv_screen
     jump phishing
 
 label phishing:
@@ -109,6 +109,8 @@ label phishing:
     call screen phishing
 
 screen phishing:
+    zorder 1
+    #TODO: move imagebuttons so that it does not collide with the inventory button
     add "images/bg laptop2.png"
     imagebutton auto "gui/phishing_mails/mail1_%s.png":
         focus_mask True
@@ -120,6 +122,7 @@ screen phishing:
 
 
 label wrong_phishing:
+    #TODO: missing background
     show screen inv_screen
     p "Mhh I don't think this is the right choice. If I remember correctly Frank is more into cats."
     jump phishing
@@ -145,6 +148,10 @@ label password_story:
     p "It's password protected."
     p "If I remember correctly, then the most common passwords are 123456, password, and qwerty. I could just try them out"
 
+    define commonpassword = InventoryData("most used passwords", "123456, password, qwerty")
+    $ inventory.add_data(commonpassword)
+    $ todo.update_aim("try common passwords")
+
     label password:
         python:
             style.input.color = "#ffffff"
@@ -160,6 +167,7 @@ label password_story:
 
 
 label right:
+    $ todo.update_aim("")
 
     p "That worked! Ok what is this?"
 
@@ -205,7 +213,6 @@ label closed:
 
 label evidence:
 
-    #transition Black
     scene black
     scene bg reception2
     show Me at Position(xpos=0) 
@@ -235,28 +242,8 @@ label evidence:
     c "Ok, slow down, I think you did the right thing there."
 
     c "Maybe you're on to something big. Can I have a look at your evidence? I might be able to write a story about it. What do you think?"
-
-    p "Surely this will not be easy?"
-
-    c "Hmm, I might need more information. I will contact you on that matter! Do you have my new number already? If not maybe you should write it in your notebook"
-
-    define cathy = Person("Cathy", "images/Cathy.png", "Reporter")
-
-    $ people.add_person(cathy)
-
-    define cathy_phone = InventoryData("Cathy's Phone Number", "017612345678")
-
-    $ inventory.add_data(cathy_phone)
-
-    "{i}Cathy and Cathy's phone number were added to your notebook.{\i}"
-
-    p "Thank you, I got it! But now let’s not talk about work anymore."
-
-    c "Yes, you’re right. Let’s have some drinks!"
-
-    jump next_day
-
-    #Transition/Finish scene in Coffee shop
+    jump cathy_information
+    
 
 label no_evidence:
 
@@ -288,21 +275,21 @@ label no_evidence:
 
     c " Ok slow down, without any evidence... are you trying to make a fool out of me?"
 
-    p "No, really not, I swear on our friendship"
+    p "No, really not, I swear on our friendship."
 
     c "Can you remember anything? What was mentioned?"
 
     menu:
-        "I remember reading about forest clearance and farmer strikes" :
+        "I remember reading about forest clearance and farmer strikes." :
             jump remembered_1
         
-        "I think there was the mentioning of avocados" :
+        "I think there was the mentioning of avocados." :
             jump remembered_2
 
-        "I read the word classified" :
+        "I read the word classified." :
             jump remembered_3
 
-        "I remember something about having a surprise birthday party for the head of the department" :
+        "I remember something about having a surprise birthday party for the head of the department." :
             jump not_remembered
 
     
@@ -310,35 +297,35 @@ label not_remembered:
 
     c "That's not worth a story, are you kidding me?"
 
-    p "You are right! I remember something else"
+    p "You are right! I remember something else."
 
     menu:
-        "I remember reading about forest clearance and farmer strikes" :
+        "I remember reading about forest clearance and farmer strikes." :
             jump remembered_1
         
-        "I think there was the mentioning of avocados" :
+        "I think there was the mentioning of avocados." :
             jump remembered_2
 
-        "I read the word classified" :
+        "I read the word classified." :
             jump remembered_3
 
 label remembered_2:
 
-    c "Avocados aha, that can not be it right?"
+    c "Avocados aha, that can not be it, right?"
 
     menu:
-        "I remember reading about forest clearance and farmer strikes":
+        "I remember reading about forest clearance and farmer strikes.":
             jump remembered_1
     
 
-        "I read the word classified" :
+        "I read the word classified." :
             jump remembered_3
 
 label remembered_3:
 
-    c "Thats more interesting but what is it about?"
+    c "Thats more interesting, but what is it about?"
 
-    "I remember reading about forest clearance and farmer strikes" 
+    p "I remember reading about forest clearance and farmer strikes." 
     
     jump remembered_1
 
@@ -346,21 +333,20 @@ label remembered_3:
 label remembered_1:
 
     c "Maybe you're on to something big. Can I have a look at your notes? I might be able to write a story about it. What do you think?"
+    jump cathy_information
 
+label cathy_information:    
     p "Surely this will not be easy?"
 
-    c "Hm, I might need more information. I will contact you on that matter! Do you have my new number already? If not maybe you should write it in your notebook"
+    c "Hm, I might need more information. I will contact you on that matter! Do you have my new number already? If not maybe you should write it in your notebook."
     
 
-    define cathy = Person("Cathy", "images/Cathy.png", "Reporter")
+    define cathy = Person("Cathy", "images/Cathy.png", "Reporter friend", "017612345678")
 
     $ people.add_person(cathy)
 
-    define cathy_phone = InventoryData("Cathy's Phone Number", "017612345678")
 
-    $ inventory.add_data(cathy_phone)
-
-    "{i}Cathy and Cathy's phone number were added to your notebook.{\i}"
+    "{i}Cathy was added to your notebook.{\i}"
 
     p "Thank you, I got it! But now let’s not talk about work anymore."
 

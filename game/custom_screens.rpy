@@ -1,7 +1,9 @@
 $ renpy.include("screens.rpy")
+
 $ i = 0
 
 screen inv_screen():
+    zorder 2
     modal False
 
     imagebutton auto "gui/inventory/bookicon_%s.png":
@@ -10,6 +12,7 @@ screen inv_screen():
 
 
 screen knowledge_inventory_page1():
+    zorder 3
     add "gui/inventory/background.png" 
     add "gui/inventory/book.png" 
     add "gui/inventory/todos.png"
@@ -31,7 +34,7 @@ screen knowledge_inventory_page1():
         xmaximum 0.3
     
         for item in data:
-            text "[item.name] - [item.description]\n" style "inventory_text"
+            text "[item.name]:  [item.description]\n" style "inventory_text"
     
     vbox:
         pos 0.75, 0.2
@@ -53,6 +56,7 @@ screen knowledge_inventory_page1():
             action Hide("knowledge_inventory_page1"), Show("knowledge_inventory_page2") 
 
 screen knowledge_inventory_page2():
+    zorder 3
     add "gui/inventory/background.png" 
     add "gui/inventory/book.png" 
     add "gui/inventory/todos.png"
@@ -69,7 +73,7 @@ screen knowledge_inventory_page2():
         pos 0.25, 0.25
     
         for item in data:
-            text "[item.name] - [item.description]\n" style "inventory_text"
+            text "[item.name]: [item.description]\n" style "inventory_text"
     
     vbox:
         pos 0.78, 0.25
@@ -89,6 +93,7 @@ screen knowledge_inventory_page2():
 
 
 screen people_inventory():
+    zorder 3
     add "gui/inventory/background.png" 
     add "gui/inventory/book.png"
     add "gui/inventory/people_tab_active.png"
@@ -103,7 +108,9 @@ screen people_inventory():
                 vbox:
                     pos -0.8, 0.25
                     text "Name: [item.name]\n" style "inventory_text"
-                    text "Profession: [item.profession]\n" style "inventory_text"
+                    text "Relationship: [item.relationship]\n" style "inventory_text"
+                    if item.phone != "":
+                        text "Phone Number: [item.phone]\n" style "inventory_text"
     
 
     imagebutton idle "gui/inventory/knowledge_tab.png":
@@ -115,6 +122,7 @@ screen people_inventory():
         action Hide("people_inventory"), Show("inv_screen")
 
 screen nameInput(prompt):
+
     add "images/bg laptop.png"
 
     vbox:
@@ -133,6 +141,7 @@ screen nameInput(prompt):
             color "#ffffff"
 
 screen map(place):
+    zorder 4
     add "gui/map/background.png"
 
     modal True 

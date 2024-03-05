@@ -23,10 +23,14 @@ init python:
             self.aim = aim
 
     class Person():
-        def __init__(self, name, image, profession):
+        def __init__(self, name, image, relationship, phonenumber=None):
             self.name = name
             self.image = image
-            self.profession = profession
+            self.relationship = relationship
+            if phonenumber != None:
+                self.phone = phonenumber
+            else:
+                self.phone = ""
 
     class People_List():
         def __init__(self, list):
