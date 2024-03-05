@@ -84,7 +84,7 @@ label level_1:
     scene bg n42
     show Me with easeinright
     "After a long ride in the subway you finally reach N 42 Street which is very busy at that time."
-    "You notice small firms like 1940paper.inc, SmrtWays and many more having their unique blinking signs and advertisements and the big banks and firms residing in massive skyscrapers."
+    "You notice small firms like 1940paper.inc, SmartWays and many more having their unique blinking signs and advertisements and the big banks and firms residing in massive skyscrapers."
     "And also, your target. It is right across the Metro Exit indicated by the big lettering on the glass front above the entrance. CORE it reads in big red letters."
 
 label investigate:
@@ -731,7 +731,21 @@ label askhelp:
     p "Wow, you definitely need to give me work out tips. I have to go now though. See you!"
     e10 "Have a nice one!"
 
-    jump inside_building
+    jump inside_building_cant
+
+label inside_building_cant:
+    scene bg main ent
+
+    "As soon as you locate a toilet you get rid of your canteen employee outfit and store it safely in the bin hidden under some paper towels."
+    "With your normal working clothes you confidently stride through the office building, blending in seamlessly with the bustling crowd. The air is thick with the hum of productivity as employees rush to and from."
+    # Checkpoint 1as the Option 1 is correct, if the player chooses 2nd or 3rd option then he will jump to inside_building
+    menu:
+        "Explore the cubicles":
+            jump explore_cubicles
+        "Head to the break room":
+            jump break_room
+        "Check the elevators":
+            jump check_elevators
 
 label inside_building:
     scene bg main ent
@@ -749,12 +763,11 @@ label inside_building:
 label explore_cubicles:
     scene bg cubicles
     show Me with easeinright
-    "Now that you're inside you change back to your regular attire"
     
     scene bg whiskers
     #[Taking a photo from the mobile phone] [BG: Desk with the photo of a dog name whiskers]
     "As you quietly explore the cubicles, your attention is drawn to a desk adorned with a framed picture of an elegant dog, its name proudly displayes beneath the image  Whiskers."
-    "The feline's regal demeanor made the picture amusingly out of place in the corporate setting. Intrigued, you decided to capture this curious discovery."
+    "The dog's regal demeanor made the image seem amusingly out of place in the corporate setting. Intrigued, you decided to capture this curious discovery."
 
     "After discreetly snapping a photo of Whiskers' portrait, you continue your investigation. Amongst the papers on the desk, you find an official document containing the name and date of birth of an employee."
 
@@ -768,12 +781,11 @@ label explore_cubicles:
 
     "{i}The information about Alex Johnson and Whiskers was added to your notebook. {\i}"
 
-    "There your eyes fell upon one famous quote which is unique in the office environment."
+    "As you continue to rummage through the desk, you notice a neatly handwritten message."
 
-    #[Wrting in Journal] [BG: Picture with quote written Here's looking at you, kid – Casablanca]
-    #Could you please explain what you mean?
+    #[BG: untidy desk with the photo of whiskers]
 
-    "A spark of recognition ignites in your mind as you realize the significance of this quote. Hastily, you make a mental connection between the employee's name, the birthdate, and the movie quote."
+    "A spark of recognition ignites in your mind as you realize the significance. Its a quote from the movie Casablanca! It you be important.. hastily, you make a connection between the employee's name, the birthdate, and the movie quote."
 
     "Pulling out your notebook, you meticulously write down the details: Alex Johnson, 12/08/1975, Quote: Here's looking at you, kid – Casablanca."
 
@@ -788,10 +800,6 @@ label explore_cubicles:
     jump interaction_with_employee
 
 label break_room:
-
-    #scene bg office canteen #error
-    "Now that you're inside you change back to your regular attire"
-
 
     show Me with easeinright
 
