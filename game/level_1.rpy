@@ -100,7 +100,7 @@ label investigate:
             "You notice that there are different entrances besides the main entrance with a lobby. An underground parking garage where black limousines come and go. A back entrance which is used by staff from their canteen for example."
             jump Building_options
         
-        "Stand in front of the building and observe who enters and leaves it":
+        "Stand in front of the entrance and observe who enters and leaves it" if not john_doe_known:
             jump Collect_information
 
         "You notice that a lot of them go to the coffee shop across the street. You decide to follow them and get a coffee yourself":
@@ -273,7 +273,7 @@ label Collect_information:
 
     "{i} John Doe was added to your notebook. {\i}"
 
-    "You also notice that the employees usually wear suits and that the security guards have a grey uniform."
+    "You also notice that the employees usually wear suits and that the security guards have a grey uniform. It is also striking that many employees go to the café right next door."
 
     menu:
 
@@ -295,16 +295,20 @@ label Follow_people:
 
     "You start looking around."
 
+    default Laptop_observation = True
+    default Employee_conversation = True
+
     menu:
 
-        "You choose to sit on a table with a guy on his laptop in close proximity":
+        "You choose to sit on a table with a guy on his laptop in close proximity" if Laptop_observation:
             jump Laptop_observation
         
-        "You decide to sit near a table and listen to 3 employees talking":
+        "You decide to sit near a table and listen to 3 employees talking" if Employee_conversation:
             jump Employee_conversation
         
-        "You leave the shop because nothing here seems interesting":
-            jump leave_shop
+    "You leave the shop because nothing here seems interesting":
+    
+    jump leave_shop
 
 
 label Laptop_observation:
@@ -341,6 +345,7 @@ label Say_something:
     That did not went well lets try something else!"
 
     $ say_something_option = False
+    $ Laptop_observation = False
 
     jump Follow_people #Option with Laptop is now true so cant be chosen again - is say_something enough?
 
@@ -614,6 +619,8 @@ label Employee_conversation:
     "The trio finishes their lunch cleans up and leaves their table."
 
     "That was interesting. Lets try observing something else now."
+
+    $ Employee_conversation = False
 
     jump Follow_people
 
