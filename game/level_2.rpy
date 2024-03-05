@@ -348,7 +348,7 @@ label moment_to_escape:
 
     # He has to repeat this step
 
-    jump noisy_cat
+    jump player_with_phone
 
 label offer_snack:
 
@@ -361,8 +361,8 @@ label offer_snack:
     jump player_with_phone
 
 
-label player_with_phone:# [At home, Player with phone]
-    "You decide its time to call Cathy and update her on your findings"
+label player_with_phone:# [Player with phone]
+    "You decide its time to call Cathy and update her on your findings."
     p "Hey Cathy, I found out about a secret meeting at the annual charity event."
     c "Great! That means we have to be there and collect some evidence for my story!"
     p "This will be impossible, I know that they have a guest list, we can’t just show up!"
@@ -457,7 +457,7 @@ label hidewall:
             jump insiderecord
 
         "Listen from outside the room and record it.":
-            jump ousiderecord
+            jump outsiderecord
 
 
 label actbathroom:
