@@ -175,13 +175,9 @@ label right:
     show secret doc at Position(ypos=0.8) with zoomin
     p "Mhmm..."
 
-    define info1 = InventoryData("Deforestation", "obscure activities not in compliance with environmental regulations")
-    define info2 = InventoryData("Farmer strikes", "An unresolved problem of domestic workers on strike")
-    define info3 = InventoryData("Confrontation with local wildlife and people", "appears to be violent")
+    define info1 = InventoryData("Top secret document", "\n Deforestation: obscure activities not in compliance with environmental regulations \n Farmer strikes: An unresolved problem of domestic workers on strike \n Confrontation with local wildlife and people appears to be violent")
 
     $ inventory.add_data(info1)
-    $ inventory.add_data(info2)
-    $ inventory.add_data(info3)
 
     "{i}Some bullet points of information were added to your notebook.{\i}"
 
