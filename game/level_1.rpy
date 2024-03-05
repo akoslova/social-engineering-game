@@ -306,9 +306,8 @@ label Follow_people:
         "You decide to sit near a table and listen to 3 employees talking" if Employee_conversation:
             jump Employee_conversation
         
-    "You leave the shop because nothing here seems interesting":
-    
-    jump leave_shop
+        "You leave the shop because nothing here seems interesting":
+            jump leave_shop
 
 
 label Laptop_observation:
