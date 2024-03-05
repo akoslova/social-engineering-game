@@ -212,8 +212,8 @@ label Parking_garage:
     show Me with easeinleft:
         xzoom -1.0
     
-    "You decide to go towards the Driveway of the parking garage.
-    While approaching you notice the security cameras and the closed garage doors. There is no way you can or should try to access the company here!"
+    "You decide to go towards the Driveway of the parking garage."
+    "While approaching you notice the security cameras and the closed garage doors. There is no way you can or should try to access the company here!"
 
     "You need to choose a different option."
 
@@ -254,6 +254,8 @@ label success:
     $ overall_success = True
   
     jump Building_options
+
+    ## do not have option of go with diguise if you did not grab the overall
 
 
 label Collect_information:
@@ -340,8 +342,8 @@ label Say_something:
 
     p "Sorry I confused you with someone else."
 
-    "He is eyeing you warily and closes his laptop and starts leaving the coffee shop.
-    That did not went well lets try something else!"
+    "He is eyeing you warily and closes his laptop and starts leaving the coffee shop."
+    "That did not went well lets try something else!"
 
     $ say_something_option = False
     $ Laptop_observation = False
@@ -396,8 +398,8 @@ label Cautious:
 
 label Screen_reflection:
 
-    "You try to look at the screen with a reflection of your smartphone
-    Success: You see his User Name for Outlook: christian.baker@company.de"
+    "You try to look at the screen with a reflection of your smartphone"
+    "Success: You see his User Name for Outlook: christian.baker@company.de"
 
     menu:
 
@@ -409,8 +411,8 @@ label Screen_reflection:
 
 label Watching_1:
 
-    "He is logging in and made a mistake with his password..
-    He clicks on the reveal icon you can see his wrong input: aS&MIavmc12356#13"
+    "He is logging in and made a mistake with his password.."
+    "He clicks on the reveal icon you can see his wrong input: aS&MIavmc12356#13"
 
     
     menu:
@@ -533,8 +535,8 @@ label Real_name:
 
     p "Sooo.. I heard rumors that the company might be in trouble. Do you know anything about that? I just started here and I don't want to look again for a job. You know I have to care for my mom. She is already in elderly care and it is quite expensive."
 
-    ch "I am not supposed to talk about things like that! But don't worry we have our methods to stop allegations of pesky reporters. 
-        What department are you from?"
+    ch "I am not supposed to talk about things like that! But don't worry we have our methods to stop allegations of pesky reporters. "
+        "What department are you from?"
 
     p "Something with accounting."
 
@@ -554,11 +556,11 @@ label John_doe:
 
     p "Sooo.. I heard rumors that the company might be in trouble. Do you know anything about that? I just started here and I don't want to look again for a job. You know I have to care for my mom. She is already in elderly care and it is quite expensive."
 
-    ch "I am not supposed to talk about things like that! But don't worry we have our methods to stop allegations of pesky reporters. 
-        What department are you from?"
+    ch "I am not supposed to talk about things like that! But don't worry we have our methods to stop allegations of pesky reporters. "
+       "What department are you from?"
 
-    p "I am in the accounting division
-        So there is something in the bush?"
+    p "I am in the accounting division"
+        "So there is something in the bush?"
     
     ch "I mean just the typical stuff supporting the wrong parties, buying politicians with money, not respecting the environment enough.. Nothing you haven't heard a thousand times before!"
 
@@ -630,9 +632,10 @@ label Employee_conversation:
 label leave_shop:
 
     scene bg badge
-    "While you leave the shop you notice an Employee Badge.
-    It is difficult to recognize because it is peeking out from under a chest of drawers. 
-    You take it without much thought."
+    "While you leave the shop you notice an Employee Badge."
+    "It is difficult to recognize because it is peeking out from under a chest of drawers."
+    "You take it without much thought."
+
     define badge = InventoryData("New Item", "Employee badge")
 
     $ inventory.add_data(badge)
@@ -703,7 +706,7 @@ label canteendisguise:
     menu:
         "Hide your face, and try not to drag too much attention on you":
             jump hideface
-        "Act friendy and ask him for help with the box you are carrying" if badge_found: 
+        "Act friendy and ask him for help with the box you are carrying": 
             jump askhelp
     
 
