@@ -675,7 +675,7 @@ label succesful_leaving:
 label stay_party:
 
     "You decide to stay a bit longer and look for Cathy. As you find her engrossed in a conversation with a colleague you excuse and pull her onto the dance floor with your hand.
-    While you sway to the beat of the music, you tell her about the successful recording and the close encounter with the senator" 
+    While you sway to the beat of the music, you tell her about the successful recording and the close encounter with the senator." 
 #show cathy
     p "My fingertips are itching to find out what was said on the recording should we get out of here and finally reveal this secret?"
 
@@ -728,11 +728,11 @@ label listen_recording:
 
     "Sitting at the table and diggin in your food the recorder placed in between of you and Cathy"
 
-    c "What you have been doing the last few days is crazy and everything with social.. how was it called?"
+    c "What you have been doing the last few days.. honestly is impressive and crazy. And everything with social.. how was it called?"
 
-    p "Social Engineering. Yeah not the machine or the software itself has the weak point but the human in front of it. Thats the trick!"
+    p "Social Engineering. Yeah not the machine or the software itself has the weak point but the human in front of it. You just need to know which buttons to press!"
  
-    "You hand her one of your in ears and play back the recording."
+    "You hand her one of your in-ears and play back the recording."
 
     #Audio recording - with subtitle?
 
@@ -740,12 +740,12 @@ label listen_recording:
     
     c "Holy shit who are those guys?"
 
-    p "Your senator, the one you said was suspicious, one of those guys is from CORP and the other one I don't know. I saw his face for a moment, but I can't remember where I saw him before."
+    p "Your senator, the one you said was suspicious, one of those guys is from CORP and the other one I don't know. I saw his face for a second, but I can't remember where I saw him before."
 
     # show cathy worried
-    c "So they want to hire the Crimson Group... that's not good, I heard about them, they may have been involved in suppressing riots in Jordan and Russia. 
-    I think there was also a colleague who was assaulted by one of their mercenaries while writing about it.
-    They are dangerous, you really should not try to go to their base of operations."
+    c "So they want to hire the Crimson Group... that's not good, I heard about them, they may have been involved in suppressing riots in Jordan and Russia." 
+    c "I think there was also a colleague who was assaulted by one of their mercenaries while writing about it.
+        They are dangerous, you really should not try to go to their base of operations."
 
     p "Hmm I will think of a way to target them without getting harmed. Are you worried about me?"
 
