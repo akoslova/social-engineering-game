@@ -457,6 +457,8 @@ label Watching_3:
 label Option_1:
 
     s "Don't be cheeky! You see this is my security officer badge, you come with me now and we'll see what you've been doing all this time."
+
+    "You were too obvious, which led to you and your actions being questioned. Try again!"
     jump Follow_people
 
 label Option_2:
@@ -502,11 +504,13 @@ label Stop_observing:
     "You stop observing a turned off Phone looks suspicious."
     "As you know his name now you try approaching him."
 
+    $ Laptop_observation = False
+
     jump Approach_guy
 
 label Approach_guy:
 
-    p "Hey, Christian How are you?"
+    p "Hey, Christian how are you?"
 
     ch "I am fine, just a bit stressed tho and who are you?"
 
@@ -525,9 +529,9 @@ label Real_name:
 
     p "What department are you working in? I remember seeing your face somewhere in the onboarding process."
 
-    ch "Ooh I am from public relations work."
+    ch "Ooh.. I feel a little flattered by this. I am from public relations work."
 
-    p "So I heard rumors that the company might be in trouble. Do you know anything about that? I just started here and I don't want to look again for a job. You know I have to care for my mom. She is already in elderly care and it is quite expensive."
+    p "Sooo.. I heard rumors that the company might be in trouble. Do you know anything about that? I just started here and I don't want to look again for a job. You know I have to care for my mom. She is already in elderly care and it is quite expensive."
 
     ch "I am not supposed to talk about things like that! But don't worry we have our methods to stop allegations of pesky reporters. 
         What department are you from?"
@@ -546,9 +550,9 @@ label John_doe:
 
     p "What department are you working in? I remember seeing your face somewhere in the onboarding process."
 
-    ch "Ooh I am from public relations work."
+    ch "Ooh.. I feel a little flattered by this. I am from public relations work. Nice to meet you!"
 
-    p "So I heard rumors that the company might be in trouble. Do you know anything about that? I just started here and I don't want to look again for a job. You know I have to care for my mom. She is already in elderly care and it is quite expensive."
+    p "Sooo.. I heard rumors that the company might be in trouble. Do you know anything about that? I just started here and I don't want to look again for a job. You know I have to care for my mom. She is already in elderly care and it is quite expensive."
 
     ch "I am not supposed to talk about things like that! But don't worry we have our methods to stop allegations of pesky reporters. 
         What department are you from?"
@@ -556,7 +560,7 @@ label John_doe:
     p "I am in the accounting division
         So there is something in the bush?"
     
-    ch "I mean just the typical stuff supporting/buying politicians with money, not respecting the environment enough.. Nothing unheard off!"
+    ch "I mean just the typical stuff supporting the wrong parties, buying politicians with money, not respecting the environment enough.. Nothing you haven't heard a thousand times before!"
 
     p "Ok thank you! That calms me down a bit, have a nice break and see you!"
 
