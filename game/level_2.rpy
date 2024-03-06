@@ -31,6 +31,8 @@ label Caught_Level2:
 
 label focus_on_google:
 
+    #scene Desktop home screen
+
     # Here option 3 is correct
 
     menu:
@@ -314,6 +316,8 @@ menu:
 
 label try_and_explain:
 
+    #show officer
+
     so "Hey! What are you doing here? This area is off-limits at this time of night."
 
     p "Oh, hi there! I was just passing by and heard this loud noise. It sounded like a cat in distress, so I thought I'd check it out."
@@ -361,7 +365,8 @@ label offer_snack:
     jump player_with_phone
 
 
-label player_with_phone:# [Player with phone]
+label player_with_phone:
+    # show [Player with phone]
     "You decide its time to call Cathy and update her on your findings."
     p "Hey Cathy, I found out about a secret meeting at the annual charity event."
     c "Great! That means we have to be there and collect some evidence for my story!"
@@ -375,6 +380,8 @@ label player_with_phone:# [Player with phone]
 
 label next_day_2:
 
+    #Use map to navigate to the charity event
+
     "You stand outside the event venue, adorned in the chef's uniform stolen from a nearby catering van."
     "Choose a role to blend in seamlessly."
 
@@ -386,7 +393,8 @@ label next_day_2:
         "Pose as the head chef, giving you more authority and access.":
             jump head_chef_route
 
-label server_route:#you wearing server/kitchen clothes
+label server_route:
+    #show you wearing server/kitchen clothes
 
     "You confidently slip into the role of a server, blending in with the catering staff bustling around the event location."
 
@@ -397,6 +405,7 @@ label server_route:#you wearing server/kitchen clothes
 
 label head_chef_route:
 
+    # scene kitchen
     #[HEAD CHEF; MAD] you wearing server/kitchen clothes
     "Despite your efforts to pose as the head chef, things don't go as smoothly as planned. The real head chef, who was briefly away, returns unexpectedly."
 
@@ -446,7 +455,7 @@ label check_out_building:
         "Act like you are looking for the bathroom":
             jump actbathroom 
 label hidewall:
-#hiding space: maybe behind a wall/door, and door visible
+#hiding space: maybe behind a wall/door, and door of secret meeting visible
     "As the voices gradually grow louder, you hold your breath, fearing discovery. "
     "Then you see three people passing you. Fortunately, they don’t notice you as they disappear into a nearby room. "
 
@@ -493,7 +502,8 @@ label insideserver:
     p "Yes, I am a server."
     c "Ok meet me inside the ball room."
 
-    #you with a tray inside ballroom bg
+    #show you with a tray of food
+    #scene inside ballroom bg
 
     "You pick up a tray with delicious food and step into the room. "
     "You find yourself in the grand ball room with an assembly of well dressed individuals. "
@@ -550,6 +560,7 @@ label followsenator:
 
     "As he closes the door behind him, you are walking towards the door. You can hear voices inside the room."
 
+#Options to record can only be seen when ou recieved the recorder from cathy
     menu:
         "Go inside the room as a server and place a tray of food in the room with a recorder hidden underneath the tray.":
             jump insiderecord
@@ -557,7 +568,11 @@ label followsenator:
         "Listen from outside the room and record it.":
             jump ousiderecord
 
+        "Eavesdrop on the conversation from outside":
+            jump outsiderecord2
+
 label insiderecord:
+    #scene secret meeting room
     #[Three people 1 female, two male (one of them senator John Smith) staring at you, agressively]
     "You gently knock on the door before entering the room."
     "Person: Hey! What the hell do you think you're doing? This is a private meeting!"
@@ -572,14 +587,23 @@ label insiderecord:
 
 label outsiderecord:
 
-#you in front of door
+#you in front of door holding ear agianst it
 
 
     "You sneak up to the door, catching some hushed voices. "
     "Then you hit the record button, but soon realize that you can barely make out anything from the conversation."
     
     #checkpoint m
-   
+
+label outsiderecord2:
+
+#you in front of door holding ear agianst it
+
+
+    "You sneak up to the door, catching some hushed voices. "
+    "Pressing your ear to the door, you soon realize that you can barely make out anything from the conversation."
+    
+    #checkpoint m
 
 label listenspeeches:
 
@@ -590,18 +614,19 @@ label listenspeeches:
     #checkpoint m
 
 
+#Checkpoint recorded
 label waiting_for:
     
 
-    "You make use of the hiding place you have already discovered and watch the door tensely. As the three people leave the room, you wait briefly to avoid a blatant return and then set off to retrieve the recording."
+    "You make use of the hiding place you already discovered earlier and watch the door tensely. As the three people leave the room, you wait briefly to avoid a blatant return and then set off to retrieve the recording."
 
 
 label getrecording:
 
-    "With a cautious push, you enter the room, the weight of the silence weighing on you closing the door behind you.
-    Your hand reaches for the recording, picking it up and tucking it safely into your pocket, the mission nearly accomplished, when the sound of footsteps startles you and the door swings open."
+    "With a cautious push, you enter the room, the weight of the silence weighing on you as you close the door behind you silently."
+    "Your hand reaches for the recording, picking it up and tucking it safely into your pocket, the mission nearly accomplished, when the sound of footsteps startles you and the door swings open."
 
-    #scene empty secret room
+    #scene empty secret meeting room
     #show senator
     senator "Sorry J forgot my lighter in this room…"
 
@@ -644,10 +669,8 @@ label turn_around:
 
 label running_from:
 
-    "You start running, knocking him aside and running out the door. 
-    Suddenly you are stopped, someone grabs you and pushes you against the wall.
-    You try to free yourself, but your arms are caught in a vice-like grip. You have a bad feeling when you see the senator coming towards you, snorting with rage.
-    He points a finger at you"
+    "You start running, knocking him aside and running out the door. Suddenly you are stopped, someone grabs you and pushes you against the wall."
+    "You try to free yourself, but your arms are caught in a vice-like grip. You have a bad feeling when you see the senator coming towards you, snorting with rage. He points a finger at you"
 
     senator "You got him? Good, he attacked me! Lets find out what he is doing here!"
 
@@ -676,7 +699,8 @@ label stay_party:
 
     "You decide to stay a bit longer and look for Cathy. As you find her engrossed in a conversation with a colleague you excuse and pull her onto the dance floor with your hand.
     While you sway to the beat of the music, you tell her about the successful recording and the close encounter with the senator." 
-#show cathy
+
+#show cathy red dress
     p "My fingertips are itching to find out what was said on the recording should we get out of here and finally reveal this secret?"
 
     c "Yeah, let's do that! Can we stop at a fast food restaurant on the way? I get really hungry all the time when I get nervous about things."
@@ -723,8 +747,8 @@ label next_day_3:
     #jump level 3
 
 label listen_recording:
-# scene Fast Food
-#show cathy
+# scene Fast food restaurant, Table with food
+#show cathy red dress
 
     "Sitting at the table and diggin in your food the recorder placed in between of you and Cathy"
 
