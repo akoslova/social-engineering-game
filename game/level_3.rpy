@@ -485,6 +485,132 @@ label notsuccessful:
 label successful: 
     "Transition next day…"
     "Jack Morrison clicked on your link. Now you have access to his computer."
+    "You sit down at your computer, ready to explore."
+    "As you navigate through directories, you discover a folder labeled 'Partners'."
+    menu:
+        "Explore the folder":
+            jump explore_file_system
+        "Check his email account":
+            jump emailaccount
+
+label explore_file_system:
+    "Inside, you find an advertisement from the Company CORE."
+
+
+
+    
+#Successful: You found out about Core providing vehicles for the rainforest destruction → Update Journal
+    menu:
+        "Leave folder and check the email account":
+            jump emailaccount
+
+
+label emailaccount:
+
+    #Todo: Design Email inbox where you only see the subjects
+    #From Colleague Marcus Jphnson Subject: Out of Office notice
+    #Email from Wife Subject: Need fast reply
+    #from company newsletter subject: Exciting News: Successful Deal with CORE for Advanced Tree Technology
+    menu:
+        "Email1":
+            jump email1
+        "Email2":
+            jump email2
+        "Email3":
+            jump email3
+
+label find_out_more:#checkpoint x
+    
+    menu:
+        "Search for hotels in Tropica on the internet":
+            jump search_hotels
+        "Write an email to Marcus Johnson as Jack Morrison":
+            jump write_email
+
+label search_hotels:
+    "You decide to search on the internet for hotels in the town Tropica."
+    "Luckily, you find out that there are only three hotels in the town: Grand Horizon Inn, Hotel Semirani and Hotel Diamond Resorts."
+    menu:
+        "Try your luck and go to one of the hotels":
+            jump hotel_options
+        "Call hotels and confidently ask for Marcus Johnson":
+            jump call_hotels
+
+label hotel_options:
+    "You arrive at the hotel. Which hotel would you like to visit?"
+    menu:
+        "Go to Grand Horizon Inn":
+            jump hotel1_fail
+        "Go to Hotel Semirani":
+            jump hotel2_success
+        "Go to Hotel Diamond Resorts":
+            jump hotel3_fail
+
+label hotel1_fail:
+    #Todo
+    #Go to checkpoint x
+
+label hotel2_success:
+    "You go to Hotel 2."
+    "Receptionist: How can we help you?"
+    "Player: I would like to rent a room."
+    "Receptionist: Sure, Standard Room or Deluxe Room?"
+    menu:
+        "Take the Standard Room":
+            jump takeroom
+        "Take the Deluxe Room":
+            jump takeroom
+
+label takeroom:
+    "You take your keys and go to your room."
+    "You observe Marcus Johnson entering his room, which is right next to yours."
+    menu:
+        "Set up a Wifi Access Point and create a fake login":
+            jump setupwifi
+
+label setupwifi:
+    "Transition: evening..."
+    "You keep waiting for a couple of hours but no one logs into your fake wifi point."
+    "You are almost ready to give up, when all of a sudden you can see that someone fell for your trap."
+    "Now you can monitor the victim's online activity."
+    # Todo Mareike
+
+label call_hotels:
+
+    "What hotel do you want to call first?"
+    menu:
+        "Grand Horizon Inn":
+            jump hotel1_call
+        "Hotel Semirani":
+            jump hotel2_call
+        "Hotel Diamond Resorts":
+            jump hotel3_call
+
+
+label hotel1_call:
+    "You confidently call the hotel and ask for Marcus Johnson."
+
+    "Hotel 1: 'I’m sorry, we don’t have a guest of that name staying here.'"
+
+label hotel2_call:
+
+    "You confidently call the hotel and ask for Marcus Johnson."
+
+    "Hotel 2: 'What room number?'"
+    "Hotel 2: 'When he told me he would be staying at your hotel, a week ago, he hadn’t checked in and of course even he didn’t know his room number then.'"
+    "Hotel 2: 'Sorry we cannot do that. The safety, security and privacy of our guests is our highest value.'"
+
+label hotel3_call:
+    "You confidently call the hotel and ask for Marcus Johnson."
+
+    "Hotel 3: 'I’m sorry, we don’t have a guest of that name staying here.'"
+
+
+
+
+
+
+    
 
 
 
