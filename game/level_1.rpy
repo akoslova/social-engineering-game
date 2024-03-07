@@ -327,7 +327,7 @@ label Laptop_observation:
         "Turn around and talk to him while trying to read of his screen" if say_something_option:
             jump Say_something
         
-        "Try reading the screen of your smartphones screen reflection" if screen_reflection_option:
+        "Try reading the screen of your smartphones front camera" if screen_reflection_option:
             jump Screen_reflection
 
         "Try looking over your shoulder to read the screen" if look_shoulder_option:
@@ -386,7 +386,7 @@ label Natural:
 
     "You react by looking over the other shoulder as well pretending as you would search for someone in the room."
     "You got away with it!"
-    "Lets try the smartphone reflection now."
+    "Maybe using the smartphone camera grants more success."
 
     jump Screen_reflection
 
@@ -398,8 +398,8 @@ label Cautious:
 
 label Screen_reflection:
 
-    "You try to look at the screen with a reflection of your smartphone"
-    "Success: You see his User Name for Outlook: christian.baker@company.de"
+    "You try to look at the screen with the front camera turned on of your smartphone"
+    "Success: You see his User Name for Outlook: christian.baker@core.de"
 
     menu:
 
@@ -439,14 +439,14 @@ label Watching_3:
 
     "Suddenly someone grabs your shoulder!"
 
-    s "Hey what are you doing! I saw you looking at your smartphone while it’s turned off the whole time!"
+    s "Hey what are you doing! I saw you looking at your active front camera for a long time without taking an pictures!"
 
     menu:
 
         "Mind your own business I was just in my own thoughts!":
             jump Option_1
 
-        "I have this match on Tinder I am trying to figure out what to write :) Man I am just unsure how to approach her, she looks stunning on all her pictures.":
+        "I have this match on Tinder I am trying to figure out what picture, pose I should send her. Man I am just unsure, she looks stunning on all her pictures.":
             jump Option_2
 
         "I was doing nothing, do you think I am some spy or what.. trying to spy on this guy here?” (laughing)":
