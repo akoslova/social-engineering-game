@@ -7,16 +7,16 @@ define s = Character (_("Security Officer"), color="#0000ff")
 define e1 = Character (_("Employee 1"), color="#6fd066")
 define e2 = Character (_("Employee 2"), color="#6fd066")
 define e3 = Character (_("Employee 3"), color="#6fd066")
-define e4 = Character (_("Employee 4"), color="#6fd066")
-define e5 = Character (_("Employee 5"), color="#6fd066")
-define e6 = Character (_("Employee 6"), color="#6fd066")
-define e7 = Character (_("Employee 7"), color="#6fd066")
-define e8 = Character (_("Employee 8"), color="#6fd066")
-define e9 = Character (_("Employee 9"), color="#6fd066")
-define e10 = Character (_("Employee 10"), color="#6fd066")
+define e4 = Character (_("Observant Employee"), color="#6fd066")
+define e5 = Character (_("Friendly Employee 1"), color="#6fd066")
+define e6 = Character (_("Friendly Employee 2"), color="#6fd066")
+define e7 = Character (_("Worried Employee"), color="#6fd066")
+define e8 = Character (_("Distant Employee"), color="#6fd066")
+define e9 = Character (_("Skeptical Employee"), color="#6fd066")
+define e10 = Character (_("Employee"), color="#6fd066")
 define ivy = Character (_("Ivy P. Paperwork"), color="#6fd066")
 define burt = Character (_("Burt W. Mopbucket"), color="#6fd066")
-define staff = Character (_("IT Staff"), color="#6fd066")
+define staff = Character (_("IT Guy"), color="#6fd066")
 define mr_johnson = Character (_("Mr. Johnson"), color="#4b0082")
 define k1 = Character (_("Kitchen staff 1"), color="#6fd066")
 define k2 = Character (_("Kitchen staff 2"), color="#6fd066")
@@ -746,8 +746,18 @@ label askhelp:
 label inside_building_cant:
     scene bg main ent
 
+    # Scene: Toilet room 
+    #Player outfit normal working clothes
+
     "As soon as you locate a toilet you get rid of your canteen employee outfit and store it safely in the bin hidden under some paper towels."
     "With your normal working clothes you confidently stride through the office building, blending in seamlessly with the bustling crowd. The air is thick with the hum of productivity as employees rush to and from."
+
+    "As you navigate the bustling office landscape, a keen sense of purpose guides you. Hidden among the maze of cubicles and the constant hum of activity, you know lies the gateway to unraveling the mystery at hand: a secured personal computer (PC)."
+    "This isn't just any office equipment; it's the keeper of secrets, housing crucial information that could blow the scam wide open. But to access its contents, you need the key — the password."
+    "Understanding that the PC won't be left unprotected, you realize that cracking the code will require more than just a lucky guess."
+    "The employees themselves hold the answer, not through direct knowledge of the scam, perhaps, but in their approach to creating passwords."
+    "Every individual has a unique method to their password-making madness, often tied to personal experiences, interests, or a standard security protocol they've been instructed to follow."
+    "With this in mind, you begin your subtle investigation. "
     # Checkpoint 1as the Option 1 is correct, if the player chooses 2nd or 3rd option then he will jump to inside_building
     menu:
         "Explore the cubicles":
@@ -757,7 +767,7 @@ label inside_building_cant:
         "Check the elevators":
             jump check_elevators
 
-label inside_building:
+"""label inside_building:
     scene bg main ent
 
     "With your disguise intact, you confidently stride through the office building, blending in seamlessly with the bustling crowd. The air is thick with the hum of productivity as employees rush to and from."
@@ -769,7 +779,7 @@ label inside_building:
             jump break_room
         "Check the elevators":
             jump check_elevators
-
+"""
 label explore_cubicles:
     scene bg cubicles
     show Me with easeinright
@@ -977,7 +987,7 @@ label colleagues_chatting_nearby:
     p "Thanks! I'm sure I'll fit right in."
 
 
-    "You didn't find much information about the passwords" 
+    "This choice doesn't lead to the breakthrough you hoped for." 
     
     jump inside_building
 
@@ -1005,6 +1015,8 @@ label password_reset_procedure:
     e7 "Okay, done. I've used my favorite hiking trail name and added the year I first hiked it, plus an exclamation mark."
     staff "That's a good mix. It's personal but not something everyone would know. Just make sure you remember it without writing it down."
     "The employee leaves, looking satisfied. This interaction gives you a valuable insight into how employees might construct their passwords using personal hobbies or experiences combined with significant dates and special characters."
+
+    "This choice doesn't lead to the breakthrough you hoped for."
 
     jump inside_building
 
@@ -1037,8 +1049,14 @@ label continue_exploring:
     show Me
 
     # Checkpoint 2, here the 3rd option is correct and if you choose 1 or 2nd option you continue #further but you will not find out about the room 303 so the player again comes at this option
+    "Ascending the staircase, you discover an empty room. Curiosity draws you inside, where you find an unexpected treasure: a contact book."
 
-    "Regardless of your choice, you continue your exploration."
+    # BG: Player holding one book "Contact Book"
+
+    "This book, filled with names and phone numbers, could be the key to unlocking the scam you're investigating."
+    "It offers a direct way to reach out to employees, gather insights, or unearth clues about the scam directly from those involved or unknowingly connected to it."
+
+
     menu:
         "Investigate Support Staff Contacts": 
             #if support_staff_contacts_done: error
@@ -1064,9 +1082,10 @@ label support_staff_contacts:
 
     p "Sure thing, Burt. Keep up the excellent work on those floors."
 
+    "This choice doesn't lead to the breakthrough you hoped for."
     $ support_staff_contacts_done = True
     
-    jump encounter_with_office_cat
+    jump continue_exploring
 
 label middle_contacts:
     scene bg calls
@@ -1086,7 +1105,8 @@ label middle_contacts:
 
     p "Got it, Ivy. Just thought I'd lighten the mood with some office tales."
 
-    jump encounter_with_office_cat
+    "This choice doesn't lead to the breakthrough you hoped for."
+    jump continue_exploring
 
 
 label call_mr_johnson:
@@ -1122,6 +1142,8 @@ label introduce_as_IT:
 
     mr_johnson "I'm sorry, but without proper verification, I'm not comfortable disclosing any information over the phone. I'll reach out to our IT department myself and follow up on this. Goodbye."
 
+    "This choice doesn't lead to the breakthrough you hoped for."
+
     jump continue_exploring
 
 
@@ -1139,6 +1161,7 @@ label pretend_to_be_CEO:
 
     mr_johnson "No problem, I'll get in touch with IT right away and ensure they expedite your access. Thank you for understanding the importance of following our security protocols."
 
+    "This choice doesn't lead to the breakthrough you hoped for."
     jump continue_exploring
 
 
@@ -1206,6 +1229,8 @@ label pet_the_cat:
 
 label Ignore_the_cat:
 
+    "This choice doesn't lead to the breakthrough you hoped for."
+
     jump continue_exploring
 
 label take_the_keys:
@@ -1216,8 +1241,12 @@ label take_the_keys:
 
 label room_303:
     scene bg room303
-    "You enter Room 303, the cat still by your side. The dimly lit room is filled with rows of computers."
 
+    "Having uncovered the mystery of Room 303, you now stand ready to explore its secrets. With anticipation, you approach the door, prepared to unravel what lies within. This moment marks a pivotal point in your investigation, as Room 303 holds the answers you've been seeking."
+
+    "The dimly lit room is filled with rows of computers."
+
+    "The information gathered from your interactions with the employees now becomes crucial, ready to be used in unlocking the secrets it holds."
 
     "As you try to access the computer, you realize it's password-protected."
 
@@ -1244,7 +1273,7 @@ label unlock_the_computer:
 
     p "Well, that was worth a shot."
 
-    "Password: whiskers19752926 (This is just until we complete this story part)"
+    #Password: whiskers19752926 (This is just until we complete this story part)
 
     #Then you look in the INVENTORY and find out about the photo of a dog, a document in which date of #birth is mentioned and the photo you find after opening the cupboard.
     
@@ -1255,7 +1284,7 @@ label unlock_the_computer:
             password_2 = password_2.strip()
 
     if password_2 == "whiskers19752926":
-        jump right
+        jump hidden_camera
         
     else:
         p "Wrong Password! Would you like to try again?"
@@ -1269,8 +1298,10 @@ label unlock_the_computer:
     #The password will be whiskers19752926  first dog name, then date of birth(year) and then the image #found in the background.
 
     #work with computer info collected?
+    # In computer you find the photo of Senator John Smith and also you will find a bill of some shipping of mercenary. the bill can of 20000 euros.
 
-    jump hidden_camera
+
+
 
 label open_the_cupboard:
     scene bg locker
@@ -1312,6 +1343,8 @@ label disable_the_camera:
 
     "Panicking, you realize that your attempt to disable the camera has backfired. The unexpected alarm attracts attention, and you hear distant footsteps approaching rapidly."
 
+    "This choice doesn't lead to the breakthrough you hoped for."
+
     jump hidden_camera
 
 
@@ -1338,6 +1371,8 @@ label create_a_distraction:
     "The sudden activation of the motion sensors, coupled with the chaotic movement of papers, escalates the situation. Lights begin to flash, and an alarm blares through the room."
     scene bg cam alarm
     "Realizing that the diversion has escalated far beyond your intentions, you hear security personnel being alerted over the building's intercom system."
+
+    "This choice doesn't lead to the breakthrough you hoped for."
 
     jump hidden_camera
 
@@ -1379,7 +1414,7 @@ label confront_the_employee:
     "The employee remains suspicious and decides to check with security. Your attempt to confront him raises further red flags."
 
     "Your attempt has backfired. Security is on their way."
-
+    "This choice doesn't lead to the breakthrough you hoped for."
     jump hidden_camera
 
 label Leaving_building:

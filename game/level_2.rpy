@@ -64,6 +64,8 @@ label voting_record:
 
     "You discover Senator Smith's active involvement in community service projects, painting him as a dedicated public servant."
 
+    "This choice doesn't lead to the breakthrough you hoped for."
+
     jump focus_on_google
 
 label news_articles:
@@ -71,6 +73,7 @@ label news_articles:
     #BG Inside computer screen news article of Senator Smith
 
     "This uncovers a series of positive articles highlighting Smith's efforts in promoting transparency and ethics in politics."
+    "This choice doesn't lead to the breakthrough you hoped for."
 
     jump focus_on_google
 label press_releases:
@@ -158,6 +161,7 @@ label intact_documents:
     # Emails prinouts
     "Finds a series of personal messages and email printouts that hint at Senator Smith's character and the positive morale among his staff."
 
+    "This choice doesn't lead to the breakthrough you hoped for."
     jump paper_waste
 
 label shredded_documents:
@@ -237,23 +241,23 @@ label finding_envelopes:
     # some Calenders 
 
     "Reveals a stack of outdated office calendars and generic event flyers, none of which pertain to Senator Smith's current activities."
-
+    "This choice doesn't lead to the breakthrough you hoped for."
     jump paper_waste
 
 label rotten_food:
 
     # Broken smartphone
     "Leads to the discovery of a broken smartphone."
-
-    jump Caught_Level2
+    "This choice doesn't lead to the breakthrough you hoped for."
+    jump senator_office
 
 label electronic_devices:
 
     # Broken USB drive
 
     "Uncovers a USB drive among the refuse. However, upon closer inspection, it appears damaged and unlikely to function, rendering its potential contents inaccessible and leaving you with more questions than answers."
-
-    jump Caught_Level2
+    "This choice doesn't lead to the breakthrough you hoped for."
+    jump senator_office
 
 label unusual_items:
 
@@ -262,8 +266,9 @@ label unusual_items:
     "Revealing a hidden mechanical device, which turns out to be an old, malfunctioning paper shredder wedged between bags of paper waste."
     "Its sudden activation creates a brief but loud grinding noise, disrupting the quiet of the evening. This unexpected noise hastens your decision to leave before drawing any further attention."
 
+    "This choice doesn't lead to the breakthrough you hoped for."
 
-    jump Caught_Level2
+    jump senator_office
 
 
 label noisy_cat:
@@ -303,9 +308,10 @@ label ignore_and_focus:
     # Here option 1 and option 2 are wrong and leads to caught
     "As you delve deeper into the documents, the cat, undeterred, continues its exploration, causing papers to scatter."
     "Suddenly, the noise escalates as the cat finds something intriguing and dashes out, papers in tow. The commotion attracts attention, and you hear footsteps approaching."
-    jump Caught_Level2
 
-menu:
+    #jump Caught_Level2
+
+    menu:
         "Try to explain your presence as a curious passerby who heard a noise.":
             jump try_and_explain
         " Attempt to hide behind the larger bins, hoping the guard doesn't see you.":
