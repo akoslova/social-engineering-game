@@ -3,8 +3,7 @@ $ renpy.include("tutorial_story.rpy")
 $ renpy.include("level_1.rpy")
 
 
-define ph = Character (_("Patric Hardman"), color="#3939f5")
-
+define ph = Character (_("Patric Hardman"), color="#8e0000")
 
 label level_3:
     call inventory
@@ -185,22 +184,23 @@ label personal_details:
     #second picture of Patrick and his son only
 
 
-    "You come across with the account of Patrick Hardman.You find one picture of Patrick Hardman with his family, his wife and his son and second picture of just him and his son."
+    "You come across the account of Patrick Hardman. You find one picture of Patrick Hardman with his family, his wife and his son and second picture of just him and his son."
     "The pictures of Patrick Hardman offer the most emotionally charged storyline. The transition from a family of three to just father and son suggests possibly divorce with his wife."
+    "By exploring also the tagged profiles of his ex-wife Tina you find out his sons name is Jason he is around eleven years old and he goes currently to the Lipson - middle school."
 
     jump lavel_3
 
 label analyze:
 
     #BG: Mobile screen with insta
-    "You through the account of each one, but you did not find anything."
+    "You scroll through the account of each one, but you did not find anything."
 
     jump social_media
 
 label focus:
 
     #BG: Mobile Screen with insta of Crimson group where there is a post of these 4 .
-    "You through the account of each one, but you did not find anything."
+    "You scroll through the account of each one, but you did not find anything."
 
     jump social_media
 
@@ -221,17 +221,22 @@ label personal:
 
     #BG: Mobile screen with insta of crimson group
 
-    "You found nothing in thise option"
+    "You found nothing in this option"
 
     jump social_media
+
     
 label pretexting:
 
-    "As the phishing mail failed to bear any results you decide to give pretexting a try. With the information from the website and the secondary research about the mercenary hardman at hand you try calling the office of Crimson. You set up a voice changer and proceed to call your target."
+    #scene Homeoffice/Desk
+    #show me/player with phone
+
+    "As the phishing mail failed to bear any results from the mercenary Hardman you decide to give pretexting a try."
+    "With the information gathered from the website and the secondary research about the mercenary Hardman at hand you try calling the office of Crimson. You set up a voice changer and proceed to call your target."
 
     menu:
 
-        "Try to impersonate the thirteen years old son":
+        "Try to impersonate the eleven years old son":
             jump jason_hardman
         
         "Try to impersonate the ex-wife of Mr. Hardman":
@@ -269,8 +274,9 @@ label js_op1:
 
 label js_op1_1:
 
-    Sec "I am afraid I can't do that sweetie. But he is fine I am sure of it!"
+    Sec "I am afraid I can't do that sweetie. But he is fine I am sure of it! Have a nice day!"
 
+    jump unsuccesful_pretext
 
 label js_op2:
 
@@ -316,11 +322,15 @@ label js_op2_1_1:
 
 label js_op2_1_2:
 
-    sec "I think its time to finish tis call. Good day"
+    sec "I think its time to finish tis call. Good day!"
+
+    jump unsuccesful_pretext
 
 label js_op2_1_3:
 
     "You hang up, out of fear getting figured out."
+
+    jump unsuccesful_pretext
 
 
 label js_op2_2:
@@ -333,7 +343,7 @@ label js_op2_2:
             jump js_op2_1_1
         
         "No one":
-            jump js_op2_1_1
+            jump js_op2_1_2
 
         "He mentioned it to me":
             jump js_op2_1_1
@@ -387,6 +397,8 @@ label tn_op1_2:
 
     sec "Even if that sounds tempting, I can't help you any further. Have a nice day!"
 
+    jump unsuccesful_pretext
+
 label alexander:
 
     "Hello, here is Alexander, Patric meant I should give him a call when the car he is interested in is finished renovating."
@@ -413,6 +425,8 @@ label alexander:
 label alx_op1:
 
     sec "I am afraid I can't do anything for you! I wish a good day bye."
+
+    jump unsuccesful_pretext
 
 label doctor_dale:
 
@@ -464,15 +478,108 @@ label doc_op1_2:
     This obviously a prank of some sort! I will report this number to the authorities!"
 
     "Well that didnt work out!"
-    # Checkpoint
 
+    jump unsuccesful_pretext
 
+label unsuccesful_pretext:
+
+    "Unfortunately you were not able to gain the desired information"
+
+    menu:
+        "Try again":
+            jump pretexting
+        
+        "Continue without that information":
+            jump #Needs to be added
 
 label succesful_pretext:
 # Number was retrieved can be used for Vishing call
 
-    
 
+#checkpoint vishing
+label vishing:
+
+    "You decide its time for the next play on Patric Hardman. Your target is to use his phone number and knowledge about him to get him to click on your link which is sent directly per SMS."
+
+    menu:
+
+        "Try calling as principal of Lipson Middel School":
+            jump principal
+        
+        "Pretend calling because of an accident involving his family":
+            jump accident
+        
+        "Pretend calling because Jason was caught stealing":
+            jump stealing
+
+
+label principal:
+
+    p "Sir I call you because your son has picked a fight with his class mate and injured him in the eye. I need you to come by and pick up your son as well as have a talk with me about his behaviour."
+
+    ph "Dam it! And what did the other guy do? My son probably only was defending himself!"
+
+    p "That is definitely possible, however my first concern is for the injured person."
+    "I would kindly ask you to fill out a formular to to take responsibility for the injuries to the other boy and to pay for the treatment in cooperation with your insurance company."
+
+    ph "Wait I can not come to your office today. I am ... I am currently on business travel."
+
+    p "Ok I guess we will sent your son home and I await you both on the next workday in my office so we can discuss the consequences. Furthermore I can send you the access link for the formular to your phone."
+
+    ph "No I will not go into advance payment without first getting to know what exactly happened! And that's where it stays!"
+
+    p "... Ok"
+
+    "You decide to hang up as this play failed to reach your goal."
+
+    jump unsuccesful_vishing
+
+
+
+label accident:
+
+    p "Sir I am terribly sorry to inform you that your son and his mother were involved in a car accident and are in critical condition at the moment. We need you to come as soon as possible to the hospital to fill out the paperstuff."
+
+    ph "Fuck! What happened? I can not come by so soon I am in Tropica!"
+
+    p "Ok Sir please calm down"
+
+    ph "Calm down?! Are you kidding me my son is fucking dying and you say calm down?"
+
+    p "They are not dying! We are doing our best!"
+
+    ph "Ok ok I can be there by tomorrow."
+
+    p "Unfortunately we need your information sooner, so we can continue the treatment. Would it be possible for you to fill in your information if we send you a link to the formular?"
+
+    ph "Yeah sure, please do everything in your power to safe my son!"
+
+    p "We will! I sent you the formular."
+
+    "Shortly after hanging up you get access to Patric's smartphone as he ingnorantly clicked on your link. Now with this you are able to locate his position in the rain forest and note down in which area of Tropica the mercenaries are deployed."
+    #Update notebook: Location of the operation found: Some coordinates describing the location in the rain forest.
+
+label stealing:
+
+    p "Sir, Your son is in big trouble. We caught him stealing from the bookstore and he even tried to run away from us."
+
+    ph "He did whaaat?"
+    
+    p "He tried stealing books. Unfortunately, while trying to flee he ran over and injured an old man who was blocking his way. He is in critical condition and hanging on by a thread."
+    "The police are on their way and he is totally distraught and begged us to call you."
+
+    ph "My son doesn't like books at all!! What kind of scam is this? If i find you you will regret trying this!"
+
+    "He did not fell for your tricks and stopped the call immediately after threatening you."
+
+    jump unsuccesful_vishing
+
+
+label unsuccesful_vishing:
+
+    "Your play did not achieve your goal. Try again!"
+
+    #back to checkpoint vishing
 
 label phising_lvl3:
     "You decide to try your luck by writing a phishing email to all the employees from the Crimson Group."

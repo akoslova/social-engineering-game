@@ -3,10 +3,10 @@ $ renpy.include("tutorial_story.rpy")
 $ renpy.include("level_1.rpy")
 
 define inf_sd = " "
-define so = Character (_("Security Officer"), color="#3939f5")
-define hc = Character (_("Head Chef"), color="#3939f5")
-define s = Character (_("Server"), color="#3939f5")
-define senator = Character (_("Senator John"), color="#39f53c")
+define so = Character (_("Security Officer"), color="#0000f9")
+define hc = Character (_("Head Chef"), color="#4b0082")
+define s = Character (_("Server"), color="#6fd066")
+define senator = Character (_("Senator John"), color="#8e0000")
 
 image bg caught="bg caught.jpg"
 
