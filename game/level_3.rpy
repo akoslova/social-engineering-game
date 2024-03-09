@@ -4,6 +4,8 @@ $ renpy.include("level_1.rpy")
 
 
 define ph = Character (_("Patric Hardman"), color="#8e0000")
+define receptionist2 = Character (_("Receptionist"), color="#8e0000")
+
 
 label level_3:
     call inventory
@@ -600,42 +602,39 @@ label notsuccessful:
 label successful: 
     "Transition next day…"
     "Jack Morrison clicked on your link. Now you have access to his computer."
+    #BG: 
     "You sit down at your computer, ready to explore."
-    "As you navigate through directories, you discover a folder labeled 'Partners'."
     menu:
-        "Explore the folder":
+        "Navigate through directories":
             jump explore_file_system
         "Check his email account":
             jump emailaccount
 
 label explore_file_system:
-    "Inside, you find an advertisement from the Company CORE."
-
-
-
-    
-#Successful: You found out about Core providing vehicles for the rainforest destruction → Update Journal
+    "As you navigate through the directories, you can only find files that are not useful for you."
     menu:
-        "Leave folder and check the email account":
+        "Check his email account":
             jump emailaccount
-
 
 label emailaccount:
 
-    #Todo: Design Email inbox where you only see the subjects
-    #From Colleague Marcus Jphnson Subject: Out of Office notice
-    #Email from Wife Subject: Need fast reply
-    #from company newsletter subject: Exciting News: Successful Deal with CORE for Advanced Tree Technology
+    #Todo: Design Email inbox where you only see the subject and sender
+    
     menu:
         "Email1":
-            jump email1
+            jump email1 
+
         "Email2":
-            jump email2
+            jump email2 
+
         "Email3":
             jump email3
 
+    #update journal with information found
+
+
 label find_out_more:#checkpoint x
-    
+    #BG computer background
     menu:
         "Search for hotels in Tropica on the internet":
             jump search_hotels
@@ -643,6 +642,7 @@ label find_out_more:#checkpoint x
             jump write_email
 
 label search_hotels:
+#bg map with three pins --> three hotels with names "Grand Horizon,..."
     "You decide to search on the internet for hotels in the town Tropica."
     "Luckily, you find out that there are only three hotels in the town: Grand Horizon Inn, Hotel Semirani and Hotel Diamond Resorts."
     menu:
@@ -651,8 +651,8 @@ label search_hotels:
         "Call hotels and confidently ask for Marcus Johnson":
             jump call_hotels
 
-label hotel_options:
-    "You arrive at the hotel. Which hotel would you like to visit?"
+label hotel_options:#BG map with 3 hotels?
+    "Which hotel would you like to visit?"
     menu:
         "Go to Grand Horizon Inn":
             jump hotel1_fail
@@ -662,14 +662,42 @@ label hotel_options:
             jump hotel3_fail
 
 label hotel1_fail:
-    #Todo
+#BG: Hotel Reception; Character Receptionist male, friendly
+    "You go to Grand Horizon Inn"
+    receptionist2 "How can we help you?"
+    p "I would like to rent a room."
+    receptionist2 "Sure, Standard Room or Deluxe Room?"
+    menu:
+        "Take the Standard Room":
+            jump takeroomfail
+        "Take the Deluxe Room":
+            jump takeroomfail
+
+label hotel3_fail:
+#BG: Hotel Reception; Character Receptionist male, friendly
+    "You go to Hotel Diamond Resorts."
+    receptionist2 "How can we help you?"
+    p "I would like to rent a room."
+    receptionist2 "Sure, Standard Room or Deluxe Room?"
+    menu:
+        "Take the Standard Room":
+            jump takeroomfail
+        "Take the Deluxe Room":
+            jump takeroomfail
+
+label takeroomfail:
+#BG: Hotel lobby, some people hanging out
+    "You sit down in the lobby, pretending to read a newspaper and hope that Marcus Johnson passes by by chance at some point."
+    "After you have been waiting for the whole day, you realize that you probably went to the wrong hotel"
+
     #Go to checkpoint x
 
 label hotel2_success:
-    "You go to Hotel 2."
-    "Receptionist: How can we help you?"
-    "Player: I would like to rent a room."
-    "Receptionist: Sure, Standard Room or Deluxe Room?"
+#BG: Hotel Reception; Character Receptionist male, friendly
+    "You go to Hotel Semirani"
+    receptionist2 "How can we help you?"
+    p "I would like to rent a room."
+    receptionist2 "Sure, Standard Room or Deluxe Room?"
     menu:
         "Take the Standard Room":
             jump takeroom
@@ -677,20 +705,33 @@ label hotel2_success:
             jump takeroom
 
 label takeroom:
+#BG: In front of your hotel door, a guy entering his room
     "You take your keys and go to your room."
-    "You observe Marcus Johnson entering his room, which is right next to yours."
+    "Suddenly you observe Marcus Johnson entering his room, which is right next to yours."
     menu:
         "Set up a Wifi Access Point and create a fake login":
             jump setupwifi
+        "Knock on Marcus Johnson's door":
+            jump knockingjohnson
+        "Wait for him to leave his room and break into his room to search for information.":
+            jump breakin
 
 label setupwifi:
     "Transition: evening..."
+    #BG Laptop screen "0 person logged in"
     "You keep waiting for a couple of hours but no one logs into your fake wifi point."
+    #BG Laptop screen "1 person logged in"
     "You are almost ready to give up, when all of a sudden you can see that someone fell for your trap."
     "Now you can monitor the victim's online activity."
     # Todo Mareike
+label knockingjohnson:
+    #Todo Mareike
+
+label breakin:
+    #Todo Mareike
 
 label call_hotels:
+    #BG phone number keys
 
     "What hotel do you want to call first?"
     menu:
@@ -702,23 +743,43 @@ label call_hotels:
             jump hotel3_call
 
 
-label hotel1_call:
+label hotel1_call:#BG dialing
     "You confidently call the hotel and ask for Marcus Johnson."
 
-    "Hotel 1: 'I’m sorry, we don’t have a guest of that name staying here.'"
+    receptionist2 "I’m sorry, we don’t have a guest of that name staying here."
+    p "I must have confused something then. Thank you!"
 
-label hotel2_call:
+    menu:
+        "Call a different hotel":
+            jump call_hotels
+        "Try your luck and go to one of the hotels":
+            jump hotel_options
+
+label hotel2_call:#BG dialing
 
     "You confidently call the hotel and ask for Marcus Johnson."
 
-    "Hotel 2: 'What room number?'"
-    "Hotel 2: 'When he told me he would be staying at your hotel, a week ago, he hadn’t checked in and of course even he didn’t know his room number then.'"
-    "Hotel 2: 'Sorry we cannot do that. The safety, security and privacy of our guests is our highest value.'"
+    receptionist2 "What room number?"
+    p "When he told me he would be staying at your hotel, a week ago, he hadn’t checked in and of course even he didn’t know his room number then."
+    receptionist2 "Sorry we cannot do that. The safety, security and privacy of our guests is our highest value."
 
-label hotel3_call:
+    menu:
+        "Call a different hotel":
+            jump call_hotels
+        "Try your luck and go to one of the hotels":
+            jump hotel_options
+
+label hotel3_call:#BG dialing
     "You confidently call the hotel and ask for Marcus Johnson."
 
-    "Hotel 3: 'I’m sorry, we don’t have a guest of that name staying here.'"
+    receptionist2 "I’m sorry, we don’t have a guest of that name staying here."
+    p "I must have confused something then. Thank you!"
+
+    menu:
+        "Call a different hotel":
+            jump call_hotels
+        "Try your luck and go to one of the hotels":
+            jump hotel_options
 
 
 
