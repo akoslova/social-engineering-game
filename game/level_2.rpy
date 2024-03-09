@@ -135,6 +135,7 @@ label senator_office:
 label paper_waste:
 
     # Here option 2 is correct
+   
 
     menu:
         "Look for intact documents, letters, or anything with handwriting.":
@@ -147,7 +148,7 @@ label paper_waste:
 
 label other_waste:
 
-
+     #If player chooses among these option then he 
     menu:
         "Brave the rotten food to look for any discarded personal items that could hold information.":
             jump rotten_food
@@ -249,7 +250,8 @@ label rotten_food:
     # Broken smartphone
     "Leads to the discovery of a broken smartphone."
     "This choice doesn't lead to the breakthrough you hoped for."
-    jump senator_office
+    "You might find something in paper waste. Go check it."
+    jump paper_waste
 
 label electronic_devices:
 
@@ -257,7 +259,9 @@ label electronic_devices:
 
     "Uncovers a USB drive among the refuse. However, upon closer inspection, it appears damaged and unlikely to function, rendering its potential contents inaccessible and leaving you with more questions than answers."
     "This choice doesn't lead to the breakthrough you hoped for."
-    jump senator_office
+    "You might find something in paper waste. Go check it."
+    jump paper_waste
+    
 
 label unusual_items:
 
@@ -267,8 +271,9 @@ label unusual_items:
     "Its sudden activation creates a brief but loud grinding noise, disrupting the quiet of the evening. This unexpected noise hastens your decision to leave before drawing any further attention."
 
     "This choice doesn't lead to the breakthrough you hoped for."
+    "You might find something in paper waste. Go check it."
+    jump paper_waste
 
-    jump senator_office
 
 
 label noisy_cat:

@@ -60,7 +60,7 @@ image bg canteendoor="bg canteendoor.jpg"
 image bg kitchen="bg kitchen.jpg"
 image bg whiskers="bg whiskers.jpg"
 image bg cublicles="bg cubicles.jpg"
-image bg office canteen="bg office canteen.jpg"
+image bg office canteen="bg office canteen.jpeg"
 image bg office cat="bg office cat.jpg"
 image bg office cat2="bg office cat2.jpg"
 image bg office cat3="bg office cat3.jpg"
@@ -677,7 +677,7 @@ label getinside: #checkpoint 3
             jump securitydisguise
 
 label withbadge:
-    jump inside_building
+    jump inside_building_cant
 
 label securitydisguise: #wear tshirt with security on it
     "You wear your self designed T-shirt that says security and walk towards the main entrance."
@@ -767,11 +767,11 @@ label inside_building_cant:
         "Check the elevators":
             jump check_elevators
 
-"""label inside_building:
+label inside_building:
     scene bg main ent
 
-    "With your disguise intact, you confidently stride through the office building, blending in seamlessly with the bustling crowd. The air is thick with the hum of productivity as employees rush to and from."
-    # Checkpoint 1as the Option 1 is correct, if the player chooses 2nd or 3rd option then he will jump to inside_building
+    #"With your disguise intact, you confidently stride through the office building, blending in #seamlessly with the bustling crowd. The air is thick with the hum of productivity as employees #rush to and from."
+    # Checkpoint 1as the Option 1 is correct, if the player chooses 2nd or 3rd option then he will jump #to inside_building
     menu:
         "Explore the cubicles":
             jump explore_cubicles
@@ -779,7 +779,7 @@ label inside_building_cant:
             jump break_room
         "Check the elevators":
             jump check_elevators
-"""
+
 label explore_cubicles:
     scene bg cubicles
     show Me with easeinright
@@ -790,6 +790,8 @@ label explore_cubicles:
     "The dog's regal demeanor made the image seem amusingly out of place in the corporate setting. Intrigued, you decided to capture this curious discovery."
 
     "After discreetly snapping a photo of Whiskers' portrait, you continue your investigation. Amongst the papers on the desk, you find an official document containing the name and date of birth of an employee."
+
+    # BG: Some document of Alex Johnson
 
     "The document provides you with the name Alex Johnson and a birthdate (12/08/1975), leaving you to wonder about the connection between the dog and the employee."
 
@@ -962,7 +964,7 @@ label colleagues_chatting_nearby:
 
     e6 "I went with something less obvious. I talked about my weird hobby of collecting vintage postcards."
 
-    p "That's really unique, Sam. It must be quite a collection."
+    p "That's really unique. It must be quite a collection."
 
     e6 "It is! Anyway, how did you find the password setup here? A bit daunting, isn't it?"
 
@@ -1246,15 +1248,14 @@ label room_303:
 
     "The dimly lit room is filled with rows of computers."
 
-    "The information gathered from your interactions with the employees now becomes crucial, ready to be used in unlocking the secrets it holds."
-
-    "As you try to access the computer, you realize it's password-protected."
+    
+    
 
     #default computer_info_collected = False
 
 label desk_choices:
     menu:
-        "Unlock the computer":
+        "Access the computer":
             jump unlock_the_computer
         "Open the Cupboard with the keys you found":
             jump open_the_cupboard
@@ -1265,11 +1266,13 @@ label desk_choices:
 label unlock_the_computer:
     scene bg computer
 
+    "As you try to access the computer, you realize it's password-protected."
     "Frustrated by the password prompt, you decide to take a more direct approach and attempt to unlock the computer."
     
     "Trying a few common passwords that often slip people's minds or are used out of convenience, you input variations of 'password,' '123456,' and 'admin,' but to no avail. "
     
     "The computer remains securely locked, refusing to grant access."
+    "The information gathered from your interactions with the employees now becomes crucial, ready to be used in unlocking the secrets it holds."
 
     p "Well, that was worth a shot."
 
@@ -1284,6 +1287,9 @@ label unlock_the_computer:
             password_2 = password_2.strip()
 
     if password_2 == "whiskers19752926":
+
+        "Success ! You have unlock the computer."
+        "Now search for files in the computer."
         jump hidden_camera
         
     else:
@@ -1299,6 +1305,7 @@ label unlock_the_computer:
 
     #work with computer info collected?
     # In computer you find the photo of Senator John Smith and also you will find a bill of some shipping of mercenary. the bill can of 20000 euros.
+    #Please add images in line 1293
 
 
 
