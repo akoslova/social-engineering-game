@@ -2,9 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/level_3.rpy", line 493: expected 'label_name' not found.
-    jump 
-        ^
+File "game/level_2.rpy", line 230: expected statement.
+    inf_sd = "hi"
+           ^
 
 Ren'Py Version: Ren'Py 8.1.3.23091805
-Sat Mar  9 14:46:34 2024
+Mon Mar 11 10:45:40 2024

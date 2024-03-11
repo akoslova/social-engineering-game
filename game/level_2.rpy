@@ -148,7 +148,7 @@ label paper_waste:
 
 label other_waste:
 
-     #If player chooses among these option then he 
+    #If player chooses among these option then he 
     menu:
         "Brave the rotten food to look for any discarded personal items that could hold information.":
             jump rotten_food
@@ -231,9 +231,8 @@ label shredded_documents:
             style.input.color = "#ffffff"
             inf_sd = renpy.input("Type in the information you want to save in your journal", length=100)
             inf_sd = inf_sd.strip()
-        define save_inf = InventoryData("Information found on shredded document", inf_sd)
-        $ inventory.add_data(save_inf)
-
+            save_inf = InventoryData("Information found on shredded document", inf_sd)
+            inventory.add_data(save_inf)
 
     jump noisy_cat
 
