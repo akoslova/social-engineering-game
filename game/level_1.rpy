@@ -1423,8 +1423,12 @@ label confront_the_employee:
     jump hidden_camera
 
 label Leaving_building:
-    
+
+
+    scene bg room303
+    show Me
     "I should get out of here before anyone catches me." #checkpoint4
+
 
     menu:
 
@@ -1445,9 +1449,7 @@ label leavealone:
     scene bg checkpoint3
     show Me 
     show guard1 with easeinleft
-    s "Where is your ID card"
-
-    p "I must have lost it, it was right there on my pants"
+    s "Where is your ID card?"
 
     menu:
 
@@ -1465,6 +1467,21 @@ label punch:#scene you punching him
     "You punch him in the face and run as fast as you can. But only after three steps one of the security guards pulls you back and holds you tight. "
     
     "You realize that they are too strong and you will not get out of the situation anymore."
+    jump Leaving_building
+
+
+Label idcard:
+    s "Thank you! Have a nice day!"
+    #outside
+    scene bg n42
+    show Me with easeinleft:
+        xzoom -1.0
+
+    p "That was close. Thank god, I got out of here. I am going to meet Cathy to tell her about everything."
+
+    jump cathymeet
+
+
 
 label apology:
     show guard1
@@ -1565,8 +1582,7 @@ label wash:
     show k2 happy with easeinleft
     show k1 happy with easeinright:
         xzoom -1.0 
-    k2 "This week we had a delivery with boxes full of avocados"
-
+    k2 "This week we had a delivery with boxes full of avocados."
     k3 "Yes, I have heard our company now buys them from TastyFood and gets huge discounts."
 
     menu: 
@@ -1596,7 +1612,7 @@ label helped:
     "As you want to leave through the back door, you can overhear two employees chattering."
     show k1 happy with easeinright:
         xzoom -1.0
-    k1 "This week we had a delivery with boxes full of avocados”"
+    k1 "This week we had a delivery with boxes full of avocados"
 
     k3 "Yes, I have heard our company now buys them from TastyFood and gets huge discounts."
 
@@ -1634,9 +1650,11 @@ label apology2:
 
 label flirt2:
     show k2 angry
-    "Person 1[looking mad]: “Are you crazy? I will forward this harrassment to security. Who are you?"
+    "Are you crazy? I will forward this harrassment to security. Who are you?"
 
     "You apologize for offending her but now all eyes in the kitchen are on you. You see her calling security on her phone, knowing that you will not get out of this situation anymore."
+    #wrong picture
+
 
     jump Leaving_building 
 

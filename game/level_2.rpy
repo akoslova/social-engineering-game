@@ -35,7 +35,7 @@ image bg bedroom = "bg bedroom.jpg"
 
 label level_2:
     call inventory
-        scene bg homelaptop
+        #scene bg homelaptop
     "After a brief meeting with the reporter, you're now certain of the politician's identity. With the name and party affiliation of Senator John Smith from Liberty party in hand, your investigation enters its next phase."
 
 
