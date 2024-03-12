@@ -128,11 +128,10 @@ label Building_options:
         "Look around the back for an entrance" if not_inspected_back:
             jump Back_entrance
 
-        "You lost the level and need to restart" if not not_inspected_back and not not_inspected_garage and not not_inspected_entrance:
-            $ renpy.load("start_level1")
-            #jump level_1
+        #"You lost the level and need to restart" if not not_inspected_back and not not_inspected_garage and not not_inspected_entrance:
+            #$ renpy.load("start_level1")
 
-        "You successfully explored the building! You can now further investigate." if not not_inspected_back and not not_inspected_garage and not not_inspected_entrance and overall_success:
+        "You successfully explored the building! You can now further investigate." if not not_inspected_back and not not_inspected_garage and not not_inspected_entrance:
             $ full_building = True
             jump investigate
 
@@ -505,7 +504,7 @@ label Continue_walking:
 label Caught:
     scene bg caught
     "You lost the level and need to restart"
-    jump level_1
+    $ renpy.load("follow_people")
     # here the Player gets caught - go to Checkpoint  (No need to investigate building again if done so already so this information is needed)
 
 
@@ -555,7 +554,6 @@ label Real_name:
 
     jump Stand_up
 
-    #Update Notebook about christian baker - password and working in public relations
     
 label John_doe:
 
@@ -575,9 +573,11 @@ label John_doe:
 
     jump Stand_up
 
-    #Update Notebook about christian baker- password and working in public relations
 
 label Stand_up:
+    
+    define Christian_Baker_info = InventoryData("Information about Christian Baker", "Works in public relations \n his wrong password: aS&MIavmc12356#13")
+    $ inventory.add_data(Christian_Baker_info)
 
     "You got some information. Maybe you can try to observe something else now."
 
@@ -653,13 +653,7 @@ label leave_shop:
     "{i}The badge was added in your notebook. {\i}"
 
     "Check your notebook for everything you learned about." #John Doe and christian baker should have an entry
-
-    scene bg n42
-    "It's the next day. You gathered a lot of information and now want to target CORE and try to get inside their head quarter."
-
-    $ todo.update_aim("Get inside the CORE head quarter")
-    "{i}Your goal was updated. {\i}"
-    jump getinside
+    jump checkpoint_diguise
 
 
 label leaving_hastly:
@@ -668,12 +662,17 @@ label leaving_hastly:
     "You leave the store and don't look back. You probably shouldn't be seen here again any time soon"
     "Check your notebook for everything you learned about." #Notebook should open highlight new entries and items
     #scene in front of office building
-    
-    #TO DO
+    jump checkpoint_diguise
+
+label checkpoint_diguise:
+    scene bg n42
     "It's the next day. You gathered a lot of information and now want to target CORE and try to get inside their head quarter."
 
     $ todo.update_aim("Get inside the CORE head quarter")
     "{i}Your goal was updated. {\i}"
+
+    $ renpy.save("disguise")
+
     jump getinside
 
 label getinside: #checkpoint 3
@@ -682,12 +681,10 @@ label getinside: #checkpoint 3
         "Go to the company disguised as a canteen employee":
             jump canteendisguise
         "Go as an employee with the badge found" if badge_found: 
-            jump withbadge
+            jump inside_building_cant
         "Dress as a security guard":
             jump securitydisguise
 
-label withbadge:
-    jump inside_building_cant
 
 label securitydisguise: #wear tshirt with security on it
     "You wear your self designed T-shirt that says security and walk towards the main entrance."
@@ -695,7 +692,9 @@ label securitydisguise: #wear tshirt with security on it
     p "I am Drew, working for security of this company"
     s "That shirt is not part of our uniform. I will call the police."#goto checkpoint 3
 
-    jump getinside
+    menu:
+        "You got caught. Repeat.":
+            $ renpy.load("disguise")
 
 label canteendisguise:
     scene bg coreback3
@@ -730,7 +729,10 @@ label hideface:
 
 label runinside:
     "As soon as you run towards the door that leads deeper inside the building other people notice you and you feel someone tackle you over"
-    jump getinside #checkpoint 3
+    menu:
+        "You got caught, repeat this.":
+            $ renpy.load("disguise")
+    #checkpoint 3
  
 
 label runoutside:
