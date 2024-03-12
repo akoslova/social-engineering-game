@@ -483,8 +483,10 @@ label hidewall:
     show Me service
 #hiding space: maybe behind a wall/door, and door of secret meeting visible
     "As the voices gradually grow louder, you hold your breath, fearing discovery. "
-    hide Me service with easeinright
+    
     scene bg hallway2
+    show Me service
+    hide Me service with easeinright
     "Then you see three people passing you. Fortunately, they don’t notice you as they disappear into a nearby room. "
 
     "As they close the door behind them, you are walking towards the door. You can hear voices inside the room."
@@ -514,7 +516,9 @@ label actbathroom:
 
 
 label insidefail:
-
+    scene bg kitchen2
+    show Me chef
+    show chef4
 #other kitchen employee
 
     s "Hey, you! Aren’t you the guy that pretended to be the head chef?"
