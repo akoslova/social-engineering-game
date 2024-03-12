@@ -665,8 +665,6 @@ label leaving_hastly:
     jump getinside
 
 label getinside: #checkpoint 3
-    
-
 
     menu:
         "Go to the company disguised as a canteen employee":

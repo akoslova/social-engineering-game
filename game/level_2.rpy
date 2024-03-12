@@ -171,7 +171,8 @@ label shredded_documents:
 
     # MINI GAME OF PAPER PUZZLE
     screen paper_puzzle:
-        image Solid("#474747")
+        add "gui/inventory/background.png"
+        #image Solid("#474747")
         draggroup:
             drag:
                 xpos 0.25
@@ -222,7 +223,7 @@ label shredded_documents:
                 draggable True
                 drag_raise True
     
-        imagebutton auto "gui/inventory/back_%s.png":
+        imagebutton auto "gui/invitation_letter/back_%s.png":
             focus_mask True
             action Jump("save_information")
 
