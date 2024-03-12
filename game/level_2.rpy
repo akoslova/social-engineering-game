@@ -5,8 +5,9 @@ $ renpy.include("level_1.rpy")
 define inf_sd = " "
 define so = Character (_("Security Officer"), color="#0000f9")
 define hc = Character (_("Head Chef"), color="#4b0082")
-define s = Character (_("Server"), color="#6fd066")
+define server = Character (_("Server"), color="#6fd066")
 define senator = Character (_("Senator John"), color="#8e0000")
+define speaker = Character (_("Speaker"), color="#8e0000")
 
 image bg caught="bg caught.jpg"
 image bg homelaptop = "bg homelaptop.jpg"
@@ -482,10 +483,11 @@ label caught_route:
     # go to checkpoint m
     p "Well, that is unfortunate, but I am the head chef for today."
     hc "Nice try, but I've been running this kitchen for years, and I know all my staff. And you're definitely not the chef approved for this event."
+    jump next_day_2
 
 label outside_route:
     scene bg ballroomdoor
-    show Me service
+    show Me chef
     #Standing in front of ballroom
 
     "You rush outside the room and try to calm yourself down. The head chef didn't buy a word you said, and you almost got caught."
@@ -540,25 +542,28 @@ label actbathroom:
 
 
 #senator evil/mad
-    "What are you snooping around for? The ballroom's that way." 
-    "Oh I’m just looking for the bathroom, could you please show me where I can find it?"
-    "There is no bathroom here. And you shouldn't be hanging around here. This is a restricted area."
-    "I'll get security to throw you out!"
+    senator "What are you snooping around for? The ballroom's that way." 
+    p "Oh I’m just looking for the bathroom, could you please show me where I can find it?"
+    senator "There is no bathroom here. And you shouldn't be hanging around here. This is a restricted area."
+    senator "I'll get security to throw you out!"
 #go to checkpoint m
+    jump next_day_2
 
 
 
 label insidefail:
-    scene bg kitchen2
+    scene bg ballroom
     show Me chef
     show chef4
 #other kitchen employee
 
-    s "Hey, you! Aren’t you the guy that pretended to be the head chef?"
-    s "Don't play innocent! Security!!"
+    server "Hey, you! Aren’t you the guy that pretended to be the head chef?"
+    server "Don't play innocent! Security!!"
     #yelling
     "They point an accusatory finger in your direction, and the eyes of nearby guests begin to turn toward you."
     "You know that your disguise has been revealed, and you have to face the consequences of your activities..."
+
+    jump next_day_2
     
     # go to checkpoint m
 
@@ -644,12 +649,12 @@ label insiderecord:
     #scene secret meeting room
     #[Three people 1 female, two male (one of them senator John Smith) staring at you, agressively]
     "You gently knock on the door before entering the room."
-    "Person: Hey! What the hell do you think you're doing? This is a private meeting!"
+    senator "Hey! What the hell do you think you're doing? This is a private meeting!"
     p "Oh, I'm sorry. I didn't realize there was a private meeting going on. I just wanted to serve some drinks."
-    "Person: Well, you can't just barge in like that! We're in the middle of something important."
+    senator "Well, you can't just barge in like that! We're in the middle of something important."
 
     p "I honestly didn't know. I wouldn't have come in if I had known there was a meeting."
-    "Person: Well, now you know. So, get out and let us finish what we're doing. You can leave the drinks here."
+    senator "Well, now you know. So, get out and let us finish what we're doing. You can leave the drinks here."
     "You quickly retrieve what you came for, feeling the tension in the room. As you leave, the door closes behind you."
 
     jump waiting_for
@@ -663,6 +668,7 @@ label outsiderecord:
     "Then you hit the record button, but soon realize that you can barely make out anything from the conversation."
     
     #checkpoint m
+    jump next_day_2
 
 label outsiderecord2:
 
@@ -673,12 +679,14 @@ label outsiderecord2:
     "Pressing your ear to the door, you soon realize that you can barely make out anything from the conversation."
     
     #checkpoint m
+    jump next_day_2
 
 label listenspeeches:
 
-    "SPEAKER 1: Ladies and gentlemen, in times of challenge, we must unite and strive for progress. Our collective efforts can shape a better world for generations to come."
+    speaker "Ladies and gentlemen, in times of challenge, we must unite and strive for progress. Our collective efforts can shape a better world for generations to come."
 
     "…as you listen to the speeches you completely forget about the secret meeting that takes places at that same time, leaving you unaware of the information that would have completed your mission. The night proceeds, and the secrets remain hidden."
+    jump next_day_2
 
     #checkpoint m
 
@@ -749,6 +757,7 @@ label caught_from_senator:
 
     "That's it, you can't talk your way out of this one"
     # jump checkpoint recorded
+    jump waiting_for
 
 label succesful_leaving:
 
