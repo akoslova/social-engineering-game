@@ -9,10 +9,33 @@ define s = Character (_("Server"), color="#6fd066")
 define senator = Character (_("Senator John"), color="#8e0000")
 
 image bg caught="bg caught.jpg"
-
+image bg homelaptop = "bg homelaptop.jpg"
+image bg laptopgoogle = "bg laptopgoogle.jpg"
+image bg laptopinsta = "bg laptopinsta.jpg"
+image bg votingrecord = "bg votingrecord.jpg"
+image bg officeaddress = "bg officeaddress.jpg"
+image bg celebration = "bg celebration.jpg"
+image bg taggedphotos = "bg taggedphotos.jpg"
+image bg storiesarchive = "bg storiesarchive.jpg"
+image bg senoffice = "bg senoffice.jpg"
+image bg waste = "bg waste.jpg"
+image bg wastepaper = "bg wastepaper.jpg"
+image bg wasteother = "bg wasteother.jpg"
+image bg wastecat = "bg wastecat.jpg"
+image bg wastecat2 = "bg wastecat2.jpg"
+image bg wastecat3 = "bg wastecat3.jpg"
+image bg wastehide = "bg wastehide.jpg"
+image bg alley = "bg alley.jpg"
+image bg charity = "bg charity.jpg"
+image bg kitchen2 = "bg kitchen2.jpg"
+image bg ballroomdoor = "bg ballroomdoor.jpg"
+image bg hallway = "bg hallway.jpg"
+image bg hallway2 = "bg hallway2.jpg"
+image bg bedroom = "bg bedroom.jpg"
 
 label level_2:
     call inventory
+        scene bg homelaptop
     "After a brief meeting with the reporter, you're now certain of the politician's identity. With the name and party affiliation of Senator John Smith from Liberty party in hand, your investigation enters its next phase."
 
 
@@ -30,7 +53,7 @@ label Caught_Level2:
     jump level_2
 
 label focus_on_google:
-
+    scene bg laptopgoogle
     #scene Desktop home screen
 
     # Here option 3 is correct
@@ -45,7 +68,7 @@ label focus_on_google:
 
 
 label dive_into_insta:
-
+    scene bg laptopinsta
     # Here every option is correct
 
     menu:
@@ -57,7 +80,7 @@ label dive_into_insta:
             jump stories_archive
 
 label voting_record:
-
+    scene bg votingrecord
     # BG One picture of computer screen where there is a mention of senator smith community project
     #BG Second picture of computer screen where the Senator Smith of Liberty Party has most votes
 
@@ -69,7 +92,7 @@ label voting_record:
     jump focus_on_google
 
 label news_articles:
-
+    scene bg votingrecord
     #BG Inside computer screen news article of Senator Smith
 
     "This uncovers a series of positive articles highlighting Smith's efforts in promoting transparency and ethics in politics."
@@ -77,7 +100,7 @@ label news_articles:
 
     jump focus_on_google
 label press_releases:
-
+    scene bg officeaddress
     # BG office address of Senator Smith
 
 
@@ -86,7 +109,7 @@ label press_releases:
     jump senator_office
 
 label review_official_insta:
-
+    scene bg celebration
     # Insta post of many people celebrating where the office address is written top
 
 
@@ -98,7 +121,7 @@ label review_official_insta:
 
 
 label tagged_photos:
-
+    scene bg taggedphotos
     # Insta post of senator office
 
     "A photo tagged by a local business owner showing the exterior of Senator Smith's office, providing its location."
@@ -107,7 +130,7 @@ label tagged_photos:
 
 
 label stories_archive:
-
+    scene bg storiesarchive
     # Insta post of some event at the office
 
     "Stories archive includes a repost from a charity event at his office, confirming the location and showcasing his philanthropic side."
@@ -117,13 +140,13 @@ label stories_archive:
 
 
 label senator_office:
-
+    scene bg senoffice
     "You successfully pinpoint the location of Senator Smith's office. The information gathered paints a picture of Senator Smith as a man of integrity and dedication, deeply involved in his community and his duties as a member of the Liberty Party."
 
 
     "Following your visit to Senator John Smith's office, you decide it's time to get your hands dirty—literally."
     "The dumpsters located discreetly behind the office building hold the potential to unveil secrets that no digital footprint could reveal. As you approach, you notice two distinct dumpsters: one clearly labeled for paper waste, the other for general refuse. "
-
+    scene bg waste
     menu:
         "Paper Waste Bin":
             jump paper_waste
@@ -133,7 +156,7 @@ label senator_office:
 
 
 label paper_waste:
-
+    scene bg wastepaper
     # Here option 2 is correct
    
 
@@ -147,7 +170,7 @@ label paper_waste:
 
 
 label other_waste:
-
+    scene bg wasteother
     #If player chooses among these option then he 
     menu:
         "Brave the rotten food to look for any discarded personal items that could hold information.":
@@ -158,7 +181,7 @@ label other_waste:
             jump unusual_items
 
 label intact_documents:
-
+    scene bg wastepaper
     # Emails prinouts
     "Finds a series of personal messages and email printouts that hint at Senator Smith's character and the positive morale among his staff."
 
@@ -171,7 +194,8 @@ label shredded_documents:
 
     # MINI GAME OF PAPER PUZZLE
     screen paper_puzzle:
-        image Solid("#474747")
+        add "gui/inventory/background.png"
+        #image Solid("#474747")
         draggroup:
             drag:
                 xpos 0.25
@@ -222,7 +246,7 @@ label shredded_documents:
                 draggable True
                 drag_raise True
     
-        imagebutton auto "gui/inventory/back_%s.png":
+        imagebutton auto "gui/invitation_letter/back_%s.png":
             focus_mask True
             action Jump("save_information")
 
@@ -237,7 +261,7 @@ label shredded_documents:
     jump noisy_cat
 
 label finding_envelopes:
-
+    scene bg wastepaper
     # some Calenders 
 
     "Reveals a stack of outdated office calendars and generic event flyers, none of which pertain to Senator Smith's current activities."
@@ -245,7 +269,7 @@ label finding_envelopes:
     jump paper_waste
 
 label rotten_food:
-
+    scene bg wasteother
     # Broken smartphone
     "Leads to the discovery of a broken smartphone."
     "This choice doesn't lead to the breakthrough you hoped for."
@@ -253,7 +277,7 @@ label rotten_food:
     jump paper_waste
 
 label electronic_devices:
-
+    scene bg wasteother
     # Broken USB drive
 
     "Uncovers a USB drive among the refuse. However, upon closer inspection, it appears damaged and unlikely to function, rendering its potential contents inaccessible and leaving you with more questions than answers."
@@ -263,7 +287,7 @@ label electronic_devices:
     
 
 label unusual_items:
-
+    scene bg wasteother
     # Broken shredder paper
 
     "Revealing a hidden mechanical device, which turns out to be an old, malfunctioning paper shredder wedged between bags of paper waste."
@@ -276,7 +300,7 @@ label unusual_items:
 
 
 label noisy_cat:
-
+    scene bg wastecat
     # Cat on the other side of the Bin.
     # Here option 3 is correct
 
@@ -293,7 +317,7 @@ label noisy_cat:
 
 
 label shoo_the_cat:
-
+    scene bg wastecat3
     # Cat making noise
     # Here option 1 and option 2 are wrong and leads to caught
     "Your attempt to scare the cat off backfires. It leaps out of the dumpster with a loud meow, knocking over a stack of bins in the process. The clamor echoes through the quiet streets, and within minutes, a security guard approaches to investigate the noise."
@@ -308,7 +332,7 @@ label shoo_the_cat:
 
 
 label ignore_and_focus:
-
+    scene bg wastecat
     # Here option 1 and option 2 are wrong and leads to caught
     "As you delve deeper into the documents, the cat, undeterred, continues its exploration, causing papers to scatter."
     "Suddenly, the noise escalates as the cat finds something intriguing and dashes out, papers in tow. The commotion attracts attention, and you hear footsteps approaching."
@@ -325,7 +349,9 @@ label ignore_and_focus:
 
 
 label try_and_explain:
-
+    scene bg alley
+    show Me
+    show officer
     #show officer
 
     so "Hey! What are you doing here? This area is off-limits at this time of night."
@@ -349,7 +375,7 @@ label try_and_explain:
 
 
 label hide_behind_bins:
-
+    scene bg wastehide
     # Player hiding behind the bins 
 
     "You try to hide behind the bins but the Security Officer notices you. You have been Caught red-handed"
@@ -357,7 +383,7 @@ label hide_behind_bins:
     jump Caught_Level2
 
 label moment_to_escape:
-
+    scene bg alley
     "Provides a narrow escape"
 
     # He has to repeat this step
@@ -365,7 +391,7 @@ label moment_to_escape:
     jump player_with_phone
 
 label offer_snack:
-
+    scene bg wastecat2
     # Cat is eating some food
 
 
@@ -376,6 +402,7 @@ label offer_snack:
 
 
 label player_with_phone:
+    scene bg bedroom
     # show [Player with phone]
     "You decide its time to call Cathy and update her on your findings."
     p "Hey Cathy, I found out about a secret meeting at the annual charity event."
@@ -391,7 +418,7 @@ label player_with_phone:
 label next_day_2:
 
     #Use map to navigate to the charity event
-
+    scene bg charity
     "You stand outside the event venue, adorned in the chef's uniform stolen from a nearby catering van."
     "Choose a role to blend in seamlessly."
 
@@ -404,6 +431,8 @@ label next_day_2:
             jump head_chef_route
 
 label server_route:
+    scene bg hallway
+    show Me service
     #show you wearing server/kitchen clothes
 
     "You confidently slip into the role of a server, blending in with the catering staff bustling around the event location."
@@ -414,7 +443,9 @@ label server_route:
     
 
 label head_chef_route:
-
+    scene bg kitchen2
+    show Me chef
+    show chef
     # scene kitchen
     #[HEAD CHEF; MAD] you wearing server/kitchen clothes
     "Despite your efforts to pose as the head chef, things don't go as smoothly as planned. The real head chef, who was briefly away, returns unexpectedly."
@@ -435,13 +466,16 @@ label head_chef_route:
             jump outside_route
 
 label caught_route:
-
+    scene bg kitchen2
+    show Me chef
+    show chef
     # go to checkpoint m
     p "Well, that is unfortunate, but I am the head chef for today."
     hc "Nice try, but I've been running this kitchen for years, and I know all my staff. And you're definitely not the chef approved for this event."
 
 label outside_route:
-
+    scene bg ballroomdoor
+    show Me service
     #Standing in front of ballroom
 
     "You rush outside the room and try to calm yourself down. The head chef didn't buy a word you said, and you almost got caught."
@@ -455,6 +489,9 @@ label outside_route:
 
 label check_out_building:
 #dimly lit corridors
+    scene bg hallway
+    show Me service
+
     "You walk through the dimly lit corridors of the building."
     "Suddenly, distant voices begin to echo, gradually growing louder and more distinct. "
     "Instinctively, you press your back against the wall, peering cautiously around the corner. "
@@ -465,8 +502,14 @@ label check_out_building:
         "Act like you are looking for the bathroom":
             jump actbathroom 
 label hidewall:
+    scene bg hallway
+    show Me service
 #hiding space: maybe behind a wall/door, and door of secret meeting visible
     "As the voices gradually grow louder, you hold your breath, fearing discovery. "
+    
+    scene bg hallway2
+    show Me service
+    hide Me service with easeinright
     "Then you see three people passing you. Fortunately, they don’t notice you as they disappear into a nearby room. "
 
     "As they close the door behind them, you are walking towards the door. You can hear voices inside the room."
@@ -480,6 +523,9 @@ label hidewall:
 
 
 label actbathroom:
+    scene bg hallway
+    show Me service
+    show senator
     "You try to act casual and as if you are searching for the bathroom. Suddenly three people appear, one of them you recognize as the senator."
 
 
@@ -493,7 +539,9 @@ label actbathroom:
 
 
 label insidefail:
-
+    scene bg kitchen2
+    show Me chef
+    show chef4
 #other kitchen employee
 
     s "Hey, you! Aren’t you the guy that pretended to be the head chef?"
