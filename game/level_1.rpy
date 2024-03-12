@@ -399,7 +399,7 @@ label Cautious:
 label Screen_reflection:
 
     "You try to look at the screen with the front camera turned on of your smartphone"
-    "Success: You see his User Name for Outlook: christian.baker@core.de"
+    "Success: You see his user name for Outlook: christian.baker@core.de"
 
     menu:
 
@@ -411,8 +411,8 @@ label Screen_reflection:
 
 label Watching_1:
 
-    "He is logging in and made a mistake with his password.."
-    "He clicks on the reveal icon you can see his wrong input: aS&MIavmc12356#13"
+    "He is logging in and made a mistake with his password."
+    "He clicks on the reveal icon which means you can see his wrong input: aS&MIavmc12356#13"
 
     
     menu:
@@ -546,6 +546,8 @@ label Real_name:
     "He gets up and leaves while giving you a mistrustful look."
 
     jump Stand_up
+
+    #Update Notebook about christian baker - password and working in public relations
     
 label John_doe:
 
@@ -559,11 +561,13 @@ label John_doe:
 
     p "I am in the accounting division. So there is something in the bush?"
     
-    ch "I mean just the typical stuff supporting the wrong parties, buying politicians with money, not respecting the environment enough.. Nothing you haven't heard a thousand times before!"
+    ch "I mean just the typical stuff supporting the wrong parties, buying politicians with money, not respecting the environment enough... Nothing you haven't heard a thousand times before!"
 
     p "Ok thank you! That calms me down a bit, have a nice break and see you!"
 
     jump Stand_up
+
+    #Update Notebook about christian baker- password and working in public relations
 
 label Stand_up:
 
@@ -805,7 +809,7 @@ label explore_cubicles:
 
     #[BG: untidy desk with the photo of whiskers]
 
-    "A spark of recognition ignites in your mind as you realize the significance. Its a quote from the movie Casablanca! It you be important.. hastily, you make a connection between the employee's name, the birthdate, and the movie quote."
+    "A spark of recognition ignites in your mind as you realize the significance. Its a quote from the movie Casablanca! It could be important... hastily, you make a connection between the employee's name, the birthdate, and the movie quote."
 
     "Pulling out your notebook, you meticulously write down the details: Alex Johnson, 12/08/1975, Quote: Here's looking at you, kid – Casablanca."
 
@@ -1470,7 +1474,7 @@ label punch:#scene you punching him
     jump Leaving_building
 
 
-Label idcard:
+label idcard:
     s "Thank you! Have a nice day!"
     #outside
     scene bg n42
