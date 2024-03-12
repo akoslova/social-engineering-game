@@ -32,10 +32,18 @@ image bg ballroomdoor = "bg ballroomdoor.jpg"
 image bg hallway = "bg hallway.jpg"
 image bg hallway2 = "bg hallway2.jpg"
 image bg bedroom = "bg bedroom.jpg"
+image bg ballroom = "bg ballroom.jpg"
+
+image Me service = "playerservice.png"
+image Me chef = "playerchef.png"
+image senator = "senator.png"
+image chef3 = "chef3.png"
+image chef4 = "chef4.png"
+image officer = "officer.png"
 
 label level_2:
     call inventory
-        scene bg homelaptop
+    scene bg homelaptop
     "After a brief meeting with the reporter, you're now certain of the politician's identity. With the name and party affiliation of Senator John Smith from Liberty party in hand, your investigation enters its next phase."
 
 
@@ -553,7 +561,8 @@ label insidefail:
     # go to checkpoint m
 
 label insideserver:
-
+    scene bg ballroomdoor
+    show Me service
 #text message bg
 
     c "Did you manage to get in?"
@@ -561,7 +570,7 @@ label insideserver:
     c "Ok meet me inside the ball room."
 
     #show you with a tray of food
-    #scene inside ballroom bg
+    scene bg ballroom 
 
     "You pick up a tray with delicious food and step into the room. "
     "You find yourself in the grand ball room with an assembly of well dressed individuals. "
