@@ -9,7 +9,29 @@ define s = Character (_("Server"), color="#6fd066")
 define senator = Character (_("Senator John"), color="#8e0000")
 
 image bg caught="bg caught.jpg"
-
+image bg homelaptop = "bg homelaptop.jpg"
+image bg laptopgoogle = "bg laptopgoogle.jpg"
+image bg laptopinsta = "bg laptopinsta.jpg"
+image bg votingrecord = "bg votingrecord.jpg"
+image bg officeaddress = "bg officeaddress.jpg"
+image bg celebration = "bg celebration.jpg"
+image bg taggedphotos = "bg taggedphotos.jpg"
+image bg storiesarchive = "bg storiesarchive.jpg"
+image bg senoffice = "bg senoffice.jpg"
+image bg waste = "bg waste.jpg"
+image bg wastepaper = "bg wastepaper.jpg"
+image bg wasteother = "bg wasteother.jpg"
+image bg wastecat = "bg wastecat.jpg"
+image bg wastecat2 = "bg wastecat2.jpg"
+image bg wastecat3 = "bg wastecat3.jpg"
+image bg wastehide = "bg wastehide.jpg"
+image bg alley = "bg alley.jpg"
+image bg charity = "bg charity.jpg"
+image bg kitchen2 = "bg kitchen2.jpg"
+image bg ballroomdoor = "bg ballroomdoor.jpg"
+image bg hallway = "bg hallway.jpg"
+image bg hallway2 = "bg hallway2.jpg"
+image bg bedroom = "bg bedroom.jpg"
 
 label level_2:
     call inventory
