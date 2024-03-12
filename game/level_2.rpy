@@ -806,15 +806,15 @@ label next_day_3:
     p "Your senator, the one you said was suspicious, one of those guys is from CORP and the other one I don't know. I saw his face for a moment, but I can't remember where I saw him before."
 
     # show cathy worried
-    c "So they want to hire the Crimson Group... that's not good, I heard about them, they may have been involved in suppressing riots in Jordan and Russia. 
-    I think there was also a colleague who was assaulted by one of their mercenaries while writing about it.
-    They are dangerous, you really should not try to go to their base of operations."
+    c "So they want to hire the Crimson Group... that's not good, I heard about them, they may have been involved in suppressing riots in Jordan and Russia." 
 
+    c "I think there was also a colleague who was assaulted by one of their mercenaries while writing about it. They are dangerous, you really should not try to go to their base of operations."
+    
     p "Hmm I will think of a way to target them without getting harmed. Are you worried about me?"
 
     c "Maybe a little bit! I mean we are a good team are we not?"
 
-    #jump level 3
+    jump start
 
 label listen_recording:
 # scene Fast food restaurant, Table with food
@@ -838,11 +838,11 @@ label listen_recording:
 
     # show cathy worried
     c "So they want to hire the Crimson Group... that's not good, I heard about them, they may have been involved in suppressing riots in Jordan and Russia." 
-    c "I think there was also a colleague who was assaulted by one of their mercenaries while writing about it.
-        They are dangerous, you really should not try to go to their base of operations."
+
+    c "I think there was also a colleague who was assaulted by one of their mercenaries while writing about it. They are dangerous, you really should not try to go to their base of operations."
 
     p "Hmm I will think of a way to target them without getting harmed. Are you worried about me?"
 
     c "Maybe a little bit! I mean we are a good team are we not?"
 
-    #jump level 3
+    jump start
