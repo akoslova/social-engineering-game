@@ -43,11 +43,8 @@ image officer = "officer.png"
 
 label level_2:
     call inventory
-<<<<<<< HEAD
-=======
 
 
->>>>>>> 9d8d7bbde108701ea5c30f415ce3a2e506dc26a1
     scene bg homelaptop
     "After a brief meeting with the reporter, you're now certain of the politician's identity. With the name and party affiliation of Senator John Smith from Liberty party in hand, your investigation enters its next phase."
 
@@ -699,7 +696,7 @@ label getrecording:
     "Your hand reaches for the recording, picking it up and tucking it safely into your pocket, the mission nearly accomplished, when the sound of footsteps startles you and the door swings open."
 
     #scene empty secret meeting room
-    #show senator
+    show senator with easeinleft
     senator "Sorry J forgot my lighter in this room…"
 
     menu:
@@ -715,7 +712,7 @@ label getrecording:
 
 
 label picked_up_glasses:
-    #show player in service clothes
+    show Me service
 
     senator "YOU Again?!"
 
@@ -790,7 +787,8 @@ label leave_event:
 
 label next_day_3:
 # scene meetingspot
-# show cathy
+    show cathy with easeinleft
+    show Me with easeinright
 
     c "Hey, how are you? I am honestly very excited to hear your recording. What you have been doing the last few days is crazy and everything with social.. how was it called?"
 
