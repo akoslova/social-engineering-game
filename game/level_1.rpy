@@ -79,7 +79,19 @@ image bg caught="bg caught.jpg"
 image bg staircase="bg staircase.jpg"
 image bg calls="bg calls.jpg"
 
+default full_building = False
+default john_doe_known = False
+default badge_found = False
+default not_inspected_entrance = True
+default not_inspected_garage = True
+default not_inspected_back = True
+default overall_success = False
+default not_ask_core = True
+default not_interview = True
+
 label level_1:
+    $ renpy.save("start_level1")
+
     call inventory
     scene bg n42
     show Me with easeinright
@@ -90,9 +102,6 @@ label level_1:
 label investigate:
     scene bg n42
     show Me with easeinright    
-    default full_building = False
-    default john_doe_known = False
-    default badge_found = False
 
     menu:
 
@@ -108,11 +117,6 @@ label investigate:
 
 label Building_options:
 
-    default not_inspected_entrance = True
-    default not_inspected_garage = True
-    default not_inspected_back = True
-    default overall_success = False
-
     menu:
 
         "Check the main entrance" if not_inspected_entrance:
@@ -125,7 +129,8 @@ label Building_options:
             jump Back_entrance
 
         "You lost the level and need to restart" if not not_inspected_back and not not_inspected_garage and not not_inspected_entrance:
-            jump level_1
+            $ renpy.load("start_level1")
+            #jump level_1
 
         "You successfully explored the building! You can now further investigate." if not not_inspected_back and not not_inspected_garage and not not_inspected_entrance and overall_success:
             $ full_building = True
@@ -151,6 +156,7 @@ label Main_entrance:
             jump flirt
 
 label interview:
+    $ not_interview = False
 
 
     p "Hello, I am here because I am interested in the position in the Customer Service department. Where do I have to go to talk to the appropiate person?"
@@ -164,12 +170,14 @@ label interview:
 
     menu:
 
-        "Ask about CORE":
+        "Ask about CORE" if not_ask_core:
             jump basic_core
         "Leave":
             jump leaving_lobby
 
 label basic_core:
+
+    $ not_ask_core = False
 
     p "What can you tell me about CORE?"
 
@@ -177,11 +185,14 @@ label basic_core:
 
     menu:
 
-        "Pretend to be there for an interview":#if not already condition
+        "Pretend to be there for an interview" if not_interview: #if not already condition
             jump interview
 
         "Try flirting with the attractive receptionist":
             jump flirt
+
+        "Leave":
+            jump leaving_lobby
 
 label flirt:
 
@@ -236,10 +247,9 @@ label Back_entrance:
         "Try your luck and grab it!":
             jump success
         
-
         "Maybe that's too risky I should head back to observe other parts of the building":
-
             jump Building_options
+
 
 label success:
     scene bg coreback2
