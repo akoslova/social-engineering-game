@@ -30,12 +30,12 @@ label tutorial:
 
     call inventory
 
-    # scene bg entryhall 
+    # scene bg entryhall
 
     scene bg reception
     show Me with easeinright
     show Receptionist with easeinleft
-    
+
     r "Good morning. Are you new here? What’s your name?"
 
     #define p = Character("[povname]", color="#c8c8ff")
@@ -64,8 +64,8 @@ label tutorial:
     t "If you not already aware: Tasty Food Co. is a global leader in agriculture and nutrition. We utilize the power and provisions of nature to generate safe, healthy, and sustainable nutrition for people around the world."
 
     t "Your new job role is pretty awesome. You're our go-to person for keeping our computer systems super secure. Think of it as being a detective for our computers. You're on the lookout for any weak spots that could be trouble."
-    
-    t "We're thrilled to have you on board, making sure our company's network is strong and ready for anything. Ready to dive into it? Let's do this!" 
+
+    t "We're thrilled to have you on board, making sure our company's network is strong and ready for anything. Ready to dive into it? Let's do this!"
 
     t "To help you understand what your job involves, here's a little exercise for you. Write a phishing email to our colleague Frank from the department."
 
@@ -91,7 +91,7 @@ label tutorial:
 
     scene bg office
     show Toni wave
-    show Me 
+    show Me
 
     t "Here is your work laptop. Everything is already set up for you. I now have to leave you for today. I will be in an important conference for the rest of the day. See you tomorrow!"
 
@@ -110,7 +110,6 @@ label phishing:
 
 screen phishing:
     zorder 1
-    #TODO: move imagebuttons so that it does not collide with the inventory button
     add "images/bg laptop2.png"
     imagebutton auto "gui/phishing_mails/mail1_%s.png":
         focus_mask True
@@ -128,14 +127,14 @@ label wrong_phishing:
     jump phishing
     hide screen inv_screen
 
-label right_phishing: 
+label right_phishing:
     show bg desktop
     show screen inv_screen
-    
+
     p "Haha, that Frank guy is not a very smart one! Now I have access to his computer screen."
-    
+
     $ todo.update_aim("")
-    
+
     "{i} You successfully completed your aim! {\i}"
 
     p "Oh what's in that folder?"
@@ -160,7 +159,7 @@ label password_story:
 
     if password == "qwerty":
         jump right
-        
+
     else:
         p "Wrong Password! I should try an alternative..."
         jump password
@@ -211,9 +210,9 @@ label evidence:
 
     scene black
     scene bg reception2
-    show Me at Position(xpos=0) 
-    
-    
+    show Me at Position(xpos=0)
+
+
     "5 PM closing time… Your first day at work is finished. You leave the place hasty, to get to the appointment with your friend Cathy in time."
 
     p "I'm just glad I'm meeting Cathy tonight and hopefully with her help, I can make a plan of what to do. I think I might be in trouble …"
@@ -221,13 +220,13 @@ label evidence:
 
     "{i}Go to the café.{\i}"
 
-    call screen map("cafe") 
-    hide screen map 
+    call screen map("cafe")
+    hide screen map
 
-    scene bg coffee 
+    scene bg coffee
     show Me with easeinright
     "As you are walking towards the bar, you can not get this information out of your head. Is there something illegal going on at your new working place?"
-  
+
 
     show cathy with easeinleft
 
@@ -239,15 +238,15 @@ label evidence:
 
     c "Maybe you're on to something big. Can I have a look at your evidence? I might be able to write a story about it. What do you think?"
     jump cathy_information
-    
+
 
 label no_evidence:
 
     #transition Black
     scene bg reception2
     show Me at Position(xpos=0.0)
-    
-    
+
+
 
     "5 PM closing time… Your first day at work is finished. You leave the place hasty, to get to the appointment with your friend Cathy in time."
 
@@ -256,8 +255,8 @@ label no_evidence:
 
     "{i}Go to the café.{\i}"
 
-    call screen map("cafe") 
-    hide screen map 
+    call screen map("cafe")
+    hide screen map
 
     scene bg coffee
     show Me with easeinright
@@ -278,7 +277,7 @@ label no_evidence:
     menu:
         "I remember reading about forest clearance and farmer strikes." :
             jump remembered_1
-        
+
         "I think there was the mentioning of avocados." :
             jump remembered_2
 
@@ -288,7 +287,7 @@ label no_evidence:
         "I remember something about having a surprise birthday party for the head of the department." :
             jump not_remembered
 
-    
+
 label not_remembered:
 
     c "That's not worth a story, are you kidding me?"
@@ -298,7 +297,7 @@ label not_remembered:
     menu:
         "I remember reading about forest clearance and farmer strikes." :
             jump remembered_1
-        
+
         "I think there was the mentioning of avocados." :
             jump remembered_2
 
@@ -312,7 +311,7 @@ label remembered_2:
     menu:
         "I remember reading about forest clearance and farmer strikes.":
             jump remembered_1
-    
+
 
         "I read the word classified." :
             jump remembered_3
@@ -321,8 +320,8 @@ label remembered_3:
 
     c "Thats more interesting, but what is it about?"
 
-    p "I remember reading about forest clearance and farmer strikes." 
-    
+    p "I remember reading about forest clearance and farmer strikes."
+
     jump remembered_1
 
 
@@ -331,11 +330,11 @@ label remembered_1:
     c "Maybe you're on to something big. Can I have a look at your notes? I might be able to write a story about it. What do you think?"
     jump cathy_information
 
-label cathy_information:    
+label cathy_information:
     p "Surely this will not be easy?"
 
     c "Hm, I might need more information. I will contact you on that matter! Do you have my new number already? If not maybe you should write it in your notebook."
-    
+
 
     define cathy = Person("Cathy", "images/Cathy.png", "Reporter friend", "017612345678")
 
