@@ -489,11 +489,10 @@ label Option_4:
     s "Hey!! where are you going? I am a security officer stand still!"
 
     menu:
-
         "Continue walking":
             jump Continue_walking
         "Stop your escape":
-            jump Follow_people
+            jump Caught
 
 label Continue_walking:
 
@@ -678,7 +677,7 @@ label checkpoint_diguise:
 label getinside: #checkpoint 3
 
     menu:
-        "Go to the company disguised as a canteen employee":
+        "Go to the company disguised as a canteen employee" if overall_success:
             jump canteendisguise
         "Go as an employee with the badge found" if badge_found: 
             jump inside_building_cant
@@ -730,7 +729,7 @@ label hideface:
 label runinside:
     "As soon as you run towards the door that leads deeper inside the building other people notice you and you feel someone tackle you over"
     menu:
-        "You got caught, repeat this.":
+        "You got caught. Repeat.":
             $ renpy.load("disguise")
     #checkpoint 3
  
@@ -1074,11 +1073,11 @@ label continue_exploring:
     menu:
         "Investigate Support Staff Contacts": 
             #if support_staff_contacts_done: error
-            jump support_staff_contacts
+            jump support_staff_contacts #if
         "Explore Middle Management Contacts":
-            jump middle_contacts
+            jump middle_contacts #if
         "Search for a high-ranking employee":
-            jump call_mr_johnson
+            jump call_mr_johnson #if
 
 label support_staff_contacts:
     scene bg calls
