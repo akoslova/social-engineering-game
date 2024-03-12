@@ -113,7 +113,7 @@ label investigate:
             jump Collect_information
 
         "You notice that a lot of them go to the coffee shop across the street. You decide to follow them and get a coffee yourself":
-            jump Follow_people
+            jump follow_people_ceckpoint
 
 label Building_options:
 
@@ -292,17 +292,15 @@ label Collect_information:
         "Look around and inspect the building" if not full_building:
             jump Building_options
 
-        "Follow them and get a coffee yourself" if not full_building:
-            jump Follow_people
-    
-    "You decide to follow the people and get a coffee for yourself." 
+        "Follow them and get a coffee yourself":
+            jump follow_people_ceckpoint
 
-    jump Follow_people 
-
+label follow_people_ceckpoint:
+    $ renpy.save("follow_people")
+    jump Follow_people
 
 label Follow_people:
 
-#checkpoint
     scene bg cafe
 
     "You start looking around."
@@ -471,7 +469,7 @@ label Option_1:
     s "Don't be cheeky! You see this is my security officer badge, you come with me now and we'll see what you've been doing all this time."
 
     "You were too obvious, which led to you and your actions being questioned. Try again!"
-    jump Follow_people
+    $ renpy.load("follow_people")
 
 label Option_2:
 
