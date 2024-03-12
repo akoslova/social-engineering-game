@@ -43,6 +43,11 @@ image officer = "officer.png"
 
 label level_2:
     call inventory
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> 9d8d7bbde108701ea5c30f415ce3a2e506dc26a1
     scene bg homelaptop
     "After a brief meeting with the reporter, you're now certain of the politician's identity. With the name and party affiliation of Senator John Smith from Liberty party in hand, your investigation enters its next phase."
 

@@ -79,7 +79,19 @@ image bg caught="bg caught.jpg"
 image bg staircase="bg staircase.jpg"
 image bg calls="bg calls.jpg"
 
+default full_building = False
+default john_doe_known = False
+default badge_found = False
+default not_inspected_entrance = True
+default not_inspected_garage = True
+default not_inspected_back = True
+default overall_success = False
+default not_ask_core = True
+default not_interview = True
+
 label level_1:
+    $ renpy.save("start_level1")
+
     call inventory
     scene bg n42
     show Me with easeinright
@@ -90,9 +102,6 @@ label level_1:
 label investigate:
     scene bg n42
     show Me with easeinright    
-    default full_building = False
-    default john_doe_known = False
-    default badge_found = False
 
     menu:
 
@@ -108,11 +117,6 @@ label investigate:
 
 label Building_options:
 
-    default not_inspected_entrance = True
-    default not_inspected_garage = True
-    default not_inspected_back = True
-    default overall_success = False
-
     menu:
 
         "Check the main entrance" if not_inspected_entrance:
@@ -125,7 +129,8 @@ label Building_options:
             jump Back_entrance
 
         "You lost the level and need to restart" if not not_inspected_back and not not_inspected_garage and not not_inspected_entrance:
-            jump level_1
+            $ renpy.load("start_level1")
+            #jump level_1
 
         "You successfully explored the building! You can now further investigate." if not not_inspected_back and not not_inspected_garage and not not_inspected_entrance and overall_success:
             $ full_building = True
@@ -151,6 +156,7 @@ label Main_entrance:
             jump flirt
 
 label interview:
+    $ not_interview = False
 
 
     p "Hello, I am here because I am interested in the position in the Customer Service department. Where do I have to go to talk to the appropiate person?"
@@ -164,12 +170,14 @@ label interview:
 
     menu:
 
-        "Ask about CORE":
+        "Ask about CORE" if not_ask_core:
             jump basic_core
         "Leave":
             jump leaving_lobby
 
 label basic_core:
+
+    $ not_ask_core = False
 
     p "What can you tell me about CORE?"
 
@@ -177,11 +185,14 @@ label basic_core:
 
     menu:
 
-        "Pretend to be there for an interview":#if not already condition
+        "Pretend to be there for an interview" if not_interview: #if not already condition
             jump interview
 
         "Try flirting with the attractive receptionist":
             jump flirt
+
+        "Leave":
+            jump leaving_lobby
 
 label flirt:
 
@@ -236,10 +247,9 @@ label Back_entrance:
         "Try your luck and grab it!":
             jump success
         
-
         "Maybe that's too risky I should head back to observe other parts of the building":
-
             jump Building_options
+
 
 label success:
     scene bg coreback2
@@ -399,7 +409,7 @@ label Cautious:
 label Screen_reflection:
 
     "You try to look at the screen with the front camera turned on of your smartphone"
-    "Success: You see his User Name for Outlook: christian.baker@core.de"
+    "Success: You see his user name for Outlook: christian.baker@core.de"
 
     menu:
 
@@ -411,8 +421,8 @@ label Screen_reflection:
 
 label Watching_1:
 
-    "He is logging in and made a mistake with his password.."
-    "He clicks on the reveal icon you can see his wrong input: aS&MIavmc12356#13"
+    "He is logging in and made a mistake with his password."
+    "He clicks on the reveal icon which means you can see his wrong input: aS&MIavmc12356#13"
 
     
     menu:
@@ -546,6 +556,8 @@ label Real_name:
     "He gets up and leaves while giving you a mistrustful look."
 
     jump Stand_up
+
+    #Update Notebook about christian baker - password and working in public relations
     
 label John_doe:
 
@@ -559,11 +571,13 @@ label John_doe:
 
     p "I am in the accounting division. So there is something in the bush?"
     
-    ch "I mean just the typical stuff supporting the wrong parties, buying politicians with money, not respecting the environment enough.. Nothing you haven't heard a thousand times before!"
+    ch "I mean just the typical stuff supporting the wrong parties, buying politicians with money, not respecting the environment enough... Nothing you haven't heard a thousand times before!"
 
     p "Ok thank you! That calms me down a bit, have a nice break and see you!"
 
     jump Stand_up
+
+    #Update Notebook about christian baker- password and working in public relations
 
 label Stand_up:
 
@@ -805,7 +819,7 @@ label explore_cubicles:
 
     #[BG: untidy desk with the photo of whiskers]
 
-    "A spark of recognition ignites in your mind as you realize the significance. Its a quote from the movie Casablanca! It you be important.. hastily, you make a connection between the employee's name, the birthdate, and the movie quote."
+    "A spark of recognition ignites in your mind as you realize the significance. Its a quote from the movie Casablanca! It could be important... hastily, you make a connection between the employee's name, the birthdate, and the movie quote."
 
     "Pulling out your notebook, you meticulously write down the details: Alex Johnson, 12/08/1975, Quote: Here's looking at you, kid – Casablanca."
 
@@ -1423,8 +1437,12 @@ label confront_the_employee:
     jump hidden_camera
 
 label Leaving_building:
-    
+
+
+    scene bg room303
+    show Me
     "I should get out of here before anyone catches me." #checkpoint4
+
 
     menu:
 
@@ -1445,9 +1463,7 @@ label leavealone:
     scene bg checkpoint3
     show Me 
     show guard1 with easeinleft
-    s "Where is your ID card"
-
-    p "I must have lost it, it was right there on my pants"
+    s "Where is your ID card?"
 
     menu:
 
@@ -1465,6 +1481,21 @@ label punch:#scene you punching him
     "You punch him in the face and run as fast as you can. But only after three steps one of the security guards pulls you back and holds you tight. "
     
     "You realize that they are too strong and you will not get out of the situation anymore."
+    jump Leaving_building
+
+
+label idcard:
+    s "Thank you! Have a nice day!"
+    #outside
+    scene bg n42
+    show Me with easeinleft:
+        xzoom -1.0
+
+    p "That was close. Thank god, I got out of here. I am going to meet Cathy to tell her about everything."
+
+    jump cathymeet
+
+
 
 label apology:
     show guard1
@@ -1565,8 +1596,7 @@ label wash:
     show k2 happy with easeinleft
     show k1 happy with easeinright:
         xzoom -1.0 
-    k2 "This week we had a delivery with boxes full of avocados"
-
+    k2 "This week we had a delivery with boxes full of avocados."
     k3 "Yes, I have heard our company now buys them from TastyFood and gets huge discounts."
 
     menu: 
@@ -1596,7 +1626,7 @@ label helped:
     "As you want to leave through the back door, you can overhear two employees chattering."
     show k1 happy with easeinright:
         xzoom -1.0
-    k1 "This week we had a delivery with boxes full of avocados”"
+    k1 "This week we had a delivery with boxes full of avocados"
 
     k3 "Yes, I have heard our company now buys them from TastyFood and gets huge discounts."
 
@@ -1634,9 +1664,11 @@ label apology2:
 
 label flirt2:
     show k2 angry
-    "Person 1[looking mad]: “Are you crazy? I will forward this harrassment to security. Who are you?"
+    "Are you crazy? I will forward this harrassment to security. Who are you?"
 
     "You apologize for offending her but now all eyes in the kitchen are on you. You see her calling security on her phone, knowing that you will not get out of this situation anymore."
+    #wrong picture
+
 
     jump Leaving_building 
 
