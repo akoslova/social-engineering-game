@@ -761,14 +761,11 @@ label inside_building_cant:
     #Player outfit normal working clothes
 
     "As soon as you locate a toilet you get rid of your canteen employee outfit and store it safely in the bin hidden under some paper towels."
-    "With your normal working clothes you confidently stride through the office building, blending in seamlessly with the bustling crowd. The air is thick with the hum of productivity as employees rush to and from."
+    "With your normal working clothes you confidently stride through the office building."
 
-    "As you navigate the bustling office landscape, a keen sense of purpose guides you. Hidden among the maze of cubicles and the constant hum of activity, you know lies the gateway to unraveling the mystery at hand: a secured personal computer (PC)."
-    "This isn't just any office equipment; it's the keeper of secrets, housing crucial information that could blow the scam wide open. But to access its contents, you need the key — the password."
-    "Understanding that the PC won't be left unprotected, you realize that cracking the code will require more than just a lucky guess."
-    "The employees themselves hold the answer, not through direct knowledge of the scam, perhaps, but in their approach to creating passwords."
-    "Every individual has a unique method to their password-making madness, often tied to personal experiences, interests, or a standard security protocol they've been instructed to follow."
-    "With this in mind, you begin your subtle investigation. "
+    "In this office, you might find some crucial files related to the scam. To access them, you must locate a computer."
+    "However, as you might expect in a company setting, the computer is password-protected. To uncover the password, you'll need to engage with the employees and deduce the company's password creation strategy."
+    
     # Checkpoint 1as the Option 1 is correct, if the player chooses 2nd or 3rd option then he will jump to inside_building
     menu:
         "Explore the cubicles":
@@ -783,6 +780,8 @@ label inside_building:
 
     #"With your disguise intact, you confidently stride through the office building, blending in #seamlessly with the bustling crowd. The air is thick with the hum of productivity as employees #rush to and from."
     # Checkpoint 1as the Option 1 is correct, if the player chooses 2nd or 3rd option then he will jump #to inside_building
+
+    # Please add the if statement. Option 1 is correct.
     menu:
         "Explore the cubicles":
             jump explore_cubicles
@@ -797,8 +796,8 @@ label explore_cubicles:
     
     scene bg whiskers
     #[Taking a photo from the mobile phone] [BG: Desk with the photo of a dog name whiskers]
-    "As you quietly explore the cubicles, your attention is drawn to a desk adorned with a framed picture of an elegant dog, its name proudly displayes beneath the image  Whiskers."
-    "The dog's regal demeanor made the image seem amusingly out of place in the corporate setting. Intrigued, you decided to capture this curious discovery."
+    "As you quietly explore the cubicles, your attention is drawn to a desk adorned with a framed picture of an elegant dog, its name displays beneath the image  Whiskers."
+    "This image seem amusingly out of place in the corporate setting. Intrigued, you decided to capture the image."
 
     "After discreetly snapping a photo of Whiskers' portrait, you continue your investigation. Amongst the papers on the desk, you find an official document containing the name and date of birth of an employee."
 
@@ -820,7 +819,7 @@ label explore_cubicles:
 
     "A spark of recognition ignites in your mind as you realize the significance. Its a quote from the movie Casablanca! It could be important... hastily, you make a connection between the employee's name, the birthdate, and the movie quote."
 
-    "Pulling out your notebook, you meticulously write down the details: Alex Johnson, 12/08/1975, Quote: Here's looking at you, kid – Casablanca."
+    "Pulling out your notebook, you write down the details: Alex Johnson, 12/08/1975, Quote: Here's looking at you, kid – Casablanca."
 
     define alex_data_2 = InventoryData("Alex Johnson", "Birth: 12/08/1975, potential owner of cat Whiskers, Quote: Here's looking at you, kid – Casablanca")
 
@@ -1024,12 +1023,11 @@ label password_reset_procedure:
     "Near the elevators, you notice an IT support staff assisting an employee with a password reset. This situation provides a rare opportunity to understand the company's password policy. As the IT staff member guides the employee through the reset process, you overhear snippets of their conversation."
     
     staff "Remember, your password needs to be strong. It should be something memorable but not obvious to others."
-    "The employee nods, considering for a moment, then types something in. You can't see the exact keystrokes, but you notice the employee's eyes momentarily glance at a photo pinned nearby – it's a picture of a mountain."
+    "The employee nods, considering for a moment, then types something in. You can't see the exact keystrokes, but you notice the employee's eyes glance at a photo pinned nearby – it's a picture of a mountain."
     e7 "Okay, done. I've used my favorite hiking trail name and added the year I first hiked it, plus an exclamation mark."
     staff "That's a good mix. It's personal but not something everyone would know. Just make sure you remember it without writing it down."
-    "The employee leaves, looking satisfied. This interaction gives you a valuable insight into how employees might construct their passwords using personal hobbies or experiences combined with significant dates and special characters."
+    "The employee leaves, looking satisfied. This interaction does not gives you a valuable insight into how employees might construct their passwords."
 
-    "This choice doesn't lead to the breakthrough you hoped for."
 
     jump inside_building
 
@@ -1067,7 +1065,7 @@ label continue_exploring:
     # BG: Player holding one book "Contact Book"
 
     "This book, filled with names and phone numbers, could be the key to unlocking the scam you're investigating."
-    "It offers a direct way to reach out to employees, gather insights, or unearth clues about the scam directly from those involved or unknowingly connected to it."
+    "It offers a direct way to reach out to employees, gather insights about the scam directly from those involved or unknowingly connected to it."
 
 
     menu:
@@ -1082,8 +1080,8 @@ label continue_exploring:
 label support_staff_contacts:
     scene bg calls
  
-    "Feeling like an undercover agent, you decide to explore the support staff, aiming for the custodian Burt W. Mopbucket, the head of janitorial services. You figure Burt might have some amusing stories about his experiences while cleaning up after everyone."
-    "Dialing Burt's number, you brace yourself for a less-than-warm reception."
+    "You decide to explore the support staff, aiming for the custodian Burt W. Mopbucket, the head of janitorial services. You figure Burt might have some amusing stories about his experiences while cleaning up after everyone."
+   
 
     p "Hello, Burt? It's Mike from HR. Just doing a quick check-in. Any interesting or amusing things happening during your janitorial adventures?"
     #disgruntled
@@ -1102,7 +1100,7 @@ label support_staff_contacts:
 
 label middle_contacts:
     scene bg calls
-    "With a sly grin, you decide to delve into the world of middle management, hoping to find an unsuspecting hero among the ranks. Scrolling through the directory, you pick Ivy P. Paperwork, the manager of documentation control. Her title might not scream glamour, but you figure she could be the keeper of hidden secrets."
+    "Scrolling through the directory, you pick Ivy P. Paperwork, the manager of documentation control. You figure she could be the keeper of hidden secrets."
 
     "You dial Ivy's number and, after a few rings, she picks up."
 
@@ -1127,6 +1125,8 @@ label call_mr_johnson:
     "You find the number of a high-ranking executive, Mr. Johnson, in the directory."
     "You decide to call Mr. Johnson and try to extract information from him."
 
+
+    #PLease add the if statements. Option w is the correct one
     menu:
         "Introduce yourself as IT support":
             jump introduce_as_IT
@@ -1255,7 +1255,7 @@ label take_the_keys:
 label room_303:
     scene bg room303
 
-    "Having uncovered the mystery of Room 303, you now stand ready to explore its secrets. With anticipation, you approach the door, prepared to unravel what lies within. This moment marks a pivotal point in your investigation, as Room 303 holds the answers you've been seeking."
+    "Having uncovered the mystery of Room 303, you now stand ready to explore its secrets."
 
     "The dimly lit room is filled with rows of computers."
 
@@ -1278,14 +1278,12 @@ label unlock_the_computer:
     scene bg computer
 
     "As you try to access the computer, you realize it's password-protected."
-    "Frustrated by the password prompt, you decide to take a more direct approach and attempt to unlock the computer."
     
-    "Trying a few common passwords that often slip people's minds or are used out of convenience, you input variations of 'password,' '123456,' and 'admin,' but to no avail. "
+    "Trying a few common passwords you input variations of 'password,' '123456,' and 'admin,' but to no avail. "
     
-    "The computer remains securely locked, refusing to grant access."
-    "The information gathered from your interactions with the employees now becomes crucial, ready to be used in unlocking the secrets it holds."
 
     p "Well, that was worth a shot."
+    "The information gathered from your interactions with the employees now becomes crucial, ready to be used in unlocking the computer."
 
     #Password: whiskers19752926 (This is just until we complete this story part)
 
@@ -1338,10 +1336,10 @@ label open_the_cupboard:
 
 label hidden_camera:
 
-    # Checkpoint 3 , after unlock the computer if the player gets caught after this, he can come back #to this option
+    
 
     scene bg camera
-
+    # Please add the if statements Checkpoint 3 , after unlock the computer if the player gets caught @after this, he can come back #to this option
     "As you delve into the files, you notice a hidden security camera"
     menu:
         "Disable the Camera":
@@ -1356,7 +1354,7 @@ label disable_the_camera:
 
     p "Time to go incognito."
 
-    "Carefully, you open the panel concealing the camera's wires, aiming to cut the power source or manipulate its circuits. However, in the process, a tiny alarm is triggered, and a soft electronic beep resonates in the room."
+    "Carefully, you open the panel concealing the camera's wires, aiming to cut the power source. However, in the process, a tiny alarm is triggered, and a soft electronic beep resonates in the room."
     scene bg cam alarm
 
     "Panicking, you realize that your attempt to disable the camera has backfired. The unexpected alarm attracts attention, and you hear distant footsteps approaching rapidly."
@@ -1368,9 +1366,9 @@ label disable_the_camera:
 
 label evade_camera_view:
     show Me with easeinright
-    "Choosing a more subtle approach, you decide to evade the camera's view. Carefully studying the room, you identify blind spots and strategically move from cover to cover, using office furniture and potted plants to shield yourself from the camera's lens."
+    "Choosing a more subtle approach, you decide to evade the camera's view. Carefully studying the room, you identify blind spots and strategically move from cover to cover."
 
-    "Silently, you navigate the room, successfully avoiding detection. As you reach the desired spot without triggering any alarms, a sense of relief washes over you. The camera continues to monitor the room, unaware of your presence."
+    "Silently, you navigate the room, successfully avoiding detection. As you reach the desired spot without triggering any alarms, there is a sense of relief."
 
     jump fumbling_with_the_camera
 
@@ -1415,7 +1413,6 @@ label act_casual:
 
     "The employee eyes you skeptically but seems to buy your explanation. He points you in the direction of the restroom, and you proceed as if nothing happened."
 
-    "As you leave the room, you take note of the employee's suspicious gaze but continue to act nonchalant. You casually stroll through the corridors, blending in with the office environment. "
 
     jump Leaving_building
 
@@ -1432,8 +1429,8 @@ label confront_the_employee:
     "The employee remains suspicious and decides to check with security. Your attempt to confront him raises further red flags."
 
     "Your attempt has backfired. Security is on their way."
-    "This choice doesn't lead to the breakthrough you hoped for."
-    jump hidden_camera
+    "Choose the other option."
+    jump fumbling_with_the_camera
 
 label Leaving_building:
 

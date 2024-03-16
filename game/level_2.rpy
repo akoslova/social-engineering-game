@@ -50,12 +50,12 @@ label level_2:
     "After a brief meeting with the reporter, you're now certain of the politician's identity. With the name and party affiliation of Senator John Smith from Liberty party in hand, your investigation enters its next phase."
 
 
-    "You start by scouring the internet for any mention of Senator Smith's office location, complemented by a thorough investigation of his Instagram for any inadvertent leaks of his whereabouts."
+    "You start by scouring the internet for any mention of Senator Smith's office location."
 
     menu:
-        "Focus on Google, looking for official records or news mentions":
+        "Focus on Google.":
             jump focus_on_google
-        "Dive into Instagram, analyzing tagged locations and posts.":
+        "Dive into Instagram.":
             jump dive_into_insta
 
 label Caught_Level2:
@@ -67,14 +67,14 @@ label focus_on_google:
     scene bg laptopgoogle
     #scene Desktop home screen
 
-    # Here option 3 is correct
+    # Please add if statements for checkpoints Here option 3 is correct
 
     menu:
-        "Search for Senator Smith's legislative contributions and voting record.":
+        "Search for Senator Smith's voting record":
             jump voting_record
-        "Look up recent news articles for any mention of public appearances or scandals.":
+        "Look up recent news articles":
             jump news_articles
-        "Investigate the Liberty Party's official website for profiles and press releases mentioning Smith.":
+        "Investigate the Liberty Party's official website":
             jump press_releases
 
 
@@ -83,11 +83,11 @@ label dive_into_insta:
     # Here every option is correct
 
     menu:
-        "Review Senator Smith's official Instagram page for any clues":
+        "Review Senator Smith's official Instagram page.":
             jump review_official_insta
-        "Check tagged photos to see if anyone has posted pictures inside or near his office.":
+        "Check tagged photos":
             jump tagged_photos
-        "Explore the Instagram stories archive, if available, for past mentions of events or meetings":
+        "Explore the Instagram stories archive":
             jump stories_archive
 
 label voting_record:
@@ -98,7 +98,7 @@ label voting_record:
 
     "You discover Senator Smith's active involvement in community service projects, painting him as a dedicated public servant."
 
-    "This choice doesn't lead to the breakthrough you hoped for."
+    "It doesn't provide you the location of Senator's office. Choose some other option."
 
     jump focus_on_google
 
@@ -106,8 +106,9 @@ label news_articles:
     scene bg votingrecord
     #BG Inside computer screen news article of Senator Smith
 
-    "This uncovers a series of positive articles highlighting Smith's efforts in promoting transparency and ethics in politics."
-    "This choice doesn't lead to the breakthrough you hoped for."
+    "This uncovers a series of positive articles highlighting Smith's efforts in promoting transparency and ethics in politics.But you did not find location of the office."
+    
+    
 
     jump focus_on_google
 label press_releases:
@@ -152,11 +153,11 @@ label stories_archive:
 
 label senator_office:
     scene bg senoffice
-    "You successfully pinpoint the location of Senator Smith's office. The information gathered paints a picture of Senator Smith as a man of integrity and dedication, deeply involved in his community and his duties as a member of the Liberty Party."
+    "You successfully pinpoint the location of Senator Smith's office. The information gathered paints a picture of Senator Smith as a man of integrity and as a member of the Liberty Party."
 
 
     "Following your visit to Senator John Smith's office, you decide it's time to get your hands dirty—literally."
-    "The dumpsters located discreetly behind the office building hold the potential to unveil secrets that no digital footprint could reveal. As you approach, you notice two distinct dumpsters: one clearly labeled for paper waste, the other for general refuse. "
+    "The dumpsters located discreetly behind the office building hold the potential clues. As you approach, you notice two distinct dumpsters: one clearly labeled for paper waste, the other for general refuse. "
     scene bg waste
     menu:
         "Paper Waste Bin":
@@ -194,13 +195,14 @@ label other_waste:
 label intact_documents:
     scene bg wastepaper
     # Emails prinouts
-    "Finds a series of personal messages and email printouts that hint at Senator Smith's character and the positive morale among his staff."
+    "You find a series of personal messages and email printouts that hint at Senator Smith's character and the positive morale among his staff."
 
-    "This choice doesn't lead to the breakthrough you hoped for."
+    "You did not find any potential clues. Choose some other option."
     jump paper_waste
 
 label shredded_documents:
-    "Try to reassemble the shredded document."
+    "You find some shredded papers so you have to try to reassemble and see if you can find some information from it."
+    
     call screen paper_puzzle
 
     # MINI GAME OF PAPER PUZZLE
@@ -276,14 +278,14 @@ label finding_envelopes:
     # some Calenders 
 
     "Reveals a stack of outdated office calendars and generic event flyers, none of which pertain to Senator Smith's current activities."
-    "This choice doesn't lead to the breakthrough you hoped for."
+    "This choice doesn't lead to the breakthrough you hoped for. Choose some other option."
     jump paper_waste
 
 label rotten_food:
     scene bg wasteother
     # Broken smartphone
-    "Leads to the discovery of a broken smartphone."
-    "This choice doesn't lead to the breakthrough you hoped for."
+    "You find a broken smartphone."
+    
     "You might find something in paper waste. Go check it."
     jump paper_waste
 
@@ -291,9 +293,8 @@ label electronic_devices:
     scene bg wasteother
     # Broken USB drive
 
-    "Uncovers a USB drive among the refuse. However, upon closer inspection, it appears damaged and unlikely to function, rendering its potential contents inaccessible and leaving you with more questions than answers."
-    "This choice doesn't lead to the breakthrough you hoped for."
-    "You might find something in paper waste. Go check it."
+    "You find a USB drive. However, upon closer inspection, it appears damaged and unlikely to function."
+    "This choice doesn't lead to the breakthrough you hoped for. You might find something in paper waste. Go check it."
     jump paper_waste
     
 
@@ -301,10 +302,9 @@ label unusual_items:
     scene bg wasteother
     # Broken shredder paper
 
-    "Revealing a hidden mechanical device, which turns out to be an old, malfunctioning paper shredder wedged between bags of paper waste."
-    "Its sudden activation creates a brief but loud grinding noise, disrupting the quiet of the evening. This unexpected noise hastens your decision to leave before drawing any further attention."
+    "You find a hidden mechanical device, which turns out to be an old, malfunctioning paper shredder."
 
-    "This choice doesn't lead to the breakthrough you hoped for."
+   
     "You might find something in paper waste. Go check it."
     jump paper_waste
 
@@ -316,14 +316,14 @@ label noisy_cat:
     # Here option 3 is correct
 
     "As you sift through the papers, the silence of the evening is suddenly broken by a loud noise."
-    "Startled, you turn to find a stray cat rummaging through the other side of the dumpster, its eyes reflecting in the dim light. The cat, more curious than frightened, begins to make a ruckus, drawing your attention away from the task at hand."
+    "You turn to find a stray cat through the other side of the dumpster, its eyes reflecting in the dim light. The cat, more curious than frightened, begins to make a ruckus, drawing your attention away from the task at hand."
 
     menu: 
-        "Attempt to gently shoo the cat away, hoping it leaves without causing further commotion.":
+        "Attempt to gently shoo the cat away.":
             jump shoo_the_cat
-        "Ignore the cat and focus on your search, trying to make the most of your time before anyone notices.":
+        "Ignore the cat and focus on your search.":
             jump ignore_and_focus
-        "Offer some of your snack to the cat, hoping to quiet it down and keep it occupied.":
+        "Offer some of your snack to the cat":
             jump offer_snack
 
 
@@ -331,21 +331,21 @@ label shoo_the_cat:
     scene bg wastecat3
     # Cat making noise
     # Here option 1 and option 2 are wrong and leads to caught
-    "Your attempt to scare the cat off backfires. It leaps out of the dumpster with a loud meow, knocking over a stack of bins in the process. The clamor echoes through the quiet streets, and within minutes, a security guard approaches to investigate the noise."
+    "Your attempt to scare the cat off backfires. It leaps out of the dumpster with a loud meow, knocking over a stack of bins in the process. This created a lot of noise, and within minutes, a security guard approaches to investigate the noise."
 
     menu:
         "Try to explain your presence as a curious passerby who heard a noise.":
             jump try_and_explain
-        " Attempt to hide behind the larger bins, hoping the guard doesn't see you.":
+        " Attempt to hide behind the larger bins.":
             jump hide_behind_bins
-        "Use the moment to escape, taking advantage of the scattered papers as a distraction.":
+        "Use the moment to escape.":
             jump moment_to_escape
 
 
 label ignore_and_focus:
     scene bg wastecat
     # Here option 1 and option 2 are wrong and leads to caught
-    "As you delve deeper into the documents, the cat, undeterred, continues its exploration, causing papers to scatter."
+    "As you delve deeper into the documents, the cat continues its exploration, causing papers to scatter."
     "Suddenly, the noise escalates as the cat finds something intriguing and dashes out, papers in tow. The commotion attracts attention, and you hear footsteps approaching."
 
     #jump Caught_Level2
@@ -353,9 +353,9 @@ label ignore_and_focus:
     menu:
         "Try to explain your presence as a curious passerby who heard a noise.":
             jump try_and_explain
-        " Attempt to hide behind the larger bins, hoping the guard doesn't see you.":
+        " Attempt to hide behind the larger bins.":
             jump hide_behind_bins
-        "Use the moment to escape, taking advantage of the scattered papers as a distraction.":
+        "Use the moment to escape.":
             jump moment_to_escape
 
 

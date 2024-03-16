@@ -12,7 +12,7 @@ label level_3:
 
 
 label investigation:
-    "Your mission to infiltrate the shadows of the Crimson Group begins now. Armed with nothing but your wits and a powerful determination, you face your first decision. How will you embark on this perilous journey?"
+    "Your mission to find out about the Crimson Group begins now."
 
     menu:
         "Visit the Crimson Group's official website.":
@@ -46,7 +46,7 @@ label service_offering:
     #BG: Laptop Screen and Service offering page
 
     "You delve into the descriptions of their services, ranging from high-risk protection details to strategic military consulting. "
-    "Despite the wealth of information about what they offer, the specifics about who exactly carries out these services remain veiled in secrecy. The descriptions are generic, likely by design, to keep their operatives' identities and backgrounds hidden from public view."
+    "Despite the wealth of information about what they offer, the specifics about who exactly carries out these services remain veiled in secrecy."
 
     "This choice doesn't lead to the breakthrough you hoped for."
     jump investigation
@@ -56,7 +56,7 @@ label specific_operation:
     #BG: Laptop Screen and Past operations page
     
     "Hoping to find real-world examples of their work, you navigate to a section seemingly dedicated to past operations."
-    "Case studies are anonymized, offering no insight into the personnel involved or the exact nature of their missions. It's clear that the Crimson Group reveals only what they want the world to know, keeping the true extent of their operations shrouded in mystery."
+    "Case studies are anonymized, offering no insight into the personnel involved or the exact nature of their missions."
     "This choice doesn't lead to the breakthrough you hoped for." 
     jump investigation
 
@@ -65,8 +65,8 @@ label office_location:
     #BG: Laptop screen and Contact Us page
 
     "You end your exploration by looking for a more direct way to connect with the Crimson Group, hoping this might lead you to more concrete information. "
-    "The 'Contact Us' page presents a generic form for inquiries, alongside a nondescript London address and a general email address. There are no direct phone numbers, no names of contact persons, and no specific office locations listed."
-    "This choice doesn't lead to the breakthrough you hoped for." 
+    "The 'Contact Us' page presents a generic form for inquiries. There are no direct phone numbers, no names of contact persons, and no specific office locations listed."
+    
     jump investigation
 
 
@@ -88,23 +88,22 @@ label sources_quoted:
 
     #BG: Laptop screen and articles with sources quoted
 
-    "Eager to find concrete information, you attempt to track down the sources quoted in various articles. This leads you to a mix of retired military personnel, defense analysts, and a few journalists who have covered private military companies in the past."
-    "This choice doesn't lead to the breakthrough you hoped for." 
+    "Eager to find concrete information, you attempt to track down the sources quoted in various articles. This leads you to a mix of retired military personnel, which is not useful enough"
+  
     jump investigation
 
 label exposes:
 
     #BG: Laptop screen and articles targetting crimson group
-    "Convinced that someone must have challenged the public narrative, you search for dissenting opinions and critical exposes. "
-    "This endeavor uncovers a few brave souls who have attempted to shine a light on the darker aspects of the Crimson Group's operations.It appears that any significant dissent is effectively silenced or hidden away from public view."
+    "You find that few brave souls who have attempted to shine a light on the darker aspects of the Crimson Group's operations.It appears that any significant dissent is effectively silenced or hidden away from public view."
     "This choice doesn't lead to the breakthrough you hoped for." 
     jump investigation
 
 label comment_section:
 
     #BG: Laptop screen and comment section of article
-    "In a last-ditch effort, you comb through the comment sections of articles and opinion pieces, hoping to find nuggets of truth left by anonymous insiders." 
-    "While the comments range from fervent support to vehement criticism of the Crimson Group, they are largely speculative and often contradictory."
+    "You go through the comment sections of articles and opinion pieces, hoping to find truth left by anonymous persons." 
+    "You find that they are largely speculative and often contradictory."
     "This choice doesn't lead to the breakthrough you hoped for." 
     jump investigation
 
@@ -113,7 +112,7 @@ label online_discussion:
 
     #BG: Laptop screen and forum
 
-    "In the digital back alleys of forums, you find threads interwoven with rumors and awe. "
+    "In the forums, you find threads with rumors. "
 
     menu:
         "Engage with users to fish for more information.":
@@ -128,7 +127,7 @@ label more_info:
 
     #BG: Laptop screen and player chatting
 
-    "You begin to engage with users, hoping to coax out information with carefully worded questions and expressions of genuine interest. Despite your attempts at subtlety, your inquiries are met with suspicion or vague responses that circle back to public knowledge."
+    "You begin to engage with users, hoping to coax out information with carefully worded questions.Despite your attempts, your inquiries are met with suspicion or vague responses that circle back to public knowledge."
     "This choice doesn't lead to the breakthrough you hoped for." 
     jump investigation
 
@@ -137,8 +136,8 @@ label provoke:
     #BG: Laptop screen and player chatting
 
 
-    "Adopting a new strategy, you craft a persona of someone looking to hire mercenaries for an undisclosed but implicitly lucrative operation.They offer the services of various mercenaries for hire but provide no substantial information about the Crimson Group itself." 
-    "It seems that your guise has attracted more opportunists than insiders, and no significant leads materialize from these exchanges."
+    "Adopting a new strategy, you craft a persona of someone looking to hire mercenaries for an undisclosed operation.They offer the services of various mercenaries for hire but provide no substantial information about the Crimson Group itself." 
+
     "This choice doesn't lead to the breakthrough you hoped for." 
     jump investigation
 
@@ -146,8 +145,8 @@ label leaked_info:
 
     #BG: Laptop screen and player some posts
 
-    "Your search for leaks or signs of dissent within the ranks leads you to scour countless threads and posts for any shred of dissatisfaction or betrayal." 
-    "The few threads that initially seem promising end abruptly, with users disappearing or retracting their statements, suggesting either intimidation or the forum moderators' efficiency in maintaining secrecy."
+    "Your search provide a countless threads and posts for any shred of dissatisfaction or betrayal.But you find not find any crucial information." 
+
     "This choice doesn't lead to the breakthrough you hoped for." 
     jump investigation
 
@@ -156,7 +155,7 @@ label social_media:
 
     #BG: Mobile screen and instagram with crimson group page with bio written Your Battles, Our Soldiers
 
-    "Success! You find a loosely secured group with ties to the Crimson Group. Among discussions, you spot their slogan, 'Your Battles, Our Soldiers', alongside candid insights into the lives of their mercenaries. This is the break you needed."
+    "Success! You find a secured group with ties to the Crimson Group. Among discussions, you spot their slogan, 'Your Battles, Our Soldiers', alongside candid insights into the lives of their mercenaries. This is the break you needed."
 
 
     "You uncover details on key members: Jack Morrison, Patrick Hardman, Marcus Johnson, Sophia Chen "
@@ -176,7 +175,7 @@ label dive_deeper:
 
     #BG: Mobile Screen with instagram
 
-    "You decide to focus on the personal profiles of Jack Morrison, Patrick Hardman, Marcus Johnson, and Sophia Chen. This approach reveals a treasure trove of information about each mercenary:"
+    "You decide to focus on the personal profiles of Jack Morrison, Patrick Hardman, Marcus Johnson, and Sophia Chen."
 
     menu:
         "Examine their social media activity for personal details and professional hints.":
@@ -198,7 +197,7 @@ label personal_details:
     "The pictures of Patrick Hardman offer the most emotionally charged storyline. The transition from a family of three to just father and son suggests possibly divorce with his wife."
     "By exploring also the tagged profiles of his ex-wife Tina you find out his sons name is Jason he is around eleven years old and he goes currently to the Lipson - middle school."
 
-    jump lavel_3
+    jump pretexting
 
 label analyze:
 
