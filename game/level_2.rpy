@@ -35,6 +35,8 @@ image bg hallway2 = "bg hallway2.jpg"
 image bg bedroom = "bg bedroom.jpg"
 image bg ballroom = "bg ballroom.jpg"
 
+image cathyball = "cathyball.png"
+image Me suit = "playersuit.png"
 image Me service = "playerservice.png"
 image Me service2 = "playerservice2.png"
 image Me chef = "playerchef.png"
