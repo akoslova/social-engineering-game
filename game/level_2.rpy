@@ -491,6 +491,8 @@ label outside_route:
     #Standing in front of ballroom
 
     "You rush outside the room and try to calm yourself down. The head chef didn't buy a word you said, and you almost got caught."
+    "You need to get rid of this disguise as soon as possible. To your luck you spot the changing room for the service personal across the hallway."
+    "Carefully entering you make out the right size of a uniform in the locker and change your outfit. With your new disguise blending in, its time to find Cathy."
     
     menu: 
         "Go inside the ballroom": 
@@ -530,8 +532,8 @@ label hidewall:
         "Go inside the room as a server and place a tray of food in the room with a recorder hidden underneath the tray.":
             jump insiderecord
 
-        "Listen from outside the room and record it.":
-            jump outsiderecord
+        "Eavesdrop on the conversation from outside.":
+            jump outsiderecord2
 
 
 label actbathroom:
@@ -584,6 +586,8 @@ label insideserver:
     "The air is filled with excitement as the most important figures of the company mingle with wealthy potential donors. "
     "Your eyes sweep across the space, searching for Cathy. Dressed in a red dress, she captures your attention. "
     "Adopting the role of a server, you gracefully approach her. In casual exchange, she selects one of the snacks from your tray and replaces it with an empty plate."
+    #show cathy red dress
+
     #   [something peeks out from under the plate → Recorder] Player has to click on it
     #Update inventory-recorder
  
