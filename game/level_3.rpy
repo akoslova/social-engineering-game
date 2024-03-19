@@ -5,6 +5,7 @@ $ renpy.include("level_1.rpy")
 
 define ph = Character (_("Patric Hardman"), color="#8e0000")
 define receptionist2 = Character (_("Receptionist"), color="#8e0000")
+define marcus = Character (_("Marcus Johnson"), color="#8e0000")
 
 
 label level_3:
@@ -740,6 +741,8 @@ label explorefiles:
     "Loud and panicked voices can be heard on the video. Lots of people are running around. "
     "In the background you can see lots of trees and plants, probably the rainforest. "
     "Suddenly you hear an aggressive voice that seems to come from the owner of the bodycam. It seems as if a protest is being broken up by force."
+    "You decide to save the video footage on you PC as evidence"
+            
 
 
 
@@ -753,7 +756,21 @@ label facebook:
 
 
 label knockingjohnson:
-    #Todo Mareike
+    "You knock on the hotel room door."
+    marcus "Can I help you?"#opens the door
+
+    menu:
+        "Pretend to be cleaning staff and tell him you wanted to check if someone is in the room.":
+            jump cleaningstaff
+        "Try to make friends with him":
+            jump makefriends
+    
+label cleaningstaff:
+#Todo
+
+label friends:
+#Todo
+
 
 label breakin:
     #Todo Mareike
