@@ -767,17 +767,13 @@ label inside_building_cant:
     "However, as you might expect in a company setting, the computer is password-protected. To uncover the password, you'll need to engage with the employees and deduce the company's password creation strategy."
     
     # Checkpoint 1as the Option 1 is correct, if the player chooses 2nd or 3rd option then he will jump to inside_building
-    menu:
-        "Explore the cubicles":
-            jump explore_cubicles
-        "Head to the break room":
-            jump break_room
-        "Check the elevators":
-            jump check_elevators
+    jump inside_building
 
 label inside_building:
     scene bg main ent
 
+    default break_room_explored=False
+    default check_elevators_explored=False
     #"With your disguise intact, you confidently stride through the office building, blending in #seamlessly with the bustling crowd. The air is thick with the hum of productivity as employees #rush to and from."
     # Checkpoint 1as the Option 1 is correct, if the player chooses 2nd or 3rd option then he will jump #to inside_building
 
@@ -785,9 +781,9 @@ label inside_building:
     menu:
         "Explore the cubicles":
             jump explore_cubicles
-        "Head to the break room":
+        "Head to the break room" if not break_room_explored:
             jump break_room
-        "Check the elevators":
+        "Check the elevators" if not check_elevators_explored:
             jump check_elevators
 
 label explore_cubicles:
@@ -998,9 +994,10 @@ label colleagues_chatting_nearby:
 
     p "Thanks! I'm sure I'll fit right in."
 
-
     "This choice doesn't lead to the breakthrough you hoped for." 
-    
+
+    $ break_room_explored = True
+
     jump inside_building
 
    
@@ -1010,8 +1007,10 @@ label observe_from_a_distance:
     show Me with easeinleft:
         xzoom -1.0
 
-
     "From your isolated vantage point, you overhear fragmented conversations, catching bits and pieces about office life and daily routines. While you gain a general sense of the company culture, no specific information about password creation or other sensitive topics is gleaned."
+    
+    $ break_room_explored = True
+
     jump inside_building
 
 label password_reset_procedure:
@@ -1028,13 +1027,13 @@ label password_reset_procedure:
     staff "That's a good mix. It's personal but not something everyone would know. Just make sure you remember it without writing it down."
     "The employee leaves, looking satisfied. This interaction does not gives you a valuable insight into how employees might construct their passwords."
 
+    $ check_elevators_explored =True
 
     jump inside_building
 
 label employees_using_elevator:
     scene bg elevator
     show Me 
-    
 
     "Spotting an opportunity, you approach an employee who looks like they might be heading to an IT support session."
     show e8 with easeinleft
@@ -1044,20 +1043,27 @@ label employees_using_elevator:
     e8 "Sorry, I can't really help you there. I just do my best to keep them straight. Maybe IT could give you some tips?"
     
     "The employee gives a polite but dismissive smile and continues on their way, offering no further information."
+    
+    $ check_elevators_explored =True
+
     jump inside_building
 
 
 label instructions_near_the_elevators:
     scene bg elevator
 
-
     "You carefully read the notices and instructions posted near the elevators. They mostly consist of safety protocols and elevator usage guidelines, offering no clues about password creation or security measures."
+
+    $ check_elevators_explored =True
 
     jump inside_building
 
 label continue_exploring:
     scene bg staircase
     show Me
+
+    default support_staff_contacts_explored = False
+    default middle_contacts_explored=False
 
     # Checkpoint 2, here the 3rd option is correct and if you choose 1 or 2nd option you continue #further but you will not find out about the room 303 so the player again comes at this option
     "Ascending the staircase, you discover an empty room. Curiosity draws you inside, where you find an unexpected treasure: a contact book."
@@ -1069,13 +1075,12 @@ label continue_exploring:
 
 
     menu:
-        "Investigate Support Staff Contacts": 
-            #if support_staff_contacts_done: error
-            jump support_staff_contacts #if
-        "Explore Middle Management Contacts":
-            jump middle_contacts #if
+        "Investigate Support Staff Contacts" if not support_staff_contacts_explored: 
+            jump support_staff_contacts
+        "Explore Middle Management Contacts" if not middle_contacts_explored:
+            jump middle_contacts 
         "Search for a high-ranking employee":
-            jump call_mr_johnson #if
+            jump call_mr_johnson 
 
 label support_staff_contacts:
     scene bg calls
@@ -1094,7 +1099,8 @@ label support_staff_contacts:
     p "Sure thing, Burt. Keep up the excellent work on those floors."
 
     "This choice doesn't lead to the breakthrough you hoped for."
-    $ support_staff_contacts_done = True
+    
+    $ support_staff_contacts_explored = True
     
     jump continue_exploring
 
@@ -1117,6 +1123,9 @@ label middle_contacts:
     p "Got it, Ivy. Just thought I'd lighten the mood with some office tales."
 
     "This choice doesn't lead to the breakthrough you hoped for."
+
+    $ middle_contacts_explored=True
+
     jump continue_exploring
 
 
@@ -1125,14 +1134,16 @@ label call_mr_johnson:
     "You find the number of a high-ranking executive, Mr. Johnson, in the directory."
     "You decide to call Mr. Johnson and try to extract information from him."
 
+    default introduce_as_IT_explored=False
+    default pretend_to_be_CEO_explored=False
 
     #PLease add the if statements. Option w is the correct one
     menu:
-        "Introduce yourself as IT support":
+        "Introduce yourself as IT support" if not introduce_as_IT_explored:
             jump introduce_as_IT
         "Pretend to be a colleague":
             jump pretend_to_be_colleague
-        "Pretend to be the CEO":
+        "Pretend to be the CEO" if not pretend_to_be_CEO_explored:
             jump pretend_to_be_CEO
      
     
@@ -1157,7 +1168,9 @@ label introduce_as_IT:
 
     "This choice doesn't lead to the breakthrough you hoped for."
 
-    jump continue_exploring
+    $ introduce_as_IT_explored=True
+
+    jump call_mr_johnson
 
 
 label pretend_to_be_CEO:
@@ -1175,7 +1188,10 @@ label pretend_to_be_CEO:
     mr_johnson "No problem, I'll get in touch with IT right away and ensure they expedite your access. Thank you for understanding the importance of following our security protocols."
 
     "This choice doesn't lead to the breakthrough you hoped for."
-    jump continue_exploring
+
+    $ pretend_to_be_CEO_explored = True
+
+    jump call_mr_johnson
 
 
 label pretend_to_be_colleague:
@@ -1242,14 +1258,17 @@ label pet_the_cat:
 
 label Ignore_the_cat:
 
-    "This choice doesn't lead to the breakthrough you hoped for."
+    "Maybe I should pet the cat"
 
-    jump continue_exploring
+    jump encounter_with_office_cat
 
 label take_the_keys:
     # update inventory Old keys
     # Here the player does not know about room 303 if he has selected option 1 and option 2 from label #continue_exploring. 
     "You decide to take the keys, thinking they might come in handy."
+    define old_key= InventoryData("old key", "You have now an old key")
+    $ inventory.add_data(old_key)
+    $ keys_found = True
     jump room_303
 
 label room_303:
@@ -1257,19 +1276,21 @@ label room_303:
 
     "Having uncovered the mystery of Room 303, you now stand ready to explore its secrets."
 
-    "The dimly lit room is filled with rows of computers."
+    "The dimly lit room is filled with rows of computers. You see a desk and decide to start there."
 
-    
-    
-
-    #default computer_info_collected = False
+    jump desk_choices
 
 label desk_choices:
+
+    default keys_found = False
+
     menu:
         "Access the computer":
             jump unlock_the_computer
-        "Open the Cupboard with the keys you found":
+        "Open the Cupboard with the keys you found" if keys_found:
             jump open_the_cupboard
+        " Go back and take the keys" if not keys_found:
+            jump take_the_keys
 
     #If the player uses option 1 first then the computer will not be unlcoked 
     #Only after exploring the option 2 player will be able to unlock the computer
@@ -1317,8 +1338,6 @@ label unlock_the_computer:
     #Please add images in line 1293
 
 
-
-
 label open_the_cupboard:
     scene bg locker
 
@@ -1336,17 +1355,18 @@ label open_the_cupboard:
 
 label hidden_camera:
 
-    
+    default disable_the_camera_explored = False
+    default create_a_distraction_explored = False
 
     scene bg camera
     # Please add the if statements Checkpoint 3 , after unlock the computer if the player gets caught @after this, he can come back #to this option
     "As you delve into the files, you notice a hidden security camera"
     menu:
-        "Disable the Camera":
+        "Disable the Camera" if not disable_the_camera_explored:
             jump disable_the_camera
         "Evade the Camera's View":
             jump evade_camera_view
-        "Create a Distraction":
+        "Create a Distraction" if not create_a_distraction_explored:
             jump create_a_distraction
 
 label disable_the_camera:
@@ -1360,6 +1380,8 @@ label disable_the_camera:
     "Panicking, you realize that your attempt to disable the camera has backfired. The unexpected alarm attracts attention, and you hear distant footsteps approaching rapidly."
 
     "This choice doesn't lead to the breakthrough you hoped for."
+
+    $ disable_the_camera_explored = True
 
     jump hidden_camera
 
@@ -1390,18 +1412,22 @@ label create_a_distraction:
 
     "This choice doesn't lead to the breakthrough you hoped for."
 
+    $ create_a_distraction_explored = True
     jump hidden_camera
 
 label fumbling_with_the_camera:
     scene bg room303
     show Me
     show e9 with easeinleft
+
+    default confront_the_employee_explored = False
+
     e9 "Hey, what are you doing in here?"
     
     menu:
         "Act casual":
             jump act_casual
-        "Confront the employee":
+        "Confront the employee" if not confront_the_employee_explored:
             jump confront_the_employee
 
 label act_casual:
@@ -1412,7 +1438,6 @@ label act_casual:
     p "Oh, hey there. I was just trying to find the restroom, and I must have taken a wrong turn. Sorry about that!"
 
     "The employee eyes you skeptically but seems to buy your explanation. He points you in the direction of the restroom, and you proceed as if nothing happened."
-
 
     jump Leaving_building
 
@@ -1430,19 +1455,19 @@ label confront_the_employee:
 
     "Your attempt has backfired. Security is on their way."
     "Choose the other option."
+    $ confront_the_employee_explored = True
     jump fumbling_with_the_camera
 
 label Leaving_building:
 
-
+    default leave_canteen_explored = False
     scene bg room303
     show Me
     "I should get out of here before anyone catches me." #checkpoint4
 
-
     menu:
 
-        "Leave building through the kitchen of the canteen":
+        "Leave building through the kitchen of the canteen" if not leave_canteen_explored:
             jump leavecanteen
 
         "Leave by yourself through main entrance with a group of people":
@@ -1490,7 +1515,6 @@ label idcard:
     p "That was close. Thank god, I got out of here. I am going to meet Cathy to tell her about everything."
 
     jump cathymeet
-
 
 
 label apology:
@@ -1665,7 +1689,7 @@ label flirt2:
     "You apologize for offending her but now all eyes in the kitchen are on you. You see her calling security on her phone, knowing that you will not get out of this situation anymore."
     #wrong picture
 
-
+    $ leave_canteen_explored = True
     jump Leaving_building 
 
 label leavekitchen:
