@@ -36,6 +36,7 @@ image bg bedroom = "bg bedroom.jpg"
 image bg ballroom = "bg ballroom.jpg"
 
 image Me service = "playerservice.png"
+image Me service2 = "playerservice2.png"
 image Me chef = "playerchef.png"
 image senator = "senator.png"
 image chef3 = "chef3.png"
@@ -580,7 +581,7 @@ label insideserver:
 
     #show you with a tray of food
     scene bg ballroom 
-
+    show Me service2
     "You pick up a tray with delicious food and step into the room. "
     "You find yourself in the grand ball room with an assembly of well dressed individuals. "
     "The air is filled with excitement as the most important figures of the company mingle with wealthy potential donors. "
