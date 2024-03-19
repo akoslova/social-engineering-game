@@ -721,13 +721,43 @@ label setupwifi:
     "You keep waiting for a couple of hours but no one logs into your fake wifi point."
     #BG Laptop screen "1 person logged in"
     "You are almost ready to give up, when all of a sudden you can see that someone fell for your trap."
-    "Now you can monitor the victim's online activity."
-    # Todo Mareike
+    "You find yourself sitting in front of your computer, where you can monitor the victim's online activity."
+    "Your heart races as you realize that the victim is Marcus Johnson and you've gained access to his computer. "
+
+    menu:
+        "Explore his files":
+            jump explorefiles
+        "Hack into his facebook account":
+            jump facebook
+    
+        
+
+
+label explorefiles:
+    "The desktop is cluttered with folders and files, but one folder catches your eye - Body Cam Footage."
+    "Curious, you open the folder and watch one of the many video files"
+    #design: video file possible?
+    "Loud and panicked voices can be heard on the video. Lots of people are running around. "
+    "In the background you can see lots of trees and plants, probably the rainforest. "
+    "Suddenly you hear an aggressive voice that seems to come from the owner of the bodycam. It seems as if a protest is being broken up by force."
+
+
+
+
+
+label facebook:
+    "You logged into Marcus Johnson's Facebook account. However, all you found were old pictures and private chats with his old school friend."
+    "This choice doesn't lead you any further so you decide to explore the files next."
+
+    jump explorefiles
+
+
 label knockingjohnson:
     #Todo Mareike
 
 label breakin:
     #Todo Mareike
+    ""
 
 label call_hotels:
     #BG phone number keys
