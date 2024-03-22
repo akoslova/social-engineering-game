@@ -704,7 +704,7 @@ label hotel2_success:
         "Take the Deluxe Room":
             jump takeroom
 
-label takeroom:
+label takeroom:#checkpoint r
 #BG: In front of your hotel door, a guy entering his room
     "You take your keys and go to your room."
     "Suddenly you observe Marcus Johnson entering his room, which is right next to yours."
@@ -741,7 +741,7 @@ label explorefiles:
     "Loud and panicked voices can be heard on the video. Lots of people are running around. "
     "In the background you can see lots of trees and plants, probably the rainforest. "
     "Suddenly you hear an aggressive voice that seems to come from the owner of the bodycam. It seems as if a protest is being broken up by force."
-    "You decide to save the video footage on you PC as evidence"
+    "You decide to save the video footage on you PC as evidence."
             
 
 
@@ -766,15 +766,51 @@ label knockingjohnson:
             jump makefriends
     
 label cleaningstaff:
-#Todo
 
-label friends:
-#Todo
+    p "Good afternoon, sir. I'm here to clean the room. Just wanted to check, if you are here."
+    marcus "Yes, I am here as you can see. And I don't want to be disturbed any more, otherwise I'll get the manager. Bye."
+    jump takeroom
+
+    #go to checkpoint r
+
+label makefriends:
+
+    p "Hey there! I noticed we're staying on the same floor and thought I'd introduce myself. I'm [name], just trying to make some new friends around here. Maybe we could hang out some time."
+    marcus "Look, I'm not really in the mood for making friends. I'm here on business and I don't have time for chitchat."
+    p "Oh, I totally get it. Business can be stressful. But sometimes it's good to take a break and unwind, you know? Maybe we could grab a drink later and chat about something other than work?"
+    #Marcus's expression darkens
+    marcus "I said I'm not interested. Now, if you don't mind, I have work to attend to. Leave me alone."
+    p "Alright, no problem. Sorry to bother you."
+
+    "You retreat from the room, feeling a bit embarrassed by the rejection. "
+    "It seems Marcus Johnson isn't the friendly type, at least not at the moment. Maybe you should try something else."
+
+    #go to checkpoint m
 
 
 label breakin:
-    #Todo Mareike
-    ""
+    "You approach Marcus Johnson's hotel room, feeling a surge of adrenaline as you stand in front of the door. "
+    "With a quick glance around to ensure no one's watching, you begin to open the door with force."
+
+    "You step inside his room and start scanning through Marcus's belongings, searching for anything valuable or incriminating."
+
+    "Suddenly, you freeze as you hear footsteps approaching. Before you can react, the door bursts open, and a hotel staff member stands in the doorway"
+
+
+    hs "What do you think you're doing?! This is a private room!"
+
+    p "I... I was just... I..."
+
+    "YDesperately you are trying to think of a credible excuse as you realize the severity of the situation. "
+    "You've been caught red-handed, and there's no way to talk your way out of this one."
+
+    hs "That's it. I'm calling security."
+
+    "Before you can protest, the hotel staff member takes out their phone and dials a number." 
+
+    "As you wait for security to arrive , you can't help but regret your reckless decision."
+
+    #go to checkpoint m
 
 label call_hotels:
     #BG phone number keys
