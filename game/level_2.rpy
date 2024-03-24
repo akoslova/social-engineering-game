@@ -46,14 +46,15 @@ image chef4 = "chef4.png"
 image officer = "officer.png"
 
 label level_2:
+    $ renpy.save("start_level_2")
+
     call inventory
-
-
     scene bg homelaptop
     "After a brief meeting with the reporter, you're now certain of the politician's identity. With the name and party affiliation of Senator John Smith from Liberty party in hand, your investigation enters its next phase."
 
-
     "You start by scouring the internet for any mention of Senator Smith's office location."
+
+    $ todo.update_aim("Find the location of Senator Smith's office")
 
     menu:
         "Focus on Google.":
@@ -64,18 +65,19 @@ label level_2:
 label Caught_Level2:
     scene bg caught
     "You lost the level and need to restart"
-    jump level_2
+    $ renpy.load("start_level_2")
 
 label focus_on_google:
     scene bg laptopgoogle
     #scene Desktop home screen
 
-    # Please add if statements for checkpoints Here option 3 is correct
+    default voting_record_explored = False
+    default news_articles_explored = False
 
     menu:
-        "Search for Senator Smith's voting record":
+        "Search for Senator Smith's voting record" if not voting_record_explored:
             jump voting_record
-        "Look up recent news articles":
+        "Look up recent news articles" if not news_articles_explored:
             jump news_articles
         "Investigate the Liberty Party's official website":
             jump press_releases
@@ -93,17 +95,19 @@ label dive_into_insta:
         "Explore the Instagram stories archive":
             jump stories_archive
 
+
 label voting_record:
     scene bg votingrecord
     # BG One picture of computer screen where there is a mention of senator smith community project
     #BG Second picture of computer screen where the Senator Smith of Liberty Party has most votes
 
-
     "You discover Senator Smith's active involvement in community service projects, painting him as a dedicated public servant."
 
     "It doesn't provide you the location of Senator's office. Choose some other option."
 
+    $ voting_record_explored = True
     jump focus_on_google
+
 
 label news_articles:
     scene bg votingrecord
@@ -111,28 +115,26 @@ label news_articles:
 
     "This uncovers a series of positive articles highlighting Smith's efforts in promoting transparency and ethics in politics.But you did not find location of the office."
     
-    
-
+    $ news_articles_explored = True
     jump focus_on_google
+
+
 label press_releases:
     scene bg officeaddress
     # BG office address of Senator Smith
-
 
     "On the Liberty Party's website, you find a detailed biography of Smith, including his office address in the heart of the political district, confirming his standing as a respected member of the party."
 
     jump senator_office
 
+
 label review_official_insta:
     scene bg celebration
     # Insta post of many people celebrating where the office address is written top
 
-
     "On his official page, you find a post celebrating an anniversary of his office opening, with the address tagged."
 
-
     jump senator_office
-
 
 
 label tagged_photos:
@@ -150,7 +152,6 @@ label stories_archive:
 
     "Stories archive includes a repost from a charity event at his office, confirming the location and showcasing his philanthropic side."
 
-
     jump senator_office
 
 
@@ -158,9 +159,11 @@ label senator_office:
     scene bg senoffice
     "You successfully pinpoint the location of Senator Smith's office. The information gathered paints a picture of Senator Smith as a man of integrity and as a member of the Liberty Party."
 
-
-    "Following your visit to Senator John Smith's office, you decide it's time to get your hands dirty—literally."
+    "Following your visit to Senator John Smith's office, you decide it's time to get your hands dirty — literally."
     "The dumpsters located discreetly behind the office building hold the potential clues. As you approach, you notice two distinct dumpsters: one clearly labeled for paper waste, the other for general refuse. "
+    
+    $ todo.update_aim("Find information in the bins")
+
     scene bg waste
     menu:
         "Paper Waste Bin":
@@ -169,18 +172,19 @@ label senator_office:
             jump other_waste
 
 
-
 label paper_waste:
     scene bg wastepaper
     # Here option 2 is correct
    
+    default intact_documents_explored = False
+    default finding_envelopes_explored = False
 
     menu:
-        "Look for intact documents, letters, or anything with handwriting.":
+        "Look for intact documents, letters, or anything with handwriting." if not intact_documents_explored:
             jump intact_documents
         "Search for shredded documents that could be pieced back together.":
             jump shredded_documents
-        "Focus on finding envelopes that might contain undiscarded mail or confidential communications.":
+        "Focus on finding envelopes that might contain undiscarded mail or confidential communications." if not finding_envelopes_explored:
             jump finding_envelopes
 
 
@@ -195,13 +199,17 @@ label other_waste:
         "Keep an eye out for any unusual items that seem out of place in a typical office waste scenario":
             jump unusual_items
 
+
 label intact_documents:
     scene bg wastepaper
     # Emails prinouts
     "You find a series of personal messages and email printouts that hint at Senator Smith's character and the positive morale among his staff."
 
     "You did not find any potential clues. Choose some other option."
+
+    $ intact_documents_explored = True
     jump paper_waste
+
 
 label shredded_documents:
     "You find some shredded papers so you have to try to reassemble and see if you can find some information from it."
@@ -276,41 +284,42 @@ label shredded_documents:
 
     jump noisy_cat
 
+
 label finding_envelopes:
     scene bg wastepaper
     # some Calenders 
 
     "Reveals a stack of outdated office calendars and generic event flyers, none of which pertain to Senator Smith's current activities."
     "This choice doesn't lead to the breakthrough you hoped for. Choose some other option."
+
+    $ finding_envelopes_explored = True
     jump paper_waste
+
 
 label rotten_food:
     scene bg wasteother
     # Broken smartphone
     "You find a broken smartphone."
-    
     "You might find something in paper waste. Go check it."
+
     jump paper_waste
 
 label electronic_devices:
     scene bg wasteother
     # Broken USB drive
-
     "You find a USB drive. However, upon closer inspection, it appears damaged and unlikely to function."
     "This choice doesn't lead to the breakthrough you hoped for. You might find something in paper waste. Go check it."
+
     jump paper_waste
     
 
 label unusual_items:
     scene bg wasteother
     # Broken shredder paper
-
     "You find a hidden mechanical device, which turns out to be an old, malfunctioning paper shredder."
-
-   
     "You might find something in paper waste. Go check it."
-    jump paper_waste
 
+    jump paper_waste
 
 
 label noisy_cat:
@@ -350,8 +359,6 @@ label ignore_and_focus:
     # Here option 1 and option 2 are wrong and leads to caught
     "As you delve deeper into the documents, the cat continues its exploration, causing papers to scatter."
     "Suddenly, the noise escalates as the cat finds something intriguing and dashes out, papers in tow. The commotion attracts attention, and you hear footsteps approaching."
-
-    #jump Caught_Level2
 
     menu:
         "Try to explain your presence as a curious passerby who heard a noise.":
@@ -396,21 +403,19 @@ label hide_behind_bins:
 
     jump Caught_Level2
 
+
 label moment_to_escape:
     scene bg alley
     "Provides a narrow escape"
 
-    # He has to repeat this step
-
     jump player_with_phone
+
 
 label offer_snack:
     scene bg wastecat2
     # Cat is eating some food
 
-
     "The cat, now intrigued by your offering, calms down and starts eating quietly. This temporary truce allows you to continue your search. "
-
 
     jump player_with_phone
 
@@ -425,24 +430,28 @@ label player_with_phone:
     c "I have a plan. As a journalist, I can go there without an invitation because they like it when the press reports on their generous charity event." 
     c "I will steal some catering clothes and hide them outside for you." 
 
+    $todo.update_aim("Get inside the charity event and get evidence recorded")
+
     jump next_day_2
 
-    #checkpoint m
 
 label next_day_2:
+    "Let's head over to the charity event"
 
-    #Use map to navigate to the charity event
+    call screen map("event")
+    hide screen map
+
     scene bg charity
     "You stand outside the event venue, adorned in the chef's uniform stolen from a nearby catering van."
     "Choose a role to blend in seamlessly."
 
     menu:
-        
         "Assume the role of a server, allowing you to move around discreetly.":
             jump server_route
 
         "Pose as the head chef, giving you more authority and access.":
             jump head_chef_route
+
 
 label server_route:
     scene bg hallway
@@ -484,9 +493,12 @@ label caught_route:
     show Me chef
     show chef
     # go to checkpoint m
+
     p "Well, that is unfortunate, but I am the head chef for today."
     hc "Nice try, but I've been running this kitchen for years, and I know all my staff. And you're definitely not the chef approved for this event."
+    
     jump next_day_2
+
 
 label outside_route:
     scene bg ballroomdoor
@@ -505,7 +517,7 @@ label outside_route:
 
 
 label check_out_building:
-#dimly lit corridors
+    #dimly lit corridors
     scene bg hallway
     show Me service
 
@@ -513,15 +525,18 @@ label check_out_building:
     "Suddenly, distant voices begin to echo, gradually growing louder and more distinct. "
     "Instinctively, you press your back against the wall, peering cautiously around the corner. "
     "Just as you begin to contemplate slipping away unnoticed you recognize the unmistakable silhouette of the senator."
+    
     menu: 
         "Hide behind a wall": 
             jump hidewall 
         "Act like you are looking for the bathroom":
             jump actbathroom 
+
+
 label hidewall:
     scene bg hallway
     show Me service
-#hiding space: maybe behind a wall/door, and door of secret meeting visible
+    #hiding space: maybe behind a wall/door, and door of secret meeting visible
     "As the voices gradually grow louder, you hold your breath, fearing discovery. "
     
     scene bg hallway2
@@ -545,22 +560,21 @@ label actbathroom:
     show senator
     "You try to act casual and as if you are searching for the bathroom. Suddenly three people appear, one of them you recognize as the senator."
 
-
-#senator evil/mad
+    #senator evil/mad
     senator "What are you snooping around for? The ballroom's that way." 
     p "Oh I’m just looking for the bathroom, could you please show me where I can find it?"
     senator "There is no bathroom here. And you shouldn't be hanging around here. This is a restricted area."
     senator "I'll get security to throw you out!"
-#go to checkpoint m
+    #go to checkpoint m
+    
     jump next_day_2
-
 
 
 label insidefail:
     scene bg ballroom
     show Me chef
     show chef4
-#other kitchen employee
+    #other kitchen employee
 
     server "Hey, you! Aren’t you the guy that pretended to be the head chef?"
     server "Don't play innocent! Security!!"
@@ -568,14 +582,13 @@ label insidefail:
     "They point an accusatory finger in your direction, and the eyes of nearby guests begin to turn toward you."
     "You know that your disguise has been revealed, and you have to face the consequences of your activities..."
 
-    jump next_day_2
+    jump next_day_2 # go to checkpoint m
     
-    # go to checkpoint m
-
+    
 label insideserver:
     scene bg ballroomdoor
     show Me service
-#text message bg
+    #text message bg
 
     c "Did you manage to get in?"
     p "Yes, I am a server."
@@ -599,15 +612,14 @@ label insideserver:
     "Among the sea of influential figures, you spot the Senator John Smith from your picture."
     "In the midst of the lively chatter, you observe him checking his watch, hinting a sense of urgency."
     "Suddenly you see him getting up and leaving the room."
+    
     menu: 
         "Follow him inconspiciously": 
             jump followsenator 
         "Stay and listen to the speeches":
             jump listenspeeches 
 
-    
-
-
+'''
 label insideguest:
 
     c "Did you manage to get in?"
@@ -634,14 +646,15 @@ label insideguest:
             jump followsenator 
         "Stay and listen to the speeches":
             jump listenspeeches 
+'''
 
 label followsenator:
-#corridor bg with door visible
+    #corridor bg with door visible
     "You follow him carefully. He walks down the corridor and looks around right before he enters into a room and puts up a sign “No disturbing”"
 
     "As he closes the door behind him, you are walking towards the door. You can hear voices inside the room."
 
-#Options to record can only be seen when ou recieved the recorder from cathy
+    #Options to record can only be seen when ou recieved the recorder from cathy
     menu:
         "Go inside the room as a server and place a tray of food in the room with a recorder hidden underneath the tray.":
             jump insiderecord
@@ -651,6 +664,7 @@ label followsenator:
 
         "Eavesdrop on the conversation from outside":
             jump outsiderecord2
+
 
 label insiderecord:
     #scene secret meeting room
@@ -666,43 +680,41 @@ label insiderecord:
 
     jump waiting_for
 
+
 label outsiderecord:
 
-#you in front of door holding ear agianst it
-
-
+    #you in front of door holding ear agianst it
     "You sneak up to the door, catching some hushed voices. "
     "Then you hit the record button, but soon realize that you can barely make out anything from the conversation."
     
     #checkpoint m
     jump next_day_2
 
+
 label outsiderecord2:
 
-#you in front of door holding ear agianst it
-
-
+    #you in front of door holding ear agianst it
     "You sneak up to the door, catching some hushed voices. "
     "Pressing your ear to the door, you soon realize that you can barely make out anything from the conversation."
     
     #checkpoint m
     jump next_day_2
 
+
 label listenspeeches:
 
     speaker "Ladies and gentlemen, in times of challenge, we must unite and strive for progress. Our collective efforts can shape a better world for generations to come."
 
     "…as you listen to the speeches you completely forget about the secret meeting that takes places at that same time, leaving you unaware of the information that would have completed your mission. The night proceeds, and the secrets remain hidden."
-    jump next_day_2
-
-    #checkpoint m
+    
+    jump next_day_2#checkpoint m
 
 
 #Checkpoint recorded
 label waiting_for:
-    
 
     "You make use of the hiding place you already discovered earlier and watch the door tensely. As the three people leave the room, you wait briefly to avoid a blatant return and then set off to retrieve the recording."
+    jump getrecording
 
 
 label getrecording:
@@ -739,6 +751,7 @@ label picked_up_glasses:
 
     jump succesful_leaving
 
+
 label turn_around:
 
     senator "YOU Again?!"
@@ -751,6 +764,7 @@ label turn_around:
 
     jump running_from
 
+
 label running_from:
 
     "You start running, knocking him aside and running out the door. Suddenly you are stopped, someone grabs you and pushes you against the wall."
@@ -760,32 +774,32 @@ label running_from:
 
     jump caught_from_senator
 
+
 label caught_from_senator:
 
     "That's it, you can't talk your way out of this one"
     # jump checkpoint recorded
     jump waiting_for
 
+
 label succesful_leaving:
 
-    "You do not wait for an answer, but leave as quickly as you can, hoping that the senators will not notice your trembling. 
-    You could even swear that your shaking hands make the drinking glasses ring slightly."
+    "You do not wait for an answer, but leave as quickly as you can, hoping that the senators will not notice your trembling. You could even swear that your shaking hands make the drinking glasses ring slightly."
+
+    "You decide to get rid of your disguise and plan your next step"
 
     menu: 
-
-        "You decide to get rid of your disguise and plan your next step"
-
         "Leave the event":
             jump leave_event
         "Mingle with the party guests":
             jump stay_party
 
+
 label stay_party:
 
-    "You decide to stay a bit longer and look for Cathy. As you find her engrossed in a conversation with a colleague you excuse and pull her onto the dance floor with your hand.
-    While you sway to the beat of the music, you tell her about the successful recording and the close encounter with the senator." 
+    "You decide to stay a bit longer and look for Cathy. As you find her engrossed in a conversation with a colleague you excuse and pull her onto the dance floor with your hand. While you sway to the beat of the music, you tell her about the successful recording and the close encounter with the senator." 
 
-#show cathy red dress
+    #show cathy red dress
     p "My fingertips are itching to find out what was said on the recording should we get out of here and finally reveal this secret?"
 
     c "Yeah, let's do that! Can we stop at a fast food restaurant on the way? I get really hungry all the time when I get nervous about things."
@@ -794,23 +808,27 @@ label stay_party:
 
     jump listen_recording
 
+
 label leave_event:
 
-    "After successfully retrieving the recording, you waste no time in slipping out of the event, the weight of the evidence burning a hole in your pocket. 
-    You dial Cathy's number as you hail a cab, arranging to meet her at a discreet location where you can reveal the truth hidden within the recording."  
+    "After successfully retrieving the recording, you waste no time in slipping out of the event, the weight of the evidence burning a hole in your pocket. You dial Cathy's number as you hail a cab, arranging to meet her at a discreet location where you can reveal the truth hidden within the recording."  
     
     jump next_day_3
 
+
 label next_day_3:
-# scene meetingspot
+    $todo.update_aim(" ")
+    # scene meetingspot
     show cathy with easeinleft
     show Me with easeinright
+
+    call screen map("cafe")
+    hide screen map
 
     c "Hey, how are you? I am honestly very excited to hear your recording. What you have been doing the last few days is crazy and everything with social.. how was it called?"
 
     p "Social Engineering. Yeah not the machine or the software itself has the weak point but the human in front of it. Thats the trick!"
 
-    
     "You hand her one of your in ears and play back the recording."
 
     #Audio recording - with subtitle?
@@ -832,9 +850,13 @@ label next_day_3:
 
     jump start
 
+
 label listen_recording:
-# scene Fast food restaurant, Table with food
-#show cathy red dress
+    $todo.update_aim(" ")
+    # scene Fast food restaurant, Table with food
+    #show cathy red dress
+    call screen map("cafe")
+    hide screen map
 
     "Sitting at the table and diggin in your food the recorder placed in between of you and Cathy"
 
