@@ -34,6 +34,10 @@ image bg hallway = "bg hallway.jpg"
 image bg hallway2 = "bg hallway2.jpg"
 image bg bedroom = "bg bedroom.jpg"
 image bg ballroom = "bg ballroom.jpg"
+image bg cafe record = "bg cafe record.jpg"
+image bg cab call = "bg cab call.jpg"
+image bg secretroom = "bg secretroom.jpg"
+image bg secretempty = "bg secretempty.jpg"
 
 image cathyball = "cathyball.png"
 image Me suit = "playersuit.png"
@@ -673,6 +677,7 @@ label followsenator:
 
 
 label insiderecord:
+    scene bg secretroom
     #scene secret meeting room
     #[Three people 1 female, two male (one of them senator John Smith) staring at you, agressively]
     "You gently knock on the door before entering the room."
@@ -724,7 +729,8 @@ label waiting_for:
 
 
 label getrecording:
-
+    scene bg secretempty
+    show Me service with easeinright
     "With a cautious push, you enter the room, the weight of the silence weighing on you as you close the door behind you silently."
     "Your hand reaches for the recording, picking it up and tucking it safely into your pocket, the mission nearly accomplished, when the sound of footsteps startles you and the door swings open."
 
@@ -745,8 +751,9 @@ label getrecording:
 
 
 label picked_up_glasses:
+    scene bg secretempty
     show Me service
-
+    show senator 
     senator "YOU Again?!"
 
     p "I am sorry! I was just cleaning up to get your glasses as they are needed in the ballroom. We are running low on unused glasses."
@@ -759,7 +766,9 @@ label picked_up_glasses:
 
 
 label turn_around:
-
+    scene bg secretempty
+    show Me service
+    show senator
     senator "YOU Again?!"
 
     p "I was just going to clean up here."
@@ -772,7 +781,10 @@ label turn_around:
 
 
 label running_from:
-
+    scene bg secretempty
+    show Me service
+    show senator 
+    hide Me service with easeinright
     "You start running, knocking him aside and running out the door. Suddenly you are stopped, someone grabs you and pushes you against the wall."
     "You try to free yourself, but your arms are caught in a vice-like grip. You have a bad feeling when you see the senator coming towards you, snorting with rage. He points a finger at you"
 
@@ -782,7 +794,9 @@ label running_from:
 
 
 label caught_from_senator:
-
+    scene bg secretempty
+    show Me service
+    show senator
     "That's it, you can't talk your way out of this one"
     # jump checkpoint recorded
     jump waiting_for
@@ -816,7 +830,7 @@ label stay_party:
 
 
 label leave_event:
-
+    scene bg cab call
     "After successfully retrieving the recording, you waste no time in slipping out of the event, the weight of the evidence burning a hole in your pocket. You dial Cathy's number as you hail a cab, arranging to meet her at a discreet location where you can reveal the truth hidden within the recording."  
     
     jump next_day_3
@@ -863,7 +877,7 @@ label listen_recording:
     #show cathy red dress
     call screen map("cafe")
     hide screen map
-
+    scene bg cafe record
     "Sitting at the table and diggin in your food the recorder placed in between of you and Cathy"
 
     c "What you have been doing the last few days.. honestly is impressive and crazy. And everything with social.. how was it called?"
