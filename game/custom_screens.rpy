@@ -158,6 +158,9 @@ screen map(place):
     imagebutton idle "gui/map/tastyfood.png":
         focus_mask True
 
+    imagebutton idle "gui/map/senator.png":
+        focus_mask True
+
 
     if place == "cafe":
         imagebutton auto "gui/map/cafe_active_%s.png":
@@ -176,5 +179,10 @@ screen map(place):
 
     if place == "tastyfood":
         imagebutton auto "gui/map/tastyfood_active_%s.png":
+            focus_mask True
+            action Hide("map"), Return()
+
+    if place == "senator":
+        imagebutton auto "gui/map/senator_active_%s.png":
             focus_mask True
             action Hide("map"), Return()

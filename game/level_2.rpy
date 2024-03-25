@@ -160,6 +160,12 @@ label senator_office:
     "You successfully pinpoint the location of Senator Smith's office. The information gathered paints a picture of Senator Smith as a man of integrity and as a member of the Liberty Party."
 
     "Following your visit to Senator John Smith's office, you decide it's time to get your hands dirty — literally."
+
+    "{i}Go to the Senator's office.{\i}"
+
+    call screen map("senator")
+    hide screen map
+
     "The dumpsters located discreetly behind the office building hold the potential clues. As you approach, you notice two distinct dumpsters: one clearly labeled for paper waste, the other for general refuse. "
     
     $ todo.update_aim("Find information in the bins")
