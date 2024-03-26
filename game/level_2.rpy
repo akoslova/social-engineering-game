@@ -38,6 +38,8 @@ image bg cafe record = "bg cafe record.jpg"
 image bg cab call = "bg cab call.jpg"
 image bg secretroom = "bg secretroom.jpg"
 image bg secretempty = "bg secretempty.jpg"
+image bg plate recorder = "bg plate recorder.jpg"
+image bg dontdisturb = "bg dontdisturb.jpg"
 
 image cathyball = "cathyball.png"
 image Me suit = "playersuit.png"
@@ -551,7 +553,7 @@ label hidewall:
     
     scene bg hallway2
     show Me service
-    hide Me service with easeinright
+    hide Me service with easeoutright
     "Then you see three people passing you. Fortunately, they don’t notice you as they disappear into a nearby room. "
 
     "As they close the door behind them, you are walking towards the door. You can hear voices inside the room."
@@ -605,18 +607,21 @@ label insideserver:
     c "Ok meet me inside the ball room."
 
     #show you with a tray of food
-    scene bg ballroom 
+    scene bg ballroom2
     show Me service2
     "You pick up a tray with delicious food and step into the room. "
     "You find yourself in the grand ball room with an assembly of well dressed individuals. "
     "The air is filled with excitement as the most important figures of the company mingle with wealthy potential donors. "
     "Your eyes sweep across the space, searching for Cathy. Dressed in a red dress, she captures your attention. "
+    show cathyball with easeinleft
     "Adopting the role of a server, you gracefully approach her. In casual exchange, she selects one of the snacks from your tray and replaces it with an empty plate."
     #show cathy red dress
-
+   
+    scene bg plate recorder
     #   [something peeks out from under the plate → Recorder] Player has to click on it
     #Update inventory-recorder
- 
+    scene bg ballroom
+    show Me service2
     "While pretending to be a server, your eyes keenly scan the faces of the gathered guests. "
     #senator smith in focus, checking his watch
     "Among the sea of influential figures, you spot the Senator John Smith from your picture."
@@ -659,6 +664,7 @@ label insideguest:
 '''
 
 label followsenator:
+    scene bg dontdisturb
     #corridor bg with door visible
     "You follow him carefully. He walks down the corridor and looks around right before he enters into a room and puts up a sign “No disturbing”"
 
@@ -693,7 +699,7 @@ label insiderecord:
 
 
 label outsiderecord:
-
+    scene bg dontdisturb
     #you in front of door holding ear agianst it
     "You sneak up to the door, catching some hushed voices. "
     "Then you hit the record button, but soon realize that you can barely make out anything from the conversation."
@@ -703,7 +709,7 @@ label outsiderecord:
 
 
 label outsiderecord2:
-
+    scene bg dontdisturb
     #you in front of door holding ear agianst it
     "You sneak up to the door, catching some hushed voices. "
     "Pressing your ear to the door, you soon realize that you can barely make out anything from the conversation."
@@ -713,7 +719,8 @@ label outsiderecord2:
 
 
 label listenspeeches:
-
+    scene bg ballroom2
+    show Me service2
     speaker "Ladies and gentlemen, in times of challenge, we must unite and strive for progress. Our collective efforts can shape a better world for generations to come."
 
     "…as you listen to the speeches you completely forget about the secret meeting that takes places at that same time, leaving you unaware of the information that would have completed your mission. The night proceeds, and the secrets remain hidden."
@@ -723,7 +730,8 @@ label listenspeeches:
 
 #Checkpoint recorded
 label waiting_for:
-
+    scene bg hallway
+    show Me service
     "You make use of the hiding place you already discovered earlier and watch the door tensely. As the three people leave the room, you wait briefly to avoid a blatant return and then set off to retrieve the recording."
     jump getrecording
 
@@ -784,7 +792,7 @@ label running_from:
     scene bg secretempty
     show Me service
     show senator 
-    hide Me service with easeinright
+    hide Me service with easeoutright
     "You start running, knocking him aside and running out the door. Suddenly you are stopped, someone grabs you and pushes you against the wall."
     "You try to free yourself, but your arms are caught in a vice-like grip. You have a bad feeling when you see the senator coming towards you, snorting with rage. He points a finger at you"
 
@@ -803,11 +811,12 @@ label caught_from_senator:
 
 
 label succesful_leaving:
-
+    scene bg hallway
+    show Me service
     "You do not wait for an answer, but leave as quickly as you can, hoping that the senators will not notice your trembling. You could even swear that your shaking hands make the drinking glasses ring slightly."
-
+    hide Me service with easeoutright
     "You decide to get rid of your disguise and plan your next step"
-
+    show Me suit with easeinright
     menu: 
         "Leave the event":
             jump leave_event
@@ -816,7 +825,9 @@ label succesful_leaving:
 
 
 label stay_party:
-
+    scene bg ballroom2
+    show Me suit with easeinright
+    show cathyball with easeinleft
     "You decide to stay a bit longer and look for Cathy. As you find her engrossed in a conversation with a colleague you excuse and pull her onto the dance floor with your hand. While you sway to the beat of the music, you tell her about the successful recording and the close encounter with the senator." 
 
     #show cathy red dress
@@ -839,6 +850,7 @@ label leave_event:
 label next_day_3:
     $todo.update_aim(" ")
     # scene meetingspot
+    scene bg coffee
     show cathy with easeinleft
     show Me with easeinright
 
