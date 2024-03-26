@@ -480,7 +480,7 @@ label server_route:
 label head_chef_route:
     scene bg kitchen2
     show Me chef
-    show chef
+    show chef3
     # scene kitchen
     #[HEAD CHEF; MAD] you wearing server/kitchen clothes
     "Despite your efforts to pose as the head chef, things don't go as smoothly as planned. The real head chef, who was briefly away, returns unexpectedly."
@@ -503,7 +503,7 @@ label head_chef_route:
 label caught_route:
     scene bg kitchen2
     show Me chef
-    show chef
+    show chef3
     # go to checkpoint m
 
     p "Well, that is unfortunate, but I am the head chef for today."
