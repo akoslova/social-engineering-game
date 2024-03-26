@@ -35,7 +35,7 @@ image bg hallway2 = "bg hallway2.jpg"
 image bg bedroom = "bg bedroom.jpg"
 image bg ballroom = "bg ballroom.jpg"
 image bg cafe record = "bg cafe record.jpg"
-image bg cab call = "bg cab call.jpg"
+image bg cabcall = "bg cabcall.jpg"
 image bg secretroom = "bg secretroom.jpg"
 image bg secretempty = "bg secretempty.jpg"
 image bg plate recorder = "bg plate recorder.jpg"
@@ -841,7 +841,7 @@ label stay_party:
 
 
 label leave_event:
-    scene bg cab call
+    scene bg cabcall
     "After successfully retrieving the recording, you waste no time in slipping out of the event, the weight of the evidence burning a hole in your pocket. You dial Cathy's number as you hail a cab, arranging to meet her at a discreet location where you can reveal the truth hidden within the recording."  
     
     jump next_day_3
