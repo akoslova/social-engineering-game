@@ -697,12 +697,12 @@ label securitydisguise: #wear tshirt with security on it
 
 label canteendisguise:
     scene bg coreback3
-    show Me with easeinleft:
+    show Me canteen with easeinleft:
         xzoom -1.0
 
     "Disguised as canteen employee, you walk towards the back entrance that leads to the company’s canteen." #ToDo: canteen outfit missing
     scene bg canteendoor
-    show Me
+    show Me canteen
     "Heavily loaded and appearing to be busy with work, you move toward the door and open it. Then suddenly a kitchen employee looks at you weirdly."
     scene bg kitchen
     show Me canteen
@@ -716,6 +716,9 @@ label canteendisguise:
     
 
 label hideface:
+    scene bg kitchen
+    show Me canteen
+    show k1 stressed
     k1 "Hey I’ve never seen you here, who are you?"
     p "I’m Drew, just started working here."
     k1 "Employee: I haven't heard of a new colleague starting here." 
@@ -727,6 +730,8 @@ label hideface:
             jump runoutside
 
 label runinside:
+    scene bg canteendoor
+
     "As soon as you run towards the door that leads deeper inside the building other people notice you and you feel someone tackle you over"
     menu:
         "You got caught. Repeat.":
