@@ -28,7 +28,7 @@ label investigation:
         "Shift through social media for mentions of the Crimson Group.":
             jump social_media
 
-label official_webiste:
+label official_website:
 
     #BG: Laptop Screen Crimson Group Website
 
@@ -198,7 +198,7 @@ label personal_details:
     "The pictures of Patrick Hardman offer the most emotionally charged storyline. The transition from a family of three to just father and son suggests possibly divorce with his wife."
     "By exploring also the tagged profiles of his ex-wife Tina you find out his sons name is Jason he is around eleven years old and he goes currently to the Lipson - middle school."
 
-    jump pretexting
+    jump phising_lvl3
 
 label analyze:
 
@@ -241,7 +241,7 @@ label pretexting:
     #scene Homeoffice/Desk
     #show me/player with phone
 
-    "As the phishing mail failed to bear any results from the mercenary Hardman you decide to give pretexting a try."
+    "You want to know more about Patrick Hardman so you decide to give pretexting a try."
     "With the information gathered from the website and the secondary research about the mercenary Hardman at hand you try calling the office of Crimson. You set up a voice changer and proceed to call your target."
 
     menu:
@@ -504,6 +504,7 @@ label unsuccesful_pretext:
 
 label succesful_pretext:
 # Number was retrieved can be used for Vishing call
+    jump vishing
 
 
 #checkpoint vishing
@@ -590,6 +591,8 @@ label unsuccesful_vishing:
     "Your play did not achieve your goal. Try again!"
 
     #back to checkpoint vishing
+label successful_vishing:
+    #some information we find out
 
 label phising_lvl3:
     "You decide to try your luck by writing a phishing email to all the employees from the Crimson Group."
@@ -631,6 +634,10 @@ label emailaccount:
             jump email3
 
     #update journal with information found
+
+label email2: 
+    "Success!"
+
 
 
 label find_out_more:#checkpoint x
