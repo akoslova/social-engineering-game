@@ -19,13 +19,13 @@ label investigation:
         "Visit the Crimson Group's official website.":
             jump official_website
 
-        "Search for news articles and reports on the Crimson Group.":
+        "Search for news articles and reports":
             jump news_articles3
 
-        "Delve into forums and online discussions about mercenaries.":
+        "Delve into forums and online discussions":
             jump online_discussion
 
-        "Shift through social media for mentions of the Crimson Group.":
+        "Search through social media":
             jump social_media
 
 label official_website:
@@ -163,28 +163,28 @@ label social_media:
 
     #Write above 4 names in Diary
 
-
-    menu:
-        "Dive deeper into the profiles of these mercenaries.":
-            jump dive_deeper
-        "Gather information on their past missions.":
-            jump gather_info
-        "Look for any personal grievances or vulnerabilities.":
-            jump personal
+    label media2:
+        menu:
+            "Dive deeper into the profiles":
+                jump dive_deeper
+            "Gather information on their past missions.":
+                jump gather_info
+            "Look for any personal information":
+                jump personal
 
 label dive_deeper:
 
     #BG: Mobile Screen with instagram
 
     "You decide to focus on the personal profiles of Jack Morrison, Patrick Hardman, Marcus Johnson, and Sophia Chen."
-
-    menu:
-        "Examine their social media activity for personal details and professional hints.":
-            jump personal_details
-        "Analyze the content they've liked, shared, or commented on for subtle insights.":
-            jump analyze
-        "Focus on the relationships and connections mentioned in their profiles.":
-            jump focus
+    label deeper2:
+        menu:
+            "Examine their social media activity.":
+                jump personal_details
+            "Analyze the content they've liked, shared, or commented":
+                jump analyze
+            "Focus on the connections in their profiles.":
+                jump focus
 
 
 label personal_details:
@@ -205,14 +205,14 @@ label analyze:
     #BG: Mobile screen with insta
     "You scroll through the account of each one, but you did not find anything."
 
-    jump social_media
+    jump deeper2
 
 label focus:
 
     #BG: Mobile Screen with insta of Crimson group where there is a post of these 4 .
     "You scroll through the account of each one, but you did not find anything."
 
-    jump social_media
+    jump deeper2
 
 
 
@@ -225,15 +225,16 @@ label gather_info:
     "Sophia Chen: Exposed as a cyber warfare expert with a history of dismantling enemy communications."
     "This information is of no use, you have to try some other option"
 
-    jump social_media
+    jump media2
 
 label personal:
 
     #BG: Mobile screen with insta of crimson group
 
-    "This choice doesn't lead to the breakthrough you hoped for." 
+    "This choice doesn't lead to the breakthrough you hoped for."
+    "You should choose some different option."
 
-    jump social_media
+    jump media2
 
     
 label pretexting:

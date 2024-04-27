@@ -1,22 +1,22 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
 While running game code:
-  File "game/level_3.rpy", line 20, in script
-    jump official_website
-ScriptError: could not find label 'official_website'.
+  File "game/level_3.rpy", line 635, in script
+    jump email3
+ScriptError: could not find label 'email3'.
 
 -- Full Traceback ------------------------------------------------------------
 
 Full traceback:
-  File "game/level_3.rpy", line 20, in script
-    jump official_website
-  File "C:\Users\49157\Downloads\renpy-8.1.3-sdk\renpy\ast.py", line 1992, in execute
+  File "game/level_3.rpy", line 635, in script
+    jump email3
+  File "C:\Users\Deep\OneDrive\Desktop\renpy-8.1.3-sdk\renpy\ast.py", line 1992, in execute
     rv = renpy.game.script.lookup(target)
-  File "C:\Users\49157\Downloads\renpy-8.1.3-sdk\renpy\script.py", line 1013, in lookup
+  File "C:\Users\Deep\OneDrive\Desktop\renpy-8.1.3-sdk\renpy\script.py", line 1013, in lookup
     raise ScriptError("could not find label '%s'." % str(original))
-ScriptError: could not find label 'official_website'.
+ScriptError: could not find label 'email3'.
 
 Windows-10-10.0.22631 AMD64
 Ren'Py 8.1.3.23091805
 Social Engineering Game 1.0
-Thu Apr 25 14:06:11 2024
+Sat Apr 27 01:56:19 2024
