@@ -242,7 +242,7 @@ label pretexting:
     #scene Homeoffice/Desk
     #show me/player with phone
 
-    "You want to know more about Patrick Hardman so you decide to give pretexting a try."
+    "Now you want to know more about Patrick Hardman so you decide to give pretexting a try."
     "With the information gathered from the website and the secondary research about the mercenary Hardman at hand you try calling the office of Crimson. You set up a voice changer and proceed to call your target."
 
     menu:
@@ -505,6 +505,7 @@ label unsuccesful_pretext:
 
 label succesful_pretext:
 # Number was retrieved can be used for Vishing call
+
     jump vishing
 
 
@@ -568,8 +569,13 @@ label accident:
 
     p "We will! I sent you the formular."
 
-    "Shortly after hanging up you get access to Patric's smartphone as he ingnorantly clicked on your link. Now with this you are able to locate his position in the rain forest and note down in which area of Tropica the mercenaries are deployed."
-    #Update notebook: Location of the operation found: Some coordinates describing the location in the rain forest.
+    "Shortly after hanging up you get access to Patric's smartphone as he ingnorantly clicked on your link. "
+    "You scroll through his messages."
+
+    "When you go through his smartphone messages you see some message from J."
+    "Hey! Did everything go well? Excited about the avocado business. Got a good feeling we're gonna make some serious cash with this!! Let's talk soon!"
+    #Here ends -> transition level 4
+    
 
 label stealing:
 
@@ -750,6 +756,10 @@ label explorefiles:
     "In the background you can see lots of trees and plants, probably the rainforest. "
     "Suddenly you hear an aggressive voice that seems to come from the owner of the bodycam. It seems as if a protest is being broken up by force."
     "You decide to save the video footage on you PC as evidence."
+
+
+
+    jump pretexting
             
 
 
