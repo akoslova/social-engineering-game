@@ -6,6 +6,8 @@ $ renpy.include("level_1.rpy")
 define ph = Character (_("Patric Hardman"), color="#8e0000")
 define receptionist2 = Character (_("Receptionist"), color="#8e0000")
 define marcus = Character (_("Marcus Johnson"), color="#8e0000")
+define hs = Character (_("Hotel Staff"), color="#8e0000")
+
 
 
 label level_3:
@@ -628,22 +630,89 @@ label explore_file_system:
 
 label emailaccount:
 
-    #Todo: Design Email inbox where you only see the subject and sender
-    
-    menu:
-        "Email1":
-            jump email1 
+    scene black
+    call screen emailaccount
 
-        "Email2":
-            jump email2 
+screen emailaccount:
+    zorder 1
+    add "gui/emails/inbox_plain.png"
+    imagebutton auto "gui/emails/mail1_%s.png":
+        focus_mask True
+        action Jump("email1")
 
-        "Email3":
-            jump email3
+    imagebutton auto "gui/emails/mail2_%s.png":
+        focus_mask True
+        action Jump("email2")
 
-    #update journal with information found
+    imagebutton auto "gui/emails/mail3_%s.png":
+        focus_mask True
+        action Jump("email3")
 
-label email2: 
-    "Success!"
+
+label email1:
+
+    scene black
+    call screen emailaccount1
+
+screen emailaccount1:
+    zorder 1
+    add "gui/emails/mail1.png"
+    imagebutton auto "gui/emails/mail1_%s.png":
+        focus_mask True
+        action Jump("email1")
+
+    imagebutton auto "gui/emails/mail2_%s.png":
+        focus_mask True
+        action Jump("email2")
+
+    imagebutton auto "gui/emails/mail3_%s.png":
+        focus_mask True
+        action Jump("email3")
+
+label email2:
+
+    scene black
+    call screen emailaccount2
+
+screen emailaccount2:
+    zorder 1
+    add "gui/emails/mail2.png"
+    imagebutton auto "gui/emails/mail1_%s.png":
+        focus_mask True
+        action Jump("email1")
+
+    imagebutton auto "gui/emails/mail2_%s.png":
+        focus_mask True
+        action Jump("email2")
+
+    imagebutton auto "gui/emails/mail3_%s.png":
+        focus_mask True
+        action Jump("email3")
+
+        #update journal with information found
+
+label email3:
+
+    scene black
+    call screen emailaccount3
+    "Continue"
+
+screen emailaccount3:
+    zorder 1
+    add "gui/emails/mail3.png"
+    imagebutton auto "gui/emails/mail1_%s.png":
+        focus_mask True
+        action Jump("email1")
+
+    imagebutton auto "gui/emails/mail2_%s.png":
+        focus_mask True
+        action Jump("email2")
+
+    imagebutton auto "gui/emails/mail3_%s.png":
+        focus_mask True
+        action Jump("find_out_more")
+        
+
 
 
 
@@ -654,6 +723,10 @@ label find_out_more:#checkpoint x
             jump search_hotels
         "Write an email to Marcus Johnson as Jack Morrison":
             jump write_email
+
+label write_email: 
+    "After waiting for two days without a reply from Marcus Johnson, you decide to try something else. "
+    jump find_out_more
 
 label search_hotels:
 #bg map with three pins --> three hotels with names "Grand Horizon,..."
@@ -703,6 +776,8 @@ label takeroomfail:
 #BG: Hotel lobby, some people hanging out
     "You sit down in the lobby, pretending to read a newspaper and hope that Marcus Johnson passes by by chance at some point."
     "After you have been waiting for the whole day, you realize that you probably went to the wrong hotel"
+
+    jump search_hotels
 
     #Go to checkpoint x
 
@@ -804,6 +879,7 @@ label makefriends:
     "It seems Marcus Johnson isn't the friendly type, at least not at the moment. Maybe you should try something else."
 
     #go to checkpoint m
+    jump search_hotels
 
 
 label breakin:
@@ -819,7 +895,7 @@ label breakin:
 
     p "I... I was just... I..."
 
-    "YDesperately you are trying to think of a credible excuse as you realize the severity of the situation. "
+    "Desperately you are trying to think of a credible excuse as you realize the severity of the situation. "
     "You've been caught red-handed, and there's no way to talk your way out of this one."
 
     hs "That's it. I'm calling security."
@@ -829,11 +905,12 @@ label breakin:
     "As you wait for security to arrive , you can't help but regret your reckless decision."
 
     #go to checkpoint m
+    jump search_hotels
 
 label call_hotels:
     #BG phone number keys
 
-    "What hotel do you want to call first?"
+    "What hotel do you want to call?"
     menu:
         "Grand Horizon Inn":
             jump hotel1_call
