@@ -17,14 +17,20 @@ label level_3:
 label investigation:
     "Your mission to find out about the Crimson Group begins now."
 
+
+    default website_visited= False
+    default news_visited= False
+    default online_visited= False
+
+    label invest1:
     menu:
-        "Visit the Crimson Group's official website.":
+        "Visit the Crimson Group's official website." if not website_visited:
             jump official_website
 
-        "Search for news articles and reports":
+        "Search for news articles and reports" if not news_visited:
             jump news_articles3
 
-        "Delve into forums and online discussions":
+        "Delve into forums and online discussions" if not online_visited:
             jump online_discussion
 
         "Search through social media":
@@ -52,16 +58,19 @@ label service_offering:
     "Despite the wealth of information about what they offer, the specifics about who exactly carries out these services remain veiled in secrecy."
 
     "This choice doesn't lead to the breakthrough you hoped for."
-    jump investigation
 
-label specific_operation:
+    $ website_visited = True
+    jump invest1
+
+label specific_operations:
 
     #BG: Laptop Screen and Past operations page
     
     "Hoping to find real-world examples of their work, you navigate to a section seemingly dedicated to past operations."
     "Case studies are anonymized, offering no insight into the personnel involved or the exact nature of their missions."
     "This choice doesn't lead to the breakthrough you hoped for." 
-    jump investigation
+    $ website_visited = True
+    jump invest1
 
 label office_location:
 
@@ -69,8 +78,8 @@ label office_location:
 
     "You end your exploration by looking for a more direct way to connect with the Crimson Group, hoping this might lead you to more concrete information. "
     "The 'Contact Us' page presents a generic form for inquiries. There are no direct phone numbers, no names of contact persons, and no specific office locations listed."
-    
-    jump investigation
+    $ website_visited = True
+    jump invest1
 
 
 label news_articles3:
@@ -93,14 +102,17 @@ label sources_quoted:
 
     "Eager to find concrete information, you attempt to track down the sources quoted in various articles. This leads you to a mix of retired military personnel, which is not useful enough"
   
-    jump investigation
+    $ news_visited = True
+    jump invest1
 
 label exposes:
 
     #BG: Laptop screen and articles targetting crimson group
     "You find that few brave souls who have attempted to shine a light on the darker aspects of the Crimson Group's operations.It appears that any significant dissent is effectively silenced or hidden away from public view."
     "This choice doesn't lead to the breakthrough you hoped for." 
-    jump investigation
+
+    $ news_visited = True
+    jump invest1
 
 label comment_section:
 
@@ -108,7 +120,8 @@ label comment_section:
     "You go through the comment sections of articles and opinion pieces, hoping to find truth left by anonymous persons." 
     "You find that they are largely speculative and often contradictory."
     "This choice doesn't lead to the breakthrough you hoped for." 
-    jump investigation
+    $ news_visited = True
+    jump invest1
 
 
 label online_discussion:
@@ -132,7 +145,9 @@ label more_info:
 
     "You begin to engage with users, hoping to coax out information with carefully worded questions.Despite your attempts, your inquiries are met with suspicion or vague responses that circle back to public knowledge."
     "This choice doesn't lead to the breakthrough you hoped for." 
-    jump investigation
+
+    $ online_visited = True
+    jump invest1
 
 label provoke:
 
@@ -142,7 +157,9 @@ label provoke:
     "Adopting a new strategy, you craft a persona of someone looking to hire mercenaries for an undisclosed operation.They offer the services of various mercenaries for hire but provide no substantial information about the Crimson Group itself." 
 
     "This choice doesn't lead to the breakthrough you hoped for." 
-    jump investigation
+
+    $ online_visited = True
+    jump invest1
 
 label leaked_info:
 
@@ -151,7 +168,9 @@ label leaked_info:
     "Your search provide a countless threads and posts for any shred of dissatisfaction or betrayal.But you find not find any crucial information." 
 
     "This choice doesn't lead to the breakthrough you hoped for." 
-    jump investigation
+
+    $ online_visited = True
+    jump invest1
 
 
 label social_media:
@@ -165,13 +184,16 @@ label social_media:
 
     #Write above 4 names in Diary
 
+    default gather_visited = False
+    default personal_visited = False
+
     label media2:
         menu:
             "Dive deeper into the profiles":
                 jump dive_deeper
-            "Gather information on their past missions.":
+            "Gather information on their past missions."if not gather_visited:
                 jump gather_info
-            "Look for any personal information":
+            "Look for any personal information" if not personal_visited:
                 jump personal
 
 label dive_deeper:
@@ -179,13 +201,16 @@ label dive_deeper:
     #BG: Mobile Screen with instagram
 
     "You decide to focus on the personal profiles of Jack Morrison, Patrick Hardman, Marcus Johnson, and Sophia Chen."
+
+    default analyze_visited= False
+    default focus_visited= False
     label deeper2:
         menu:
             "Examine their social media activity.":
                 jump personal_details
-            "Analyze the content they've liked, shared, or commented":
+            "Analyze the content they've liked, shared, or commented" if not analyze_visited:
                 jump analyze
-            "Focus on the connections in their profiles.":
+            "Focus on the connections in their profiles." if not focus_visited:
                 jump focus
 
 
@@ -206,14 +231,14 @@ label analyze:
 
     #BG: Mobile screen with insta
     "You scroll through the account of each one, but you did not find anything."
-
+    $ analyze_visited = True
     jump deeper2
 
 label focus:
 
     #BG: Mobile Screen with insta of Crimson group where there is a post of these 4 .
     "You scroll through the account of each one, but you did not find anything."
-
+    $ focus_visited = True
     jump deeper2
 
 
@@ -226,7 +251,7 @@ label gather_info:
     "Marcus Johnson: Outlined as a tactical leader with a record of high-stakes operations in hostile environments."
     "Sophia Chen: Exposed as a cyber warfare expert with a history of dismantling enemy communications."
     "This information is of no use, you have to try some other option"
-
+    $ gather_visited = True
     jump media2
 
 label personal:
@@ -235,7 +260,7 @@ label personal:
 
     "This choice doesn't lead to the breakthrough you hoped for."
     "You should choose some different option."
-
+    $ personal_visited = True
     jump media2
 
     
