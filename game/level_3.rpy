@@ -1,12 +1,13 @@
 $ renpy.include("inventory.rpy")
 $ renpy.include("tutorial_story.rpy")
 $ renpy.include("level_1.rpy")
-
+$ renpy.include("level_2.rpy")
 
 define ph = Character (_("Patric Hardman"), color="#8e0000")
 define receptionist2 = Character (_("Receptionist"), color="#8e0000")
 define marcus = Character (_("Marcus Johnson"), color="#8e0000")
 define hs = Character (_("Hotel Staff"), color="#8e0000")
+define sec = Character (_("Secretary"), color="#0000f9")
 
 
 
@@ -40,12 +41,11 @@ label official_website:
 
     #BG: Laptop Screen Crimson Group Website
 
-    "You navigate to the Crimson Group's website, greeted by their bold slogan: 'In the Shadows, We Forge Your Peace'. "
-    "The site is sleek, with a carousel of images showcasing anonymous soldiers in action, underscoring their message of strength and reliability. However, detailed information about their operatives remains elusive."
+    "You navigate to the Crimson Group's website, greeted by their bold slogan: 'In the Shadows, We Forge Your Peace'.However, detailed information about their operatives remains elusive."
     menu:
         "Examine their service offerings more closely.":
             jump service_offering
-        "Look for any mention of specific operations or case studies.":
+        "Look for any mention of specific operations.":
             jump specific_operations
         " Search for contact information or office locations.":
             jump office_location
@@ -55,7 +55,7 @@ label service_offering:
     #BG: Laptop Screen and Service offering page
 
     "You delve into the descriptions of their services, ranging from high-risk protection details to strategic military consulting. "
-    "Despite the wealth of information about what they offer, the specifics about who exactly carries out these services remain veiled in secrecy."
+    "Despite the wealth of information about what they offer, the specifics about who exactly carries out these services remain a secret."
 
     "This choice doesn't lead to the breakthrough you hoped for."
 
@@ -68,7 +68,7 @@ label specific_operations:
     
     "Hoping to find real-world examples of their work, you navigate to a section seemingly dedicated to past operations."
     "Case studies are anonymized, offering no insight into the personnel involved or the exact nature of their missions."
-    "This choice doesn't lead to the breakthrough you hoped for." 
+    
     $ website_visited = True
     jump invest1
 
@@ -76,7 +76,7 @@ label office_location:
 
     #BG: Laptop screen and Contact Us page
 
-    "You end your exploration by looking for a more direct way to connect with the Crimson Group, hoping this might lead you to more concrete information. "
+    "You  look for a more direct way to connect with the Crimson Group, hoping this might lead you to more concrete information. "
     "The 'Contact Us' page presents a generic form for inquiries. There are no direct phone numbers, no names of contact persons, and no specific office locations listed."
     $ website_visited = True
     jump invest1
@@ -86,13 +86,13 @@ label news_articles3:
 
     #BG: Laptop screen and artciles
 
-    "Your search uncovers a mix of investigative reports and opinion pieces. "
+    "Your search uncovers a mix of investigative reports. "
     menu:
         "Follow up on the sources quoted in the articles.":
             jump sources_quoted
-        "Look for any dissenting opinions or exposes.":
+        "Look for any opinions or exposes.":
             jump exposes
-        " Check the comment sections for insider insights.":
+        " Check the comment sections.":
             jump comment_section
 
 
@@ -100,7 +100,7 @@ label sources_quoted:
 
     #BG: Laptop screen and articles with sources quoted
 
-    "Eager to find concrete information, you attempt to track down the sources quoted in various articles. This leads you to a mix of retired military personnel, which is not useful enough"
+    "Eager to find some information, you attempt to track down the sources quoted in various articles. This leads you to a mix of retired military personnel, which is not useful enough"
   
     $ news_visited = True
     jump invest1
@@ -108,7 +108,7 @@ label sources_quoted:
 label exposes:
 
     #BG: Laptop screen and articles targetting crimson group
-    "You find that few brave souls who have attempted to shine a light on the darker aspects of the Crimson Group's operations.It appears that any significant dissent is effectively silenced or hidden away from public view."
+    "You find that few poeple who have attempted to shine a light on the darker aspects of the Crimson Group's operations.It appears that any significant dissent is effectively silenced or hidden away from public view."
     "This choice doesn't lead to the breakthrough you hoped for." 
 
     $ news_visited = True
@@ -117,9 +117,9 @@ label exposes:
 label comment_section:
 
     #BG: Laptop screen and comment section of article
-    "You go through the comment sections of articles and opinion pieces, hoping to find truth left by anonymous persons." 
+    "You go through the comment sections of articles , hoping to find truth left by anonymous persons." 
     "You find that they are largely speculative and often contradictory."
-    "This choice doesn't lead to the breakthrough you hoped for." 
+    
     $ news_visited = True
     jump invest1
 
@@ -131,11 +131,11 @@ label online_discussion:
     "In the forums, you find threads with rumors. "
 
     menu:
-        "Engage with users to fish for more information.":
+        "Engage with users to find for more information.":
             jump more_info
-        "Pretend to be interested in hiring to provoke responses.":
+        "Pretend to be interested in hiring a mercenary.":
             jump provoke
-        "Search for any leaked information or disgruntled postings.":
+        "Search for any people who might have hire mercenary in past":
             jump leaked_info
 
 
@@ -143,8 +143,8 @@ label more_info:
 
     #BG: Laptop screen and player chatting
 
-    "You begin to engage with users, hoping to coax out information with carefully worded questions.Despite your attempts, your inquiries are met with suspicion or vague responses that circle back to public knowledge."
-    "This choice doesn't lead to the breakthrough you hoped for." 
+    "You begin to engage with users, hoping to coax out information with some questions. Despite your attempts, no one knew about the Crimson group."
+    
 
     $ online_visited = True
     jump invest1
@@ -154,9 +154,8 @@ label provoke:
     #BG: Laptop screen and player chatting
 
 
-    "Adopting a new strategy, you craft a persona of someone looking to hire mercenaries for an undisclosed operation.They offer the services of various mercenaries for hire but provide no substantial information about the Crimson Group itself." 
+    "You get an idea, you create a fake identity of someone looking to hire mercenaries for an undisclosed operation.They offer the services of various mercenaries for hire but provide no substantial information about the Crimson Group itself." 
 
-    "This choice doesn't lead to the breakthrough you hoped for." 
 
     $ online_visited = True
     jump invest1
@@ -165,9 +164,9 @@ label leaked_info:
 
     #BG: Laptop screen and player some posts
 
-    "Your search provide a countless threads and posts for any shred of dissatisfaction or betrayal.But you find not find any crucial information." 
+    "You search for people who might have hire some mercenaries previously which can provide some information. But you find not find any crucial information." 
 
-    "This choice doesn't lead to the breakthrough you hoped for." 
+   
 
     $ online_visited = True
     jump invest1
@@ -177,10 +176,21 @@ label social_media:
 
     #BG: Mobile screen and instagram with crimson group page with bio written Your Battles, Our Soldiers
 
-    "Success! You find a secured group with ties to the Crimson Group. Among discussions, you spot their slogan, 'Your Battles, Our Soldiers', alongside candid insights into the lives of their mercenaries. This is the break you needed."
+    "Success! You find a secured group with ties to the Crimson Group. Among discussions, you spot their slogan, 'Your Battles, Our Soldiers', alongside some insights into the lives of their mercenaries."
 
 
     "You uncover details on key members: Jack Morrison, Patrick Hardman, Marcus Johnson, Sophia Chen "
+    define mercenary1_info = InventoryData("Mercenary 1: ","Jack Morrison")
+    define mercenary2_info = InventoryData("Mercenary 2: ","Patrick Hardman")
+    define mercenary3_info = InventoryData("Mercenary 3: ","Marcus Johnson")
+    define mercenary4_info = InventoryData("Mercenary 4: ","Sophia Chen")
+
+    $ inventory.add_data(mercenary1_info)
+    $ inventory.add_data(mercenary2_info)
+    $ inventory.add_data(mercenary3_info)
+    $ inventory.add_data(mercenary4_info)
+
+    "{i} The names of each mercenary was added to your notebook. {\i}"
 
     #Write above 4 names in Diary
 
@@ -258,8 +268,8 @@ label personal:
 
     #BG: Mobile screen with insta of crimson group
 
-    "This choice doesn't lead to the breakthrough you hoped for."
-    "You should choose some different option."
+    "You try to find some personal information of each mercenary by going through the instagram but you did not find any personal details of mercenaries"
+    
     $ personal_visited = True
     jump media2
 
@@ -288,6 +298,7 @@ label pretexting:
 
 label jason_hardman:
 
+    #BG: Player on call
     "Hello ... here is Jason ..."
 
     menu:
@@ -300,7 +311,7 @@ label jason_hardman:
 
 
 label js_op1:
-
+    #BG: Player on call
     menu:
 
         "He did not answer my message either. Is he ok? Would you give me his number so I can call him?":
@@ -312,12 +323,14 @@ label js_op1:
 
 label js_op1_1:
 
+
+    #BG: Secretary on call
     Sec "I am afraid I can't do that sweetie. But he is fine I am sure of it! Have a nice day!"
 
     jump unsuccesful_pretext
 
 label js_op2:
-
+    #BG: Player on call
     menu:
 
         "Wait for the response":
@@ -327,7 +340,7 @@ label js_op2:
             jump js_op2_2
 
 label js_op2_1:
-
+    #BG: Secretary and player on call
     sec "Oh Hello Jason, what is the Name of your father?"
 
     p "Patric, ähm Hardman."
@@ -351,7 +364,7 @@ label js_op2_1:
 
 
 label js_op2_1_1:
-
+    #BG: Secretary and player on call
     sec "… Ok one second. What I can tell you is that he is not in the country at the moment and for next week, so I am afraid he won't make it tonight. I can not tell you more!"
 
     p "Ok thank you and good day!"
@@ -359,7 +372,7 @@ label js_op2_1_1:
     sec "Thanks for you as well."
 
 label js_op2_1_2:
-
+    #BG: Secretary and player on call
     sec "I think its time to finish tis call. Good day!"
 
     jump unsuccesful_pretext
@@ -372,7 +385,7 @@ label js_op2_1_3:
 
 
 label js_op2_2:
-
+    #BG: Secretary and player on call
     sec "Dont worry Jason! can I ask you who told you this?"
 
     menu: 
@@ -388,7 +401,7 @@ label js_op2_2:
 
 
 label tina_hardman:
-
+    #BG: Player on call
     "Hello here Is Tina Hardman"
 
     menu:
@@ -400,7 +413,7 @@ label tina_hardman:
             jump tn_op2
 
 label tn_op1:
-
+    #BG: Secretary and player on call
     p "I am very much annoyed and he is not picking up his phone so can you please help me reach him. This is already the third time this happens and he never is available when I try to call him … I am losing my mind!"
 
     sec "Hello Mrs Hardman, I am afraid I can't help with that. In the system he is marked as not available. So he is working right now."
@@ -414,7 +427,7 @@ label tn_op1:
             jump tn_op1_2
 
 label tn_op1_1:
-
+    #BG: Secretary and player on call
     p "I can't deal with it any longer. Give me a contact please or I am losing my mind right now."
 
     sec "That sounds nasty. A friend of mine went through a similar mess. So she started to take some boxing lessons to let off steam."
@@ -432,13 +445,13 @@ label tn_op1_1:
     jump succesful_pretext
 
 label tn_op1_2:
-
+    #BG: Secretary and player on call
     sec "Even if that sounds tempting, I can't help you any further. Have a nice day!"
 
     jump unsuccesful_pretext
 
 label alexander:
-
+    #BG: Secretary and player on call
     "Hello, here is Alexander, Patric meant I should give him a call when the car he is interested in is finished renovating."
     "I can't reach him on his phone."
 
@@ -461,13 +474,13 @@ label alexander:
             jump alx_op1
     
 label alx_op1:
-
+    #BG: Secretary and player on call
     sec "I am afraid I can't do anything for you! I wish a good day bye."
 
     jump unsuccesful_pretext
 
 label doctor_dale:
-
+    #BG: Secretary and player on call
     p "Hello, here is Doctor Dale, I am trying to reach my patient Mr. Hardman Is he in?
     We got his test results back and It is urgent that he comes back for another examination."
 
@@ -483,7 +496,7 @@ label doctor_dale:
 
 
 label doc_op1:
-
+    #BG: Secretary and player on call
     p "Ok .. normally I would not ask for that but could you be so kindly and give me his phone number? It is quite important that he gets his results asap"
 
     sec "I am not sure if I am allowed to do that.. don't you have like an emergency contact or something?"
@@ -497,7 +510,7 @@ label doc_op1:
             jump doc_op1_2
 
 label doc_op1_1:
-
+    #BG: Secretary and player on call
     p "I mean he probably is banking on us to deliver him his results in this way immediately thinking we have his contact info stored in the file… So can you make an exception?"
 
     sec "Ok one Sec: It's here (556) 781-4231. Do you have it?"
@@ -509,7 +522,7 @@ label doc_op1_1:
     jump succesful_pretext
 
 label doc_op1_2:
-
+    #BG: Secretary and player on call
     p "I mean he probably is banking on us to deliver him his results in this way immediately thinking we have his contact info stored in the file… So can you make an exception?"
 
     sec "You are kidding.. I would be shocked if doctors give out strictly private informations about their patients just like this!
@@ -520,7 +533,7 @@ label doc_op1_2:
     jump unsuccesful_pretext
 
 label unsuccesful_pretext:
-
+    #BG: Secretary and player on call
     "Unfortunately you were not able to gain the desired information"
 
     menu:
@@ -532,13 +545,19 @@ label unsuccesful_pretext:
 
 label succesful_pretext:
 # Number was retrieved can be used for Vishing call
+    define patrick_number = InventoryData("Patrick Hardman", "(556) 781-4231")
+
+    $ inventory.add_data(patrick_number)
+
+    "{i} Patric Hardman personal phone number (556) 781-4231 was added to your notebook. {\i}"
+
 
     jump vishing
 
 
 #checkpoint vishing
 label vishing:
-
+    #BG: player on call
     "You decide its time for the next play on Patric Hardman. Your target is to use his phone number and knowledge about him to get him to click on your link which is sent directly per SMS."
 
     menu:
@@ -554,7 +573,7 @@ label vishing:
 
 
 label principal:
-
+    #BG: Patrick Hardman and player on call
     p "Sir I call you because your son has picked a fight with his class mate and injured him in the eye. I need you to come by and pick up your son as well as have a talk with me about his behaviour."
 
     ph "Dam it! And what did the other guy do? My son probably only was defending himself!"
@@ -577,7 +596,7 @@ label principal:
 
 
 label accident:
-
+    #BG: Patrick Hardman and player on call
     p "Sir I am terribly sorry to inform you that your son and his mother were involved in a car accident and are in critical condition at the moment. We need you to come as soon as possible to the hospital to fill out the paperstuff."
 
     ph "Fuck! What happened? I can not come by so soon I am in Tropica!"
@@ -605,7 +624,7 @@ label accident:
     
 
 label stealing:
-
+    #BG: Patrick Hardman and player on call
     p "Sir, Your son is in big trouble. We caught him stealing from the bookstore and he even tried to run away from us."
 
     ph "He did whaaat?"
