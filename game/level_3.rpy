@@ -9,7 +9,59 @@ define marcus = Character (_("Marcus Johnson"), color="#8e0000")
 define hs = Character (_("Hotel Staff"), color="#8e0000")
 define sec = Character (_("Secretary"), color="#0000f9")
 
+image bg wfh:
+    "bg wfh0"
+    pause 0.25
+    "bg wfh1"
+    pause 0.25
+    "bg wfh2"
+    pause 0.25
+    "bg wfh3"
+    pause 0.25
+    "bg wfh4"
+    pause 0.25
+    "bg wfh5"
+    pause 0.25
+    "bg wfh6"
+    pause 0.25
+    "bg wfh5"
+    pause 0.25
+    "bg wfh4"
+    pause 0.25
+    "bg wfh3"
+    pause 0.25
+    "bg wfh2"
+    pause 0.25
+    "bg wfh1"
+    pause 0.25
+    repeat
 
+image bg wfh2:
+    "bg wfh20"
+    pause 0.25
+    "bg wfh21"
+    pause 0.25
+    "bg wfh22"
+    pause 0.25
+    "bg wfh23"
+    pause 0.25
+    "bg wfh24"
+    pause 0.25
+    "bg wfh25"
+    pause 0.25
+    "bg wfh26"
+    pause 0.25
+    "bg wfh25"
+    pause 0.25
+    "bg wfh24"
+    pause 0.25
+    "bg wfh23"
+    pause 0.25
+    "bg wfh22"
+    pause 0.25
+    "bg wfh21"
+    pause 0.25
+    repeat
 
 label level_3:
     call inventory
@@ -17,7 +69,7 @@ label level_3:
 
 label investigation:
     "Your mission to find out about the Crimson Group begins now."
-
+    scene bg wfh
 
     default website_visited= False
     default news_visited= False
