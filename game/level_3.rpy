@@ -828,6 +828,7 @@ label explore_file_system:
 label emailaccount:
 
     scene black
+    hide screen inv_screen
     call screen emailaccount
 
 screen emailaccount:
@@ -847,7 +848,7 @@ screen emailaccount:
 
 
 label email1:
-
+    hide screen inv_screen
     scene black
     call screen emailaccount1
 
@@ -867,7 +868,7 @@ screen emailaccount1:
         action Jump("email3")
 
 label email2:
-
+    hide screen inv_screen
     scene black
     call screen emailaccount2
 
@@ -889,7 +890,7 @@ screen emailaccount2:
         #update journal with information found
 
 label email3:
-
+    hide screen inv_screen
     scene black
     call screen emailaccount3
     "Continue"
@@ -914,6 +915,7 @@ screen emailaccount3:
 
 
 label find_out_more:#checkpoint x
+    show screen inv_screen
     #BG computer background
     menu:
         "Search for hotels in Tropica on the internet":
