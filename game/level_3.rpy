@@ -9,6 +9,24 @@ define marcus = Character (_("Marcus Johnson"), color="#8e0000")
 define hs = Character (_("Hotel Staff"), color="#8e0000")
 define sec = Character (_("Secretary"), color="#0000f9")
 
+
+image wfhcall = "wfhcall.png"
+image sec_call = "sec_call.png"
+image sec_call2 = "sec_call2.png"
+image sec_call3 = "sec_call3.png"
+image sec_call4 = "sec_call4.png"
+image ph_call4 = "ph_call4.png"
+
+image search1 = "search1.png"
+image search2 = "search2.png"
+image search3 = "search3.png"
+image search4 = "search4.png"
+image search5 = "search5.png"
+image search6 = "search6.png"
+image search7 = "search7.png"
+image chat = "chat.png"
+image insta = "insta.png"
+
 image bg wfh:
     "bg wfh0"
     pause 0.25
@@ -36,7 +54,7 @@ image bg wfh:
     pause 0.25
     repeat
 
-image bg wfh2:
+image bg wfhphone:
     "bg wfh20"
     pause 0.25
     "bg wfh21"
@@ -90,7 +108,8 @@ label investigation:
             jump social_media
 
 label official_website:
-
+    scene bg wfh
+    show search1 with dissolve
     #BG: Laptop Screen Crimson Group Website
 
     "You navigate to the Crimson Group's website, greeted by their bold slogan: 'In the Shadows, We Forge Your Peace'.However, detailed information about their operatives remains elusive."
@@ -103,7 +122,8 @@ label official_website:
             jump office_location
 
 label service_offering:
-
+    scene bg wfh
+    show search2 with dissolve
     #BG: Laptop Screen and Service offering page
 
     "You delve into the descriptions of their services, ranging from high-risk protection details to strategic military consulting. "
@@ -115,7 +135,8 @@ label service_offering:
     jump invest1
 
 label specific_operations:
-
+    scene bg wfh
+    show search3 with dissolve
     #BG: Laptop Screen and Past operations page
     
     "Hoping to find real-world examples of their work, you navigate to a section seemingly dedicated to past operations."
@@ -125,7 +146,8 @@ label specific_operations:
     jump invest1
 
 label office_location:
-
+    scene bg wfh
+    show search4 with dissolve
     #BG: Laptop screen and Contact Us page
 
     "You  look for a more direct way to connect with the Crimson Group, hoping this might lead you to more concrete information. "
@@ -135,7 +157,8 @@ label office_location:
 
 
 label news_articles3:
-
+    scene bg wfh
+    show search5 with dissolve
     #BG: Laptop screen and artciles
 
     "Your search uncovers a mix of investigative reports. "
@@ -149,7 +172,8 @@ label news_articles3:
 
 
 label sources_quoted:
-
+    scene bg wfh
+    show search5 with dissolve
     #BG: Laptop screen and articles with sources quoted
 
     "Eager to find some information, you attempt to track down the sources quoted in various articles. This leads you to a mix of retired military personnel, which is not useful enough"
@@ -158,7 +182,8 @@ label sources_quoted:
     jump invest1
 
 label exposes:
-
+    scene bg wfh
+    show search5 with dissolve
     #BG: Laptop screen and articles targetting crimson group
     "You find that few poeple who have attempted to shine a light on the darker aspects of the Crimson Group's operations.It appears that any significant dissent is effectively silenced or hidden away from public view."
     "This choice doesn't lead to the breakthrough you hoped for." 
@@ -167,7 +192,8 @@ label exposes:
     jump invest1
 
 label comment_section:
-
+    scene bg wfh
+    show search5 with dissolve
     #BG: Laptop screen and comment section of article
     "You go through the comment sections of articles , hoping to find truth left by anonymous persons." 
     "You find that they are largely speculative and often contradictory."
@@ -177,7 +203,8 @@ label comment_section:
 
 
 label online_discussion:
-
+    scene bg wfh
+    show search6 with dissolve
     #BG: Laptop screen and forum
 
     "In the forums, you find threads with rumors. "
@@ -192,7 +219,8 @@ label online_discussion:
 
 
 label more_info:
-
+    scene bg wfh
+    show chat with dissolve
     #BG: Laptop screen and player chatting
 
     "You begin to engage with users, hoping to coax out information with some questions. Despite your attempts, no one knew about the Crimson group."
@@ -202,7 +230,8 @@ label more_info:
     jump invest1
 
 label provoke:
-
+    scene bg wfh
+    show chat with dissolve
     #BG: Laptop screen and player chatting
 
 
@@ -213,7 +242,8 @@ label provoke:
     jump invest1
 
 label leaked_info:
-
+    scene bg wfh
+    show search7 with dissolve
     #BG: Laptop screen and player some posts
 
     "You search for people who might have hire some mercenaries previously which can provide some information. But you find not find any crucial information." 
@@ -225,7 +255,8 @@ label leaked_info:
 
 
 label social_media:
-
+    scene bg wfhphone
+    show insta with dissolve
     #BG: Mobile screen and instagram with crimson group page with bio written Your Battles, Our Soldiers
 
     "Success! You find a secured group with ties to the Crimson Group. Among discussions, you spot their slogan, 'Your Battles, Our Soldiers', alongside some insights into the lives of their mercenaries."
@@ -259,7 +290,8 @@ label social_media:
                 jump personal
 
 label dive_deeper:
-
+    scene bg wfhphone
+    show insta 
     #BG: Mobile Screen with instagram
 
     "You decide to focus on the personal profiles of Jack Morrison, Patrick Hardman, Marcus Johnson, and Sophia Chen."
@@ -277,7 +309,8 @@ label dive_deeper:
 
 
 label personal_details:
-
+    scene bg wfhphone
+    show insta with dissolve
     #BG: Mobile screen with patrick hardman account on insta
     #one picture of Patrick with his wife and son
     #second picture of Patrick and his son only
@@ -290,14 +323,16 @@ label personal_details:
     jump phising_lvl3
 
 label analyze:
-
+    scene bg wfhphone
+    show insta with dissolve
     #BG: Mobile screen with insta
     "You scroll through the account of each one, but you did not find anything."
     $ analyze_visited = True
     jump deeper2
 
 label focus:
-
+    scene bg wfhphone
+    show insta with dissolve
     #BG: Mobile Screen with insta of Crimson group where there is a post of these 4 .
     "You scroll through the account of each one, but you did not find anything."
     $ focus_visited = True
@@ -306,7 +341,7 @@ label focus:
 
 
 label gather_info:
-
+    scene bg wfhphone
     "This choice uncovers specific details about each mercenary:"
     "Jack Morrison: Revealed to be a decorated sniper with numerous confirmed engagements."
     "Patrick Hardman: Identified as an intelligence operative skilled in interrogation and psychological manipulation."
@@ -317,7 +352,8 @@ label gather_info:
     jump media2
 
 label personal:
-
+    scene bg wfhphone
+    show insta with dissolve
     #BG: Mobile screen with insta of crimson group
 
     "You try to find some personal information of each mercenary by going through the instagram but you did not find any personal details of mercenaries"
@@ -327,7 +363,7 @@ label personal:
 
     
 label pretexting:
-
+    scene bg wfhphone
     #scene Homeoffice/Desk
     #show me/player with phone
 
@@ -349,7 +385,8 @@ label pretexting:
             jump doctor_dale
 
 label jason_hardman:
-
+    scene bg wfh
+    show bg wfhcall
     #BG: Player on call
     "Hello ... here is Jason ..."
 
@@ -363,6 +400,9 @@ label jason_hardman:
 
 
 label js_op1:
+    scene bg wfh
+    show bg wfhcall
+    
     #BG: Player on call
     menu:
 
@@ -375,13 +415,18 @@ label js_op1:
 
 label js_op1_1:
 
-
+    scene bg wfh
+    show bg wfhcall
+    show sec_call with dissolve
     #BG: Secretary on call
     Sec "I am afraid I can't do that sweetie. But he is fine I am sure of it! Have a nice day!"
 
     jump unsuccesful_pretext
 
 label js_op2:
+    scene bg wfh
+    show bg wfhcall
+    show sec_call with dissolve
     #BG: Player on call
     menu:
 
@@ -392,6 +437,9 @@ label js_op2:
             jump js_op2_2
 
 label js_op2_1:
+    scene bg wfh
+    show bg wfhcall
+    show sec_call 
     #BG: Secretary and player on call
     sec "Oh Hello Jason, what is the Name of your father?"
 
@@ -416,6 +464,9 @@ label js_op2_1:
 
 
 label js_op2_1_1:
+    scene bg wfh
+    show bg wfhcall
+    show sec_call
     #BG: Secretary and player on call
     sec "… Ok one second. What I can tell you is that he is not in the country at the moment and for next week, so I am afraid he won't make it tonight. I can not tell you more!"
 
@@ -424,12 +475,16 @@ label js_op2_1_1:
     sec "Thanks for you as well."
 
 label js_op2_1_2:
+    scene bg wfh
+    show bg wfhcall
+    show sec_call
     #BG: Secretary and player on call
     sec "I think its time to finish tis call. Good day!"
-
+    hide sec_call with dissolve
     jump unsuccesful_pretext
 
 label js_op2_1_3:
+    scene bg wfhphone
 
     "You hang up, out of fear getting figured out."
 
@@ -437,6 +492,9 @@ label js_op2_1_3:
 
 
 label js_op2_2:
+    scene bg wfh
+    show bg wfhcall
+    show sec_call
     #BG: Secretary and player on call
     sec "Dont worry Jason! can I ask you who told you this?"
 
@@ -453,6 +511,8 @@ label js_op2_2:
 
 
 label tina_hardman:
+    scene bg wfh
+    show bg wfhcall 
     #BG: Player on call
     "Hello here Is Tina Hardman"
 
@@ -465,6 +525,9 @@ label tina_hardman:
             jump tn_op2
 
 label tn_op1:
+    scene bg wfh
+    show bg wfhcall
+    show sec_call2 with dissolve
     #BG: Secretary and player on call
     p "I am very much annoyed and he is not picking up his phone so can you please help me reach him. This is already the third time this happens and he never is available when I try to call him … I am losing my mind!"
 
@@ -479,6 +542,9 @@ label tn_op1:
             jump tn_op1_2
 
 label tn_op1_1:
+    scene bg wfh
+    show bg wfhcall
+    show sec_call2
     #BG: Secretary and player on call
     p "I can't deal with it any longer. Give me a contact please or I am losing my mind right now."
 
@@ -491,18 +557,24 @@ label tn_op1_1:
     p "Yes you're treasure, I will put a picture of him on my punching bag for extra motivation as soon I own one!"
 
     sec "Haha good idea, I hope you will figure out a solution. Have a nice day!"
-
+    hide sec_call2 with dissolve
     #  Notebook entry Patric Hardman personal phone number  (556) 781-4231
 
     jump succesful_pretext
 
 label tn_op1_2:
+    scene bg wfh
+    show bg wfhcall
+    show sec_call2
     #BG: Secretary and player on call
     sec "Even if that sounds tempting, I can't help you any further. Have a nice day!"
-
+    hide sec_call2 with dissolve
     jump unsuccesful_pretext
 
 label alexander:
+    scene bg wfh
+    show bg wfhcall
+    show sec_call3 with dissolve
     #BG: Secretary and player on call
     "Hello, here is Alexander, Patric meant I should give him a call when the car he is interested in is finished renovating."
     "I can't reach him on his phone."
@@ -526,12 +598,18 @@ label alexander:
             jump alx_op1
     
 label alx_op1:
+    scene bg wfh
+    show bg wfhcall
+    show sec_call3
     #BG: Secretary and player on call
     sec "I am afraid I can't do anything for you! I wish a good day bye."
-
+    hide sec_call3 with dissolve
     jump unsuccesful_pretext
 
 label doctor_dale:
+    scene bg wfh
+    show bg wfhcall
+    show sec_call4 with dissolve
     #BG: Secretary and player on call
     p "Hello, here is Doctor Dale, I am trying to reach my patient Mr. Hardman Is he in?
     We got his test results back and It is urgent that he comes back for another examination."
@@ -548,6 +626,9 @@ label doctor_dale:
 
 
 label doc_op1:
+    scene bg wfh
+    show bg wfhcall
+    show sec_call4
     #BG: Secretary and player on call
     p "Ok .. normally I would not ask for that but could you be so kindly and give me his phone number? It is quite important that he gets his results asap"
 
@@ -562,6 +643,9 @@ label doc_op1:
             jump doc_op1_2
 
 label doc_op1_1:
+    scene bg wfh
+    show bg wfhcall
+    show sec_call4
     #BG: Secretary and player on call
     p "I mean he probably is banking on us to deliver him his results in this way immediately thinking we have his contact info stored in the file… So can you make an exception?"
 
@@ -570,21 +654,25 @@ label doc_op1_1:
     p "Yes! thank you very much that saved us big time! Bye and have a nice day!"
 
     # Notebook entry Patric Hardman personal phone number  (556) 781-4231
-
+    hide sec_call4 with dissolve
     jump succesful_pretext
 
 label doc_op1_2:
+    scene bg wfh
+    show bg wfhcall
+    show sec_call4
     #BG: Secretary and player on call
     p "I mean he probably is banking on us to deliver him his results in this way immediately thinking we have his contact info stored in the file… So can you make an exception?"
 
     sec "You are kidding.. I would be shocked if doctors give out strictly private informations about their patients just like this!
     This obviously a prank of some sort! I will report this number to the authorities!"
-
+    hide sec_call4 with dissolve
     "Well that didnt work out!"
-
+    
     jump unsuccesful_pretext
 
 label unsuccesful_pretext:
+    scene bg wfhphone
     #BG: Secretary and player on call
     "Unfortunately you were not able to gain the desired information"
 
@@ -596,6 +684,7 @@ label unsuccesful_pretext:
         #    jump #Needs to be added
 
 label succesful_pretext:
+    scene bg wfhphone
 # Number was retrieved can be used for Vishing call
     define patrick_number = InventoryData("Patrick Hardman", "(556) 781-4231")
 
@@ -609,6 +698,8 @@ label succesful_pretext:
 
 #checkpoint vishing
 label vishing:
+    scene bg wfh
+    show bg wfhcall
     #BG: player on call
     "You decide its time for the next play on Patric Hardman. Your target is to use his phone number and knowledge about him to get him to click on your link which is sent directly per SMS."
 
@@ -625,9 +716,12 @@ label vishing:
 
 
 label principal:
+    scene bg wfh
+    show bg wfhcall
+    
     #BG: Patrick Hardman and player on call
     p "Sir I call you because your son has picked a fight with his class mate and injured him in the eye. I need you to come by and pick up your son as well as have a talk with me about his behaviour."
-
+    show ph_call with dissolve
     ph "Dam it! And what did the other guy do? My son probably only was defending himself!"
 
     p "That is definitely possible, however my first concern is for the injured person."
@@ -640,7 +734,7 @@ label principal:
     ph "No I will not go into advance payment without first getting to know what exactly happened! And that's where it stays!"
 
     p "... Ok"
-
+    hide ph_call with dissolve
     "You decide to hang up as this play failed to reach your goal."
 
     jump unsuccesful_vishing
@@ -648,9 +742,12 @@ label principal:
 
 
 label accident:
+    scene bg wfh
+    show bg wfhcall
+    
     #BG: Patrick Hardman and player on call
     p "Sir I am terribly sorry to inform you that your son and his mother were involved in a car accident and are in critical condition at the moment. We need you to come as soon as possible to the hospital to fill out the paperstuff."
-
+    show ph_call with dissolve
     ph "Fuck! What happened? I can not come by so soon I am in Tropica!"
 
     p "Ok Sir please calm down"
@@ -666,7 +763,7 @@ label accident:
     ph "Yeah sure, please do everything in your power to safe my son!"
 
     p "We will! I sent you the formular."
-
+    hide ph_call with dissolve
     "Shortly after hanging up you get access to Patric's smartphone as he ingnorantly clicked on your link. "
     "You scroll through his messages."
 
@@ -676,30 +773,34 @@ label accident:
     
 
 label stealing:
+    scene bg wfh
+    show bg wfhcall
     #BG: Patrick Hardman and player on call
     p "Sir, Your son is in big trouble. We caught him stealing from the bookstore and he even tried to run away from us."
-
+    show ph_call with dissolve
     ph "He did whaaat?"
     
     p "He tried stealing books. Unfortunately, while trying to flee he ran over and injured an old man who was blocking his way. He is in critical condition and hanging on by a thread."
     "The police are on their way and he is totally distraught and begged us to call you."
 
     ph "My son doesn't like books at all!! What kind of scam is this? If i find you you will regret trying this!"
-
+    hide ph_call with dissolve
     "He did not fell for your tricks and stopped the call immediately after threatening you."
 
     jump unsuccesful_vishing
 
 
 label unsuccesful_vishing:
-
+    scene bg wfhphone
     "Your play did not achieve your goal. Try again!"
 
     #back to checkpoint vishing
 label successful_vishing:
+    scene bg wfhphone
     #some information we find out
 
 label phising_lvl3:
+    scene bg wfh
     "You decide to try your luck by writing a phishing email to all the employees from the Crimson Group."
     "Task: Arrange the email snippets to create an effective phishing email "
 
