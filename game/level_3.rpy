@@ -10,12 +10,23 @@ define hs = Character (_("Hotel Staff"), color="#8e0000")
 define sec = Character (_("Secretary"), color="#0000f9")
 
 
-image wfhcall = "wfhcall.png"
+image bg wfhcall = "wfhcall.png"
 image sec_call = "sec_call.png"
 image sec_call2 = "sec_call2.png"
 image sec_call3 = "sec_call3.png"
 image sec_call4 = "sec_call4.png"
-image ph_call4 = "ph_call4.png"
+image ph_call = "ph_call.png"
+image bg secretempty = "secretempty.jpg"
+image bg hotelmap = "bg hotelmap.jpg"
+image bg hotelroom = "bg hotelroom.jpg"
+image bg hotelroom2 = "bg hotelroom2.jpg"
+image bg hotelroominside = "bg hotelroominside.jpg"
+image bg hotelmap = "bg hotelmap.jpg"
+image bg hotel1 = "bg hotel1.jpg"
+image bg hotel2 = "bg hotel2.jpg"
+image bg hotel3 = "bg hotel3.jpg"
+image bg hotellobby = "bg hotellobby.jpg"
+
 
 image search1 = "search1.png"
 image search2 = "search2.png"
@@ -26,6 +37,11 @@ image search6 = "search6.png"
 image search7 = "search7.png"
 image chat = "chat.png"
 image insta = "insta.png"
+image fb = "fb.png"
+image zerologin = "zerologin.png"
+image onelogin = "onelogin.png"
+image marcus = "marcus.png"
+image hs = "hs.png"
 
 image bg wfh:
     "bg wfh0"
@@ -810,6 +826,7 @@ label notsuccessful:
     "Unfortunately, none of the mercenaries fell for your phishing email. Try again. "
 label successful: 
     "Transition next day…"
+    scene bg wfh with fade
     "Jack Morrison clicked on your link. Now you have access to his computer."
     #BG: 
     "You sit down at your computer, ready to explore."
@@ -820,6 +837,7 @@ label successful:
             jump emailaccount
 
 label explore_file_system:
+    scene bg wfh
     "As you navigate through the directories, you can only find files that are not useful for you."
     menu:
         "Check his email account":
@@ -924,10 +942,12 @@ label find_out_more:#checkpoint x
             jump write_email
 
 label write_email: 
+    scene bg wfh with fade
     "After waiting for two days without a reply from Marcus Johnson, you decide to try something else. "
     jump find_out_more
 
 label search_hotels:
+    scene bg hotelmap
 #bg map with three pins --> three hotels with names "Grand Horizon,..."
     "You decide to search on the internet for hotels in the town Tropica."
     "Luckily, you find out that there are only three hotels in the town: Grand Horizon Inn, Hotel Semirani and Hotel Diamond Resorts."
@@ -938,6 +958,7 @@ label search_hotels:
             jump call_hotels
 
 label hotel_options:#BG map with 3 hotels?
+    scene bg hotelmap
     "Which hotel would you like to visit?"
     menu:
         "Go to Grand Horizon Inn":
@@ -948,6 +969,7 @@ label hotel_options:#BG map with 3 hotels?
             jump hotel3_fail
 
 label hotel1_fail:
+    scene bg hotel1
 #BG: Hotel Reception; Character Receptionist male, friendly
     "You go to Grand Horizon Inn"
     receptionist2 "How can we help you?"
@@ -960,6 +982,7 @@ label hotel1_fail:
             jump takeroomfail
 
 label hotel3_fail:
+    scene bg hotel3
 #BG: Hotel Reception; Character Receptionist male, friendly
     "You go to Hotel Diamond Resorts."
     receptionist2 "How can we help you?"
@@ -973,6 +996,7 @@ label hotel3_fail:
 
 label takeroomfail:
 #BG: Hotel lobby, some people hanging out
+    scene bg hotellobby
     "You sit down in the lobby, pretending to read a newspaper and hope that Marcus Johnson passes by by chance at some point."
     "After you have been waiting for the whole day, you realize that you probably went to the wrong hotel"
 
@@ -981,6 +1005,8 @@ label takeroomfail:
     #Go to checkpoint x
 
 label hotel2_success:
+    scene bg hotel2
+
 #BG: Hotel Reception; Character Receptionist male, friendly
     "You go to Hotel Semirani"
     receptionist2 "How can we help you?"
@@ -993,6 +1019,7 @@ label hotel2_success:
             jump takeroom
 
 label takeroom:#checkpoint r
+    scene bg hotelroom
 #BG: In front of your hotel door, a guy entering his room
     "You take your keys and go to your room."
     "Suddenly you observe Marcus Johnson entering his room, which is right next to yours."
@@ -1005,9 +1032,13 @@ label takeroom:#checkpoint r
             jump breakin
 
 label setupwifi:
+    scene bg wfh
+    show zerologin with dissolve
     "Transition: evening..."
     #BG Laptop screen "0 person logged in"
     "You keep waiting for a couple of hours but no one logs into your fake wifi point."
+    hide zerologin with dissolve
+    show onelogin with dissolve
     #BG Laptop screen "1 person logged in"
     "You are almost ready to give up, when all of a sudden you can see that someone fell for your trap."
     "You find yourself sitting in front of your computer, where you can monitor the victim's online activity."
@@ -1041,6 +1072,8 @@ label explorefiles:
 
 
 label facebook:
+    scene bg wfh
+    show fb with dissolve
     "You logged into Marcus Johnson's Facebook account. However, all you found were old pictures and private chats with his old school friend."
     "This choice doesn't lead you any further so you decide to explore the files next."
 
@@ -1048,7 +1081,11 @@ label facebook:
 
 
 label knockingjohnson:
+    scene bg hotelroom2
+    show Me with easeinleft:
+        xzoom -1.0
     "You knock on the hotel room door."
+    show marcus with easeinright
     marcus "Can I help you?"#opens the door
 
     menu:
@@ -1058,7 +1095,10 @@ label knockingjohnson:
             jump makefriends
     
 label cleaningstaff:
-
+    scene bg hotelroom2
+    show Me:
+        xzoom -1.0
+    show marcus
     p "Good afternoon, sir. I'm here to clean the room. Just wanted to check, if you are here."
     marcus "Yes, I am here as you can see. And I don't want to be disturbed any more, otherwise I'll get the manager. Bye."
     jump takeroom
@@ -1066,7 +1106,10 @@ label cleaningstaff:
     #go to checkpoint r
 
 label makefriends:
-
+    scene bg hotelroom2
+    show Me:
+        xzoom -1.0
+    show marcus
     p "Hey there! I noticed we're staying on the same floor and thought I'd introduce myself. I'm [name], just trying to make some new friends around here. Maybe we could hang out some time."
     marcus "Look, I'm not really in the mood for making friends. I'm here on business and I don't have time for chitchat."
     p "Oh, I totally get it. Business can be stressful. But sometimes it's good to take a break and unwind, you know? Maybe we could grab a drink later and chat about something other than work?"
@@ -1082,13 +1125,18 @@ label makefriends:
 
 
 label breakin:
+    scene bg hotelroom2
+    show Me with easeinleft:
+        xzoom -1.0
     "You approach Marcus Johnson's hotel room, feeling a surge of adrenaline as you stand in front of the door. "
     "With a quick glance around to ensure no one's watching, you begin to open the door with force."
-
+    scene bg hotelroominside
+    show Me with easeinleft:
+        xzoom -1.0
     "You step inside his room and start scanning through Marcus's belongings, searching for anything valuable or incriminating."
 
     "Suddenly, you freeze as you hear footsteps approaching. Before you can react, the door bursts open, and a hotel staff member stands in the doorway"
-
+    show hs
 
     hs "What do you think you're doing?! This is a private room!"
 
@@ -1108,7 +1156,7 @@ label breakin:
 
 label call_hotels:
     #BG phone number keys
-
+    scene bg wfhphone
     "What hotel do you want to call?"
     menu:
         "Grand Horizon Inn":
@@ -1120,6 +1168,8 @@ label call_hotels:
 
 
 label hotel1_call:#BG dialing
+    scene bg wfh
+    show bg wfhcall
     "You confidently call the hotel and ask for Marcus Johnson."
 
     receptionist2 "I’m sorry, we don’t have a guest of that name staying here."
@@ -1132,7 +1182,8 @@ label hotel1_call:#BG dialing
             jump hotel_options
 
 label hotel2_call:#BG dialing
-
+    scene bg wfh
+    show bg wfhcall
     "You confidently call the hotel and ask for Marcus Johnson."
 
     receptionist2 "What room number?"
@@ -1146,6 +1197,8 @@ label hotel2_call:#BG dialing
             jump hotel_options
 
 label hotel3_call:#BG dialing
+    scene bg wfh
+    show bg wfhcall
     "You confidently call the hotel and ask for Marcus Johnson."
 
     receptionist2 "I’m sorry, we don’t have a guest of that name staying here."
