@@ -87,6 +87,8 @@ label level_3:
 
 label investigation:
     "Your mission to find out about the Crimson Group begins now."
+
+    $ todo.update_aim("Find out about the Crimson Group.")
     scene bg wfh
 
     default website_visited= False
@@ -370,15 +372,19 @@ label pretexting:
     "Now you want to know more about Patrick Hardman so you decide to give pretexting a try."
     "With the information gathered from the website and the secondary research about the mercenary Hardman at hand you try calling the office of Crimson. You set up a voice changer and proceed to call your target."
 
+    default jason_visited= False
+    default alexander_visited= False
+
+    label pretext1:
     menu:
 
-        "Try to impersonate the eleven years old son":
+        "Try to impersonate the eleven years old son" if not jason_visited:
             jump jason_hardman
         
         "Try to impersonate the ex-wife of Mr. Hardman":
             jump tina_hardman
         
-        "Try pretending to be a close friend of Patric":
+        "Try pretending to be a close friend of Patric" if not alexander_visited:
             jump alexander
         
         "Try pretending to be the family doctor of Mr. Hardman":
@@ -419,9 +425,11 @@ label js_op1_1:
     show bg wfhcall
     show sec_call with dissolve
     #BG: Secretary on call
-    Sec "I am afraid I can't do that sweetie. But he is fine I am sure of it! Have a nice day!"
+    sec "I am afraid I can't do that sweetie. But he is fine I am sure of it! Have a nice day!"
 
-    jump unsuccesful_pretext
+    $ jason_visited = True
+    "Unfortunately you were not able to gain the desired information"
+    jump pretext1
 
 label js_op2:
     scene bg wfh
@@ -473,6 +481,10 @@ label js_op2_1_1:
     p "Ok thank you and good day!"
 
     sec "Thanks for you as well."
+    $ jason_visited = True
+
+    "Unfortunately you were not able to gain the desired information"
+    jump pretext1
 
 label js_op2_1_2:
     scene bg wfh
@@ -481,14 +493,20 @@ label js_op2_1_2:
     #BG: Secretary and player on call
     sec "I think its time to finish tis call. Good day!"
     hide sec_call with dissolve
-    jump unsuccesful_pretext
+
+    $ jason_visited = True
+
+    "Unfortunately you were not able to gain the desired information"
+    jump pretext1
 
 label js_op2_1_3:
     scene bg wfhphone
 
     "You hang up, out of fear getting figured out."
+    $ jason_visited = True
 
-    jump unsuccesful_pretext
+    "Unfortunately you were not able to gain the desired information"
+    jump pretext1
 
 
 label js_op2_2:
@@ -604,7 +622,11 @@ label alx_op1:
     #BG: Secretary and player on call
     sec "I am afraid I can't do anything for you! I wish a good day bye."
     hide sec_call3 with dissolve
-    jump unsuccesful_pretext
+
+    $ alexander_visited = True
+
+    "Unfortunately you were not able to gain the desired information"
+    jump pretext1
 
 label doctor_dale:
     scene bg wfh
@@ -678,7 +700,7 @@ label unsuccesful_pretext:
 
     menu:
         "Try again":
-            jump pretexting
+            jump pretext1
         
         #"Continue without that information":
         #    jump #Needs to be added
@@ -690,7 +712,7 @@ label succesful_pretext:
 
     $ inventory.add_data(patrick_number)
 
-    "{i} Patric Hardman personal phone number (556) 781-4231 was added to your notebook. {\i}"
+    "{i}Patric Hardman personal phone number (556) 781-4231 was added to your notebook. {\i}"
 
 
     jump vishing
@@ -703,15 +725,19 @@ label vishing:
     #BG: player on call
     "You decide its time for the next play on Patric Hardman. Your target is to use his phone number and knowledge about him to get him to click on your link which is sent directly per SMS."
 
+    default principal_visited= False
+    default stealing_visited= False
+
+    label vishing1:
     menu:
 
-        "Try calling as principal of Lipson Middel School":
+        "Try calling as principal of Lipson Middel School" if not principal_visited:
             jump principal
         
         "Pretend calling because of an accident involving his family":
             jump accident
         
-        "Pretend calling because Jason was caught stealing":
+        "Pretend calling because Jason was caught stealing" if not stealing_visited:
             jump stealing
 
 
@@ -737,7 +763,9 @@ label principal:
     hide ph_call with dissolve
     "You decide to hang up as this play failed to reach your goal."
 
-    jump unsuccesful_vishing
+    "Your play did not achieve your goal. Try again!"
+    $ principal_visited = True
+    jump vishing1
 
 
 
@@ -770,7 +798,7 @@ label accident:
     "When you go through his smartphone messages you see some message from J."
     "Hey! Did everything go well? Excited about the avocado business. Got a good feeling we're gonna make some serious cash with this!! Let's talk soon!"
     #Here ends -> transition level 4
-    
+    "END. Transition to level 4"
 
 label stealing:
     scene bg wfh
@@ -787,7 +815,8 @@ label stealing:
     hide ph_call with dissolve
     "He did not fell for your tricks and stopped the call immediately after threatening you."
 
-    jump unsuccesful_vishing
+    $ stealing_visited = True
+    jump vishing1
 
 
 label unsuccesful_vishing:
@@ -798,6 +827,7 @@ label unsuccesful_vishing:
 label successful_vishing:
     scene bg wfhphone
     #some information we find out
+    "Some information we find out"
 
 label phising_lvl3:
     scene bg wfh
@@ -939,12 +969,16 @@ label search_hotels:
 
 label hotel_options:#BG map with 3 hotels?
     "Which hotel would you like to visit?"
+
+    default hotel1_visited= False
+    default hotel3_visited=False
+
     menu:
-        "Go to Grand Horizon Inn":
+        "Go to Grand Horizon Inn" if not hotel1_visited:
             jump hotel1_fail
         "Go to Hotel Semirani":
             jump hotel2_success
-        "Go to Hotel Diamond Resorts":
+        "Go to Hotel Diamond Resorts" if not hotel3_visited:
             jump hotel3_fail
 
 label hotel1_fail:
@@ -967,18 +1001,31 @@ label hotel3_fail:
     receptionist2 "Sure, Standard Room or Deluxe Room?"
     menu:
         "Take the Standard Room":
-            jump takeroomfail
+            jump takeroomfail3
         "Take the Deluxe Room":
-            jump takeroomfail
+            jump takeroomfail3
 
 label takeroomfail:
 #BG: Hotel lobby, some people hanging out
     "You sit down in the lobby, pretending to read a newspaper and hope that Marcus Johnson passes by by chance at some point."
     "After you have been waiting for the whole day, you realize that you probably went to the wrong hotel"
 
-    jump search_hotels
+    $ hotel1_visited = True
+    
+
+    jump hotel_options
 
     #Go to checkpoint x
+
+label takeroomfail3:
+#BG: Hotel lobby, some people hanging out
+    "You sit down in the lobby, pretending to read a newspaper and hope that Marcus Johnson passes by by chance at some point."
+    "After you have been waiting for the whole day, you realize that you probably went to the wrong hotel"
+
+    $ hotel3_visited = True
+    
+
+    jump hotel_options
 
 label hotel2_success:
 #BG: Hotel Reception; Character Receptionist male, friendly
