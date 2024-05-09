@@ -850,7 +850,73 @@ label phising_lvl3:
     "You decide to try your luck by writing a phishing email to all the employees from the Crimson Group."
     "Task: Arrange the email snippets to create an effective phishing email "
 
+    call screen paper_puzzle2
+
     #Minigame Email
+
+    # MINI GAME OF PAPER PUZZLE
+    screen paper_puzzle2:
+        add "gui/inventory/background.png"
+        #image Solid("#474747")
+        draggroup:
+            drag:
+                xpos 0.02
+                ypos 0.76
+                child "gui/phishing_snippets/1.png"
+                draggable True
+                drag_raise True
+            drag:
+                xpos 0.02
+                ypos 0.92
+                child "gui/phishing_snippets/2.png"
+                draggable True
+                drag_raise True
+            drag:
+                xpos 0.02
+                ypos 0.4
+                child "gui/phishing_snippets/3.png"
+                draggable True
+                drag_raise True
+            drag:
+                xpos 0.02
+                ypos 0.68
+                child "gui/phishing_snippets/4.png"
+                draggable True
+                drag_raise True
+            drag:
+                xpos 0.02
+                ypos 0.1
+                child "gui/phishing_snippets/5.png"
+                draggable True
+                drag_raise True
+            drag:
+                xpos 0.02
+                ypos 0.54
+                child "gui/phishing_snippets/6.png"
+                draggable True
+                drag_raise True
+            drag:
+                xpos 0.02
+                ypos 0.85
+                child "gui/phishing_snippets/7.png"
+                draggable True
+                drag_raise True
+            drag:
+                xpos 0.02
+                ypos 0.2
+                child "gui/phishing_snippets/8.png"
+                draggable True
+                drag_raise True
+            drag:
+                xpos 0.02
+                ypos 0.29
+                child "gui/phishing_snippets/9.png"
+                draggable True
+                drag_raise True
+    
+        imagebutton auto "gui/invitation_letter/back_%s.png":
+            focus_mask True
+            action Jump("successful")
 
 label notsuccessful: 
     "Unfortunately, none of the mercenaries fell for your phishing email. Try again. "
