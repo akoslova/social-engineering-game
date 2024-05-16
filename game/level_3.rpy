@@ -853,32 +853,56 @@ label phising_lvl3:
     call screen paper_puzzle2
 
     #Minigame Email
+    
 
     # MINI GAME OF PAPER PUZZLE
     screen paper_puzzle2:
         add "gui/inventory/background.png"
         #image Solid("#474747")
+        default page_pieces = 7
+        default full_page_size = (800, 1000)
+        default coordinates_snippets = [(400, 100), (400, 200), (400, 300), (400, 400), (400, 500), (400, 600)]
+        default grid = [1, 2, 3, 4, 5, 6, 7, 8, 0]
+        default finished = 0
+
+        python:
+            def piece_drop (dropped_on, dragged_piece):
+                if dragged_piece.drag_name == dropped_on.drag_name:
+                    dragged_piece.snap(dropped_on.x, dropped_on.y)
+                    dragged_piece.draggable = False
+
+
+
+        
+        #frame:
+            #background black
+           # xsize full_page_size
+           # anchor(0.5 0.5)
+            # pos (1000, 300)
         draggroup:
             drag:
+                drag_name 1
                 xpos 0.02
                 ypos 0.76
                 child "gui/phishing_snippets/1.png"
                 draggable True
                 drag_raise True
             drag:
+                drag_name 2
                 xpos 0.02
                 ypos 0.92
                 child "gui/phishing_snippets/2.png"
                 draggable True
                 drag_raise True
             drag:
+                drag_name 3
                 xpos 0.02
                 ypos 0.4
                 child "gui/phishing_snippets/3.png"
                 draggable True
                 drag_raise True
             drag:
-                xpos 0.02
+                drag_name 4
                 ypos 0.68
                 child "gui/phishing_snippets/4.png"
                 draggable True
@@ -913,6 +937,27 @@ label phising_lvl3:
                 child "gui/phishing_snippets/9.png"
                 draggable True
                 drag_raise True
+
+        draggroup:
+            drag:
+                drag_name 1
+                xpos 0.5
+                ypos 0.76
+                child "gui/phishing_snippets/1.png"
+                draggable False
+                droppable True
+                dropped piece_drop
+            drag:
+                drag_name 2
+                xpos 0.5
+                ypos 0.92
+                child "gui/phishing_snippets/2.png"
+                draggable False
+                droppable True
+                dropped piece_drop
+            
+                
+            
     
         imagebutton auto "gui/invitation_letter/back_%s.png":
             focus_mask True
