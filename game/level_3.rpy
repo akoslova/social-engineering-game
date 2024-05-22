@@ -204,7 +204,7 @@ label exposes:
     scene bg wfh
     show search5 with dissolve
     #BG: Laptop screen and articles targetting crimson group
-    "You find that few poeple who have attempted to shine a light on the darker aspects of the Crimson Group's operations.It appears that any significant dissent is effectively silenced or hidden away from public view."
+    "You find that few people who have attempted to shine a light on the darker aspects of the Crimson Group's operations.It appears that any significant dissent is effectively silenced or hidden away from public view."
     "This choice doesn't lead to the breakthrough you hoped for." 
 
     $ news_visited = True
@@ -339,7 +339,14 @@ label personal_details:
     "The pictures of Patrick Hardman offer the most emotionally charged storyline. The transition from a family of three to just father and son suggests possibly divorce with his wife."
     "By exploring also the tagged profiles of his ex-wife Tina you find out his sons name is Jason he is around eleven years old and he goes currently to the Lipson - middle school."
 
-    jump phising_lvl3
+    menu:
+        "Continue investigation about Crimson Group":
+            jump deeper2
+        "Find out more about Patrick Hardman":
+            jump pretexting
+
+
+
 
 label analyze:
     scene bg wfhphone
@@ -468,7 +475,7 @@ label js_op2_1:
     #BG: Secretary and player on call
     sec "Oh Hello Jason, what is the Name of your father?"
 
-    p "Patric, ähm Hardman."
+    p "Patrick, ähm Hardman."
 
     sec "Ok I see, here in the system that he is not in today."
 
@@ -557,7 +564,7 @@ label tina_hardman:
             jump tn_op1
         
         "Can you pretty please help me contacting my ex husband?":
-            jump tn_op2
+            jump tn_op1
 
 label tn_op1:
     scene bg wfh
@@ -611,7 +618,7 @@ label alexander:
     show wfhcall
     show sec_call3 with dissolve
     #BG: Secretary and player on call
-    "Hello, here is Alexander, Patric meant I should give him a call when the car he is interested in is finished renovating."
+    "Hello, here is Alexander, Patrick meant I should give him a call when the car he is interested in is finished renovating."
     "I can't reach him on his phone."
 
     sec "Oh he probably turned it off or something."
@@ -669,13 +676,13 @@ label doc_op1:
     show wfhcall
     show sec_call4
     #BG: Secretary and player on call
-    p "Ok .. normally I would not ask for that but could you be so kindly and give me his phone number? It is quite important that he gets his results asap"
+    p "Ok .. normally, I would not ask for that but could you be so kind and give me his phone number? It is quite important that he gets his results asap"
 
     sec "I am not sure if I am allowed to do that.. don't you have like an emergency contact or something?"
 
     menu:
 
-        "No sadly you are our last hope to reach him in time. It will stay between us, I promise":
+        "No, sadly you are our last hope to reach him in time. It will stay between us, I promise":
             jump doc_op1_1
         
         "No and we are running out of time his result suggests a serious heart impairment!":
@@ -740,7 +747,7 @@ label vishing:
     scene bg wfh
     show wfhcall
     #BG: player on call
-    "You decide its time for the next play on Patric Hardman. Your target is to use his phone number and knowledge about him to get him to click on your link which is sent directly per SMS."
+    "You decide its time for the next play on Patrick Hardman. Your target is to use his phone number and knowledge about him to get him to click on your link which is sent directly per SMS."
 
     default principal_visited= False
     default stealing_visited= False
@@ -765,7 +772,7 @@ label principal:
     #BG: Patrick Hardman and player on call
     p "Sir I call you because your son has picked a fight with his class mate and injured him in the eye. I need you to come by and pick up your son as well as have a talk with me about his behaviour."
     show ph_call with dissolve
-    ph "Dam it! And what did the other guy do? My son probably only was defending himself!"
+    ph "Damn it! And what did the other guy do? My son probably only was defending himself!"
 
     p "That is definitely possible, however my first concern is for the injured person."
     "I would kindly ask you to fill out a formular to to take responsibility for the injuries to the other boy and to pay for the treatment in cooperation with your insurance company."
@@ -793,7 +800,7 @@ label accident:
     #BG: Patrick Hardman and player on call
     p "Sir I am terribly sorry to inform you that your son and his mother were involved in a car accident and are in critical condition at the moment. We need you to come as soon as possible to the hospital to fill out the paperstuff."
     show ph_call with dissolve
-    ph "Fuck! What happened? I can not come by so soon I am in Tropica!"
+    ph "F***! What happened? I can not come by so soon I am in Tropica!"
 
     p "Ok Sir please calm down"
 
@@ -803,19 +810,20 @@ label accident:
 
     ph "Ok ok I can be there by tomorrow."
 
-    p "Unfortunately we need your information sooner, so we can continue the treatment. Would it be possible for you to fill in your information if we send you a link to the formular?"
+    p "Unfortunately, we need your information sooner, so we can continue the treatment. Would it be possible for you to fill in your information if we send you a link to the formular?"
 
     ph "Yeah sure, please do everything in your power to safe my son!"
 
     p "We will! I sent you the formular."
     hide ph_call with dissolve
-    "Shortly after hanging up you get access to Patric's smartphone as he ingnorantly clicked on your link. "
+    "Shortly after hanging up you get access to Patrick's smartphone as he ingnorantly clicked on your link. "
     "You scroll through his messages."
 
-    "When you go through his smartphone messages you see some message from J."
-    "Hey! Did everything go well? Excited about the avocado business. Got a good feeling we're gonna make some serious cash with this!! Let's talk soon!"
-    #Here ends -> transition level 4
-    "END. Transition to level 4"
+    "When you go through his smartphone messages you see some message from jack.morrison@crimsongroup.com."
+    #"J: Hey! Did everything go well? Excited about the avocado business. Got a good feeling we're gonna make some serious cash with this!! Let's talk soon!"
+    "Hey Patrick, can you help me with the travel expense report, I don't know where to find the form?"#some vulnerability
+
+    jump phising_lvl3
 
 label stealing:
     scene bg wfh
@@ -848,12 +856,12 @@ label successful_vishing:
 
 label phising_lvl3:
     scene bg wfh
-    "You decide to try your luck by writing a phishing email to all the employees from the Crimson Group."
+    "You decide to write a phishing email to Jack Morrison from the Crimson Group."#have to find information about him
     "Task: Arrange the email snippets to create an effective phishing email "
 
     call screen paper_puzzle2
-
-    #Minigame Email
+#Email link to Travel expenses
+    #Minigame Email 
     
 
     # MINI GAME OF PAPER PUZZLE
@@ -1075,19 +1083,22 @@ screen emailaccount3:
 
 
 label find_out_more:#checkpoint x
+    default emailwritten = False
     show screen inv_screen
     scene bg wfh
     #BG computer background
     menu:
         "Search for hotels in Tropica on the internet":
             jump search_hotels
-        "Write an email to Marcus Johnson as Jack Morrison":
+        "Write an email to Marcus Johnson as Jack Morrison"if not emailwritten:
             jump write_email
 
 label write_email: 
     scene bg wfh with fade
     "After waiting for two days without a reply from Marcus Johnson, you decide to try something else. "
+    $ emailwritten = True
     jump find_out_more
+    
 
 label search_hotels:
     scene bg hotelmap
@@ -1148,9 +1159,11 @@ label takeroomfail:
     "After you have been waiting for the whole day, you realize that you probably went to the wrong hotel"
 
     $ hotel1_visited = True
-    
+    menu: 
+        "Try to visit a different hotel":
+            jump hotel_options
+        #another option
 
-    jump hotel_options
 
     #Go to checkpoint x
 
@@ -1160,9 +1173,10 @@ label takeroomfail3:
     "After you have been waiting for the whole day, you realize that you probably went to the wrong hotel"
 
     $ hotel3_visited = True
-    
-
-    jump hotel_options
+    menu: 
+        "Try to visit a different hotel":
+            jump hotel_options
+        #another option
 
 label hotel2_success:
     scene bg hotel2
@@ -1267,6 +1281,7 @@ label cleaningstaff:
 
 label makefriends:
     scene bg hotelroom2
+    #bug
     show Me:
         xzoom -1.0
     show marcus
