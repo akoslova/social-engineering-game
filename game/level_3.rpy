@@ -10,12 +10,13 @@ define hs = Character (_("Hotel Staff"), color="#8e0000")
 define sec = Character (_("Secretary"), color="#0000f9")
 
 
-image bg wfhcall = "wfhcall.png"
+image wfhcall = "wfhcall.png"
 image sec_call = "sec_call.png"
 image sec_call2 = "sec_call2.png"
 image sec_call3 = "sec_call3.png"
 image sec_call4 = "sec_call4.png"
 image ph_call = "ph_call.png"
+image ph_photos = "ph_photos.png"
 image bg secretempty = "secretempty.jpg"
 image bg hotelmap = "bg hotelmap.jpg"
 image bg hotelroom = "bg hotelroom.jpg"
@@ -332,7 +333,7 @@ label personal_details:
     #BG: Mobile screen with patrick hardman account on insta
     #one picture of Patrick with his wife and son
     #second picture of Patrick and his son only
-
+    show ph_photos
 
     "You come across the account of Patrick Hardman. You find one picture of Patrick Hardman with his family, his wife and his son and second picture of just him and his son."
     "The pictures of Patrick Hardman offer the most emotionally charged storyline. The transition from a family of three to just father and son suggests possibly divorce with his wife."
@@ -408,7 +409,7 @@ label pretexting:
 
 label jason_hardman:
     scene bg wfh
-    show bg wfhcall
+    show wfhcall
     #BG: Player on call
     "Hello ... here is Jason ..."
 
@@ -423,7 +424,7 @@ label jason_hardman:
 
 label js_op1:
     scene bg wfh
-    show bg wfhcall
+    show wfhcall
     
     #BG: Player on call
     menu:
@@ -438,7 +439,7 @@ label js_op1:
 label js_op1_1:
 
     scene bg wfh
-    show bg wfhcall
+    show wfhcall
     show sec_call with dissolve
     #BG: Secretary on call
     sec "I am afraid I can't do that sweetie. But he is fine I am sure of it! Have a nice day!"
@@ -449,7 +450,7 @@ label js_op1_1:
 
 label js_op2:
     scene bg wfh
-    show bg wfhcall
+    show wfhcall
     show sec_call with dissolve
     #BG: Player on call
     menu:
@@ -462,7 +463,7 @@ label js_op2:
 
 label js_op2_1:
     scene bg wfh
-    show bg wfhcall
+    show wfhcall
     show sec_call 
     #BG: Secretary and player on call
     sec "Oh Hello Jason, what is the Name of your father?"
@@ -489,7 +490,7 @@ label js_op2_1:
 
 label js_op2_1_1:
     scene bg wfh
-    show bg wfhcall
+    show wfhcall
     show sec_call
     #BG: Secretary and player on call
     sec "… Ok one second. What I can tell you is that he is not in the country at the moment and for next week, so I am afraid he won't make it tonight. I can not tell you more!"
@@ -504,7 +505,7 @@ label js_op2_1_1:
 
 label js_op2_1_2:
     scene bg wfh
-    show bg wfhcall
+    show wfhcall
     show sec_call
     #BG: Secretary and player on call
     sec "I think its time to finish tis call. Good day!"
@@ -527,7 +528,7 @@ label js_op2_1_3:
 
 label js_op2_2:
     scene bg wfh
-    show bg wfhcall
+    show wfhcall
     show sec_call
     #BG: Secretary and player on call
     sec "Dont worry Jason! can I ask you who told you this?"
@@ -546,7 +547,7 @@ label js_op2_2:
 
 label tina_hardman:
     scene bg wfh
-    show bg wfhcall 
+    show wfhcall 
     #BG: Player on call
     "Hello here Is Tina Hardman"
 
@@ -560,7 +561,7 @@ label tina_hardman:
 
 label tn_op1:
     scene bg wfh
-    show bg wfhcall
+    show wfhcall
     show sec_call2 with dissolve
     #BG: Secretary and player on call
     p "I am very much annoyed and he is not picking up his phone so can you please help me reach him. This is already the third time this happens and he never is available when I try to call him … I am losing my mind!"
@@ -577,7 +578,7 @@ label tn_op1:
 
 label tn_op1_1:
     scene bg wfh
-    show bg wfhcall
+    show wfhcall
     show sec_call2
     #BG: Secretary and player on call
     p "I can't deal with it any longer. Give me a contact please or I am losing my mind right now."
@@ -598,7 +599,7 @@ label tn_op1_1:
 
 label tn_op1_2:
     scene bg wfh
-    show bg wfhcall
+    show wfhcall
     show sec_call2
     #BG: Secretary and player on call
     sec "Even if that sounds tempting, I can't help you any further. Have a nice day!"
@@ -607,7 +608,7 @@ label tn_op1_2:
 
 label alexander:
     scene bg wfh
-    show bg wfhcall
+    show wfhcall
     show sec_call3 with dissolve
     #BG: Secretary and player on call
     "Hello, here is Alexander, Patric meant I should give him a call when the car he is interested in is finished renovating."
@@ -633,7 +634,7 @@ label alexander:
     
 label alx_op1:
     scene bg wfh
-    show bg wfhcall
+    show wfhcall
     show sec_call3
     #BG: Secretary and player on call
     sec "I am afraid I can't do anything for you! I wish a good day bye."
@@ -646,7 +647,7 @@ label alx_op1:
 
 label doctor_dale:
     scene bg wfh
-    show bg wfhcall
+    show wfhcall
     show sec_call4 with dissolve
     #BG: Secretary and player on call
     p "Hello, here is Doctor Dale, I am trying to reach my patient Mr. Hardman Is he in?
@@ -665,7 +666,7 @@ label doctor_dale:
 
 label doc_op1:
     scene bg wfh
-    show bg wfhcall
+    show wfhcall
     show sec_call4
     #BG: Secretary and player on call
     p "Ok .. normally I would not ask for that but could you be so kindly and give me his phone number? It is quite important that he gets his results asap"
@@ -682,7 +683,7 @@ label doc_op1:
 
 label doc_op1_1:
     scene bg wfh
-    show bg wfhcall
+    show wfhcall
     show sec_call4
     #BG: Secretary and player on call
     p "I mean he probably is banking on us to deliver him his results in this way immediately thinking we have his contact info stored in the file… So can you make an exception?"
@@ -697,7 +698,7 @@ label doc_op1_1:
 
 label doc_op1_2:
     scene bg wfh
-    show bg wfhcall
+    show wfhcall
     show sec_call4
     #BG: Secretary and player on call
     p "I mean he probably is banking on us to deliver him his results in this way immediately thinking we have his contact info stored in the file… So can you make an exception?"
@@ -737,7 +738,7 @@ label succesful_pretext:
 #checkpoint vishing
 label vishing:
     scene bg wfh
-    show bg wfhcall
+    show wfhcall
     #BG: player on call
     "You decide its time for the next play on Patric Hardman. Your target is to use his phone number and knowledge about him to get him to click on your link which is sent directly per SMS."
 
@@ -759,7 +760,7 @@ label vishing:
 
 label principal:
     scene bg wfh
-    show bg wfhcall
+    show wfhcall
     
     #BG: Patrick Hardman and player on call
     p "Sir I call you because your son has picked a fight with his class mate and injured him in the eye. I need you to come by and pick up your son as well as have a talk with me about his behaviour."
@@ -787,7 +788,7 @@ label principal:
 
 label accident:
     scene bg wfh
-    show bg wfhcall
+    show wfhcall
     
     #BG: Patrick Hardman and player on call
     p "Sir I am terribly sorry to inform you that your son and his mother were involved in a car accident and are in critical condition at the moment. We need you to come as soon as possible to the hospital to fill out the paperstuff."
@@ -818,7 +819,7 @@ label accident:
 
 label stealing:
     scene bg wfh
-    show bg wfhcall
+    show wfhcall
     #BG: Patrick Hardman and player on call
     p "Sir, Your son is in big trouble. We caught him stealing from the bookstore and he even tried to run away from us."
     show ph_call with dissolve
@@ -1075,6 +1076,7 @@ screen emailaccount3:
 
 label find_out_more:#checkpoint x
     show screen inv_screen
+    scene bg wfh
     #BG computer background
     menu:
         "Search for hotels in Tropica on the internet":
@@ -1327,7 +1329,7 @@ label call_hotels:
 
 label hotel1_call:#BG dialing
     scene bg wfh
-    show bg wfhcall
+    show wfhcall
     "You confidently call the hotel and ask for Marcus Johnson."
 
     receptionist2 "I’m sorry, we don’t have a guest of that name staying here."
@@ -1341,7 +1343,7 @@ label hotel1_call:#BG dialing
 
 label hotel2_call:#BG dialing
     scene bg wfh
-    show bg wfhcall
+    show wfhcall
     "You confidently call the hotel and ask for Marcus Johnson."
 
     receptionist2 "What room number?"
@@ -1356,7 +1358,7 @@ label hotel2_call:#BG dialing
 
 label hotel3_call:#BG dialing
     scene bg wfh
-    show bg wfhcall
+    show wfhcall
     "You confidently call the hotel and ask for Marcus Johnson."
 
     receptionist2 "I’m sorry, we don’t have a guest of that name staying here."
