@@ -3,7 +3,7 @@ $ renpy.include("tutorial_story.rpy")
 $ renpy.include("level_1.rpy")
 $ renpy.include("level_2.rpy")
 
-define ph = Character (_("Patric Hardman"), color="#8e0000")
+define ph = Character (_("Patrick Hardman"), color="#8e0000")
 define receptionist2 = Character (_("Receptionist"), color="#8e0000")
 define marcus = Character (_("Marcus Johnson"), color="#8e0000")
 define hs = Character (_("Hotel Staff"), color="#8e0000")
@@ -27,6 +27,7 @@ image bg hotel1 = "bg hotel1.jpg"
 image bg hotel2 = "bg hotel2.jpg"
 image bg hotel3 = "bg hotel3.jpg"
 image bg hotellobby = "bg hotellobby.jpg"
+image bg caught="bg caught.jpg"
 
 
 image search1 = "search1.png"
@@ -422,7 +423,7 @@ label jason_hardman:
 
     menu:
 
-        "I was wondering if you could give me information about my dad Patric Hardman? I had a football game today and he promised to come but did not show up.":
+        "I was wondering if you could give me information about my dad Patrick Hardman? I had a football game today and he promised to come but did not show up.":
             jump js_op1
         
         "I cant reach my father over his mobile. Is he in at the moment?":
@@ -600,7 +601,7 @@ label tn_op1_1:
 
     sec "Haha good idea, I hope you will figure out a solution. Have a nice day!"
     hide sec_call2 with dissolve
-    #  Notebook entry Patric Hardman personal phone number  (556) 781-4231
+    #  Notebook entry Patrick Hardman personal phone number  (556) 781-4231
 
     jump succesful_pretext
 
@@ -736,7 +737,7 @@ label succesful_pretext:
 
     $ inventory.add_data(patrick_number)
 
-    "{i}Patric Hardman personal phone number (556) 781-4231 was added to your notebook. {\i}"
+    "{i}Patrick Hardman personal phone number (556) 781-4231 was added to your notebook. {\i}"
 
 
     jump vishing
@@ -819,7 +820,7 @@ label accident:
     "Shortly after hanging up you get access to Patrick's smartphone as he ingnorantly clicked on your link. "
     "You scroll through his messages."
 
-    "When you go through his smartphone messages you see some message from jack.morrison@crimsongroup.com."
+    "When you go through his smartphone messages you see some message from jack.morrison@mail.com."
     #"J: Hey! Did everything go well? Excited about the avocado business. Got a good feeling we're gonna make some serious cash with this!! Let's talk soon!"
     "Hey Patrick, can you help me with the travel expense report, I don't know where to find the form?"#some vulnerability
 
@@ -1110,6 +1111,134 @@ label search_hotels:
             jump hotel_options
         "Call hotels and confidently ask for Marcus Johnson":
             jump call_hotels
+        "Make some google research about the hotels":#new
+            jump research_hotels
+
+label research_hotels:
+    scene bg hotelmap
+    default hotel1_googled= False
+    default hotel3_googled =False
+    default hotel2_googled = False
+    "What hotel do you want to google?"
+    menu:
+        "Grand Horizon Inn" if not hotel1_googled:
+            jump hotel1_google
+        "Hotel Semirani" if not hotel2_googled:
+            jump hotel2_google
+        "Hotel Diamond Resorts" if not hotel3_googled:
+            jump hotel3_google
+
+label hotel1_google:
+    #design: Website style of a hotel "Grand Horizon" 
+    $ hotel1_googled = True
+    menu:
+        "Check the prices per night":
+            jump check_prices1
+        "Check the live webcam of the hotel":
+            jump livecam1#new
+        "Call the hotel and ask about Marcus Johnson":
+            jump hotel1_call
+        "Google a different hotel":
+            jump research_hotels
+
+label hotel2_google:
+    #design: Website style of a hotel "Semirani" 
+    $ hotel2_googled = True
+    menu:
+        "Check the prices per night":
+            jump check_prices2
+        "Check the live webcam of the hotel":
+            jump livecam2#new
+        "Call the hotel and ask about Marcus Johnson":
+            jump hotel2_call
+        "Google a different hotel":
+            jump research_hotels
+
+label hotel3_google:
+    #design: Website style of a hotel "Diamond Resorts" 
+    $ hotel3_googled = True
+    menu:
+        "Check the prices per night":
+            jump check_prices3
+        "Check the live webcam of the hotel":
+            jump livecam3#new
+        "Call the hotel and ask about Marcus Johnson":
+            jump hotel3_call
+        "Google a different hotel":
+            jump research_hotels
+
+
+label check_prices1:
+    "60$ per night for a Standard Room, 200$ per night for a Deluxe Room"
+    menu:
+        "Check the live webcam of the hotel":
+            jump livecam1#new
+        "Call the hotel and ask about Marcus Johnson":
+            jump hotel1_call
+        "Google a different hotel":
+            jump research_hotels
+        "Go to hotel Grand Horizon":
+            jump hotel1_fail
+
+label check_prices2:
+    "120$ per night for a Standard Room, 220$ per night for a Deluxe Room"
+    menu:
+        "Check the live webcam of the hotel":
+            jump livecam2#new
+        "Call the hotel and ask about Marcus Johnson":
+            jump hotel2_call
+        "Google a different hotel":
+            jump research_hotels
+        "Go to hotel Semirani":
+            jump hotel2_success
+
+label check_prices3:
+    "50$ per night for a Standard Room, 130$ per night for a Deluxe Room"
+    menu:
+        "Check the live webcam of the hotel":
+            jump livecam3#new
+        "Call the hotel and ask about Marcus Johnson":
+            jump hotel3_call
+        "Google a different hotel":
+            jump research_hotels
+        "Go to Hotel Diamond Resorts":
+            jump hotel3_fail
+
+label livecam1:
+    #design: Livecamshot without Marcus Johnson but a lot of people
+    menu:
+        "Call the hotel and ask about Marcus Johnson":
+            jump hotel1_call
+        "Google a different hotel":
+            jump research_hotels
+        "Go to hotel Grand Horizon":
+            jump hotel1_fail
+
+label livecam2:
+    #design: Livecamshot with Marcus Johnson
+    menu:
+        "Call the hotel and ask about Marcus Johnson":
+            jump hotel2_call
+        "Google a different hotel":
+            jump research_hotels
+        "Go to hotel Semirani":
+            jump hotel2_success
+
+label livecam3:
+    #design: Livecamshot with just the rainforrest view
+    menu: 
+        "Call the hotel and ask about Marcus Johnson":
+            jump hotel3_call
+        "Google a different hotel":
+            jump research_hotels
+        "Go to Hotel Diamond Resorts":
+            jump hotel3_fail
+
+
+
+
+
+    
 
 label hotel_options:#BG map with 3 hotels?
     scene bg hotelmap
@@ -1194,15 +1323,17 @@ label hotel2_success:
 
 label takeroom:#checkpoint r
     scene bg hotelroom
+    default knocked = False
+    default brokein = False
 #BG: In front of your hotel door, a guy entering his room
     "You take your keys and go to your room."
     "Suddenly you observe Marcus Johnson entering his room, which is right next to yours."
     menu:
         "Set up a Wifi Access Point and create a fake login":
             jump setupwifi
-        "Knock on Marcus Johnson's door":
+        "Knock on Marcus Johnson's door" if not knocked:
             jump knockingjohnson
-        "Wait for him to leave his room and break into his room to search for information.":
+        "Wait for him to leave his room and break into his room to search for information." if not brokein:
             jump breakin
 
 label setupwifi:
@@ -1239,10 +1370,6 @@ label explorefiles:
 
 
     jump pretexting
-            
-
-
-
 
 
 label facebook:
@@ -1255,6 +1382,7 @@ label facebook:
 
 
 label knockingjohnson:
+    $ knocked = True
     scene bg hotelroom2
     show Me with easeinleft:
         xzoom -1.0
@@ -1275,7 +1403,9 @@ label cleaningstaff:
     show marcus
     p "Good afternoon, sir. I'm here to clean the room. Just wanted to check, if you are here."
     marcus "Yes, I am here as you can see. And I don't want to be disturbed any more, otherwise I'll get the manager. Bye."
-    jump takeroom
+    menu:
+        "Go back to your room":
+            jump takeroom
 
     #go to checkpoint r
 
@@ -1295,11 +1425,17 @@ label makefriends:
     "You retreat from the room, feeling a bit embarrassed by the rejection. "
     "It seems Marcus Johnson isn't the friendly type, at least not at the moment. Maybe you should try something else."
 
-    #go to checkpoint m
-    jump search_hotels
+    menu:   
+        "Go back to your room":
+            jump takeroom
+
+
+
+
 
 
 label breakin:
+    $ brokein = True
     scene bg hotelroom2
     show Me with easeinleft:
         xzoom -1.0
@@ -1325,6 +1461,12 @@ label breakin:
     "Before you can protest, the hotel staff member takes out their phone and dials a number." 
 
     "As you wait for security to arrive , you can't help but regret your reckless decision."
+    scene bg caught
+    "Game Over!"
+    menu:   
+        "Restart Level 3":
+            jump investigation
+    
 
     #go to checkpoint m
     jump search_hotels

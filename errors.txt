@@ -2,9 +2,11 @@
 errors listed below, and try again.
 
 
-File "game/level_3.rpy", line 1100: expected statement.
-    § emailwritten = True
-                   ^
+The label hotel3_google is defined twice, at File "game/level_3.rpy", line 1158:
+label hotel3_google:
+and File "game/level_3.rpy", line 1171:
+label hotel3_google:
+
 
 Ren'Py Version: Ren'Py 8.1.3.23091805
-Wed May 22 11:33:21 2024
+Wed May 22 14:45:49 2024
