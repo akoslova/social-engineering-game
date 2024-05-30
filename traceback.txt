@@ -1,36 +1,28 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
 While running game code:
-  File "game/level_3.rpy", line 1284, in script
-    show Me:
-KeyError: 'name'
+  File "game/level_3.rpy", line 1091, in script
+    define mercenary3_info = InventoryData("Marcus Johnson: stays in a hotel in Tropica, Name wife: Sandy")
+  File "game/level_3.rpy", line 1091, in <module>
+    define mercenary3_info = InventoryData("Marcus Johnson: stays in a hotel in Tropica, Name wife: Sandy")
+TypeError: __init__() missing 1 required positional argument: 'description'
 
 -- Full Traceback ------------------------------------------------------------
 
 Full traceback:
-  File "game/level_3.rpy", line 1284, in script
-    show Me:
-  File "C:\Users\49157\Downloads\renpy-8.1.3-sdk\renpy\ast.py", line 930, in execute
-    renpy.exports.say(who, what, *args, **kwargs)
-  File "C:\Users\49157\Downloads\renpy-8.1.3-sdk\renpy\exports.py", line 1474, in say
-    who(what, *args, **kwargs)
-  File "C:\Users\49157\Downloads\renpy-8.1.3-sdk\renpy\character.py", line 1337, in __call__
-    what = self.prefix_suffix("what", self.what_prefix, what, self.what_suffix)
-  File "C:\Users\49157\Downloads\renpy-8.1.3-sdk\renpy\character.py", line 1251, in prefix_suffix
-    return (sub(prefix) + sub(body) + sub(suffix))
-  File "C:\Users\49157\Downloads\renpy-8.1.3-sdk\renpy\character.py", line 1231, in sub
-    return renpy.substitutions.substitute(s, scope=scope, force=force, translate=translate)[0]
-  File "C:\Users\49157\Downloads\renpy-8.1.3-sdk\renpy\substitutions.py", line 278, in substitute
-    s = formatter.vformat(s, (), kwargs) # type: ignore
-  File "/home/tom/ab/renpy-build-fix/tmp/install.linux-x86_64/lib/python3.9/string.py", line 165, in vformat
-  File "/home/tom/ab/renpy-build-fix/tmp/install.linux-x86_64/lib/python3.9/string.py", line 205, in _vformat
-  File "C:\Users\49157\Downloads\renpy-8.1.3-sdk\renpy\substitutions.py", line 168, in get_field
-    obj, arg_used = super(Formatter, self).get_field(field_name, args, kwargs)
-  File "/home/tom/ab/renpy-build-fix/tmp/install.linux-x86_64/lib/python3.9/string.py", line 270, in get_field
-  File "/home/tom/ab/renpy-build-fix/tmp/install.linux-x86_64/lib/python3.9/string.py", line 227, in get_value
-KeyError: 'name'
+  File "game/level_3.rpy", line 1091, in script
+    define mercenary3_info = InventoryData("Marcus Johnson: stays in a hotel in Tropica, Name wife: Sandy")
+  File "C:\Users\49157\Downloads\renpy-8.1.3-sdk\renpy\ast.py", line 2508, in execute
+    self.set()
+  File "C:\Users\49157\Downloads\renpy-8.1.3-sdk\renpy\ast.py", line 2522, in set
+    value = renpy.python.py_eval_bytecode(self.code.bytecode)
+  File "C:\Users\49157\Downloads\renpy-8.1.3-sdk\renpy\python.py", line 1146, in py_eval_bytecode
+    return eval(bytecode, globals, locals)
+  File "game/level_3.rpy", line 1091, in <module>
+    define mercenary3_info = InventoryData("Marcus Johnson: stays in a hotel in Tropica, Name wife: Sandy")
+TypeError: __init__() missing 1 required positional argument: 'description'
 
 Windows-10-10.0.22631 AMD64
 Ren'Py 8.1.3.23091805
 Social Engineering Game 1.0
-Wed May 22 11:40:45 2024
+Thu May 30 11:31:57 2024

@@ -340,6 +340,8 @@ label personal_details:
     "The pictures of Patrick Hardman offer the most emotionally charged storyline. The transition from a family of three to just father and son suggests possibly divorce with his wife."
     "By exploring also the tagged profiles of his ex-wife Tina you find out his sons name is Jason he is around eleven years old and he goes currently to the Lipson - middle school."
 
+    #new add picture to notebook
+
     menu:
         "Continue investigation about Crimson Group":
             jump deeper2
@@ -409,7 +411,7 @@ label pretexting:
         "Try to impersonate the ex-wife of Mr. Hardman":
             jump tina_hardman
         
-        "Try pretending to be a close friend of Patric" if not alexander_visited:
+        "Try pretending to be a close friend of Patrick" if not alexander_visited:
             jump alexander
         
         "Try pretending to be the family doctor of Mr. Hardman":
@@ -799,17 +801,17 @@ label accident:
     show wfhcall
     
     #BG: Patrick Hardman and player on call
-    p "Sir I am terribly sorry to inform you that your son and his mother were involved in a car accident and are in critical condition at the moment. We need you to come as soon as possible to the hospital to fill out the paperstuff."
+    p "Sir, I am terribly sorry to inform you that your son and his mother were involved in a car accident and are in critical condition at the moment. We need you to come as soon as possible to the hospital to fill out the paperstuff."
     show ph_call with dissolve
     ph "F***! What happened? I can not come by so soon I am in Tropica!"
 
-    p "Ok Sir please calm down"
+    p "Ok Sir, please calm down"
 
-    ph "Calm down?! Are you kidding me my son is fucking dying and you say calm down?"
+    ph "Calm down?! Are you kidding me my son is f***ing dying and you say calm down?"
 
     p "They are not dying! We are doing our best!"
 
-    ph "Ok ok I can be there by tomorrow."
+    ph "Ok ok, I can be there by tomorrow."
 
     p "Unfortunately, we need your information sooner, so we can continue the treatment. Would it be possible for you to fill in your information if we send you a link to the formular?"
 
@@ -823,6 +825,14 @@ label accident:
     "When you go through his smartphone messages you see some message from jack.morrison@mail.com."
     #"J: Hey! Did everything go well? Excited about the avocado business. Got a good feeling we're gonna make some serious cash with this!! Let's talk soon!"
     "Hey Patrick, can you help me with the travel expense report, I don't know where to find the form?"#some vulnerability
+
+    define new_info = InventoryData("Jack Morrison", "jack.morrison@mail.com")
+
+    $ inventory.add_data(new_info)
+    
+
+
+    "{i} The email adress was added to your notebook. {\i}"
 
     jump phising_lvl3
 
@@ -893,78 +903,79 @@ label phising_lvl3:
             drag:
                 drag_name 1
                 xpos 0.02
-                ypos 0.76
+                ypos 0.38
                 child "gui/phishing_snippets/1.png"
                 draggable True
                 drag_raise True
             drag:
                 drag_name 2
                 xpos 0.02
-                ypos 0.92
+                ypos 0.45
                 child "gui/phishing_snippets/2.png"
                 draggable True
                 drag_raise True
             drag:
                 drag_name 3
                 xpos 0.02
-                ypos 0.4
+                ypos 0.31
                 child "gui/phishing_snippets/3.png"
                 draggable True
                 drag_raise True
             drag:
                 drag_name 4
-                ypos 0.68
+                xpos 0.02
+                ypos 0.52
                 child "gui/phishing_snippets/4.png"
                 draggable True
                 drag_raise True
             drag:
                 xpos 0.02
-                ypos 0.1
+                ypos 0.8
                 child "gui/phishing_snippets/5.png"
                 draggable True
                 drag_raise True
             drag:
                 xpos 0.02
-                ypos 0.54
+                ypos 0.24
                 child "gui/phishing_snippets/6.png"
                 draggable True
                 drag_raise True
             drag:
                 xpos 0.02
-                ypos 0.85
+                ypos 0.59
                 child "gui/phishing_snippets/7.png"
                 draggable True
                 drag_raise True
             drag:
                 xpos 0.02
-                ypos 0.2
+                ypos 0.66
                 child "gui/phishing_snippets/8.png"
                 draggable True
                 drag_raise True
             drag:
                 xpos 0.02
-                ypos 0.29
+                ypos 0.17
                 child "gui/phishing_snippets/9.png"
                 draggable True
                 drag_raise True
-
-        draggroup:
             drag:
-                drag_name 1
-                xpos 0.5
-                ypos 0.76
-                child "gui/phishing_snippets/1.png"
-                draggable False
-                droppable True
-                dropped piece_drop
+                xpos 0.02
+                ypos 0.73
+                child "gui/phishing_snippets/10.png"
+                draggable True
+                drag_raise True
             drag:
-                drag_name 2
-                xpos 0.5
-                ypos 0.92
-                child "gui/phishing_snippets/2.png"
-                draggable False
-                droppable True
-                dropped piece_drop
+                xpos 0.02
+                ypos 0.1
+                child "gui/phishing_snippets/11.png"
+                draggable True
+                drag_raise True
+            drag:
+                xpos 0.02
+                ypos 0.03
+                child "gui/phishing_snippets/12.png"
+                draggable True
+                drag_raise True
             
                 
             
@@ -1036,6 +1047,10 @@ screen emailaccount1:
         focus_mask True
         action Jump("email3")
 
+    imagebutton auto "gui/invitation_letter/back_%s.png":
+        focus_mask True
+        action Jump("find_out_more")
+
 label email2:
     hide screen inv_screen
     scene black
@@ -1056,7 +1071,10 @@ screen emailaccount2:
         focus_mask True
         action Jump("email3")
 
-        #update journal with information found
+    imagebutton auto "gui/invitation_letter/back_%s.png":
+        focus_mask True
+        action Jump("find_out_more")
+
 
 label email3:
     hide screen inv_screen
@@ -1075,15 +1093,31 @@ screen emailaccount3:
         focus_mask True
         action Jump("email2")
 
-    imagebutton auto "gui/emails/mail3_%s.png":
+    imagebutton auto "gui/invitation_letter/back_%s.png":
         focus_mask True
-        action Jump("find_out_more")
+        action Jump("inter")
+
+
+label inter:
+    define mercenary3_info = InventoryData("Marcus Johnson"," Out of Office, stays in a hotel in Tropica")
+    define mercenary1_info = InventoryData(" ", "Wife named Sandy")
+
+    $ inventory.add_data(mercenary1_info)
+    $ inventory.add_data(mercenary3_info)
+
+
+    "{i} Some information was added to your notebook. {\i}"
+
+    jump find_out_more
         
 
 
 
 
 label find_out_more:#checkpoint x
+
+
+    
     default emailwritten = False
     show screen inv_screen
     scene bg wfh
