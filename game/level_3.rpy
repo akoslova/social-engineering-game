@@ -118,13 +118,13 @@ label investigation:
         "Visit the Crimson Group's official website." if not website_visited:
             jump official_website
 
-        "Search for news articles and reports" if not news_visited:
+        "Search Crimson group news" if not news_visited:
             jump news_articles3
 
-        "Delve into forums and online discussions" if not online_visited:
+        "Explore Crimson group forums" if not online_visited:
             jump online_discussion
 
-        "Search through social media":
+        "Check Crimson group on social media":
             jump social_media
 
 label official_website:
@@ -132,13 +132,13 @@ label official_website:
     show search1 with dissolve
     #BG: Laptop Screen Crimson Group Website
 
-    "You navigate to the Crimson Group's website, greeted by their bold slogan: 'In the Shadows, We Forge Your Peace'.However, detailed information about their operatives remains elusive."
+    "You navigate to the Crimson Group's website.Detailed information about their operatives is hard to find."
     menu:
-        "Examine their service offerings more closely.":
+        "Explore service offerings":
             jump service_offering
-        "Look for any mention of specific operations.":
+        "Investigate operations":
             jump specific_operations
-        " Search for contact information or office locations.":
+        "Find contact info":
             jump office_location
 
 label service_offering:
@@ -146,7 +146,7 @@ label service_offering:
     show search2 with dissolve
     #BG: Laptop Screen and Service offering page
 
-    "You delve into the descriptions of their services, ranging from high-risk protection details to strategic military consulting. "
+    "You find out about the descriptions of their services, ranging from high-risk protection details to strategic military consulting. "
     "Despite the wealth of information about what they offer, the specifics about who exactly carries out these services remain a secret."
 
     "This choice doesn't lead to the breakthrough you hoped for."
