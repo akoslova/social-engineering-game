@@ -1457,9 +1457,11 @@ label explorefiles:
     "Suddenly you hear an aggressive voice that seems to come from the owner of the bodycam. It seems as if a protest is being broken up by force."
     "You decide to save the video footage on you PC as evidence."
 
+    jump start
 
 
-    jump pretexting
+
+    
 
 
 label facebook:
