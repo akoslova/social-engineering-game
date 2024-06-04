@@ -28,7 +28,10 @@ image bg hotel2 = "bg hotel2.jpg"
 image bg hotel3 = "bg hotel3.jpg"
 image bg hotellobby = "bg hotellobby.jpg"
 image bg caught="bg caught.jpg"
-
+image bg caught2="bg caught2.jpg"
+image bg livecam1="bg livecam1.jpg"
+image bg livecam2="bg livecam2.jpg"
+image bg livecam3="bg livecam3.jpg"
 
 image search1 = "search1.png"
 image search2 = "search2.png"
@@ -44,6 +47,38 @@ image zerologin = "zerologin.png"
 image onelogin = "onelogin.png"
 image marcus = "marcus.png"
 image hs = "hs.png"
+image hotel1 web = "hotel1 web.png"
+image hotel2 web = "hotel2 web.png"
+image hotel3 web = "hotel3 web.png"
+
+image bg crowdvideo:
+    "crowdvideo1"
+    pause 0.25
+    "crowdvideo2"
+    pause 0.25
+    "crowdvideo3"
+    pause 0.25
+    "crowdvideo4"
+    pause 0.25
+    "crowdvideo5"
+    pause 0.25
+    "crowdvideo6"
+    pause 0.25
+    "crowdvideo7"
+    pause 0.25
+    "crowdvideo8"
+    pause 0.25
+    "crowdvideo9"
+    pause 0.25
+    "crowdvideo10"
+    pause 0.25
+    "crowdvideo11"
+    pause 0.25
+    "crowdvideo12"
+    pause 0.25
+    "crowdvideo13"
+    pause 0.25
+    repeat
 
 image bg wfh:
     "bg wfh0"
@@ -896,8 +931,8 @@ label phising_lvl3:
         
         #frame:
             #background black
-           # xsize full_page_size
-           # anchor(0.5 0.5)
+            # xsize full_page_size
+            # anchor(0.5 0.5)
             # pos (1000, 300)
         draggroup:
             drag:
@@ -1164,6 +1199,8 @@ label research_hotels:
 
 label hotel1_google:
     #design: Website style of a hotel "Grand Horizon" 
+    scene bg wfh
+    show hotel1 web
     $ hotel1_googled = True
     menu:
         "Check the prices per night":
@@ -1177,6 +1214,8 @@ label hotel1_google:
 
 label hotel2_google:
     #design: Website style of a hotel "Semirani" 
+    scene bg wfh
+    show hotel2 web
     $ hotel2_googled = True
     menu:
         "Check the prices per night":
@@ -1190,6 +1229,8 @@ label hotel2_google:
 
 label hotel3_google:
     #design: Website style of a hotel "Diamond Resorts" 
+    scene bg wfh
+    show hotel3 web
     $ hotel3_googled = True
     menu:
         "Check the prices per night":
@@ -1240,6 +1281,7 @@ label check_prices3:
 
 label livecam1:
     #design: Livecamshot without Marcus Johnson but a lot of people
+    scene bg livecam1
     menu:
         "Call the hotel and ask about Marcus Johnson":
             jump hotel1_call
@@ -1250,6 +1292,7 @@ label livecam1:
 
 label livecam2:
     #design: Livecamshot with Marcus Johnson
+    scene bg livecam2
     menu:
         "Call the hotel and ask about Marcus Johnson":
             jump hotel2_call
@@ -1260,6 +1303,7 @@ label livecam2:
 
 label livecam3:
     #design: Livecamshot with just the rainforrest view
+    scene bg livecam3
     menu: 
         "Call the hotel and ask about Marcus Johnson":
             jump hotel3_call
@@ -1395,6 +1439,7 @@ label setupwifi:
 label explorefiles:
     "The desktop is cluttered with folders and files, but one folder catches your eye - Body Cam Footage."
     "Curious, you open the folder and watch one of the many video files"
+    scene bg crowdvideo
     #design: video file possible?
     "Loud and panicked voices can be heard on the video. Lots of people are running around. "
     "In the background you can see lots of trees and plants, probably the rainforest. "
