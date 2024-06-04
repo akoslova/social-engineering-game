@@ -33,6 +33,7 @@ image bg livecam1="bg livecam1.jpg"
 image bg livecam2="bg livecam2.jpg"
 image bg livecam3="bg livecam3.jpg"
 
+image daywindow = "daywindow.png"
 image search1 = "search1.png"
 image search2 = "search2.png"
 image search3 = "search3.png"
@@ -50,6 +51,7 @@ image hs = "hs.png"
 image hotel1 web = "hotel1 web.png"
 image hotel2 web = "hotel2 web.png"
 image hotel3 web = "hotel3 web.png"
+image wfhotel = "wfhotel.png"
 
 image bg crowdvideo:
     "crowdvideo1"
@@ -143,7 +145,7 @@ label investigation:
 
     $ todo.update_aim("Find out about the Crimson Group.")
     scene bg wfh
-
+    
     default website_visited= False
     default news_visited= False
     default online_visited= False
@@ -1024,6 +1026,7 @@ label notsuccessful:
 label successful: 
     "Transition next day…"
     scene bg wfh with fade
+    show daywindow
     "Jack Morrison clicked on your link. Now you have access to his computer."
     #BG: 
     "You sit down at your computer, ready to explore."
@@ -1035,6 +1038,7 @@ label successful:
 
 label explore_file_system:
     scene bg wfh
+    show daywindow
     "As you navigate through the directories, you can only find files that are not useful for you."
     menu:
         "Check his email account":
@@ -1156,6 +1160,7 @@ label find_out_more:#checkpoint x
     default emailwritten = False
     show screen inv_screen
     scene bg wfh
+    
     #BG computer background
     menu:
         "Search for hotels in Tropica on the internet":
@@ -1400,7 +1405,8 @@ label hotel2_success:
             jump takeroom
 
 label takeroom:#checkpoint r
-    scene bg hotelroom
+    scene bg hotelroom2
+    scene bg hotelroom2 with dissolve
     default knocked = False
     default brokein = False
 #BG: In front of your hotel door, a guy entering his room
@@ -1416,6 +1422,7 @@ label takeroom:#checkpoint r
 
 label setupwifi:
     scene bg wfh
+    show wfhotel
     show zerologin with dissolve
     "Transition: evening..."
     #BG Laptop screen "0 person logged in"
@@ -1437,6 +1444,8 @@ label setupwifi:
 
 
 label explorefiles:
+    scene bg wfh
+    show wfhotel
     "The desktop is cluttered with folders and files, but one folder catches your eye - Body Cam Footage."
     "Curious, you open the folder and watch one of the many video files"
     scene bg crowdvideo
@@ -1453,6 +1462,7 @@ label explorefiles:
 
 label facebook:
     scene bg wfh
+    show wfhotel
     show fb with dissolve
     "You logged into Marcus Johnson's Facebook account. However, all you found were old pictures and private chats with his old school friend."
     "This choice doesn't lead you any further so you decide to explore the files next."
@@ -1540,7 +1550,7 @@ label breakin:
     "Before you can protest, the hotel staff member takes out their phone and dials a number." 
 
     "As you wait for security to arrive , you can't help but regret your reckless decision."
-    scene bg caught
+    scene bg caught2
     "Game Over!"
     menu:   
         "Restart Level 3":

@@ -1,28 +1,20 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
-While running game code:
-  File "game/level_3.rpy", line 1091, in script
-    define mercenary3_info = InventoryData("Marcus Johnson: stays in a hotel in Tropica, Name wife: Sandy")
-  File "game/level_3.rpy", line 1091, in <module>
-    define mercenary3_info = InventoryData("Marcus Johnson: stays in a hotel in Tropica, Name wife: Sandy")
-TypeError: __init__() missing 1 required positional argument: 'description'
+After initialization, but before game start.
+PermissionError: [WinError 32] The process cannot access the file because it is being used by another process: 'C:\\SeAdv\\github\\social-engineering-game\\game\\saves\\navigation.json.new' -> 'C:\\SeAdv\\github\\social-engineering-game\\game\\saves\\navigation.json'
 
 -- Full Traceback ------------------------------------------------------------
 
 Full traceback:
-  File "game/level_3.rpy", line 1091, in script
-    define mercenary3_info = InventoryData("Marcus Johnson: stays in a hotel in Tropica, Name wife: Sandy")
-  File "C:\Users\49157\Downloads\renpy-8.1.3-sdk\renpy\ast.py", line 2508, in execute
-    self.set()
-  File "C:\Users\49157\Downloads\renpy-8.1.3-sdk\renpy\ast.py", line 2522, in set
-    value = renpy.python.py_eval_bytecode(self.code.bytecode)
-  File "C:\Users\49157\Downloads\renpy-8.1.3-sdk\renpy\python.py", line 1146, in py_eval_bytecode
-    return eval(bytecode, globals, locals)
-  File "game/level_3.rpy", line 1091, in <module>
-    define mercenary3_info = InventoryData("Marcus Johnson: stays in a hotel in Tropica, Name wife: Sandy")
-TypeError: __init__() missing 1 required positional argument: 'description'
+  File "C:\SeAdv\renpy\renpy-8.1.3-sdk\renpy\bootstrap.py", line 275, in bootstrap
+    renpy.main.main()
+  File "C:\SeAdv\renpy\renpy-8.1.3-sdk\renpy\main.py", line 620, in main
+    renpy.dump.dump(False)
+  File "C:\SeAdv\renpy\renpy-8.1.3-sdk\renpy\dump.py", line 262, in dump
+    os.rename(new, filename)
+PermissionError: [WinError 32] The process cannot access the file because it is being used by another process: 'C:\\SeAdv\\github\\social-engineering-game\\game\\saves\\navigation.json.new' -> 'C:\\SeAdv\\github\\social-engineering-game\\game\\saves\\navigation.json'
 
 Windows-10-10.0.22631 AMD64
 Ren'Py 8.1.3.23091805
 Social Engineering Game 1.0
-Thu May 30 11:31:57 2024
+Tue Jun  4 16:04:49 2024
