@@ -1405,12 +1405,14 @@ label hotel2_success:
             jump takeroom
 
 label takeroom:#checkpoint r
-    scene bg hotelroom2
-    scene bg hotelroom2 with dissolve
+    
     default knocked = False
     default brokein = False
 #BG: In front of your hotel door, a guy entering his room
+    scene bg hotelroom2
+    
     "You take your keys and go to your room."
+    scene bg hotelroom with dissolve
     "Suddenly you observe Marcus Johnson entering his room, which is right next to yours."
     menu:
         "Set up a Wifi Access Point and create a fake login":
