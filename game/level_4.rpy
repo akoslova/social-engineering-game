@@ -119,7 +119,7 @@ label investigate_miller:
             jump confront_jeffrey
         "Set up surveillance on Jeffrey Miller to gather more evidence.":
             jump set_up
-        "Look for any financial transactions linking Jeffrey to 'J'."
+        "Look for any financial transactions linking Jeffrey to 'J'.":
             jump financial_transaction
 
 
@@ -323,6 +323,20 @@ label prepare_questions:
     jump the_end
 
 label the_end:
+    python:
+        style.input.color = "#ffffff"
+        the_end = renpy.input("", length=32, screen = "nameInput")
+        the_end = the_end.strip()
+
+    
+        for char in the_end:
+            if char.isupper():
+                "XYZ"
+            
+        "You need to add a Capital Letter!"
+        
+label ending:
+
     "SUCCESS !! You have now successfully reveal that Jeffrey is the one behind of all this."
     "With all the evidence in hand, you face a critical choice."
 
