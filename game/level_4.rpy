@@ -6,9 +6,87 @@ define e2 = Character (_("Employee 2"), color="#8e0000")
 define jef = Character (_("Jeffrey Miller"), color="#8e0000")
 define fake = Character (_("Deep Fake Senator"), color="#8e0000")
 
+# Define the password validation rules
+init python:
+    def validate_password(rule, password):
+        _, check_function = rule
+        return check_function(password)
+
+image textboxstatic = "textbox.png"
+
+
+image bg cracker:
+    "bg cracker1.jpg"
+    pause 0.25
+    "bg cracker2.jpg"
+    pause 0.25
+    "bg cracker3.jpg"
+    pause 0.25
+    "bg cracker4.jpg"
+    pause 0.25
+    "bg cracker3.jpg"
+    pause 0.25
+    "bg cracker2.jpg"
+    pause 0.25
+    "bg cracker1.jpg"
+    pause 0.25
+    repeat
+
 label level_4:
     call inventory
 
+
+#kept here at the start for testing purposes, will be shifted down below later
+label password_game:
+    scene bg cracker
+    "With all the new found info you fire up your trusted Password Cracker companion."
+    "Access to this account will reveal everything. Now is the time to end it all..."
+
+    show textboxstatic:
+        yalign 0.96
+        xalign 0.5
+
+    # Define the rules for password validation
+    $ rules = [
+        ("Password must include the reversed form of the user/victim's name (hint: Jeffrey)", lambda pwd: 'yerffej' in pwd.lower()),
+        ("Password must contain at least 2 uppercase letter.", lambda pwd: pwd == 'YErffej'),
+        ("Password must contain exactly 5 lowercase letter.", lambda pwd: pwd == 'YErffej'),
+        ("Password must include a number. Try the result of 50 * (4 + 6) - 100 / 2 (hint: 45_)", lambda pwd: pwd == 'YErffej450'),
+        ("Password must contain at least one special character.", lambda pwd: pwd.startswith('YErffeJ450') and any(c in "!@#$%^&*()-_+=" for c in pwd)),
+        ("Password must include the answer to this riddle: What has keys but can't open locks? (answer: a hacker's daily tool)", lambda pwd: pwd.startswith('YErffej450') and any(c in "!@#$%^&*()-_+=" for c in pwd) and 'keyboard' in pwd.lower()),
+        ("Password must include the Roman numeral for 99 (answer: X_IX)", lambda pwd: pwd.startswith('YErffej450') and any(c in "!@#$%^&*()-_+=" for c in pwd) and 'keyboard' in pwd.lower() and 'XCIX' in pwd.upper())
+    ]
+
+    $ password = ""
+    $ rule_index = 0
+
+    while rule_index < len(rules):
+        $ current_rule = rules[rule_index][0]
+        "[current_rule]"
+
+        python:
+            style.input.color = "#ffffff"
+            password = renpy.input("", default=password, length=32, screen="passcrack")
+            password = password.strip()
+
+        # Validate password against the current rule only
+        python:
+            valid = rules[rule_index][1](password)
+
+        if valid:
+            # Check if we're at rule 7
+            if rule_index == 6:
+                jump ending
+            else:
+                "Good job! You're closer to cracking it."
+                $ rule_index += 1
+        else:
+            "Wrong password. Please try again."
+            "[current_rule]"
+
+    return
+
+# The game starts here.
 label start_level4:
     "You meet Cathy in a quiet coffee shop. She’s eager to publish the story but agrees that it's best to wait until you have undeniable evidence about the senator's dealings with CORE."
     "Back at your home, you receive an email from TastyFood. They have an important task for you."
@@ -220,7 +298,7 @@ label sample_video:
     "The choice to create a deep fake video using samples did not work and hence this is not the correct option."
     jump start_level4
 
-label comile_samples:
+label compile_samples:
     "This option is not correct."
 
     jump start_level4
@@ -320,20 +398,20 @@ label prepare_questions:
 
     "The call ends abruptly, leaving Jeffrey confused and staring at his screen."
 
-    jump the_end
+    jump password_game
 
-label the_end:
-    python:
-        style.input.color = "#ffffff"
-        the_end = renpy.input("", length=32, screen = "nameInput")
-        the_end = the_end.strip()
+# label the_end:
+#     python:
+#         style.input.color = "#ffffff"
+#         the_end = renpy.input("", length=32, screen = "nameInput")
+#         the_end = the_end.strip()
 
     
-        for char in the_end:
-            if char.isupper():
-                "XYZ"
+#         for char in the_end:
+#             if char.isupper():
+#                 "XYZ"
             
-        "You need to add a Capital Letter!"
+#         "You need to add a Capital Letter!"
         
 label ending:
 

@@ -140,6 +140,23 @@ screen nameInput(prompt):
             size 26
             color "#ffffff"
 
+screen passcrack(prompt):
+
+    vbox:
+        align(0.5,0.358)
+        spacing 30
+
+        text prompt:
+            xalign 0.5
+            size 26
+            color "#ffffff"
+
+        input:
+            id "input"
+            xalign 0.5
+            size 36
+            color "#50ffad"
+
 screen map(place):
     zorder 4
     add "gui/map/background.png"
