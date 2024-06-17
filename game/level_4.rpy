@@ -52,7 +52,7 @@ label password_game:
         ("Password must contain at least 2 uppercase letter.", lambda pwd: pwd == 'YErffej'),
         ("Password must contain exactly 5 lowercase letter.", lambda pwd: pwd == 'YErffej'),
         ("Password must include a number. Try the result of 50 * (4 + 6) - 100 / 2 (hint: 45_)", lambda pwd: pwd == 'YErffej450'),
-        ("Password must contain at least one special character.", lambda pwd: pwd.startswith('YErffeJ450') and any(c in "!@#$%^&*()-_+=" for c in pwd)),
+        ("Password must contain at least one special character.", lambda pwd: pwd.startswith('YErffej450') and any(c in "!@#$%^&*()-_+=" for c in pwd)),
         ("Password must include the answer to this riddle: What has keys but can't open locks? (answer: a hacker's daily tool)", lambda pwd: pwd.startswith('YErffej450') and any(c in "!@#$%^&*()-_+=" for c in pwd) and 'keyboard' in pwd.lower()),
         ("Password must include the Roman numeral for 99 (answer: X_IX)", lambda pwd: pwd.startswith('YErffej450') and any(c in "!@#$%^&*()-_+=" for c in pwd) and 'keyboard' in pwd.lower() and 'XCIX' in pwd.upper())
     ]
