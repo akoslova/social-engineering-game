@@ -49,12 +49,13 @@ label password_game:
     # Define the rules for password validation
     $ rules = [
         ("Password must include the reversed form of the user/victim's name (hint: Jeffrey)", lambda pwd: 'yerffej' in pwd.lower()),
-        ("Password must contain at least 2 uppercase letter.", lambda pwd: pwd == 'YErffej'),
-        ("Password must contain exactly 5 lowercase letter.", lambda pwd: pwd == 'YErffej'),
+        ("Password must contain at least 2 uppercase letters.", lambda pwd: pwd == 'YErffej'),
+        ("Password must contain exactly 5 lowercase letters.", lambda pwd: pwd == 'YErffej'),
         ("Password must include a number. Try the result of 50 * (4 + 6) - 100 / 2 (hint: 45_)", lambda pwd: pwd == 'YErffej450'),
         ("Password must contain at least one special character.", lambda pwd: pwd.startswith('YErffej450') and any(c in "!@#$%^&*()-_+=" for c in pwd)),
-        ("Password must include the answer to this riddle: What has keys but can't open locks? (answer: a hacker's daily tool)", lambda pwd: pwd.startswith('YErffej450') and any(c in "!@#$%^&*()-_+=" for c in pwd) and 'keyboard' in pwd.lower()),
-        ("Password must include the Roman numeral for 99 (answer: X_IX)", lambda pwd: pwd.startswith('YErffej450') and any(c in "!@#$%^&*()-_+=" for c in pwd) and 'keyboard' in pwd.lower() and 'XCIX' in pwd.upper())
+        ("Password must include the answer to this riddle: What has keys but can't open locks? (hint: a hacker's daily tool)", lambda pwd: pwd.startswith('YErffej450') and any(c in "!@#$%^&*()-_+=" for c in pwd) and 'keyboard' in pwd.lower()),
+        ("Password must include the Roman numeral for 99 (answer: X_IX)", lambda pwd: pwd.startswith('YErffej450') and any(c in "!@#$%^&*()-_+=" for c in pwd) and 'keyboard' in pwd.lower() and 'XCIX' in pwd.upper()),
+        ("Password has been detected to have a word with the binary 01100011 01100001 01110100", lambda pwd: 'cat' in pwd.lower() and any(c in "!@#$%^&*()-_+=" for c in pwd) and pwd.startswith('YErffej450') and 'keyboard' in pwd.lower() and 'XCIX' in pwd.upper() and 'cat' in pwd.lower())
     ]
 
     $ password = ""
@@ -74,8 +75,8 @@ label password_game:
             valid = rules[rule_index][1](password)
 
         if valid:
-            # Check if we're at rule 7
-            if rule_index == 6:
+            # Check if we're at the last rule
+            if rule_index == len(rules) - 1:
                 jump ending
             else:
                 "Good job! You're closer to cracking it."
@@ -85,6 +86,7 @@ label password_game:
             "[current_rule]"
 
     return
+    
 
 # The game starts here.
 label start_level4:
