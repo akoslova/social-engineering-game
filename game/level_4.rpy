@@ -481,6 +481,19 @@ label ending:
             jump publish_story
         "Blackmail for Personal Gain":
             jump blackmail
-        "Seek More Information":
-            jump seek_more
+        
+
+label publish_story:
+    "After weeks of gathering evidence, you publish the story together with Cathy, which quickly gained national attention."
+    "The criminals are arrested and convicted, bringing long-overdue justice."
+    "You are honored for your bravery in uncovering the truth."
+
+    jump start
+
+label blackmail:
+    "Instead of going public, you confront the criminals with the evidence. "
+    "Fearful of exposure, they pay you one million dollars to keep silent."
+    "Meanwhile, the nation remains unaware of the dark secret you uncovered"
+
+    jump start
 
