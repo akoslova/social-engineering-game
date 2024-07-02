@@ -405,6 +405,7 @@ label prepare_questions:
     jef "What the...?"
 
     "The call ends abruptly, leaving Jeffrey confused and staring at his screen."
+    "During the call you were able to get access to the senator's PC via remote control."
 
     jump password_game
 
@@ -423,8 +424,12 @@ label prepare_questions:
 #kept here at the start for testing purposes, will be shifted down below later
 label password_game:
     scene bg cracker
-    "With all the new found info you fire up your trusted Password Cracker companion."
-    "Access to this account will reveal everything. Now is the time to end it all..."
+
+    "Now that you've got all the information you need, the final step is to secure the evidence from the Senator's PC."
+    "As you want to download all relevant data, you can see that his files are password protected."
+    "The senator seems to be a fan of riddles, so he didn't make it easy to crack the password"
+    "If you are able crack this final code, you will have all the evidence you need to reveal everything."
+    "Now is the time to end it all..."
 
     show textboxstatic:
         yalign 0.96
