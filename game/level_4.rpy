@@ -493,12 +493,19 @@ label publish_story:
     "The criminals are arrested and convicted, bringing long-overdue justice."
     "You are honored for your bravery in uncovering the truth."
 
+    "People celebrate your bravery with fireworks lighting up the sky, and you're hailed as a hero."
+
+    "You enjoy the spotlight, but life becomes less private. Everyone recognizes you."
+
     jump start
 
 label blackmail:
-    "Instead of going public, you confront the criminals with the evidence. "
-    "Fearful of exposure, they pay you one million dollars to keep silent."
-    "Meanwhile, the nation remains unaware of the dark secret you uncovered"
+    "Instead of going public, you confront the criminals with evidence."
+    "They pay you one million dollars to keep quiet. The public remains unaware."
+
+    "You use the money for a luxurious vacation on a remote island, enjoying life."
+
+    "However, your peace is short-lived. The criminals you blackmailed seek revenge, putting your life in danger."
 
     jump start
 
