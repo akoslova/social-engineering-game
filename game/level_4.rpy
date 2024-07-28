@@ -22,7 +22,10 @@ image bg tastyfood="bg tastyfood.jpg"
 image bg tastyfood2="bg tastyfood2.jpg"
 image bg tastyfood3="bg tastyfood3.jpg"
 image bg tastyfood4="bg tastyfood4.jpg"
-
+image bg news="bg news.jpg"
+image bg blackmail="bg blackmail.jpg"
+image bg vacation="bg vacation.jpg"
+image bg danger="bg danger.jpg"
 
 image bg cracker:
     "bg cracker1.jpg"
@@ -38,6 +41,25 @@ image bg cracker:
     "bg cracker2.jpg"
     pause 0.25
     "bg cracker1.jpg"
+    pause 0.25
+    repeat
+
+image bg fireworks:
+    "bg fireworks1.jpg"
+    pause 0.25
+    "bg fireworks2.jpg"
+    pause 0.25
+    "bg fireworks3.jpg"
+    pause 0.25
+    "bg fireworks4.jpg"
+    pause 0.25
+    "bg fireworks5.jpg"
+    pause 0.25
+    "bg fireworks4.jpg"
+    pause 0.25
+    "bg fireworks3.jpg"
+    pause 0.25
+    "bg fireworks2.jpg"
     pause 0.25
     repeat
 
@@ -489,8 +511,10 @@ label ending:
         
 
 label publish_story:
+    scene bg news
     "After weeks of gathering evidence, you publish the story together with Cathy, which quickly gained national attention."
     "The criminals are arrested and convicted, bringing long-overdue justice."
+    scene bg fireworks
     "You are honored for your bravery in uncovering the truth."
 
     "People celebrate your bravery with fireworks lighting up the sky, and you're hailed as a hero."
@@ -500,11 +524,12 @@ label publish_story:
     jump start
 
 label blackmail:
+    scene bg blackmail
     "Instead of going public, you confront the criminals with evidence."
     "They pay you one million dollars to keep quiet. The public remains unaware."
-
+    scene bg vacation
     "You use the money for a luxurious vacation on a remote island, enjoying life."
-
+    scene bg danger
     "However, your peace is short-lived. The criminals you blackmailed seek revenge, putting your life in danger."
 
     jump start
