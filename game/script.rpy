@@ -4,7 +4,7 @@ $ renpy.include("tutorial_story.rpy")
 $ renpy.include("level_1.rpy")
 
 init python:
-
+    renpy.music.register_channel("bgm", "music", True)
     # A list of level objects.
     levels = [ ]
 
@@ -49,7 +49,7 @@ default tutorials_adjustment = ui.adjustment()
 
 
 label start:
-
+    play bgm "audio/background_music.mp3" loop volume 0.4
     #call screen levels
     call screen levels(adj=tutorials_adjustment)
 
