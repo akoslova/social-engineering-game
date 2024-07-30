@@ -31,6 +31,7 @@ image k1 stressed="chef1 stressed.png"
 image k1 happy="chef1 happy.png"
 image Me canteen="playercanteen.png"
 image Me chef="playerchef.png"
+image Me security="playersecurity.png"
 image e4="e4.png"
 image e5="e5.png"
 image e6="e6.png"
@@ -44,6 +45,8 @@ image guard1 = "guard1.png"
 image guard surprised = "guard surprised.png"
 image guard wallet = "guard wallet.png"
 image punch = "punch.png"
+image officer2 = "officer2.png"
+
 
 image bg n42="bg n42.jpg"
 image bg coreback="bg coreback.jpg"
@@ -686,11 +689,15 @@ label getinside: #checkpoint 3
 
 
 label securitydisguise: #wear tshirt with security on it
+    scene bg n42
+    show Me security with easeinright
+    
     "You wear your self designed T-shirt that says security and walk towards the main entrance."
+    show officer2 with easeinleft
     s "Hey you! Stop! Who are you?"
     p "I am Drew, working for security of this company"
     s "That shirt is not part of our uniform. I will call the police."#goto checkpoint 3
-
+    scene bg caught
     menu:
         "You got caught. Repeat.":
             $ renpy.load("disguise")
