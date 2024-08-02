@@ -557,37 +557,47 @@ style return_button:
 ##
 ## There's nothing special about this screen, and hence it also serves as an
 ## example of how to make a custom screen.
-
 screen about():
 
     tag menu
 
-    ## This use statement includes the game_menu screen inside this one. The
-    ## vbox child is then included inside the viewport inside the game_menu
-    ## screen.
     use game_menu(_("About"), scroll="viewport"):
 
         style_prefix "about"
 
         vbox:
-
             label "[config.name!t]"
             text _("Version [config.version!t]\n")
 
-            ## gui.about is usually set in options.rpy.
-            if gui.about:
-                text "[gui.about!t]\n"
+            # Adding the custom information before the Ren'Py line with bold and italic formatting
+            text _(
+                "{b}Bauhaus-University Faculty of Media{/b}\n"
+                "{i}2024{/i}\n\n"
+                "This game was created to educate the average internet user on the dangers of social engineering and the techniques used by attackers to access someone’s personal data.\n\n"
+                "{b}:::::::Version 1.0 Credits:::::::{/b}\n"
+                "{i}Storywriting:{/i}\n"
+                "Christoph Peter Hein\n"
+                "Mareike Spies\n"
+                "Deep Rajani\n\n"
+                "{i}Visuals & Design:{/i}\n"
+                "Intisar Hasnain Faiyaz\n"
+                "Linda Zobel\n\n"
+                "{i}Programming:{/i}\n"
+                "Anastasia Koslova\n"
+                "Emmelie Richter\n\n"
+                "{b}:::::::Version 2.0 Credits:::::::{/b}\n"
+                "{i}Storywriting, Visuals & Design, & Programming:{/i}\n"
+                "Intisar Hasnain Faiyaz\n"
+                "Mareike Spies\n"
+                "Deep Rajani\n\n"
+                "{b}{i}Supervisors (both versions):{/i}{/b}\n"
+                "Jun.-Prof. Jan Ehlers, PD. Andreas Jakoby, Prof. Stefan Lucks\n"
+            )
 
-            text _("Made with {a=https://www.renpy.org/}Ren'Py{/a} [renpy.version_only].\n\n[renpy.license!t]")
-
-
-style about_label is gui_label
-style about_label_text is gui_label_text
-style about_text is gui_text
-
-style about_label_text:
-    size gui.label_text_size
-
+            # Original Ren'Py credit line
+            text _(
+                "______________\n\nMade with {a=https://www.renpy.org/}Ren'Py{/a} [renpy.version_only].\n\n[renpy.license!t]"
+            )
 
 ## Load and Save screens #######################################################
 ##
