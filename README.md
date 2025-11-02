@@ -7,7 +7,7 @@ After having installed it, there should be a folder called 'renpy' in your direc
 Open your terminal and go to the renpy folder. There, you need to clone the git repository by using the following command:
 
 ```
-git clone https://github.com/100percentcool/social-engineering-game
+git clone https://github.com/akoslova/social-engineering-game
 ```
 
 Now, you have the git repository cloned, and you can start pulling new code, committing changes, and pushing them.
